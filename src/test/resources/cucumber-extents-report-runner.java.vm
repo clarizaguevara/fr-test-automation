@@ -1,0 +1,39 @@
+#parse("/array.java.vm")
+#if ($packageName)
+package $packageName;
+
+#end
+import java.io.File;
+import java.io.IOException;
+
+import org.junit.AfterClass;
+import org.junit.BeforeClass;
+import org.junit.runner.RunWith;
+
+import com.cucumber.listener.ExtentProperties;
+import com.cucumber.listener.Reporter;
+import com.stepdefs.ScenarioHooks;
+
+import cucumber.api.CucumberOptions;
+import cucumber.api.junit.Cucumber;
+
+@RunWith(Cucumber.class)
+@CucumberOptions(
+        strict = $strict,
+        features = {"$featureFile"},
+        plugin = #stringArray($plugins),
+        monochrome = $monochrome,
+        
+#if(!$featureFile.contains(".feature:") && $tags)
+        tags = #stringArray($tags),
+#end
+        glue = #stringArray($glue))
+public class $className {
+	
+	@AfterClass
+	public static void tearDown() throws IOException {
+		Reporter.loadXMLConfig(new File("src/test/resources/extent-config.xml"));
+        //Reporter.setSystemInfo("user", System.getProperty("user.name"));
+        //Reporter.setSystemInfo("os", "Windows");
+	}
+}
