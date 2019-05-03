@@ -38,9 +38,9 @@ public class AISM7Stepdefs implements En {
 			filterRulePage.selectKeyword(PropertyUtil.getProp("src/test/resources/properties/test-data.properties", "keyword.summary"));
 			filterRulePage.selectComparator(PropertyUtil.getProp("src/test/resources/properties/test-data.properties", "comparator.contains"));
 			filterRulePage.inputKeywordValue(PropertyUtil.getProp("src/test/resources/properties/test-data.properties", "AISM7.KeywordValue"));
-			createNewFilterPage.selectAction(PropertyUtil.getProp("src/test/resources/properties/test-data.properties", "AISM7.Action"));
+			createNewFilterPage.selectAction("Send To Slack");
 			sendToSlackActionPage.inputSlackChannel(PropertyUtil.getProp("src/test/resources/properties/test-data.properties", "slackChannel.dev"));
-			sendToSlackActionPage.inputSlackMessage(PropertyUtil.getProp("src/test/resources/properties/test-data.properties", "AISM7.SlackMessage"));
+			sendToSlackActionPage.inputSlackMessage(PropertyUtil.getProp("src/test/resources/properties/test-data.properties", "slackMessage"));
 		});
 		
 		When("I create Filter so that message is sent to users on Slack automatically with filter name (.*), source value Cisco Meraki$", (String filterName) -> {
@@ -57,9 +57,9 @@ public class AISM7Stepdefs implements En {
 			filterRulePage.selectKeyword(PropertyUtil.getProp("src/test/resources/properties/test-data.properties", "keyword.country"));
 			filterRulePage.selectComparator(PropertyUtil.getProp("src/test/resources/properties/test-data.properties", "comparator.equals"));
 			filterRulePage.inputKeywordValue(PropertyUtil.getProp("src/test/resources/properties/test-data.properties", "keywordValue.country"));
-			createNewFilterPage.selectAction(PropertyUtil.getProp("src/test/resources/properties/test-data.properties", "AISM7.Action"));
+			createNewFilterPage.selectAction("Send To Slack");
 			sendToSlackActionPage.inputSlackChannel(PropertyUtil.getProp("src/test/resources/properties/test-data.properties", "slackChannel.dev"));
-			sendToSlackActionPage.inputSlackMessage(PropertyUtil.getProp("src/test/resources/properties/test-data.properties", "AISM7.SlackMessage"));
+			sendToSlackActionPage.inputSlackMessage(PropertyUtil.getProp("src/test/resources/properties/test-data.properties", "slackMessage"));
 		});
 		
 		And("I ticked include original alert message$", () -> {

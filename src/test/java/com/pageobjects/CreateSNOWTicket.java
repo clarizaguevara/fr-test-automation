@@ -332,7 +332,6 @@ public class CreateSNOWTicket extends BasePage {
 		log.entry();
 		driverHelper.waitForPageLoaded();
 		if(driverHelper.isElementPresent(fld_description)) {
-//			driverHelper.explicitWait();
 			driverHelper.inputFieldValue(fld_description, description);
 			driverHelper.embedScreenshot(scenario);
 			log.exit();
@@ -349,7 +348,6 @@ public class CreateSNOWTicket extends BasePage {
 		log.entry();
 		driverHelper.waitForPageLoaded();
 		if(driverHelper.isElementPresent(fld_shortDescription)) {
-//			driverHelper.explicitWait();
 			driverHelper.inputFieldValue(fld_shortDescription, shortDescription);
 			driverHelper.embedScreenshot(scenario);
 			log.exit();

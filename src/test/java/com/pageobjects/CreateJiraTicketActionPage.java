@@ -79,8 +79,9 @@ public class CreateJiraTicketActionPage extends BasePage {
 		log.entry();
 		driverHelper.waitForElementClickable(fld_project);
 		if(driverHelper.isElementVisible(fld_project)) {
-			driverHelper.scrollIntoView(fld_project);
-			driverHelper.setValueDropdown(list_project, fld_project, project);
+			driverHelper.clickButton(fld_project);
+			driverHelper.inputFieldValue(fld_project, project);
+			driverHelper.explicitWait();
 			driverHelper.embedScreenshot(scenario);
 			log.exit();
 		} else {
@@ -94,8 +95,10 @@ public class CreateJiraTicketActionPage extends BasePage {
 	 */
 	public void inputSummary(String summary) {
 		log.entry();
-		driverHelper.waitForPageLoaded();
+		driver.switchTo().defaultContent();
 		if(driverHelper.isElementPresent(fld_summary)) {
+			driverHelper.scrollIntoView(fld_summary);
+			driverHelper.clickButton(fld_summary);
 			driverHelper.inputFieldValue(fld_summary, summary);
 			driverHelper.embedScreenshot(scenario);
 			log.exit();
@@ -129,7 +132,7 @@ public class CreateJiraTicketActionPage extends BasePage {
 		driverHelper.waitForPageLoaded();
 		if(driverHelper.isElementPresent(fld_brand)) {
 			driverHelper.clickButton(fld_brand);
-			driverHelper.setValueDropdown(list_brand, fld_brand, brand);
+			driverHelper.inputFieldValue(fld_brand, brand);
 			driverHelper.embedScreenshot(scenario);
 			log.exit();
 		} else {
@@ -162,7 +165,7 @@ public class CreateJiraTicketActionPage extends BasePage {
 		driverHelper.waitForPageLoaded();
 		if(driverHelper.isElementPresent(fld_priority)) {
 			driverHelper.clickButton(fld_priority);
-			driverHelper.setValueDropdown(list_priority, fld_priority, priority);
+			driverHelper.inputFieldValue(fld_priority, priority);
 			driverHelper.embedScreenshot(scenario);
 			log.exit();
 		} else {
@@ -250,6 +253,7 @@ public class CreateJiraTicketActionPage extends BasePage {
 		log.entry();
 		driverHelper.waitForPageLoaded();
 		if(driverHelper.isElementPresent(fld_slackChannel)) {
+			fld_slackChannel.clear();
 			driverHelper.inputFieldValue(fld_slackChannel, slackChannel);
 			driverHelper.embedScreenshot(scenario);
 			log.exit();

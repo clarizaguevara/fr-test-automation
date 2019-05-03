@@ -21,11 +21,10 @@ Scenario Outline: Verify Tool Administrator can configure so that alert will be 
 		| AUT_TestKeywordFilter7 | Cisco Meraki | Network Id   | Like          | L_60235*160806634    |
 		| AUT_TestKeywordFilter9 | Cisco Meraki | Shop         | Ends With     | UQ                   |
 
-@onescenario		
 Scenario Outline: Verify Tool Administrator can configure so that alert will be filtered by keyword in alert message (Create Jira Ticket)
 	When I create a Filter with filter name "<filter name>" and "<source>" as source 
 	And with Filter Rule: "<keyword>" "<comparator>" "<keyword value>" 
-	And with Action: Create Jira Ticket "<filter name>"
+	And with Action: Create Jira Ticket-KKA "<filter name>"
 	Then I should be able to save successfully 
 	
 	Examples: 

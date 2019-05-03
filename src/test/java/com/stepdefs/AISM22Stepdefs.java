@@ -40,16 +40,15 @@ public class AISM22Stepdefs implements En {
 			sendToSlackActionPage.inputSlackMessage(uniqueName);
 		});
 		
-		And("with Action: Create Jira Ticket \"([^\\\"]*)\"$", (String uniqueName) -> {
+		And("with Action: Create Jira Ticket-KKA \"([^\\\"]*)\"$", (String uniqueName) -> {
 			createNewFilterPage.setDriver(hooks.getDriverHelper(), hooks.getScenarioName());
 			createJiraTicketActionPage.setDriver(hooks.getDriverHelper(), hooks.getScenarioName());
 			createNewFilterPage.selectAction("Create Jira Ticket");
-			createJiraTicketActionPage.selectProject(PropertyUtil.getProp("src/test/resources/properties/test-data.properties", "jira.project.KKA"));
 			createJiraTicketActionPage.inputSummary(uniqueName);
 			createJiraTicketActionPage.inputDescription(uniqueName);
-			createJiraTicketActionPage.selectBrand(PropertyUtil.getProp("src/test/resources/properties/test-data.properties", "jira.brand.uq"));
+			createJiraTicketActionPage.selectBrand(PropertyUtil.getProp("src/test/resources/properties/test-data.properties", "jira.brand.gu"));
 			createJiraTicketActionPage.inputClosingCondition(uniqueName);
-			createJiraTicketActionPage.selectPriority(PropertyUtil.getProp("src/test/resources/properties/test-data.properties", "jira.priority"));
+			createJiraTicketActionPage.selectPriority(PropertyUtil.getProp("src/test/resources/properties/test-data.properties", "jira.priority.KKA"));
 			createJiraTicketActionPage.setAssignee(PropertyUtil.getProp("src/test/resources/properties/test-data.properties", "jira.assignee"));
 			createJiraTicketActionPage.setWatchers(PropertyUtil.getProp("src/test/resources/properties/test-data.properties", "jira.watchers"));
 			createJiraTicketActionPage.inputLabels(uniqueName);

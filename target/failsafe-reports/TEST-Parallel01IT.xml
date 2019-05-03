@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="Parallel01IT" time="302.264" tests="35" errors="2" skipped="1" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="Parallel01IT" time="255.66" tests="21" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_181\jre\bin"/>
     <property name="java.vm.version" value="25.181-b13"/>
     <property name="java.vm.vendor" value="Oracle Corporation"/>
-    <property name="maven.multiModuleProjectDirectory" value="C:\Users\sclavio\Documents\Git\FRAutomation"/>
+    <property name="maven.multiModuleProjectDirectory" value="C:\Users\sclavio\Documents\Git\FR-Test-Automation"/>
     <property name="java.vendor.url" value="http://java.oracle.com/"/>
     <property name="path.separator" value=";"/>
     <property name="guice.disable.misplaced.annotation.check" value="true"/>
@@ -16,7 +16,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="sun.os.patch.level" value=""/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
-    <property name="user.dir" value="C:\Users\sclavio\Documents\Git\FRAutomation"/>
+    <property name="user.dir" value="C:\Users\sclavio\Documents\Git\FR-Test-Automation"/>
     <property name="java.runtime.version" value="1.8.0_181-b13"/>
     <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
     <property name="java.endorsed.dirs" value="C:\Program Files\Java\jdk1.8.0_181\jre\lib\endorsed"/>
@@ -26,9 +26,9 @@
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="user.variant" value=""/>
     <property name="os.name" value="Windows 10"/>
-    <property name="classworlds.conf" value="C:\Users\clavios\eclipse-workspace\.metadata\.plugins\org.eclipse.m2e.launching\launches\m2conf5249456988523001713.tmp"/>
+    <property name="classworlds.conf" value="C:\Users\clavios\eclipse-workspace\.metadata\.plugins\org.eclipse.m2e.launching\launches\m2conf6080687967175907383.tmp"/>
     <property name="sun.jnu.encoding" value="Cp1252"/>
-    <property name="java.library.path" value="C:\Program Files\Java\jdk1.8.0_181\bin;C:\windows\Sun\Java\bin;C:\windows\system32;C:\windows;C:/Program Files/Java/jre1.8.0_181/bin/server;C:/Program Files/Java/jre1.8.0_181/bin;C:/Program Files/Java/jre1.8.0_181/lib/amd64;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\windows\system32;C:\windows;C:\windows\system32\wbem;C:\windows\system32\windowspowershell\v1.0\;C:\Program Files\Java\jdk1.8.0_181\bin;C:\Program Files\apache-maven-3.5.3-bin\apache-maven-3.5.3\bin;c:\program files (x86)\gitextensions\;c:\program files (x86)\symantec\vip access client\;c:\windows\system32;C:\Program Files\nodejs\;C:\Users\sclavio\AppData\Local\Microsoft\WindowsApps;C:\Users\sclavio\AppData\Roaming\npm;C:\Users\clavios\Desktop\Installers\eclipse-jee-oxygen\eclipse;;."/>
+    <property name="java.library.path" value="C:\Program Files\Java\jdk1.8.0_181\bin;C:\windows\Sun\Java\bin;C:\windows\system32;C:\windows;C:/Program Files/Java/jre1.8.0_181/bin/server;C:/Program Files/Java/jre1.8.0_181/bin;C:/Program Files/Java/jre1.8.0_181/lib/amd64;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\windows\system32;C:\windows;C:\windows\system32\wbem;C:\windows\system32\windowspowershell\v1.0\;C:\Program Files\Java\jdk1.8.0_181\bin;C:\Program Files\apache-maven-3.5.3-bin\apache-maven-3.5.3\bin;c:\program files (x86)\gitextensions\;c:\program files (x86)\symantec\vip access client\;c:\windows\system32;C:\Program Files\nodejs\;C:\Program Files\Git\cmd;C:\Users\sclavio\AppData\Local\Microsoft\WindowsApps;C:\Users\sclavio\AppData\Roaming\npm;C:\Users\clavios\Desktop\Installers\eclipse-jee-oxygen\eclipse;;."/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="java.class.version" value="52.0"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
@@ -52,7 +52,7 @@
     <property name="java.ext.dirs" value="C:\Program Files\Java\jdk1.8.0_181\jre\lib\ext;C:\windows\Sun\Java\lib\ext"/>
     <property name="sun.boot.class.path" value="C:\Program Files\Java\jdk1.8.0_181\jre\lib\resources.jar;C:\Program Files\Java\jdk1.8.0_181\jre\lib\rt.jar;C:\Program Files\Java\jdk1.8.0_181\jre\lib\sunrsasign.jar;C:\Program Files\Java\jdk1.8.0_181\jre\lib\jsse.jar;C:\Program Files\Java\jdk1.8.0_181\jre\lib\jce.jar;C:\Program Files\Java\jdk1.8.0_181\jre\lib\charsets.jar;C:\Program Files\Java\jdk1.8.0_181\jre\lib\jfr.jar;C:\Program Files\Java\jdk1.8.0_181\jre\classes"/>
     <property name="java.vendor" value="Oracle Corporation"/>
-    <property name="maven.home" value="C:\Users\sclavio\Documents\Git\FRAutomation\EMBEDDED"/>
+    <property name="maven.home" value="C:\Users\sclavio\Documents\Git\FR-Test-Automation\EMBEDDED"/>
     <property name="file.separator" value="\"/>
     <property name="java.vendor.url.bug" value="http://bugreport.sun.com/bugreport/"/>
     <property name="sun.cpu.endian" value="little"/>
@@ -60,93 +60,25 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase name="Given I am login" classname="| AUT_TestKeywordFilter2 | Cisco Meraki | Device | Like | SDC - * - API |" time="0.006"/>
-  <testcase name="And I am on Create New Filter page" classname="| AUT_TestKeywordFilter2 | Cisco Meraki | Device | Like | SDC - * - API |" time="0"/>
-  <testcase name="When I create a Filter with filter name &quot;AUT_TestKeywordFilter2&quot; and &quot;Cisco Meraki&quot; as source" classname="| AUT_TestKeywordFilter2 | Cisco Meraki | Device | Like | SDC - * - API |" time="0"/>
-  <testcase name="And with Filter Rule: &quot;Device&quot; &quot;Like&quot; &quot;SDC - * - API&quot;" classname="| AUT_TestKeywordFilter2 | Cisco Meraki | Device | Like | SDC - * - API |" time="0"/>
-  <testcase name="And with Action: Create Jira Ticket &quot;AUT_TestKeywordFilter2&quot;" classname="| AUT_TestKeywordFilter2 | Cisco Meraki | Device | Like | SDC - * - API |" time="0"/>
-  <testcase name="Then I should be able to save successfully" classname="| AUT_TestKeywordFilter2 | Cisco Meraki | Device | Like | SDC - * - API |" time="0"/>
-  <testcase name="| AUT_TestKeywordFilter2 | Cisco Meraki | Device | Like | SDC - * - API |" classname="| AUT_TestKeywordFilter2 | Cisco Meraki | Device | Like | SDC - * - API |" time="1.643"/>
-  <testcase name="Given I am login" classname="| AUT_TestKeywordFilter4 | Cisco Meraki | Country | Ends With | JP |" time="0"/>
-  <testcase name="And I am on Create New Filter page" classname="| AUT_TestKeywordFilter4 | Cisco Meraki | Country | Ends With | JP |" time="0"/>
-  <testcase name="When I create a Filter with filter name &quot;AUT_TestKeywordFilter4&quot; and &quot;Cisco Meraki&quot; as source" classname="| AUT_TestKeywordFilter4 | Cisco Meraki | Country | Ends With | JP |" time="0"/>
-  <testcase name="And with Filter Rule: &quot;Country&quot; &quot;Ends With&quot; &quot;JP&quot;" classname="| AUT_TestKeywordFilter4 | Cisco Meraki | Country | Ends With | JP |" time="0"/>
-  <testcase name="And with Action: Create Jira Ticket &quot;AUT_TestKeywordFilter4&quot;" classname="| AUT_TestKeywordFilter4 | Cisco Meraki | Country | Ends With | JP |" time="0.013">
-    <error message="unknown error: Element &lt;input autocapitalize=&quot;none&quot; autocomplete=&quot;off&quot; autocorrect=&quot;off&quot; id=&quot;react-select-3-input&quot; spellcheck=&quot;false&quot; tabindex=&quot;0&quot; type=&quot;text&quot; aria-autocomplete=&quot;list&quot; value=&quot;&quot; style=&quot;box-sizing: content-box; width: 2px; background: 0px center; border: 0px; font-size: inherit; opacity: 1; outline: 0px; padding: 0px; color: inherit;&quot;&gt; is not clickable at point (570, 380). Other element would receive the click: &lt;div class=&quot;css-wqgs6e&quot; id=&quot;react-select-2-option-0&quot; role=&quot;option&quot; tabindex=&quot;-1&quot;&gt;...&lt;/div&gt;&#10;  (Session info: chrome=73.0.3683.103)&#10;  (Driver info: chromedriver=2.42.591088 (7b2b2dca23cca0862f674758c9a3933e685c27d5),platform=Windows NT 10.0.15063 x86_64) (WARNING: The server did not provide any stacktrace information)&#10;Command duration or timeout: 0 milliseconds&#10;Build info: version: &apos;3.5.3&apos;, revision: &apos;a88d25fe6b&apos;, time: &apos;2017-08-29T12:42:44.417Z&apos;&#10;System info: host: &apos;PH5CG74826SW&apos;, ip: &apos;10.233.133.122&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_181&apos;&#10;Driver info: com.browserhelper.ChromeBrowserDriver&#10;Capabilities [{mobileEmulationEnabled=false, hasTouchScreen=false, platform=XP, acceptSslCerts=false, goog:chromeOptions={debuggerAddress=localhost:62941}, acceptInsecureCerts=false, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, platformName=XP, setWindowRect=true, unexpectedAlertBehaviour=, applicationCacheEnabled=false, rotatable=false, networkConnectionEnabled=false, chrome={chromedriverVersion=2.42.591088 (7b2b2dca23cca0862f674758c9a3933e685c27d5), userDataDir=C:\Users\sclavio\AppData\Local\Temp\scoped_dir9316_16033}, takesHeapSnapshot=true, unhandledPromptBehavior=, pageLoadStrategy=normal, databaseEnabled=false, handlesAlerts=true, version=73.0.3683.103, browserConnectionEnabled=false, nativeEvents=true, locationContextEnabled=true, cssSelectorsEnabled=true}]&#10;Session ID: 3552ac08d1af80309120bcebf34cf83d" type="org.openqa.selenium.WebDriverException"><![CDATA[org.openqa.selenium.WebDriverException: 
-unknown error: Element <input autocapitalize="none" autocomplete="off" autocorrect="off" id="react-select-3-input" spellcheck="false" tabindex="0" type="text" aria-autocomplete="list" value="" style="box-sizing: content-box; width: 2px; background: 0px center; border: 0px; font-size: inherit; opacity: 1; outline: 0px; padding: 0px; color: inherit;"> is not clickable at point (570, 380). Other element would receive the click: <div class="css-wqgs6e" id="react-select-2-option-0" role="option" tabindex="-1">...</div>
-  (Session info: chrome=73.0.3683.103)
-  (Driver info: chromedriver=2.42.591088 (7b2b2dca23cca0862f674758c9a3933e685c27d5),platform=Windows NT 10.0.15063 x86_64) (WARNING: The server did not provide any stacktrace information)
-Command duration or timeout: 0 milliseconds
-Build info: version: '3.5.3', revision: 'a88d25fe6b', time: '2017-08-29T12:42:44.417Z'
-System info: host: 'PH5CG74826SW', ip: '10.233.133.122', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_181'
-Driver info: com.browserhelper.ChromeBrowserDriver
-Capabilities [{mobileEmulationEnabled=false, hasTouchScreen=false, platform=XP, acceptSslCerts=false, goog:chromeOptions={debuggerAddress=localhost:62941}, acceptInsecureCerts=false, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, platformName=XP, setWindowRect=true, unexpectedAlertBehaviour=, applicationCacheEnabled=false, rotatable=false, networkConnectionEnabled=false, chrome={chromedriverVersion=2.42.591088 (7b2b2dca23cca0862f674758c9a3933e685c27d5), userDataDir=C:\Users\sclavio\AppData\Local\Temp\scoped_dir9316_16033}, takesHeapSnapshot=true, unhandledPromptBehavior=, pageLoadStrategy=normal, databaseEnabled=false, handlesAlerts=true, version=73.0.3683.103, browserConnectionEnabled=false, nativeEvents=true, locationContextEnabled=true, cssSelectorsEnabled=true}]
-Session ID: 3552ac08d1af80309120bcebf34cf83d
-]]></error>
-    <system-out><![CDATA[[INFO ] 2019-05-02 17:53:41.666 [main] WebDriverHelper:  clickButton() - Button is clicked.
-[DEBUG] 2019-05-02 17:53:41.802 [main] WebDriverHelper:  setValueDropdown() - Option not available.
-[INFO ] 2019-05-02 17:53:42.085 [main] WebDriverHelper:  setValueDropdown() - Create Jira Ticket is selected
-[DEBUG] 2019-05-02 17:53:42.119 [main] WebDriverHelper:  setValueDropdown() - Option not available.
-[DEBUG] 2019-05-02 17:53:42.150 [main] WebDriverHelper:  setValueDropdown() - Option not available.
-[DEBUG] 2019-05-02 17:53:42.178 [main] WebDriverHelper:  setValueDropdown() - Option not available.
-[ERROR] 2019-05-02 17:53:52.802 [main] WebDriverHelper:  waitForElementNotVisible() - Element is visible.
-[DEBUG] 2019-05-02 17:53:53.073 [main] WebDriverHelper:  setValueDropdown() - Option not available.
-[DEBUG] 2019-05-02 17:53:53.103 [main] WebDriverHelper:  setValueDropdown() - Option not available.
-[DEBUG] 2019-05-02 17:53:53.136 [main] WebDriverHelper:  setValueDropdown() - Option not available.
-[DEBUG] 2019-05-02 17:53:53.164 [main] WebDriverHelper:  setValueDropdown() - Option not available.
-[INFO ] 2019-05-02 17:53:54.451 [main] WebDriverHelper:  inputFieldValue() - AUT_TestKeywordFilter4 is inputed to the field.
-[INFO ] 2019-05-02 17:53:55.456 [main] WebDriverHelper:  inputFieldValue() - AUT_TestKeywordFilter4 is inputed to the field.
-[INFO ] 2019-05-02 17:53:56.192 [main] WebDriverHelper:  clickButton() - Button is clicked.
-[INFO ] 2019-05-02 17:53:56.393 [main] WebDriverHelper:  setValueDropdown() - UQ is selected
-[DEBUG] 2019-05-02 17:53:56.421 [main] WebDriverHelper:  setValueDropdown() - Option not available.
-[DEBUG] 2019-05-02 17:53:56.449 [main] WebDriverHelper:  setValueDropdown() - Option not available.
-[INFO ] 2019-05-02 17:53:57.644 [main] WebDriverHelper:  inputFieldValue() - AUT_TestKeywordFilter4 is inputed to the field.
-[INFO ] 2019-05-02 17:53:58.377 [main] WebDriverHelper:  clickButton() - Button is clicked.
-[INFO ] 2019-05-02 17:53:58.618 [main] WebDriverHelper:  setValueDropdown() - 1-Critical is selected
-[DEBUG] 2019-05-02 17:53:58.650 [main] WebDriverHelper:  setValueDropdown() - Option not available.
-[DEBUG] 2019-05-02 17:53:58.682 [main] WebDriverHelper:  setValueDropdown() - Option not available.
-[DEBUG] 2019-05-02 17:53:58.715 [main] WebDriverHelper:  setValueDropdown() - Option not available.
-[INFO ] 2019-05-02 17:53:59.504 [main] WebDriverHelper:  clickButton() - Button is clicked.
-[INFO ] 2019-05-02 17:53:59.771 [main] WebDriverHelper:  inputFieldValue() - AISM is inputed to the field.
-[INFO ] 2019-05-02 17:53:59.826 [main] WebDriverHelper:  waitForElementVisible() - Element is visible.
-[INFO ] 2019-05-02 17:54:01.892 [main] WebDriverHelper:  clickEnter() - Enter key is press.
-]]></system-out>
-  </testcase>
-  <testcase name="| AUT_TestKeywordFilter4 | Cisco Meraki | Country | Ends With | JP |" classname="| AUT_TestKeywordFilter4 | Cisco Meraki | Country | Ends With | JP |" time="0.013">
-    <error message="unknown error: Element &lt;input autocapitalize=&quot;none&quot; autocomplete=&quot;off&quot; autocorrect=&quot;off&quot; id=&quot;react-select-3-input&quot; spellcheck=&quot;false&quot; tabindex=&quot;0&quot; type=&quot;text&quot; aria-autocomplete=&quot;list&quot; value=&quot;&quot; style=&quot;box-sizing: content-box; width: 2px; background: 0px center; border: 0px; font-size: inherit; opacity: 1; outline: 0px; padding: 0px; color: inherit;&quot;&gt; is not clickable at point (570, 380). Other element would receive the click: &lt;div class=&quot;css-wqgs6e&quot; id=&quot;react-select-2-option-0&quot; role=&quot;option&quot; tabindex=&quot;-1&quot;&gt;...&lt;/div&gt;&#10;  (Session info: chrome=73.0.3683.103)&#10;  (Driver info: chromedriver=2.42.591088 (7b2b2dca23cca0862f674758c9a3933e685c27d5),platform=Windows NT 10.0.15063 x86_64) (WARNING: The server did not provide any stacktrace information)&#10;Command duration or timeout: 0 milliseconds&#10;Build info: version: &apos;3.5.3&apos;, revision: &apos;a88d25fe6b&apos;, time: &apos;2017-08-29T12:42:44.417Z&apos;&#10;System info: host: &apos;PH5CG74826SW&apos;, ip: &apos;10.233.133.122&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_181&apos;&#10;Driver info: com.browserhelper.ChromeBrowserDriver&#10;Capabilities [{mobileEmulationEnabled=false, hasTouchScreen=false, platform=XP, acceptSslCerts=false, goog:chromeOptions={debuggerAddress=localhost:62941}, acceptInsecureCerts=false, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, platformName=XP, setWindowRect=true, unexpectedAlertBehaviour=, applicationCacheEnabled=false, rotatable=false, networkConnectionEnabled=false, chrome={chromedriverVersion=2.42.591088 (7b2b2dca23cca0862f674758c9a3933e685c27d5), userDataDir=C:\Users\sclavio\AppData\Local\Temp\scoped_dir9316_16033}, takesHeapSnapshot=true, unhandledPromptBehavior=, pageLoadStrategy=normal, databaseEnabled=false, handlesAlerts=true, version=73.0.3683.103, browserConnectionEnabled=false, nativeEvents=true, locationContextEnabled=true, cssSelectorsEnabled=true}]&#10;Session ID: 3552ac08d1af80309120bcebf34cf83d" type="org.openqa.selenium.WebDriverException"><![CDATA[org.openqa.selenium.WebDriverException: 
-unknown error: Element <input autocapitalize="none" autocomplete="off" autocorrect="off" id="react-select-3-input" spellcheck="false" tabindex="0" type="text" aria-autocomplete="list" value="" style="box-sizing: content-box; width: 2px; background: 0px center; border: 0px; font-size: inherit; opacity: 1; outline: 0px; padding: 0px; color: inherit;"> is not clickable at point (570, 380). Other element would receive the click: <div class="css-wqgs6e" id="react-select-2-option-0" role="option" tabindex="-1">...</div>
-  (Session info: chrome=73.0.3683.103)
-  (Driver info: chromedriver=2.42.591088 (7b2b2dca23cca0862f674758c9a3933e685c27d5),platform=Windows NT 10.0.15063 x86_64) (WARNING: The server did not provide any stacktrace information)
-Command duration or timeout: 0 milliseconds
-Build info: version: '3.5.3', revision: 'a88d25fe6b', time: '2017-08-29T12:42:44.417Z'
-System info: host: 'PH5CG74826SW', ip: '10.233.133.122', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_181'
-Driver info: com.browserhelper.ChromeBrowserDriver
-Capabilities [{mobileEmulationEnabled=false, hasTouchScreen=false, platform=XP, acceptSslCerts=false, goog:chromeOptions={debuggerAddress=localhost:62941}, acceptInsecureCerts=false, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, platformName=XP, setWindowRect=true, unexpectedAlertBehaviour=, applicationCacheEnabled=false, rotatable=false, networkConnectionEnabled=false, chrome={chromedriverVersion=2.42.591088 (7b2b2dca23cca0862f674758c9a3933e685c27d5), userDataDir=C:\Users\sclavio\AppData\Local\Temp\scoped_dir9316_16033}, takesHeapSnapshot=true, unhandledPromptBehavior=, pageLoadStrategy=normal, databaseEnabled=false, handlesAlerts=true, version=73.0.3683.103, browserConnectionEnabled=false, nativeEvents=true, locationContextEnabled=true, cssSelectorsEnabled=true}]
-Session ID: 3552ac08d1af80309120bcebf34cf83d
-]]></error>
-  </testcase>
-  <testcase name="Then I should be able to save successfully" classname="| AUT_TestKeywordFilter4 | Cisco Meraki | Country | Ends With | JP |" time="0">
-    <skipped/>
-  </testcase>
-  <testcase name="Given I am login" classname="| AUT_TestKeywordFilter6 | Cisco Meraki | Mac Address | Contains | e0:55: |" time="0"/>
-  <testcase name="And I am on Create New Filter page" classname="| AUT_TestKeywordFilter6 | Cisco Meraki | Mac Address | Contains | e0:55: |" time="0"/>
-  <testcase name="When I create a Filter with filter name &quot;AUT_TestKeywordFilter6&quot; and &quot;Cisco Meraki&quot; as source" classname="| AUT_TestKeywordFilter6 | Cisco Meraki | Mac Address | Contains | e0:55: |" time="0"/>
-  <testcase name="And with Filter Rule: &quot;Mac Address&quot; &quot;Contains&quot; &quot;e0:55:&quot;" classname="| AUT_TestKeywordFilter6 | Cisco Meraki | Mac Address | Contains | e0:55: |" time="0"/>
-  <testcase name="And with Action: Create Jira Ticket &quot;AUT_TestKeywordFilter6&quot;" classname="| AUT_TestKeywordFilter6 | Cisco Meraki | Mac Address | Contains | e0:55: |" time="0"/>
-  <testcase name="Then I should be able to save successfully" classname="| AUT_TestKeywordFilter6 | Cisco Meraki | Mac Address | Contains | e0:55: |" time="0"/>
-  <testcase name="| AUT_TestKeywordFilter6 | Cisco Meraki | Mac Address | Contains | e0:55: |" classname="| AUT_TestKeywordFilter6 | Cisco Meraki | Mac Address | Contains | e0:55: |" time="1.257"/>
-  <testcase name="Given I am login" classname="| AUT_TestKeywordFilter8 | Cisco Meraki | IP Address | Begins With | 192 |" time="0"/>
-  <testcase name="And I am on Create New Filter page" classname="| AUT_TestKeywordFilter8 | Cisco Meraki | IP Address | Begins With | 192 |" time="0"/>
-  <testcase name="When I create a Filter with filter name &quot;AUT_TestKeywordFilter8&quot; and &quot;Cisco Meraki&quot; as source" classname="| AUT_TestKeywordFilter8 | Cisco Meraki | IP Address | Begins With | 192 |" time="0"/>
-  <testcase name="And with Filter Rule: &quot;IP Address&quot; &quot;Begins With&quot; &quot;192&quot;" classname="| AUT_TestKeywordFilter8 | Cisco Meraki | IP Address | Begins With | 192 |" time="0"/>
-  <testcase name="And with Action: Create Jira Ticket &quot;AUT_TestKeywordFilter8&quot;" classname="| AUT_TestKeywordFilter8 | Cisco Meraki | IP Address | Begins With | 192 |" time="0"/>
-  <testcase name="Then I should be able to save successfully" classname="| AUT_TestKeywordFilter8 | Cisco Meraki | IP Address | Begins With | 192 |" time="0"/>
-  <testcase name="| AUT_TestKeywordFilter8 | Cisco Meraki | IP Address | Begins With | 192 |" classname="| AUT_TestKeywordFilter8 | Cisco Meraki | IP Address | Begins With | 192 |" time="1.356"/>
-  <testcase name="Given I am login" classname="| AUT_TestKeywordFilter10 | Cisco Meraki | Device Serial | Equals | Q2JD-XJGK-F8Y3 |" time="0"/>
-  <testcase name="And I am on Create New Filter page" classname="| AUT_TestKeywordFilter10 | Cisco Meraki | Device Serial | Equals | Q2JD-XJGK-F8Y3 |" time="0"/>
-  <testcase name="When I create a Filter with filter name &quot;AUT_TestKeywordFilter10&quot; and &quot;Cisco Meraki&quot; as source" classname="| AUT_TestKeywordFilter10 | Cisco Meraki | Device Serial | Equals | Q2JD-XJGK-F8Y3 |" time="0"/>
-  <testcase name="And with Filter Rule: &quot;Device Serial&quot; &quot;Equals&quot; &quot;Q2JD-XJGK-F8Y3&quot;" classname="| AUT_TestKeywordFilter10 | Cisco Meraki | Device Serial | Equals | Q2JD-XJGK-F8Y3 |" time="0"/>
-  <testcase name="And with Action: Create Jira Ticket &quot;AUT_TestKeywordFilter10&quot;" classname="| AUT_TestKeywordFilter10 | Cisco Meraki | Device Serial | Equals | Q2JD-XJGK-F8Y3 |" time="0"/>
-  <testcase name="Then I should be able to save successfully" classname="| AUT_TestKeywordFilter10 | Cisco Meraki | Device Serial | Equals | Q2JD-XJGK-F8Y3 |" time="0"/>
-  <testcase name="| AUT_TestKeywordFilter10 | Cisco Meraki | Device Serial | Equals | Q2JD-XJGK-F8Y3 |" classname="| AUT_TestKeywordFilter10 | Cisco Meraki | Device Serial | Equals | Q2JD-XJGK-F8Y3 |" time="1.504"/>
+  <testcase name="Given I am login" classname="| AUT_TestSnowTicketAction1 | Nagios-Pet | Description | Contains | TEST |" time="0.005"/>
+  <testcase name="And I am on Create New Filter page" classname="| AUT_TestSnowTicketAction1 | Nagios-Pet | Description | Contains | TEST |" time="0"/>
+  <testcase name="When I create a Filter with filter name &quot;AUT_TestSnowTicketAction1&quot; and &quot;Nagios-Pet&quot; as source" classname="| AUT_TestSnowTicketAction1 | Nagios-Pet | Description | Contains | TEST |" time="0"/>
+  <testcase name="And with Filter Rule: &quot;Description&quot; &quot;Contains&quot; &quot;TEST&quot;" classname="| AUT_TestSnowTicketAction1 | Nagios-Pet | Description | Contains | TEST |" time="0"/>
+  <testcase name="And with Action: Create SNOW Ticket &quot;AUT_TestSnowTicketAction1&quot;" classname="| AUT_TestSnowTicketAction1 | Nagios-Pet | Description | Contains | TEST |" time="0"/>
+  <testcase name="Then I should be able to save successfully" classname="| AUT_TestSnowTicketAction1 | Nagios-Pet | Description | Contains | TEST |" time="0"/>
+  <testcase name="| AUT_TestSnowTicketAction1 | Nagios-Pet | Description | Contains | TEST |" classname="| AUT_TestSnowTicketAction1 | Nagios-Pet | Description | Contains | TEST |" time="1.934"/>
+  <testcase name="Given I am login" classname="| AUT_TestSnowTicketAction2 | Cisco Meraki | IP Address | Begins With | 192 |" time="0"/>
+  <testcase name="And I am on Create New Filter page" classname="| AUT_TestSnowTicketAction2 | Cisco Meraki | IP Address | Begins With | 192 |" time="0"/>
+  <testcase name="When I create a Filter with filter name &quot;AUT_TestSnowTicketAction2&quot; and &quot;Cisco Meraki&quot; as source" classname="| AUT_TestSnowTicketAction2 | Cisco Meraki | IP Address | Begins With | 192 |" time="0.006"/>
+  <testcase name="And with Filter Rule: &quot;IP Address&quot; &quot;Begins With&quot; &quot;192&quot;" classname="| AUT_TestSnowTicketAction2 | Cisco Meraki | IP Address | Begins With | 192 |" time="0"/>
+  <testcase name="And with Action: Create SNOW Ticket &quot;AUT_TestSnowTicketAction2&quot;" classname="| AUT_TestSnowTicketAction2 | Cisco Meraki | IP Address | Begins With | 192 |" time="0"/>
+  <testcase name="Then I should be able to save successfully" classname="| AUT_TestSnowTicketAction2 | Cisco Meraki | IP Address | Begins With | 192 |" time="0"/>
+  <testcase name="| AUT_TestSnowTicketAction2 | Cisco Meraki | IP Address | Begins With | 192 |" classname="| AUT_TestSnowTicketAction2 | Cisco Meraki | IP Address | Begins With | 192 |" time="1.581"/>
+  <testcase name="Given I am login" classname="| AUT_TestSnowTicketAction3 | Nagios-Pet | Summarry | Contains | TEST |" time="0"/>
+  <testcase name="And I am on Create New Filter page" classname="| AUT_TestSnowTicketAction3 | Nagios-Pet | Summarry | Contains | TEST |" time="0"/>
+  <testcase name="When I create a Filter with filter name &quot;AUT_TestSnowTicketAction3&quot; and &quot;Nagios-Pet&quot; as source" classname="| AUT_TestSnowTicketAction3 | Nagios-Pet | Summarry | Contains | TEST |" time="0"/>
+  <testcase name="And with Filter Rule: &quot;Summarry&quot; &quot;Contains&quot; &quot;TEST&quot;" classname="| AUT_TestSnowTicketAction3 | Nagios-Pet | Summarry | Contains | TEST |" time="0"/>
+  <testcase name="And with Action: Create SNOW Ticket but mandatory fields are left blank &quot;AUT_TestSnowTicketAction3&quot;" classname="| AUT_TestSnowTicketAction3 | Nagios-Pet | Summarry | Contains | TEST |" time="0"/>
+  <testcase name="Then I should not be able to save successfully" classname="| AUT_TestSnowTicketAction3 | Nagios-Pet | Summarry | Contains | TEST |" time="0"/>
+  <testcase name="| AUT_TestSnowTicketAction3 | Nagios-Pet | Summarry | Contains | TEST |" classname="| AUT_TestSnowTicketAction3 | Nagios-Pet | Summarry | Contains | TEST |" time="1.693"/>
 </testsuite>

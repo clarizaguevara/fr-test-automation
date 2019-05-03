@@ -3,8 +3,11 @@ com\constants\CommonConstants.class
 com\pageobjects\BasePage.class
 com\pageobjects\CreateJiraTicketActionPage.class
 com\pageobjects\CreateNewFilterPage.class
+com\stepdefs\AISM18Stepdefs.class
 com\stepdefs\ScenarioHooks.class
+com\stepdefs\AISM6Stepdefs.class
 com\utils\WebDriverHelper$1.class
+com\stepdefs\AISM13Stepdefs.class
 com\pageobjects\CreateSNOWTicket.class
 Parallel01IT.class
 com\pageobjects\HomePage.class
