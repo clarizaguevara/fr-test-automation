@@ -15,11 +15,11 @@ import cucumber.api.junit.Cucumber;
 @RunWith(Cucumber.class)
 @CucumberOptions(
         strict = true,
-        features = {"C:/Users/sclavio/Documents/Git/FR-Test-Automation/src/test/resources/features/AISM62.feature"},
+        features = {"C:/Users/sclavio/Documents/Git/FR-Test-Automation/src/test/resources/features/AISM13.feature"},
         plugin = {"com.cucumber.listener.ExtentCucumberFormatter:C:/Users/sclavio/Documents/Git/FR-Test-Automation/target/cucumber-parallel/1.html", "json:C:/Users/sclavio/Documents/Git/FR-Test-Automation/target/cucumber-parallel/1.json", "html:C:/Users/sclavio/Documents/Git/FR-Test-Automation/target/cucumber-parallel/1"},
         monochrome = false,
         
-        tags = {"@onescenario"},
+        tags = {"@scenarios"},
         glue = {"com.stepdefs"})
 public class Parallel01IT {
 	
