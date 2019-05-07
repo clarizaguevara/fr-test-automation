@@ -2,6 +2,7 @@ com\browserhelper\ChromeBrowserDriver.class
 com\constants\CommonConstants.class
 com\pageobjects\BasePage.class
 com\pageobjects\CreateJiraTicketActionPage.class
+com\stepdefs\AISM21Stepdefs.class
 com\pageobjects\CreateNewFilterPage.class
 com\stepdefs\AISM18Stepdefs.class
 com\stepdefs\ScenarioHooks.class
@@ -11,6 +12,7 @@ com\stepdefs\AISM13Stepdefs.class
 com\pageobjects\CreateSNOWTicket.class
 Parallel01IT.class
 com\pageobjects\HomePage.class
+com\stepdefs\AISM62Stepdefs.class
 com\utils\PropertyUtil.class
 com\pageobjects\LoginPage.class
 com\utils\ScenarioName.class

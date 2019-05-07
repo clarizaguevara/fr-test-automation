@@ -26,7 +26,6 @@ public class AISM6Stepdefs implements En {
 			createJiraTicketActionPage.selectMarkets(PropertyUtil.getProp("src/test/resources/properties/test-data.properties", "jira.market"));
 			createJiraTicketActionPage.selectPriority(PropertyUtil.getProp("src/test/resources/properties/test-data.properties", "jira.priority.ACPF"));
 			createJiraTicketActionPage.setAssignee(PropertyUtil.getProp("src/test/resources/properties/test-data.properties", "jira.assignee"));
-			createJiraTicketActionPage.setWatchers(PropertyUtil.getProp("src/test/resources/properties/test-data.properties", "jira.watchers"));
 			createJiraTicketActionPage.inputLabels(uniqueName);
 			createJiraTicketActionPage.checkSendTicketToSlackIDChannel();                                                                                                                                                                                                         
 			createJiraTicketActionPage.inputSlackChannel(PropertyUtil.getProp("src/test/resources/properties/test-data.properties", "slackChannel.dev"));

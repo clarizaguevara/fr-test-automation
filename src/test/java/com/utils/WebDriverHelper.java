@@ -469,4 +469,17 @@ public class WebDriverHelper {
 		}
 		log.exit();
 	}
+	
+	/**
+	 * Explicitly wait for an element to appear
+	 */
+	public void explicitWaitSNOW() {
+		log.entry();
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		log.exit();
+	}
 }

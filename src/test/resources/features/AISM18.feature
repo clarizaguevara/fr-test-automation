@@ -7,7 +7,7 @@ Background:
 	Given I am login 
 	And I am on Create New Filter page 
 	
-Scenario Outline: Verify Tool Administrator can configure so that a JIRA ticket will be created automatically (Nagios-Pet)
+Scenario Outline: Verify Tool Administrator can configure so that a JIRA ticket will be created automatically
 	When I create a Filter with filter name "<filter name>" and "<source>" as source 
 	And with Filter Rule: "<keyword>" "<comparator>" "<keyword value>" 
 	And with Action: Create Jira Ticket-KKA "<filter name>"

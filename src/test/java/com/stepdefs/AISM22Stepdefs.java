@@ -50,7 +50,6 @@ public class AISM22Stepdefs implements En {
 			createJiraTicketActionPage.inputClosingCondition(uniqueName);
 			createJiraTicketActionPage.selectPriority(PropertyUtil.getProp("src/test/resources/properties/test-data.properties", "jira.priority.KKA"));
 			createJiraTicketActionPage.setAssignee(PropertyUtil.getProp("src/test/resources/properties/test-data.properties", "jira.assignee"));
-			createJiraTicketActionPage.setWatchers(PropertyUtil.getProp("src/test/resources/properties/test-data.properties", "jira.watchers"));
 			createJiraTicketActionPage.inputLabels(uniqueName);
 			createJiraTicketActionPage.checkSendTicketToSlackIDChannel();
 			createJiraTicketActionPage.inputSlackChannel(PropertyUtil.getProp("src/test/resources/properties/test-data.properties", "slackChannel.dev"));
