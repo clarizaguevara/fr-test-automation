@@ -51,7 +51,7 @@
 		<ul id='nav-mobile' class='right hide-on-med-and-down nav-right'>
 			<li>
                 <a href='#!'>
-                    <span class='label suite-start-time blue darken-3'>May 7, 2019 03:04:47 PM</span>
+                    <span class='label suite-start-time blue darken-3'>May 7, 2019 05:19:16 PM</span>
 				</a>
 			</li>
 			<li>
@@ -89,9 +89,10 @@
 					<i class='material-icons'>local_offer</i> Category
 				</a>
 				<ul id='category-toggle' class='dropdown-content'>
-					<li><a href='#'>@AISM62</a></li>
 					<li><a href='#'>@scenarios</a></li>
-					<li><a href='#'>@onescenario</a></li>
+					<li><a href='#'>@ExtendedRules</a></li>
+					<li><a href='#'>@Correlation</a></li>
+					<li><a href='#'>@testing</a></li>
 					<li class='divider'></li>
 					<li class='clear'><a href='#!' clear='true'>Clear Filters</a></li>
 				</ul>
@@ -154,7 +155,7 @@
 					<canvas id='child-analysis' width='100' height='80'></canvas>
 				</div>
 				<div class='block text-small'>
-					<span class='tooltipped' data-position='top' data-tooltip='100%'><span class='strong'>1</span> scenario(s) passed</span>
+					<span class='tooltipped' data-position='top' data-tooltip='100%'><span class='strong'>3</span> scenario(s) passed</span>
 				</div>
 				<div class='block text-small'>
 					<span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> scenario(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
@@ -169,7 +170,7 @@
 					<canvas id='grandchild-analysis' width='100' height='80'></canvas>
 				</div>
 				<div class='block text-small'>
-					<span class='tooltipped' data-position='top' data-tooltip='100%'><span class='strong'>6</span> step(s) passed</span>
+					<span class='tooltipped' data-position='top' data-tooltip='100%'><span class='strong'>9</span> step(s) passed</span>
 				</div>
 				<div class='block text-small'>
 					<span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> step(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
@@ -188,81 +189,152 @@
 				
 				<li class='test displayed active has-leaf pass' status='pass' bdd='true' test-id='1'>
 					<div class='test-heading'>
-						<span class='test-name'>AISM - 62</span>
-						<span class='test-time'>May 7, 2019 03:04:48 PM</span>
+						<span class='test-name'>AISM-23</span>
+						<span class='test-time'>May 7, 2019 05:19:16 PM</span>
 						<span class='test-status right pass'>pass</span>
 					</div>
 					<div class='test-content hide'>
 <div class='scenariooutline node' test-id='2' status='pass'>
-	<span class='duration right label'>0h 1m 2s+481ms</span>
+	<span class='duration right label'>0h 1m 57s+4ms</span>
 	<div class='desc'>
 		<b>ScenarioOutline</b>
-		<span class="desc-text">Verify Filter is saved if non mandatory fields are left blank</span>
+		<span class="desc-text">Verify saving of filter with Correlation condition (time unit = <time unit>)</span>
 	</div>
 	<ul class='steps'>
 		<li test-id='3' class='node scenario pass' status='pass'>
 			<div class='category-list'>
-				<span class='category label white-text'>@onescenario</span>
+				<span class='category label white-text'>@testing</span>
 				<span class='category label white-text'>@scenarios</span>
-				<span class='category label white-text'>@AISM62</span>
+				<span class='category label white-text'>@ExtendedRules</span>
+				<span class='category label white-text'>@Correlation</span>
 			</div>
 			
 			<b>Scenario</b>
 			
-			<span class="bdd-step-name">Verify Filter is saved if non mandatory fields are left blank</span>
+			<span class="bdd-step-name">Verify saving of filter with Correlation condition (time unit = Seconds)</span>
 			
 				<ul class='steps'>
 					<li test-id='4' class='node given pass' status='pass'><b>Given</b>
-						<span class="bdd-step-name">Given I am login</span>
-							<div class='pre'>passed</div>
-					</li>
-					<li test-id='5' class='node and pass' status='pass'><b>And</b>
-						<span class="bdd-step-name">And I am on Create New Filter page</span>
+						<span class="bdd-step-name">Given I am to create a filter with Correlation condition and I am on Create New Filter page</span>
 						<ul class='screenshots right'>
-							<li><a data-featherlight="image" href="C:\Users\sclavio\Documents\Git\FR-Test-Automation\target\screenshots\aism---62\Verify_Filter_is_saved_if_non_mandatory_fields_are_left_blank_2019.05.07.15.05.07.png"><i class='material-icons'>panorama</i></a></li>
-							<li><a data-featherlight="image" href="C:\Users\sclavio\Documents\Git\FR-Test-Automation\target\screenshots\aism---62\Verify_Filter_is_saved_if_non_mandatory_fields_are_left_blank_2019.05.07.15.05.08.png"><i class='material-icons'>panorama</i></a></li>
+							<li><a data-featherlight="image" href="C:\Users\cguevara6\OneDrive - DXC Production\Documents\GitHub\FR-Test-Automation\target\screenshots\aism-23\Verify_saving_of_filter_with_Correlation_condition_(time_unit_=_Seconds)_2019.05.07.17.19.34.png"><i class='material-icons'>panorama</i></a></li>
+							<li><a data-featherlight="image" href="C:\Users\cguevara6\OneDrive - DXC Production\Documents\GitHub\FR-Test-Automation\target\screenshots\aism-23\Verify_saving_of_filter_with_Correlation_condition_(time_unit_=_Seconds)_2019.05.07.17.19.34.png"><i class='material-icons'>panorama</i></a></li>
 						</ul>
 							<div class='pre'>passed</div>
 					</li>
-					<li test-id='6' class='node when pass' status='pass'><b>When</b>
-						<span class="bdd-step-name">When I create a Filter with filter name "AUT_TestCreateJiraActionIssueTask4" and "Cisco Meraki" as source</span>
+					<li test-id='5' class='node when pass' status='pass'><b>When</b>
+						<span class="bdd-step-name">When I create a Filter with filter name AUT_TestCorrelation1, Nagios-Pet as source, Filter rule: Summary - Contains - TEST, and add a Correlation condition: 2 occurences in 10 Seconds</span>
 						<ul class='screenshots right'>
-							<li><a data-featherlight="image" href="C:\Users\sclavio\Documents\Git\FR-Test-Automation\target\screenshots\aism---62\Verify_Filter_is_saved_if_non_mandatory_fields_are_left_blank_2019.05.07.15.05.09.png"><i class='material-icons'>panorama</i></a></li>
-							<li><a data-featherlight="image" href="C:\Users\sclavio\Documents\Git\FR-Test-Automation\target\screenshots\aism---62\Verify_Filter_is_saved_if_non_mandatory_fields_are_left_blank_2019.05.07.15.05.10.png"><i class='material-icons'>panorama</i></a></li>
-							<li><a data-featherlight="image" href="C:\Users\sclavio\Documents\Git\FR-Test-Automation\target\screenshots\aism---62\Verify_Filter_is_saved_if_non_mandatory_fields_are_left_blank_2019.05.07.15.05.12.png"><i class='material-icons'>panorama</i></a></li>
-							<li><a data-featherlight="image" href="C:\Users\sclavio\Documents\Git\FR-Test-Automation\target\screenshots\aism---62\Verify_Filter_is_saved_if_non_mandatory_fields_are_left_blank_2019.05.07.15.05.14.png"><i class='material-icons'>panorama</i></a></li>
+							<li><a data-featherlight="image" href="C:\Users\cguevara6\OneDrive - DXC Production\Documents\GitHub\FR-Test-Automation\target\screenshots\aism-23\Verify_saving_of_filter_with_Correlation_condition_(time_unit_=_Seconds)_2019.05.07.17.19.37.png"><i class='material-icons'>panorama</i></a></li>
+							<li><a data-featherlight="image" href="C:\Users\cguevara6\OneDrive - DXC Production\Documents\GitHub\FR-Test-Automation\target\screenshots\aism-23\Verify_saving_of_filter_with_Correlation_condition_(time_unit_=_Seconds)_2019.05.07.17.19.38.png"><i class='material-icons'>panorama</i></a></li>
+							<li><a data-featherlight="image" href="C:\Users\cguevara6\OneDrive - DXC Production\Documents\GitHub\FR-Test-Automation\target\screenshots\aism-23\Verify_saving_of_filter_with_Correlation_condition_(time_unit_=_Seconds)_2019.05.07.17.19.39.png"><i class='material-icons'>panorama</i></a></li>
+							<li><a data-featherlight="image" href="C:\Users\cguevara6\OneDrive - DXC Production\Documents\GitHub\FR-Test-Automation\target\screenshots\aism-23\Verify_saving_of_filter_with_Correlation_condition_(time_unit_=_Seconds)_2019.05.07.17.19.40.png"><i class='material-icons'>panorama</i></a></li>
+							<li><a data-featherlight="image" href="C:\Users\cguevara6\OneDrive - DXC Production\Documents\GitHub\FR-Test-Automation\target\screenshots\aism-23\Verify_saving_of_filter_with_Correlation_condition_(time_unit_=_Seconds)_2019.05.07.17.19.40.png"><i class='material-icons'>panorama</i></a></li>
+							<li><a data-featherlight="image" href="C:\Users\cguevara6\OneDrive - DXC Production\Documents\GitHub\FR-Test-Automation\target\screenshots\aism-23\Verify_saving_of_filter_with_Correlation_condition_(time_unit_=_Seconds)_2019.05.07.17.19.41.png"><i class='material-icons'>panorama</i></a></li>
+							<li><a data-featherlight="image" href="C:\Users\cguevara6\OneDrive - DXC Production\Documents\GitHub\FR-Test-Automation\target\screenshots\aism-23\Verify_saving_of_filter_with_Correlation_condition_(time_unit_=_Seconds)_2019.05.07.17.19.42.png"><i class='material-icons'>panorama</i></a></li>
+							<li><a data-featherlight="image" href="C:\Users\cguevara6\OneDrive - DXC Production\Documents\GitHub\FR-Test-Automation\target\screenshots\aism-23\Verify_saving_of_filter_with_Correlation_condition_(time_unit_=_Seconds)_2019.05.07.17.19.42.png"><i class='material-icons'>panorama</i></a></li>
+							<li><a data-featherlight="image" href="C:\Users\cguevara6\OneDrive - DXC Production\Documents\GitHub\FR-Test-Automation\target\screenshots\aism-23\Verify_saving_of_filter_with_Correlation_condition_(time_unit_=_Seconds)_2019.05.07.17.19.43.png"><i class='material-icons'>panorama</i></a></li>
+							<li><a data-featherlight="image" href="C:\Users\cguevara6\OneDrive - DXC Production\Documents\GitHub\FR-Test-Automation\target\screenshots\aism-23\Verify_saving_of_filter_with_Correlation_condition_(time_unit_=_Seconds)_2019.05.07.17.19.44.png"><i class='material-icons'>panorama</i></a></li>
+							<li><a data-featherlight="image" href="C:\Users\cguevara6\OneDrive - DXC Production\Documents\GitHub\FR-Test-Automation\target\screenshots\aism-23\Verify_saving_of_filter_with_Correlation_condition_(time_unit_=_Seconds)_2019.05.07.17.19.55.png"><i class='material-icons'>panorama</i></a></li>
+							<li><a data-featherlight="image" href="C:\Users\cguevara6\OneDrive - DXC Production\Documents\GitHub\FR-Test-Automation\target\screenshots\aism-23\Verify_saving_of_filter_with_Correlation_condition_(time_unit_=_Seconds)_2019.05.07.17.19.56.png"><i class='material-icons'>panorama</i></a></li>
+							<li><a data-featherlight="image" href="C:\Users\cguevara6\OneDrive - DXC Production\Documents\GitHub\FR-Test-Automation\target\screenshots\aism-23\Verify_saving_of_filter_with_Correlation_condition_(time_unit_=_Seconds)_2019.05.07.17.19.56.png"><i class='material-icons'>panorama</i></a></li>
 						</ul>
 							<div class='pre'>passed</div>
 					</li>
-					<li test-id='7' class='node and pass' status='pass'><b>And</b>
-						<span class="bdd-step-name">And with Filter Rule: "Shop" "Ends With" "UQ"</span>
+					<li test-id='6' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then filter with Correlation condition should be saved successfully</span>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+		<li test-id='7' class='node scenario pass' status='pass'>
+			<div class='category-list'>
+				<span class='category label white-text'>@testing</span>
+				<span class='category label white-text'>@scenarios</span>
+				<span class='category label white-text'>@ExtendedRules</span>
+				<span class='category label white-text'>@Correlation</span>
+			</div>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Verify saving of filter with Correlation condition (time unit = Minutes)</span>
+			
+				<ul class='steps'>
+					<li test-id='8' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given I am to create a filter with Correlation condition and I am on Create New Filter page</span>
 						<ul class='screenshots right'>
-							<li><a data-featherlight="image" href="C:\Users\sclavio\Documents\Git\FR-Test-Automation\target\screenshots\aism---62\Verify_Filter_is_saved_if_non_mandatory_fields_are_left_blank_2019.05.07.15.05.15.png"><i class='material-icons'>panorama</i></a></li>
-							<li><a data-featherlight="image" href="C:\Users\sclavio\Documents\Git\FR-Test-Automation\target\screenshots\aism---62\Verify_Filter_is_saved_if_non_mandatory_fields_are_left_blank_2019.05.07.15.05.16.png"><i class='material-icons'>panorama</i></a></li>
-							<li><a data-featherlight="image" href="C:\Users\sclavio\Documents\Git\FR-Test-Automation\target\screenshots\aism---62\Verify_Filter_is_saved_if_non_mandatory_fields_are_left_blank_2019.05.07.15.05.17.png"><i class='material-icons'>panorama</i></a></li>
+							<li><a data-featherlight="image" href="C:\Users\cguevara6\OneDrive - DXC Production\Documents\GitHub\FR-Test-Automation\target\screenshots\aism-23\Verify_saving_of_filter_with_Correlation_condition_(time_unit_=_Minutes)_2019.05.07.17.20.12.png"><i class='material-icons'>panorama</i></a></li>
+							<li><a data-featherlight="image" href="C:\Users\cguevara6\OneDrive - DXC Production\Documents\GitHub\FR-Test-Automation\target\screenshots\aism-23\Verify_saving_of_filter_with_Correlation_condition_(time_unit_=_Minutes)_2019.05.07.17.20.13.png"><i class='material-icons'>panorama</i></a></li>
 						</ul>
 							<div class='pre'>passed</div>
 					</li>
-					<li test-id='8' class='node and pass' status='pass'><b>And</b>
-						<span class="bdd-step-name">And with Action: Create Jira Ticket-ACPF but non mandatory fields are left blank "AUT_TestCreateJiraActionIssueTask4"</span>
+					<li test-id='9' class='node when pass' status='pass'><b>When</b>
+						<span class="bdd-step-name">When I create a Filter with filter name AUT_TestCorrelation2, Nagios-Pet as source, Filter rule: Description - Begins With - TEST, and add a Correlation condition: 2 occurences in 3 Minutes</span>
 						<ul class='screenshots right'>
-							<li><a data-featherlight="image" href="C:\Users\sclavio\Documents\Git\FR-Test-Automation\target\screenshots\aism---62\Verify_Filter_is_saved_if_non_mandatory_fields_are_left_blank_2019.05.07.15.05.19.png"><i class='material-icons'>panorama</i></a></li>
-							<li><a data-featherlight="image" href="C:\Users\sclavio\Documents\Git\FR-Test-Automation\target\screenshots\aism---62\Verify_Filter_is_saved_if_non_mandatory_fields_are_left_blank_2019.05.07.15.05.33.png"><i class='material-icons'>panorama</i></a></li>
-							<li><a data-featherlight="image" href="C:\Users\sclavio\Documents\Git\FR-Test-Automation\target\screenshots\aism---62\Verify_Filter_is_saved_if_non_mandatory_fields_are_left_blank_2019.05.07.15.05.35.png"><i class='material-icons'>panorama</i></a></li>
-							<li><a data-featherlight="image" href="C:\Users\sclavio\Documents\Git\FR-Test-Automation\target\screenshots\aism---62\Verify_Filter_is_saved_if_non_mandatory_fields_are_left_blank_2019.05.07.15.05.36.png"><i class='material-icons'>panorama</i></a></li>
-							<li><a data-featherlight="image" href="C:\Users\sclavio\Documents\Git\FR-Test-Automation\target\screenshots\aism---62\Verify_Filter_is_saved_if_non_mandatory_fields_are_left_blank_2019.05.07.15.05.37.png"><i class='material-icons'>panorama</i></a></li>
-							<li><a data-featherlight="image" href="C:\Users\sclavio\Documents\Git\FR-Test-Automation\target\screenshots\aism---62\Verify_Filter_is_saved_if_non_mandatory_fields_are_left_blank_2019.05.07.15.05.38.png"><i class='material-icons'>panorama</i></a></li>
-							<li><a data-featherlight="image" href="C:\Users\sclavio\Documents\Git\FR-Test-Automation\target\screenshots\aism---62\Verify_Filter_is_saved_if_non_mandatory_fields_are_left_blank_2019.05.07.15.05.39.png"><i class='material-icons'>panorama</i></a></li>
-							<li><a data-featherlight="image" href="C:\Users\sclavio\Documents\Git\FR-Test-Automation\target\screenshots\aism---62\Verify_Filter_is_saved_if_non_mandatory_fields_are_left_blank_2019.05.07.15.05.40.png"><i class='material-icons'>panorama</i></a></li>
-							<li><a data-featherlight="image" href="C:\Users\sclavio\Documents\Git\FR-Test-Automation\target\screenshots\aism---62\Verify_Filter_is_saved_if_non_mandatory_fields_are_left_blank_2019.05.07.15.05.45.png"><i class='material-icons'>panorama</i></a></li>
-							<li><a data-featherlight="image" href="C:\Users\sclavio\Documents\Git\FR-Test-Automation\target\screenshots\aism---62\Verify_Filter_is_saved_if_non_mandatory_fields_are_left_blank_2019.05.07.15.05.46.png"><i class='material-icons'>panorama</i></a></li>
-							<li><a data-featherlight="image" href="C:\Users\sclavio\Documents\Git\FR-Test-Automation\target\screenshots\aism---62\Verify_Filter_is_saved_if_non_mandatory_fields_are_left_blank_2019.05.07.15.05.47.png"><i class='material-icons'>panorama</i></a></li>
-							<li><a data-featherlight="image" href="C:\Users\sclavio\Documents\Git\FR-Test-Automation\target\screenshots\aism---62\Verify_Filter_is_saved_if_non_mandatory_fields_are_left_blank_2019.05.07.15.05.48.png"><i class='material-icons'>panorama</i></a></li>
+							<li><a data-featherlight="image" href="C:\Users\cguevara6\OneDrive - DXC Production\Documents\GitHub\FR-Test-Automation\target\screenshots\aism-23\Verify_saving_of_filter_with_Correlation_condition_(time_unit_=_Minutes)_2019.05.07.17.20.15.png"><i class='material-icons'>panorama</i></a></li>
+							<li><a data-featherlight="image" href="C:\Users\cguevara6\OneDrive - DXC Production\Documents\GitHub\FR-Test-Automation\target\screenshots\aism-23\Verify_saving_of_filter_with_Correlation_condition_(time_unit_=_Minutes)_2019.05.07.17.20.16.png"><i class='material-icons'>panorama</i></a></li>
+							<li><a data-featherlight="image" href="C:\Users\cguevara6\OneDrive - DXC Production\Documents\GitHub\FR-Test-Automation\target\screenshots\aism-23\Verify_saving_of_filter_with_Correlation_condition_(time_unit_=_Minutes)_2019.05.07.17.20.17.png"><i class='material-icons'>panorama</i></a></li>
+							<li><a data-featherlight="image" href="C:\Users\cguevara6\OneDrive - DXC Production\Documents\GitHub\FR-Test-Automation\target\screenshots\aism-23\Verify_saving_of_filter_with_Correlation_condition_(time_unit_=_Minutes)_2019.05.07.17.20.17.png"><i class='material-icons'>panorama</i></a></li>
+							<li><a data-featherlight="image" href="C:\Users\cguevara6\OneDrive - DXC Production\Documents\GitHub\FR-Test-Automation\target\screenshots\aism-23\Verify_saving_of_filter_with_Correlation_condition_(time_unit_=_Minutes)_2019.05.07.17.20.18.png"><i class='material-icons'>panorama</i></a></li>
+							<li><a data-featherlight="image" href="C:\Users\cguevara6\OneDrive - DXC Production\Documents\GitHub\FR-Test-Automation\target\screenshots\aism-23\Verify_saving_of_filter_with_Correlation_condition_(time_unit_=_Minutes)_2019.05.07.17.20.19.png"><i class='material-icons'>panorama</i></a></li>
+							<li><a data-featherlight="image" href="C:\Users\cguevara6\OneDrive - DXC Production\Documents\GitHub\FR-Test-Automation\target\screenshots\aism-23\Verify_saving_of_filter_with_Correlation_condition_(time_unit_=_Minutes)_2019.05.07.17.20.20.png"><i class='material-icons'>panorama</i></a></li>
+							<li><a data-featherlight="image" href="C:\Users\cguevara6\OneDrive - DXC Production\Documents\GitHub\FR-Test-Automation\target\screenshots\aism-23\Verify_saving_of_filter_with_Correlation_condition_(time_unit_=_Minutes)_2019.05.07.17.20.20.png"><i class='material-icons'>panorama</i></a></li>
+							<li><a data-featherlight="image" href="C:\Users\cguevara6\OneDrive - DXC Production\Documents\GitHub\FR-Test-Automation\target\screenshots\aism-23\Verify_saving_of_filter_with_Correlation_condition_(time_unit_=_Minutes)_2019.05.07.17.20.21.png"><i class='material-icons'>panorama</i></a></li>
+							<li><a data-featherlight="image" href="C:\Users\cguevara6\OneDrive - DXC Production\Documents\GitHub\FR-Test-Automation\target\screenshots\aism-23\Verify_saving_of_filter_with_Correlation_condition_(time_unit_=_Minutes)_2019.05.07.17.20.22.png"><i class='material-icons'>panorama</i></a></li>
+							<li><a data-featherlight="image" href="C:\Users\cguevara6\OneDrive - DXC Production\Documents\GitHub\FR-Test-Automation\target\screenshots\aism-23\Verify_saving_of_filter_with_Correlation_condition_(time_unit_=_Minutes)_2019.05.07.17.20.33.png"><i class='material-icons'>panorama</i></a></li>
+							<li><a data-featherlight="image" href="C:\Users\cguevara6\OneDrive - DXC Production\Documents\GitHub\FR-Test-Automation\target\screenshots\aism-23\Verify_saving_of_filter_with_Correlation_condition_(time_unit_=_Minutes)_2019.05.07.17.20.33.png"><i class='material-icons'>panorama</i></a></li>
+							<li><a data-featherlight="image" href="C:\Users\cguevara6\OneDrive - DXC Production\Documents\GitHub\FR-Test-Automation\target\screenshots\aism-23\Verify_saving_of_filter_with_Correlation_condition_(time_unit_=_Minutes)_2019.05.07.17.20.34.png"><i class='material-icons'>panorama</i></a></li>
 						</ul>
 							<div class='pre'>passed</div>
 					</li>
-					<li test-id='9' class='node then pass' status='pass'><b>Then</b>
-						<span class="bdd-step-name">Then I should be able to save successfully</span>
+					<li test-id='10' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then filter with Correlation condition should be saved successfully</span>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+		<li test-id='11' class='node scenario pass' status='pass'>
+			<div class='category-list'>
+				<span class='category label white-text'>@testing</span>
+				<span class='category label white-text'>@scenarios</span>
+				<span class='category label white-text'>@ExtendedRules</span>
+				<span class='category label white-text'>@Correlation</span>
+			</div>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Verify saving of filter with Correlation condition (time unit = Hours)</span>
+			
+				<ul class='steps'>
+					<li test-id='12' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given I am to create a filter with Correlation condition and I am on Create New Filter page</span>
+						<ul class='screenshots right'>
+							<li><a data-featherlight="image" href="C:\Users\cguevara6\OneDrive - DXC Production\Documents\GitHub\FR-Test-Automation\target\screenshots\aism-23\Verify_saving_of_filter_with_Correlation_condition_(time_unit_=_Hours)_2019.05.07.17.20.48.png"><i class='material-icons'>panorama</i></a></li>
+							<li><a data-featherlight="image" href="C:\Users\cguevara6\OneDrive - DXC Production\Documents\GitHub\FR-Test-Automation\target\screenshots\aism-23\Verify_saving_of_filter_with_Correlation_condition_(time_unit_=_Hours)_2019.05.07.17.20.49.png"><i class='material-icons'>panorama</i></a></li>
+						</ul>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='13' class='node when pass' status='pass'><b>When</b>
+						<span class="bdd-step-name">When I create a Filter with filter name AUT_TestCorrelation3, Nagios-Pet as source, Filter rule: Summary - Ends With - TEST, and add a Correlation condition: 2 occurences in 2 Hours</span>
+						<ul class='screenshots right'>
+							<li><a data-featherlight="image" href="C:\Users\cguevara6\OneDrive - DXC Production\Documents\GitHub\FR-Test-Automation\target\screenshots\aism-23\Verify_saving_of_filter_with_Correlation_condition_(time_unit_=_Hours)_2019.05.07.17.20.52.png"><i class='material-icons'>panorama</i></a></li>
+							<li><a data-featherlight="image" href="C:\Users\cguevara6\OneDrive - DXC Production\Documents\GitHub\FR-Test-Automation\target\screenshots\aism-23\Verify_saving_of_filter_with_Correlation_condition_(time_unit_=_Hours)_2019.05.07.17.20.52.png"><i class='material-icons'>panorama</i></a></li>
+							<li><a data-featherlight="image" href="C:\Users\cguevara6\OneDrive - DXC Production\Documents\GitHub\FR-Test-Automation\target\screenshots\aism-23\Verify_saving_of_filter_with_Correlation_condition_(time_unit_=_Hours)_2019.05.07.17.20.53.png"><i class='material-icons'>panorama</i></a></li>
+							<li><a data-featherlight="image" href="C:\Users\cguevara6\OneDrive - DXC Production\Documents\GitHub\FR-Test-Automation\target\screenshots\aism-23\Verify_saving_of_filter_with_Correlation_condition_(time_unit_=_Hours)_2019.05.07.17.20.54.png"><i class='material-icons'>panorama</i></a></li>
+							<li><a data-featherlight="image" href="C:\Users\cguevara6\OneDrive - DXC Production\Documents\GitHub\FR-Test-Automation\target\screenshots\aism-23\Verify_saving_of_filter_with_Correlation_condition_(time_unit_=_Hours)_2019.05.07.17.20.55.png"><i class='material-icons'>panorama</i></a></li>
+							<li><a data-featherlight="image" href="C:\Users\cguevara6\OneDrive - DXC Production\Documents\GitHub\FR-Test-Automation\target\screenshots\aism-23\Verify_saving_of_filter_with_Correlation_condition_(time_unit_=_Hours)_2019.05.07.17.20.55.png"><i class='material-icons'>panorama</i></a></li>
+							<li><a data-featherlight="image" href="C:\Users\cguevara6\OneDrive - DXC Production\Documents\GitHub\FR-Test-Automation\target\screenshots\aism-23\Verify_saving_of_filter_with_Correlation_condition_(time_unit_=_Hours)_2019.05.07.17.20.56.png"><i class='material-icons'>panorama</i></a></li>
+							<li><a data-featherlight="image" href="C:\Users\cguevara6\OneDrive - DXC Production\Documents\GitHub\FR-Test-Automation\target\screenshots\aism-23\Verify_saving_of_filter_with_Correlation_condition_(time_unit_=_Hours)_2019.05.07.17.20.57.png"><i class='material-icons'>panorama</i></a></li>
+							<li><a data-featherlight="image" href="C:\Users\cguevara6\OneDrive - DXC Production\Documents\GitHub\FR-Test-Automation\target\screenshots\aism-23\Verify_saving_of_filter_with_Correlation_condition_(time_unit_=_Hours)_2019.05.07.17.20.57.png"><i class='material-icons'>panorama</i></a></li>
+							<li><a data-featherlight="image" href="C:\Users\cguevara6\OneDrive - DXC Production\Documents\GitHub\FR-Test-Automation\target\screenshots\aism-23\Verify_saving_of_filter_with_Correlation_condition_(time_unit_=_Hours)_2019.05.07.17.20.58.png"><i class='material-icons'>panorama</i></a></li>
+							<li><a data-featherlight="image" href="C:\Users\cguevara6\OneDrive - DXC Production\Documents\GitHub\FR-Test-Automation\target\screenshots\aism-23\Verify_saving_of_filter_with_Correlation_condition_(time_unit_=_Hours)_2019.05.07.17.21.09.png"><i class='material-icons'>panorama</i></a></li>
+							<li><a data-featherlight="image" href="C:\Users\cguevara6\OneDrive - DXC Production\Documents\GitHub\FR-Test-Automation\target\screenshots\aism-23\Verify_saving_of_filter_with_Correlation_condition_(time_unit_=_Hours)_2019.05.07.17.21.10.png"><i class='material-icons'>panorama</i></a></li>
+							<li><a data-featherlight="image" href="C:\Users\cguevara6\OneDrive - DXC Production\Documents\GitHub\FR-Test-Automation\target\screenshots\aism-23\Verify_saving_of_filter_with_Correlation_condition_(time_unit_=_Hours)_2019.05.07.17.21.10.png"><i class='material-icons'>panorama</i></a></li>
+						</ul>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='14' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then filter with Correlation condition should be saved successfully</span>
 							<div class='pre'>passed</div>
 					</li>
 				</ul>
@@ -323,53 +395,14 @@
 				
 				<li class='category displayed active'>
 					<div class='category-heading'>
-						<span class='category-name'>@AISM62</span>
-						<span class='category-status right'>
-							<span class='label pass'>2</span>
-						</span>
-					</div>
-					<div class='category-content hide'>
-						<div class='category-status-counts'>
-							<span class='label green accent-4 white-text'>Passed: 2</span>
-							
-							
-						</div>
-					
-						<div class='category-tests'>
-							<table class='bordered table-results'>
-								<thead>
-									<tr>
-										<th>Timestamp</th>
-										<th>TestName</th>
-										<th>Status</th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr>
-										<td>May 7, 2019 03:04:48 PM</td>
-										<td class='linked' test-id='1'>AISM - 62</td>
-										<td><span class='test-status pass'>pass</span></td>
-									</tr>
-									<tr>
-										<td>May 7, 2019 03:04:49 PM</td>
-										<td class='linked' test-id='3'>AISM - 62.Verify Filter is saved if non mandatory fields are left blank.Verify Filter is saved if non mandatory fields are left blank</td>
-										<td><span class='test-status pass'>pass</span></td>
-									</tr>
-								</tbody>
-							</table>
-						</div>
-					</div>
-				</li>
-				<li class='category displayed active'>
-					<div class='category-heading'>
 						<span class='category-name'>@scenarios</span>
 						<span class='category-status right'>
-							<span class='label pass'>2</span>
+							<span class='label pass'>4</span>
 						</span>
 					</div>
 					<div class='category-content hide'>
 						<div class='category-status-counts'>
-							<span class='label green accent-4 white-text'>Passed: 2</span>
+							<span class='label green accent-4 white-text'>Passed: 4</span>
 							
 							
 						</div>
@@ -385,13 +418,23 @@
 								</thead>
 								<tbody>
 									<tr>
-										<td>May 7, 2019 03:04:48 PM</td>
-										<td class='linked' test-id='1'>AISM - 62</td>
+										<td>May 7, 2019 05:19:16 PM</td>
+										<td class='linked' test-id='1'>AISM-23</td>
 										<td><span class='test-status pass'>pass</span></td>
 									</tr>
 									<tr>
-										<td>May 7, 2019 03:04:49 PM</td>
-										<td class='linked' test-id='3'>AISM - 62.Verify Filter is saved if non mandatory fields are left blank.Verify Filter is saved if non mandatory fields are left blank</td>
+										<td>May 7, 2019 05:19:18 PM</td>
+										<td class='linked' test-id='3'>AISM-23.Verify saving of filter with Correlation condition (time unit = <time unit>).Verify saving of filter with Correlation condition (time unit = Seconds)</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>May 7, 2019 05:20:00 PM</td>
+										<td class='linked' test-id='7'>AISM-23.Verify saving of filter with Correlation condition (time unit = <time unit>).Verify saving of filter with Correlation condition (time unit = Minutes)</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>May 7, 2019 05:20:37 PM</td>
+										<td class='linked' test-id='11'>AISM-23.Verify saving of filter with Correlation condition (time unit = <time unit>).Verify saving of filter with Correlation condition (time unit = Hours)</td>
 										<td><span class='test-status pass'>pass</span></td>
 									</tr>
 								</tbody>
@@ -401,14 +444,14 @@
 				</li>
 				<li class='category displayed active'>
 					<div class='category-heading'>
-						<span class='category-name'>@onescenario</span>
+						<span class='category-name'>@ExtendedRules</span>
 						<span class='category-status right'>
-							<span class='label pass'>1</span>
+							<span class='label pass'>4</span>
 						</span>
 					</div>
 					<div class='category-content hide'>
 						<div class='category-status-counts'>
-							<span class='label green accent-4 white-text'>Passed: 1</span>
+							<span class='label green accent-4 white-text'>Passed: 4</span>
 							
 							
 						</div>
@@ -424,8 +467,121 @@
 								</thead>
 								<tbody>
 									<tr>
-										<td>May 7, 2019 03:04:49 PM</td>
-										<td class='linked' test-id='3'>AISM - 62.Verify Filter is saved if non mandatory fields are left blank.Verify Filter is saved if non mandatory fields are left blank</td>
+										<td>May 7, 2019 05:19:16 PM</td>
+										<td class='linked' test-id='1'>AISM-23</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>May 7, 2019 05:19:18 PM</td>
+										<td class='linked' test-id='3'>AISM-23.Verify saving of filter with Correlation condition (time unit = <time unit>).Verify saving of filter with Correlation condition (time unit = Seconds)</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>May 7, 2019 05:20:00 PM</td>
+										<td class='linked' test-id='7'>AISM-23.Verify saving of filter with Correlation condition (time unit = <time unit>).Verify saving of filter with Correlation condition (time unit = Minutes)</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>May 7, 2019 05:20:37 PM</td>
+										<td class='linked' test-id='11'>AISM-23.Verify saving of filter with Correlation condition (time unit = <time unit>).Verify saving of filter with Correlation condition (time unit = Hours)</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>@Correlation</span>
+						<span class='category-status right'>
+							<span class='label pass'>4</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							<span class='label green accent-4 white-text'>Passed: 4</span>
+							
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>May 7, 2019 05:19:16 PM</td>
+										<td class='linked' test-id='1'>AISM-23</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>May 7, 2019 05:19:18 PM</td>
+										<td class='linked' test-id='3'>AISM-23.Verify saving of filter with Correlation condition (time unit = <time unit>).Verify saving of filter with Correlation condition (time unit = Seconds)</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>May 7, 2019 05:20:00 PM</td>
+										<td class='linked' test-id='7'>AISM-23.Verify saving of filter with Correlation condition (time unit = <time unit>).Verify saving of filter with Correlation condition (time unit = Minutes)</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>May 7, 2019 05:20:37 PM</td>
+										<td class='linked' test-id='11'>AISM-23.Verify saving of filter with Correlation condition (time unit = <time unit>).Verify saving of filter with Correlation condition (time unit = Hours)</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>@testing</span>
+						<span class='category-status right'>
+							<span class='label pass'>4</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							<span class='label green accent-4 white-text'>Passed: 4</span>
+							
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>May 7, 2019 05:19:16 PM</td>
+										<td class='linked' test-id='1'>AISM-23</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>May 7, 2019 05:19:18 PM</td>
+										<td class='linked' test-id='3'>AISM-23.Verify saving of filter with Correlation condition (time unit = <time unit>).Verify saving of filter with Correlation condition (time unit = Seconds)</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>May 7, 2019 05:20:00 PM</td>
+										<td class='linked' test-id='7'>AISM-23.Verify saving of filter with Correlation condition (time unit = <time unit>).Verify saving of filter with Correlation condition (time unit = Minutes)</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>May 7, 2019 05:20:37 PM</td>
+										<td class='linked' test-id='11'>AISM-23.Verify saving of filter with Correlation condition (time unit = <time unit>).Verify saving of filter with Correlation condition (time unit = Hours)</td>
 										<td><span class='test-status pass'>pass</span></td>
 									</tr>
 								</tbody>
@@ -460,31 +616,31 @@
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Scenarios
-					<div class='panel-lead'>1</div>
+					<div class='panel-lead'>3</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Steps
-					<div class='panel-lead'>6</div>
+					<div class='panel-lead'>9</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Start
-					<div class='panel-lead'>May 7, 2019 03:04:47 PM</div>
+					<div class='panel-lead'>May 7, 2019 05:19:16 PM</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 			 		End
-			 		<div class='panel-lead'>May 7, 2019 03:05:52 PM</div>
+			 		<div class='panel-lead'>May 7, 2019 05:21:14 PM</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Time Taken
-					<div class='panel-lead'>0h 1m 5s+38ms</div>
+					<div class='panel-lead'>0h 1m 58s+335ms</div>
 				</div>
 			</div>
 			<div class='col s6'>
@@ -500,17 +656,8 @@
 							<th>Passed %</th>
 						</tr>
 						<tr>
-							<td>@AISM62</td>
-							<td>2</td>
-							<td>0</td>
-							<td>0</td>
-							<td>
-									100%
-							</td>
-						</tr>
-						<tr>
 							<td>@scenarios</td>
-							<td>2</td>
+							<td>4</td>
 							<td>0</td>
 							<td>0</td>
 							<td>
@@ -518,8 +665,26 @@
 							</td>
 						</tr>
 						<tr>
-							<td>@onescenario</td>
-							<td>1</td>
+							<td>@ExtendedRules</td>
+							<td>4</td>
+							<td>0</td>
+							<td>0</td>
+							<td>
+									100%
+							</td>
+						</tr>
+						<tr>
+							<td>@Correlation</td>
+							<td>4</td>
+							<td>0</td>
+							<td>0</td>
+							<td>
+									100%
+							</td>
+						</tr>
+						<tr>
+							<td>@testing</td>
+							<td>4</td>
 							<td>0</td>
 							<td>0</td>
 							<td>
@@ -547,7 +712,7 @@
 				skipParent: 0,
 				exceptionsParent: 0,
 				
-				passChild: 1,
+				passChild: 3,
 				failChild: 0,
 				fatalChild: 0,
 				errorChild: 0,
@@ -556,7 +721,7 @@
 				infoChild: 0,
 				exceptionsChild: 0,
 				
-				passGrandChild: 6,
+				passGrandChild: 9,
 				failGrandChild: 0,
 				fatalGrandChild: 0,
 				errorGrandChild: 0,

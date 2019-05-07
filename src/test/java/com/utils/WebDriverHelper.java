@@ -306,15 +306,20 @@ public class WebDriverHelper {
 		scrollIntoView(dropdownField);
 //		clickButton(dropdownField);
 		waitForPageLoaded();
+		boolean isSelected = false;
 		
 		for (WebElement webElement : webElementList) {
 			String tipo = webElement.getText();
 			if(tipo.equalsIgnoreCase(value)) {
 				webElement.click();
 				log.info(value + " is selected");
+				isSelected = true;
 			} else {
-				log.debug("Option not available.");
+				//log.debug("Option not available.");
 			}
+		}
+		if(!isSelected) {
+			log.debug(value + " is not available.");
 		}
 	}
 	
