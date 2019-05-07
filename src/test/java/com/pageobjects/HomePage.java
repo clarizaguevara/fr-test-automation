@@ -19,6 +19,15 @@ public class HomePage extends BasePage{
 	@FindBy(xpath= "//a[contains (text(), 'Home')]")
 	private WebElement btn_Home;
 	
+	@FindBy(xpath= "//input[@placeholder='Filter title...']")
+	private WebElement fld_filterTitle;
+	
+	@FindBy(xpath= "//button[text()='Apply']")
+	private WebElement btn_Apply;
+	
+	@FindBy(xpath= "//td[@class='font-weight-bold']")
+	private WebElement link_filtername;
+	
 	/* Methods */
 	
 	/**
@@ -44,5 +53,60 @@ public class HomePage extends BasePage{
 			System.out.println("Home Button is not present.");
 			log.exit();
 		}
+	}
+	
+	/**
+	 *Input Filter title to search
+	 */
+	public void inputFilterTitle(String filterName) {
+		log.entry();
+		if(driverHelper.isElementPresent(fld_filterTitle)) {
+			driverHelper.inputFieldValue(fld_filterTitle, filterName);
+			driverHelper.embedScreenshot(scenario);
+			log.exit();
+		} else {
+			System.out.println("Filter Title field is not present.");
+			log.exit();
+		}
+	}
+	
+	/**
+	 * Click Apply Button
+	 */
+	public void clickApplyButton() {
+		log.entry();
+		if(driverHelper.isElementPresent(btn_Apply)) {
+			driverHelper.embedScreenshot(scenario);
+			driverHelper.clickButton(btn_Apply);
+			driverHelper.explicitWait();
+			log.exit();
+		} else {
+			System.out.println("Apply Button is not present.");
+			log.exit();
+		}
+	}
+	
+	/**
+	 * Click Filter name
+	 */
+	public void clickFilterName() {
+		log.entry();
+		if(driverHelper.isElementPresent(link_filtername)) {
+			driverHelper.embedScreenshot(scenario);
+			driverHelper.clickButton(link_filtername);
+			log.exit();
+		} else {
+			System.out.println("Filter link is not present.");
+			log.exit();
+		}
+	}
+	
+	/**
+	 * Verify Filter is not found
+	 */
+	public void verifyFilterNotFound() {
+		log.entry();
+		Assert.assertTrue("Filter is found.", driverHelper.isElementNotPresent(link_filtername));
+		log.exit();
 	}
 }

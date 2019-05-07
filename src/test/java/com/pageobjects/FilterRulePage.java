@@ -31,6 +31,9 @@ public class FilterRulePage extends BasePage {
 	@FindBy(xpath= "//div[@class='col-sm']//input[not(contains(@class, 'form-control block borderless-input'))]")
 	private WebElement fld_keywordvalue;
 	
+	@FindBy(xpath= "//div[contains(@class, 'btn-group-toggle')]")
+	private WebElement btn_NOT;
+	
 	/* Methods */
 	
 	/**
@@ -78,5 +81,49 @@ public class FilterRulePage extends BasePage {
 			System.out.println("Keyword Value field is not present.");
 			log.exit();
 		}
+	}
+	
+	/**
+	 * Enable NOT button
+	 */
+	public void enableNOTButton() {
+		log.entry();
+		if(driverHelper.isElementPresent(btn_NOT)) {
+			driverHelper.clickButton(btn_NOT);
+			log.exit();
+		} else {
+			System.out.println("NOT button is not present.");
+			log.exit();
+		}
+	}
+	
+	/**
+	 * Get Keyword
+	 */
+	public String getKeyword() {
+		log.entry();
+		String keyword = fld_keyword.getAttribute("value");
+		log.exit();
+		return keyword;
+	}
+	
+	/**
+	 * Get Comparator
+	 */
+	public String getComparator() {
+		log.entry();
+		String comparator = fld_comparator.getAttribute("value");
+		log.exit();
+		return comparator;
+	}
+	
+	/**
+	 * Get Keyword value
+	 */
+	public String getKeywordValue() {
+		log.entry();
+		String keywordValue = fld_keywordvalue.getAttribute("value");
+		log.exit();
+		return keywordValue;
 	}
 }

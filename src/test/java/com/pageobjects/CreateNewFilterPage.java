@@ -50,6 +50,18 @@ public class CreateNewFilterPage extends BasePage {
 	@FindBy(xpath="//span[@class='loader']")
 	private WebElement icn_loading;
 	
+	@FindBy(xpath= "//h4[text()='Extended Rules']//following::button[contains(text(), 'Add Rule')]")
+	private WebElement btn_addExtendedRule;
+	
+	@FindBy(xpath= "//a[text()='Home']")
+	private WebElement btn_Home;
+	
+	@FindBy(xpath="//span[text()='EDIT']")
+	private WebElement icn_edit;
+	
+	@FindBy(xpath= "//button[@title='Delete filter']")
+	private WebElement btn_Delete;
+	
 	/* Methods */
 	
 	/**
@@ -173,5 +185,70 @@ public class CreateNewFilterPage extends BasePage {
 		driverHelper.waitForElementNotVisible(icn_loading);
 		Assert.assertTrue("Filter is Successfully saved.", driverHelper.isElementPresent(label_SaveUnsuccessful));
 		log.exit();
+	}
+	
+	/**
+	 * Click Add Rule button (in Extended Rule)
+	 */
+	public void addExtendedRule() {
+		log.entry();
+		if(driverHelper.isElementPresent(btn_addExtendedRule)) {
+			driverHelper.clickButton(btn_addExtendedRule);
+			log.exit();
+		} else {
+			System.out.println("Add Rule button in Extended Rules is not present.");
+			log.exit();
+		}
+	}
+	
+	/**
+	 * Click Home Button
+	 */
+	public void clickHomeButton() {
+		log.entry();
+		if(driverHelper.isElementPresent(btn_Home)) {
+			driverHelper.embedScreenshot(scenario);
+			driverHelper.clickButton(btn_Home);
+			log.exit();
+		} else {
+			System.out.println("Home Button is not present.");
+			log.exit();
+		}
+	}
+	
+	/**
+	 * Verify if Create New Filter page is for Edit Filter
+	 */
+	public void verifySuccessfulNavigationToEditFilterPage() {
+		log.entry();
+		driverHelper.embedScreenshot(scenario);
+		driverHelper.waitForElementVisible(fld_action);
+		Assert.assertTrue("Successful navigation in Command Center Edit Filter Page", driverHelper.isElementPresent(icn_edit));
+		log.exit();
+	}
+	
+	/**
+	 * Get Filter name
+	 */
+	public String getFilterName() {
+		log.entry();
+		String filterName = fld_filterName.getAttribute("value");
+		log.exit();
+		return filterName;
+	}
+	
+	/**
+	 * Click Delete Button
+	 */
+	public void clickDeleteButton() {
+		log.entry();
+		if(driverHelper.isElementPresent(btn_Delete)) {
+			driverHelper.embedScreenshot(scenario);
+			driverHelper.clickButton(btn_Delete);
+			log.exit();
+		} else {
+			System.out.println("Delete Button is not present.");
+			log.exit();
+		}
 	}
 }

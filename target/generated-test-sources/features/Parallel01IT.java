@@ -20,6 +20,7 @@ import cucumber.api.junit.Cucumber;
         monochrome = false,
         
         tags = {"@scenarios"},
+
         glue = {"com.stepdefs"})
 public class Parallel01IT {
 	
