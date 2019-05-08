@@ -1,9 +1,11 @@
-package com.stepdefs;
+package com.stepdefs.phase1.sprint3;
 
+import com.constants.CommonConstants;
 import com.pageobjects.CreateNewFilterPage;
 import com.pageobjects.FilterRulePage;
 import com.pageobjects.LoginPage;
 import com.pageobjects.SendEmailActionPage;
+import com.stepdefs.ScenarioHooks;
 
 import cucumber.api.java8.En;
 
@@ -15,9 +17,9 @@ public class AISM21Stepdefs implements En {
 		And("with Action: Send Email \"([^\\\"]*)\"$", (String uniqueName) -> {
 			createNewFilterPage.setDriver(hooks.getDriverHelper(), hooks.getScenarioName());
 			sendEmailActionPage.setDriver(hooks.getDriverHelper(), hooks.getScenarioName());
-			createNewFilterPage.selectAction("Send Email");
-			sendEmailActionPage.inputTo("sarah-jane.par.clavio@dxc.com");
-			sendEmailActionPage.inputCC("cguevara6@dxc.com");
+			createNewFilterPage.selectAction(CommonConstants.ACTION_SEND_EMAIL);
+			sendEmailActionPage.inputTo(CommonConstants.EMAIL_TO);
+			sendEmailActionPage.inputCC(CommonConstants.EMAIL_CC);
 			sendEmailActionPage.inputSubject(uniqueName);
 			sendEmailActionPage.inputEmailMessage(uniqueName);
 		});
@@ -25,9 +27,9 @@ public class AISM21Stepdefs implements En {
 		And("with Action: Send Email but mandatory fields are left blank \"([^\\\"]*)\"$", (String uniqueName) -> {
 			createNewFilterPage.setDriver(hooks.getDriverHelper(), hooks.getScenarioName());
 			sendEmailActionPage.setDriver(hooks.getDriverHelper(), hooks.getScenarioName());
-			createNewFilterPage.selectAction("Send Email");
+			createNewFilterPage.selectAction(CommonConstants.ACTION_SEND_EMAIL);
 			sendEmailActionPage.inputTo(" ");
-			sendEmailActionPage.inputCC("cguevara6@dxc.com");
+			sendEmailActionPage.inputCC(CommonConstants.EMAIL_CC);
 			sendEmailActionPage.inputSubject(" ");
 			sendEmailActionPage.inputEmailMessage(uniqueName);
 		});

@@ -8,8 +8,8 @@ Background:
 	And I am on Create New Filter page 
 	
 Scenario Outline: Verify Tool Administrator can configure so that alert will be filtered by keyword in alert message (Send To Slack)
-	When I create a Filter with filter name "<filter name>" and "<source>" as source 
-	And with Filter Rule: "<keyword>" "<comparator>" "<keyword value>" 
+	When I create a Filter with filter name <filter name> and <source> as source 
+	And with Filter Rule: <keyword> - <comparator> - <keyword value> 
 	And with Action: Send To Slack "<filter name>"
 	Then I should be able to save successfully 
 	
@@ -22,8 +22,8 @@ Scenario Outline: Verify Tool Administrator can configure so that alert will be 
 		| AUT_TestKeywordFilter9 | Cisco Meraki | Shop         | Ends With     | UQ                   |
 
 Scenario Outline: Verify Tool Administrator can configure so that alert will be filtered by keyword in alert message (Create Jira Ticket)
-	When I create a Filter with filter name "<filter name>" and "<source>" as source 
-	And with Filter Rule: "<keyword>" "<comparator>" "<keyword value>" 
+	When I create a Filter with filter name <filter name> and <source> as source 
+	And with Filter Rule: <keyword> - <comparator> - <keyword value> 
 	And with Action: Create Jira Ticket-KKA "<filter name>"
 	Then I should be able to save successfully 
 	

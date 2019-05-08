@@ -160,7 +160,7 @@
 							<format>json,html</format>
 							<filterFeaturesByTags>true</filterFeaturesByTags>
 							<tags>
-								<tag>@testing</tag>
+								<tag>@AISM21</tag>
 							</tags>
 							<namingScheme>simple</namingScheme>
 							<mainClass>cucumber.jvm.parallel.ReportBuilderJava</mainClass>

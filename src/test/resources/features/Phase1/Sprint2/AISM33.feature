@@ -8,8 +8,8 @@ Background:
 	And I am on Create New Filter page 
 	
 Scenario Outline: Verify Operator can receive alerts information from Meraki (Send To Slack)
-	When I create a Filter with filter name "<filter name>" and "<source>" as source 
-	And with Filter Rule: "<keyword>" "<comparator>" "<keyword value>" 
+	When I create a Filter with filter name <filter name> and <source> as source 
+	And with Filter Rule: <keyword> - <comparator> - <keyword value> 
 	And with Action: Send To Slack "<filter name>"
 	Then I should be able to save successfully 
 	
@@ -18,8 +18,8 @@ Scenario Outline: Verify Operator can receive alerts information from Meraki (Se
 		| AUT_TestCiscoMeraki1   | Cisco Meraki | Mac Address  | Contains      | e0:55:               |
 	
 Scenario Outline: Verify Operator can receive alerts information from Meraki (Create Jira Ticket)
-	When I create a Filter with filter name "<filter name>" and "<source>" as source 
-	And with Filter Rule: "<keyword>" "<comparator>" "<keyword value>" 
+	When I create a Filter with filter name <filter name> and <source> as source 
+	And with Filter Rule: <keyword> - <comparator> - <keyword value> 
 	And with Action: Create Jira Ticket-KKA "<filter name>"
 	Then I should be able to save successfully 
 	

@@ -29,10 +29,22 @@ public class CommonConstants {
 	
 	/*-----SLACK FIELDS-----*/
 	public static final String SLACK_CHANNEL = PropertyUtil.getProp("src/test/resources/properties/test-data.properties", "action.SendToSlack.Channel");
+	public static final String SLACK_MENTION = PropertyUtil.getProp("src/test/resources/properties/test-data.properties", "action.SendToSlack.Mention");
 	
 	/*-----JIRA FIELDS-----*/
 	public static final String JIRA_ASSIGNEE = PropertyUtil.getProp("src/test/resources/properties/test-data.properties", "action.CreateJiraTicket.Assignee");
 	public static final String JIRA_SLACK_CHANNEL = PropertyUtil.getProp("src/test/resources/properties/test-data.properties", "action.CreateJiraTicket.SlackChannel");
+	public static final String JIRA_PROJECT_TYPE_ACPF = PropertyUtil.getProp("src/test/resources/properties/test-data.properties", "action.CreateJiraTicket.ProjectType.Task");
+	public static final String JIRA_PLATFORM = PropertyUtil.getProp("src/test/resources/properties/test-data.properties", "action.CreateJiraTicket.Platform");
+	public static final String JIRA_PROGRESS = PropertyUtil.getProp("src/test/resources/properties/test-data.properties", "action.CreateJiraTicket.Progress");
+	public static final String JIRA_MARKET = PropertyUtil.getProp("src/test/resources/properties/test-data.properties", "action.CreateJiraTicket.Market");
+	public static final String JIRA_PRIORITY_ACPF = PropertyUtil.getProp("src/test/resources/properties/test-data.properties", "action.CreateJiraTicket.Priority.ACPF");
+	public static final String JIRA_PRIORITY_KKA = PropertyUtil.getProp("src/test/resources/properties/test-data.properties", "action.CreateJiraTicket.Priority.KKA");
+	public static final String JIRA_ASSIGNEE_NOT_EXISTING = PropertyUtil.getProp("src/test/resources/properties/test-data.properties", "action.CreateJiraTicket.Assignee.NotExisting");
+	public static final String JIRA_WATCHERS = PropertyUtil.getProp("src/test/resources/properties/test-data.properties", "action.CreateJiraTicket.Watchers");
+	public static final String JIRA_WATCHERS_ANOTHER = PropertyUtil.getProp("src/test/resources/properties/test-data.properties", "action.CreateJiraTicket.Watchers.Another");
+	public static final String JIRA_LABEL_ANOTHER = PropertyUtil.getProp("src/test/resources/properties/test-data.properties", "action.CreateJiraTicket.Label.Multiple");
+	public static final String JIRA_BRAND = PropertyUtil.getProp("src/test/resources/properties/test-data.properties", "action.CreateJiraTicket.Brand");
 	
 	/*-----SNOW FIELDS-----*/
 	public static final String SNOW_IMPACTED_USER = PropertyUtil.getProp("src/test/resources/properties/test-data.properties", "action.CreateSNOWTicket.ImpactedUser");
@@ -41,8 +53,13 @@ public class CommonConstants {
 	public static final String SNOW_CATEGORY = PropertyUtil.getProp("src/test/resources/properties/test-data.properties", "action.CreateSNOWTicket.Category");
 	public static final String SNOW_SUB_CATEGORY = PropertyUtil.getProp("src/test/resources/properties/test-data.properties", "action.CreateSNOWTicket.SubCategory");
 	public static final String SNOW_AREA = PropertyUtil.getProp("src/test/resources/properties/test-data.properties", "action.CreateSNOWTicket.Area");
+	public static final String SNOW_LANGUAGE = PropertyUtil.getProp("src/test/resources/properties/test-data.properties", "action.CreateSNOWTicket.Language");
+	public static final String SNOW_CONTACT_TYPE = PropertyUtil.getProp("src/test/resources/properties/test-data.properties", "action.CreateSNOWTicket.ContactType");
+	public static final String SNOW_IMPACT = PropertyUtil.getProp("src/test/resources/properties/test-data.properties", "action.CreateSNOWTicket.Impact");
+	public static final String SNOW_URGENCY = PropertyUtil.getProp("src/test/resources/properties/test-data.properties", "action.CreateSNOWTicket.Urgency");
+	public static final String SNOW_PRIORITY = PropertyUtil.getProp("src/test/resources/properties/test-data.properties", "action.CreateSNOWTicket.Priority");
 	
 	/*-----EMAIL FIELDS-----*/
 	public static final String EMAIL_TO = PropertyUtil.getProp("src/test/resources/properties/test-data.properties", "action.SendEmail.To");
-	
+	public static final String EMAIL_CC = PropertyUtil.getProp("src/test/resources/properties/test-data.properties", "action.SendEmail.CC");
 }
