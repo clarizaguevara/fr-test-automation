@@ -6,8 +6,6 @@ import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-import com.utils.PropertyUtil;
-
 public class HomePage extends BasePage{
 
 	private static final Logger log = LogManager.getLogger(HomePage.class);
@@ -27,6 +25,12 @@ public class HomePage extends BasePage{
 	
 	@FindBy(xpath= "//td[@class='font-weight-bold']")
 	private WebElement link_filtername;
+	
+	@FindBy(xpath= "//a[text()='Events']")
+	private WebElement btn_events;
+	
+	@FindBy(xpath= "//button[contains (text(), ' Create New Filter')]")
+	private WebElement btn_createNewFilter;
 	
 	/* Methods */
 	
@@ -108,5 +112,36 @@ public class HomePage extends BasePage{
 		log.entry();
 		Assert.assertTrue("Filter is found.", driverHelper.isElementNotPresent(link_filtername));
 		log.exit();
+	}
+	
+	/**
+	 * Click Events tab
+	 */
+	public void clickEventsTab() {
+		log.entry();
+		if(driverHelper.isElementPresent(btn_events)) {
+			driverHelper.embedScreenshot(scenario);
+			driverHelper.clickButton(btn_events);
+			driverHelper.explicitWait();
+			log.exit();
+		} else {
+			System.out.println("Events tab is not present.");
+			log.exit();
+		}
+	}
+	
+	/**
+	 * Click Create New Filter Button
+	 */
+	public void clickCreateNewFilterButton() {
+		log.entry();
+		if(driverHelper.isElementPresent(btn_createNewFilter)) {
+			driverHelper.embedScreenshot(scenario);
+			driverHelper.clickButton(btn_createNewFilter);
+			log.exit();
+		} else {
+			System.out.println("Home Button is not present.");
+			log.exit();
+		}
 	}
 }

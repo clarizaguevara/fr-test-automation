@@ -5,7 +5,7 @@ import com.pageobjects.CreateJiraTicketActionPage;
 import com.pageobjects.CreateNewFilterPage;
 import com.pageobjects.CreateSNOWTicket;
 import com.pageobjects.FilterRulePage;
-import com.pageobjects.LoginPage;
+import com.pageobjects.HomePage;
 import com.pageobjects.SendEmailActionPage;
 import com.pageobjects.SendToSlackActionPage;
 import com.stepdefs.ScenarioHooks;
@@ -14,15 +14,14 @@ import cucumber.api.java8.En;
 
 public class AISM25Stepdefs implements En {
 	
-	public AISM25Stepdefs(ScenarioHooks hooks, LoginPage loginPage, CreateNewFilterPage createNewFilterPage, FilterRulePage filterRulePage,
+	public AISM25Stepdefs(ScenarioHooks hooks, HomePage homePage, CreateNewFilterPage createNewFilterPage, FilterRulePage filterRulePage,
 			SendToSlackActionPage sendToSlackActionPage, CreateJiraTicketActionPage createJiraTicketActionPage, CreateSNOWTicket createSNOWTicketActionPage, SendEmailActionPage sendEmailActionPage) {
 
-		Given("I am on Create New Filter page", () -> {
-			loginPage.setDriver(hooks.getDriverHelper(), hooks.getScenarioName());
-			createNewFilterPage.setDriver(hooks.getDriverHelper(), hooks.getScenarioName());
+		And("I am on Create New Filter page", () -> {
+			homePage.setDriver(hooks.getDriverHelper(), ScenarioHooks.getScenarioName());
+			createNewFilterPage.setDriver(hooks.getDriverHelper(), ScenarioHooks.getScenarioName());
 			
-			loginPage.navigateToLoginPage();
-			createNewFilterPage.clickCreateNewFilterButton();
+			homePage.clickCreateNewFilterButton();
 			createNewFilterPage.verifySuccessfulNavigationToCreateNewFilterPage();
 		});
 	
@@ -32,7 +31,7 @@ public class AISM25Stepdefs implements En {
 		});
 	
 		And("with Filter Rule: (.*) - (.*) - (.*), NOT button (.*)", (String keyword, String comparator, String keywordValue, String notBtn) -> {
-			filterRulePage.setDriver(hooks.getDriverHelper(), hooks.getScenarioName());
+			filterRulePage.setDriver(hooks.getDriverHelper(), ScenarioHooks.getScenarioName());
 			filterRulePage.selectKeyword(keyword);
 			filterRulePage.selectComparator(comparator);
 			filterRulePage.inputKeywordValue(keywordValue);
@@ -42,7 +41,7 @@ public class AISM25Stepdefs implements En {
 		});
 	
 		And("(.*) has Action: Send to Slack", (String filterName) -> {
-			sendToSlackActionPage.setDriver(hooks.getDriverHelper(), hooks.getScenarioName());
+			sendToSlackActionPage.setDriver(hooks.getDriverHelper(), ScenarioHooks.getScenarioName());
 			createNewFilterPage.selectAction(CommonConstants.ACTION_SEND_TO_SLACK);
 			sendToSlackActionPage.inputSlackChannel(CommonConstants.SLACK_CHANNEL);
 			sendToSlackActionPage.inputSlackMessage(filterName);
@@ -50,7 +49,7 @@ public class AISM25Stepdefs implements En {
 		});
 		
 		And("(.*) has Action: Create Jira Ticket", (String filterName) -> {
-			createJiraTicketActionPage.setDriver(hooks.getDriverHelper(), hooks.getScenarioName());
+			createJiraTicketActionPage.setDriver(hooks.getDriverHelper(), ScenarioHooks.getScenarioName());
 			createNewFilterPage.selectAction(CommonConstants.ACTION_CREATE_JIRA_TICKET);
 			createJiraTicketActionPage.inputSummary(filterName);
 			createJiraTicketActionPage.inputDescription(filterName);
@@ -61,7 +60,7 @@ public class AISM25Stepdefs implements En {
 		});
 		
 		And("(.*) has Action: Create SNOW Ticket", (String filterName) -> {
-			createSNOWTicketActionPage.setDriver(hooks.getDriverHelper(), hooks.getScenarioName());
+			createSNOWTicketActionPage.setDriver(hooks.getDriverHelper(), ScenarioHooks.getScenarioName());
 			createNewFilterPage.selectAction(CommonConstants.ACTION_CREATE_SNOW_TICKET);
 			createSNOWTicketActionPage.setImpactedUsers(CommonConstants.SNOW_IMPACTED_USER);
 			createSNOWTicketActionPage.setAssignmentGroup(CommonConstants.SNOW_ASSIGNMENT_GROUP);
@@ -74,7 +73,7 @@ public class AISM25Stepdefs implements En {
 		});
 		
 		And("(.*) has Action: Send Email", (String filterName) -> {
-			sendEmailActionPage.setDriver(hooks.getDriverHelper(), hooks.getScenarioName());
+			sendEmailActionPage.setDriver(hooks.getDriverHelper(), ScenarioHooks.getScenarioName());
 			createNewFilterPage.selectAction(CommonConstants.ACTION_SEND_EMAIL);
 			sendEmailActionPage.inputTo(CommonConstants.EMAIL_TO);
 			sendEmailActionPage.inputSubject(filterName);

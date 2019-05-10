@@ -3,8 +3,11 @@ Feature: AISM-25
   As a Tool Administrator
   I can configure so that alert will be filtered by field in alert
 
+  Background: 
+    Given I am login
+    And I am on Create New Filter page
+
   Scenario Outline: Verify saving of filter with Filter Rule (filter by <keyword>)
-    Given I am on Create New Filter page
     When I create a Filter with filter name <filter name> and <source> as source
     And with Filter Rule: <keyword> - <comparator> - <keyword value>, NOT button <NOT>
     And <filter name> has Action: <action>
@@ -24,7 +27,6 @@ Feature: AISM-25
       | AUT_TestFieldNameAndValue10 | Nagios-Pet   | Description   | Contains   | TEST                 | disabled | Create SNOW Ticket |
 
   Scenario Outline: Verify saving of filter with Filter Rule (filter by field) and mandatory field (keyword value) left blank
-    Given I am on Create New Filter page
     When I create a Filter with filter name <filter name> and <source> as source
     And with Filter Rule: <keyword> - <comparator> - <keyword value>, NOT button <NOT>
     And <filter name> has Action: <action>

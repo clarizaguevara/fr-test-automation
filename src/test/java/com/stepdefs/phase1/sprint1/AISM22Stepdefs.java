@@ -16,23 +16,23 @@ public class AISM22Stepdefs implements En {
 			SendToSlackActionPage sendToSlackActionPage, CreateJiraTicketActionPage createJiraTicketActionPage) {
 		
 		And("with Filter Rule: (.*) - (.*) - (.*)$", (String keyword, String comparator, String keywordValue) -> {
-			filterRulePage.setDriver(hooks.getDriverHelper(), hooks.getScenarioName());
+			filterRulePage.setDriver(hooks.getDriverHelper(), ScenarioHooks.getScenarioName());
 			filterRulePage.selectKeyword(keyword);
 			filterRulePage.selectComparator(comparator);
 			filterRulePage.inputKeywordValue(keywordValue);
 		});
 		
 		And("with Action: Send To Slack \"([^\\\"]*)\"$", (String uniqueName) -> {
-			createNewFilterPage.setDriver(hooks.getDriverHelper(), hooks.getScenarioName());
-			sendToSlackActionPage.setDriver(hooks.getDriverHelper(), hooks.getScenarioName());
+			createNewFilterPage.setDriver(hooks.getDriverHelper(), ScenarioHooks.getScenarioName());
+			sendToSlackActionPage.setDriver(hooks.getDriverHelper(), ScenarioHooks.getScenarioName());
 			createNewFilterPage.selectAction(CommonConstants.ACTION_SEND_TO_SLACK);
 			sendToSlackActionPage.inputSlackChannel(CommonConstants.SLACK_CHANNEL);
 			sendToSlackActionPage.inputSlackMessage(uniqueName);
 		});
 		
 		And("with Action: Create Jira Ticket-KKA \"([^\\\"]*)\"$", (String uniqueName) -> {
-			createNewFilterPage.setDriver(hooks.getDriverHelper(), hooks.getScenarioName());
-			createJiraTicketActionPage.setDriver(hooks.getDriverHelper(), hooks.getScenarioName());
+			createNewFilterPage.setDriver(hooks.getDriverHelper(), ScenarioHooks.getScenarioName());
+			createJiraTicketActionPage.setDriver(hooks.getDriverHelper(), ScenarioHooks.getScenarioName());
 			createNewFilterPage.selectAction(CommonConstants.ACTION_CREATE_JIRA_TICKET);
 			createJiraTicketActionPage.inputSummary(uniqueName);
 			createJiraTicketActionPage.inputDescription(uniqueName);

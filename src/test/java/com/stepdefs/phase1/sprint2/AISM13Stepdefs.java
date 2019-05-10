@@ -15,8 +15,8 @@ public class AISM13Stepdefs implements En {
 			CreateSNOWTicket createSNOWTicket) {
 		
 		And("with Action: Create SNOW Ticket \"([^\\\"]*)\"$", (String uniqueName) -> {
-			createNewFilterPage.setDriver(hooks.getDriverHelper(), hooks.getScenarioName());
-			createSNOWTicket.setDriver(hooks.getDriverHelper(), hooks.getScenarioName());
+			createNewFilterPage.setDriver(hooks.getDriverHelper(), ScenarioHooks.getScenarioName());
+			createSNOWTicket.setDriver(hooks.getDriverHelper(), ScenarioHooks.getScenarioName());
 			createNewFilterPage.selectAction(CommonConstants.ACTION_CREATE_SNOW_TICKET);
 			createSNOWTicket.setImpactedUsers(CommonConstants.SNOW_IMPACTED_USER);
 			createSNOWTicket.setCategory(CommonConstants.SNOW_CATEGORY);
@@ -34,8 +34,8 @@ public class AISM13Stepdefs implements En {
 		});
 		
 		And("with Action: Create SNOW Ticket but mandatory fields are left blank \"([^\\\"]*)\"$", (String uniqueName) -> {
-			createNewFilterPage.setDriver(hooks.getDriverHelper(), hooks.getScenarioName());
-			createSNOWTicket.setDriver(hooks.getDriverHelper(), hooks.getScenarioName());
+			createNewFilterPage.setDriver(hooks.getDriverHelper(), ScenarioHooks.getScenarioName());
+			createSNOWTicket.setDriver(hooks.getDriverHelper(), ScenarioHooks.getScenarioName());
 			createNewFilterPage.selectAction(CommonConstants.ACTION_CREATE_SNOW_TICKET);
 			createSNOWTicket.selectLanguage(CommonConstants.SNOW_LANGUAGE);
 			createSNOWTicket.selectContactType(CommonConstants.SNOW_CONTACT_TYPE);

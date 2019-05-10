@@ -15,8 +15,8 @@ public class AISM62Stepdefs implements En {
 			CreateJiraTicketActionPage createJiraTicketActionPage) {
 		
 		And("with Action: Create Jira Ticket-ACPF but mandatory fields are left blank \"([^\\\"]*)\"$", (String uniqueName) -> {
-			createNewFilterPage.setDriver(hooks.getDriverHelper(), hooks.getScenarioName());
-			createJiraTicketActionPage.setDriver(hooks.getDriverHelper(), hooks.getScenarioName());
+			createNewFilterPage.setDriver(hooks.getDriverHelper(), ScenarioHooks.getScenarioName());
+			createJiraTicketActionPage.setDriver(hooks.getDriverHelper(), ScenarioHooks.getScenarioName());
 			createNewFilterPage.selectAction(CommonConstants.ACTION_CREATE_JIRA_TICKET);
 			createJiraTicketActionPage.selectProject(CommonConstants.JIRA_PROJECT_TYPE_ACPF);
 			createJiraTicketActionPage.inputSummary(uniqueName);
@@ -31,8 +31,8 @@ public class AISM62Stepdefs implements En {
 		});
 		
 		And("with Action: Create Jira Ticket-ACPF but non mandatory fields are left blank \"([^\\\"]*)\"$", (String uniqueName) -> {
-			createNewFilterPage.setDriver(hooks.getDriverHelper(), hooks.getScenarioName());
-			createJiraTicketActionPage.setDriver(hooks.getDriverHelper(), hooks.getScenarioName());
+			createNewFilterPage.setDriver(hooks.getDriverHelper(), ScenarioHooks.getScenarioName());
+			createJiraTicketActionPage.setDriver(hooks.getDriverHelper(), ScenarioHooks.getScenarioName());
 			createNewFilterPage.selectAction(CommonConstants.ACTION_CREATE_JIRA_TICKET);
 			createJiraTicketActionPage.selectProject(CommonConstants.JIRA_PROJECT_TYPE_ACPF);
 			createJiraTicketActionPage.inputSummary(" ");
@@ -48,13 +48,13 @@ public class AISM62Stepdefs implements En {
 		});
 		
 		And("I add multiple watchers$", () -> {
-			createJiraTicketActionPage.setDriver(hooks.getDriverHelper(), hooks.getScenarioName());
+			createJiraTicketActionPage.setDriver(hooks.getDriverHelper(), ScenarioHooks.getScenarioName());
 			createJiraTicketActionPage.setWatchers(CommonConstants.JIRA_WATCHERS);
 			createJiraTicketActionPage.setWatchers(CommonConstants.JIRA_WATCHERS_ANOTHER);
 		});
 		
 		And("I add multiple labels$", () -> {
-			createJiraTicketActionPage.setDriver(hooks.getDriverHelper(), hooks.getScenarioName());
+			createJiraTicketActionPage.setDriver(hooks.getDriverHelper(), ScenarioHooks.getScenarioName());
 			createJiraTicketActionPage.inputLabels(CommonConstants.JIRA_LABEL_ANOTHER);
 		});
 	}

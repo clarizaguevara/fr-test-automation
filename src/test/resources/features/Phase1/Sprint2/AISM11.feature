@@ -3,8 +3,11 @@ Feature: AISM-11
   As a Operator
   I can check network status from the alert information
 
+  Background: 
+    Given I am login
+    And I am on Create New Filter page
+
   Scenario Outline: Verify saving of filter with Cisco Meraki Check condition (device status = <device status>)
-    Given I am to create a filter with Cisco Meraki Check condition and I am on Create New Filter page
     When I create a Filter with filter name <filter name>, <source> as source, Filter rule: <keyword> - <comparator> - <keyword value>, and add a Cisco Meraki Check condition: Check if device causing alert is <device status>
     Then filter with Cisco Meraki Check condition should be saved successfully
 

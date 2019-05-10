@@ -15,8 +15,8 @@ public class AISM21Stepdefs implements En {
 			SendEmailActionPage sendEmailActionPage) {
 		
 		And("with Action: Send Email \"([^\\\"]*)\"$", (String uniqueName) -> {
-			createNewFilterPage.setDriver(hooks.getDriverHelper(), hooks.getScenarioName());
-			sendEmailActionPage.setDriver(hooks.getDriverHelper(), hooks.getScenarioName());
+			createNewFilterPage.setDriver(hooks.getDriverHelper(), ScenarioHooks.getScenarioName());
+			sendEmailActionPage.setDriver(hooks.getDriverHelper(), ScenarioHooks.getScenarioName());
 			createNewFilterPage.selectAction(CommonConstants.ACTION_SEND_EMAIL);
 			sendEmailActionPage.inputTo(CommonConstants.EMAIL_TO);
 			sendEmailActionPage.inputCC(CommonConstants.EMAIL_CC);
@@ -25,8 +25,8 @@ public class AISM21Stepdefs implements En {
 		});
 		
 		And("with Action: Send Email but mandatory fields are left blank \"([^\\\"]*)\"$", (String uniqueName) -> {
-			createNewFilterPage.setDriver(hooks.getDriverHelper(), hooks.getScenarioName());
-			sendEmailActionPage.setDriver(hooks.getDriverHelper(), hooks.getScenarioName());
+			createNewFilterPage.setDriver(hooks.getDriverHelper(), ScenarioHooks.getScenarioName());
+			sendEmailActionPage.setDriver(hooks.getDriverHelper(), ScenarioHooks.getScenarioName());
 			createNewFilterPage.selectAction(CommonConstants.ACTION_SEND_EMAIL);
 			sendEmailActionPage.inputTo(" ");
 			sendEmailActionPage.inputCC(CommonConstants.EMAIL_CC);

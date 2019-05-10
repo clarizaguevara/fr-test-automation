@@ -16,8 +16,8 @@ public class AISM18Stepdefs implements En {
 			SendToSlackActionPage sendToSlackActionPage, CreateJiraTicketActionPage createJiraTicketActionPage) {
 		
 		And("with Action: Create Jira Ticket-KKA but mandatory fields are left blank \"([^\\\"]*)\"$", (String uniqueName) -> {
-			createNewFilterPage.setDriver(hooks.getDriverHelper(), hooks.getScenarioName());
-			createJiraTicketActionPage.setDriver(hooks.getDriverHelper(), hooks.getScenarioName());
+			createNewFilterPage.setDriver(hooks.getDriverHelper(), ScenarioHooks.getScenarioName());
+			createJiraTicketActionPage.setDriver(hooks.getDriverHelper(), ScenarioHooks.getScenarioName());
 			createNewFilterPage.selectAction(CommonConstants.ACTION_CREATE_JIRA_TICKET);
 			createJiraTicketActionPage.inputSummary(uniqueName);
 			createJiraTicketActionPage.inputDescription(uniqueName);
@@ -32,8 +32,8 @@ public class AISM18Stepdefs implements En {
 		});
 		
 		And("with Action: Create Jira Ticket-KKA but non mandatory fields are left blank \"([^\\\"]*)\"$", (String uniqueName) -> {
-			createNewFilterPage.setDriver(hooks.getDriverHelper(), hooks.getScenarioName());
-			createJiraTicketActionPage.setDriver(hooks.getDriverHelper(), hooks.getScenarioName());
+			createNewFilterPage.setDriver(hooks.getDriverHelper(), ScenarioHooks.getScenarioName());
+			createJiraTicketActionPage.setDriver(hooks.getDriverHelper(), ScenarioHooks.getScenarioName());
 			createNewFilterPage.selectAction(CommonConstants.ACTION_CREATE_JIRA_TICKET);
 			createJiraTicketActionPage.inputSummary(" ");
 			createJiraTicketActionPage.inputDescription(" ");

@@ -38,7 +38,7 @@ public class WebDriverHelper {
 	private WebDriver driver;
 	
     private static final String GENERIC_EXCEPTION_OCCURRED = "Generic Exception occurred: ";
-    private static final String CHECK_IF_ELEMENT_IS_VISIBLE = "Check if element is visible.";
+    //private static final String CHECK_IF_ELEMENT_IS_VISIBLE = "Check if element is visible.";
     private static final String ELEMENT_NOT_FOUND = "Element not found: {}";
 
     public WebDriverHelper(WebDriver driver) {

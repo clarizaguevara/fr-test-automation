@@ -5,10 +5,7 @@ import com.pageobjects.CreateJiraTicketActionPage;
 import com.pageobjects.CreateNewFilterPage;
 import com.pageobjects.FilterRulePage;
 import com.pageobjects.LoginPage;
-import com.pageobjects.SendToSlackActionPage;
 import com.stepdefs.ScenarioHooks;
-import com.utils.PropertyUtil;
-
 import cucumber.api.java8.En;
 
 public class AISM6Stepdefs implements En {
@@ -17,8 +14,8 @@ public class AISM6Stepdefs implements En {
 			 CreateJiraTicketActionPage createJiraTicketActionPage) {
 		
 		And("with Action: Create Jira Ticket-ACPF \"([^\\\"]*)\"$", (String uniqueName) -> {
-			createNewFilterPage.setDriver(hooks.getDriverHelper(), hooks.getScenarioName());
-			createJiraTicketActionPage.setDriver(hooks.getDriverHelper(), hooks.getScenarioName());
+			createNewFilterPage.setDriver(hooks.getDriverHelper(), ScenarioHooks.getScenarioName());
+			createJiraTicketActionPage.setDriver(hooks.getDriverHelper(), ScenarioHooks.getScenarioName());
 			createNewFilterPage.selectAction(CommonConstants.ACTION_CREATE_JIRA_TICKET);
 			createJiraTicketActionPage.selectProject(CommonConstants.JIRA_PROJECT_TYPE_ACPF);
 			createJiraTicketActionPage.inputSummary(uniqueName);
@@ -34,12 +31,12 @@ public class AISM6Stepdefs implements En {
 		});
 		
 		And("Send ticket ID to Slack channel is not ticked$", () -> {
-			createJiraTicketActionPage.setDriver(hooks.getDriverHelper(), hooks.getScenarioName());
+			createJiraTicketActionPage.setDriver(hooks.getDriverHelper(), ScenarioHooks.getScenarioName());
 			createJiraTicketActionPage.checkSendTicketToSlackIDChannel(); 
 		});
 		
 		And("Slack Channel field is left blank$", () -> {
-			createJiraTicketActionPage.setDriver(hooks.getDriverHelper(), hooks.getScenarioName());
+			createJiraTicketActionPage.setDriver(hooks.getDriverHelper(), ScenarioHooks.getScenarioName());
 			createJiraTicketActionPage.inputSlackChannel(CommonConstants.JIRA_SLACK_CHANNEL);
 		});
 	}

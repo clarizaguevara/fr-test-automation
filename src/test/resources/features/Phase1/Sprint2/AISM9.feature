@@ -3,8 +3,11 @@ Feature: AISM-9
   As a Operator
   I can filter unnecessary alert by time 1
 
+  Background: 
+    Given I am login
+    And I am on Create New Filter page
+
   Scenario Outline: Verify saving of filter with Suppression condition (Within selected time/days/timezone)
-    Given I am to create a filter with Suppression condition and I am on Create New Filter page
     When I create a Filter with filter name <filter name>, Filter rule: <keyword> - <comparator> - <keyword value>, and add a Suppression condition with fields: time= <timeFrom> to <timeTo>, timezone= <timezone>, days= <days>, Within these time ranges
     Then filter with Suppression condition should be saved successfully
 
