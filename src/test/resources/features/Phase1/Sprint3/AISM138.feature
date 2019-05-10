@@ -1,4 +1,4 @@
-@scenarios @EventsBrowser @testing
+@scenarios @EventsBrowser
 Feature: AISM-138
   As an Operator
   I can see the status of the Filters and the Actions Triggered.  (EvA Event Browser)

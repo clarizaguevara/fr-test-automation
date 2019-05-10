@@ -3,6 +3,7 @@ C:\Users\cguevara6\OneDrive - DXC Production\Documents\GitHub\FR-Test-Automation
 C:\Users\cguevara6\OneDrive - DXC Production\Documents\GitHub\FR-Test-Automation\src\test\java\com\pageobjects\SendToSlackActionPage.java
 C:\Users\cguevara6\OneDrive - DXC Production\Documents\GitHub\FR-Test-Automation\src\test\java\com\pageobjects\CreateNewFilterPage.java
 C:\Users\cguevara6\OneDrive - DXC Production\Documents\GitHub\FR-Test-Automation\src\test\java\com\browserhelper\BrowserBuilder.java
+C:\Users\cguevara6\OneDrive - DXC Production\Documents\GitHub\FR-Test-Automation\src\test\java\com\pageobjects\AccessManagementPage.java
 C:\Users\cguevara6\OneDrive - DXC Production\Documents\GitHub\FR-Test-Automation\src\test\java\com\stepdefs\phase1\sprint3\AISM62Stepdefs.java
 C:\Users\cguevara6\OneDrive - DXC Production\Documents\GitHub\FR-Test-Automation\src\test\java\com\pageobjects\FilterRulePage.java
 C:\Users\cguevara6\OneDrive - DXC Production\Documents\GitHub\FR-Test-Automation\src\test\java\com\stepdefs\phase1\sprint2\AISM9Stepdefs.java
@@ -21,12 +22,14 @@ C:\Users\cguevara6\OneDrive - DXC Production\Documents\GitHub\FR-Test-Automation
 C:\Users\cguevara6\OneDrive - DXC Production\Documents\GitHub\FR-Test-Automation\src\test\java\com\stepdefs\phase1\sprint1\AISM23Stepdefs.java
 C:\Users\cguevara6\OneDrive - DXC Production\Documents\GitHub\FR-Test-Automation\src\test\java\com\stepdefs\phase1\sprint2\AISM13Stepdefs.java
 C:\Users\cguevara6\OneDrive - DXC Production\Documents\GitHub\FR-Test-Automation\src\test\java\com\stepdefs\phase1\sprint2\AISM12Stepdefs.java
+C:\Users\cguevara6\OneDrive - DXC Production\Documents\GitHub\FR-Test-Automation\src\test\java\com\utils\RolesUtil.java
 C:\Users\cguevara6\OneDrive - DXC Production\Documents\GitHub\FR-Test-Automation\src\test\java\com\stepdefs\phase1\sprint2\AISM11Stepdefs.java
 C:\Users\cguevara6\OneDrive - DXC Production\Documents\GitHub\FR-Test-Automation\src\test\java\com\utils\ScenarioName.java
 C:\Users\cguevara6\OneDrive - DXC Production\Documents\GitHub\FR-Test-Automation\src\test\java\com\stepdefs\phase1\sprint1\AISM22Stepdefs.java
 C:\Users\cguevara6\OneDrive - DXC Production\Documents\GitHub\FR-Test-Automation\src\test\java\com\pageobjects\SendEmailActionPage.java
 C:\Users\cguevara6\OneDrive - DXC Production\Documents\GitHub\FR-Test-Automation\src\test\java\com\pageobjects\CreateSNOWTicket.java
 C:\Users\cguevara6\OneDrive - DXC Production\Documents\GitHub\FR-Test-Automation\src\test\java\com\pageobjects\SuppressionPage.java
+C:\Users\cguevara6\OneDrive - DXC Production\Documents\GitHub\FR-Test-Automation\src\test\java\com\stepdefs\phase1\sprint3\AISM39Stepdefs.java
 C:\Users\cguevara6\OneDrive - DXC Production\Documents\GitHub\FR-Test-Automation\src\test\java\com\constants\CommonConstants.java
 C:\Users\cguevara6\OneDrive - DXC Production\Documents\GitHub\FR-Test-Automation\src\test\java\com\stepdefs\phase1\sprint1\AISM25Stepdefs.java
 C:\Users\cguevara6\OneDrive - DXC Production\Documents\GitHub\FR-Test-Automation\src\test\java\com\browserhelper\ChromeBrowserDriver.java

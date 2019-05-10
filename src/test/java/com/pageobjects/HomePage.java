@@ -3,6 +3,7 @@ package com.pageobjects;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -23,11 +24,17 @@ public class HomePage extends BasePage{
 	@FindBy(xpath= "//button[text()='Apply']")
 	private WebElement btn_Apply;
 	
-	@FindBy(xpath= "//td[@class='font-weight-bold']")
-	private WebElement link_filtername;
-	
 	@FindBy(xpath= "//a[text()='Events']")
 	private WebElement btn_events;
+	
+	@FindBy(xpath= "//a[text()='Maintenance']")
+	private WebElement btn_maintenance;
+	
+	@FindBy(xpath= "//a[text()='Access Management']")
+	private WebElement btn_accessmanagement;
+	
+	@FindBy(xpath= "//a[text()='Keyword Lists']")
+	private WebElement btn_keywordlists;
 	
 	@FindBy(xpath= "//button[contains (text(), ' Create New Filter')]")
 	private WebElement btn_createNewFilter;
@@ -91,26 +98,28 @@ public class HomePage extends BasePage{
 	}
 	
 	/**
-	 * Click Filter name
+	 * Select Filter in the list
 	 */
-	public void clickFilterName() {
+	public void selectFilterInList(String filterName) {
 		log.entry();
-		if(driverHelper.isElementPresent(link_filtername)) {
-			driverHelper.embedScreenshot(scenario);
-			driverHelper.clickButton(link_filtername);
-			log.exit();
+		By fld_filter = By.xpath("//td[text()='" + filterName + "']");
+		if(driverHelper.isElementPresent(fld_filter)) {
+			driverHelper.clickButton(fld_filter);
+			driverHelper.waitForPageLoaded();	
 		} else {
-			System.out.println("Filter link is not present.");
+			System.out.println("Filter is not present.");
 			log.exit();
 		}
+		log.exit();
 	}
 	
 	/**
 	 * Verify Filter is not found
 	 */
-	public void verifyFilterNotFound() {
+	public void verifyFilterNotFound(String filterName) {
 		log.entry();
-		Assert.assertTrue("Filter is found.", driverHelper.isElementNotPresent(link_filtername));
+		By fld_filter = By.xpath("//td[text()='" + filterName + "']");
+		Assert.assertFalse("User is present", driverHelper.isElementPresent(fld_filter));
 		log.exit();
 	}
 	
@@ -126,6 +135,53 @@ public class HomePage extends BasePage{
 			log.exit();
 		} else {
 			System.out.println("Events tab is not present.");
+			log.exit();
+		}
+	}
+	
+	/**
+	 * Click Maintenance tab
+	 */
+	public void clickMaintenanceTab() {
+		log.entry();
+		if(driverHelper.isElementPresent(btn_maintenance)) {
+			driverHelper.embedScreenshot(scenario);
+			driverHelper.clickButton(btn_maintenance);
+			log.exit();
+		} else {
+			System.out.println("Maintenance tab is not present.");
+			log.exit();
+		}
+	}
+	
+	/**
+	 * Click Access Management
+	 */
+	public void clickAccessManagement() {
+		log.entry();
+		if(driverHelper.isElementPresent(btn_accessmanagement)) {
+			driverHelper.embedScreenshot(scenario);
+			driverHelper.clickButton(btn_accessmanagement);
+			driverHelper.explicitWait();
+			log.exit();
+		} else {
+			System.out.println("Access Management is not present.");
+			log.exit();
+		}
+	}
+	
+	/**
+	 * Click Keyword Lists
+	 */
+	public void clickKeywordLists() {
+		log.entry();
+		if(driverHelper.isElementPresent(btn_keywordlists)) {
+			driverHelper.embedScreenshot(scenario);
+			driverHelper.clickButton(btn_keywordlists);
+			driverHelper.explicitWait();
+			log.exit();
+		} else {
+			System.out.println("Keyword Lists is not present.");
 			log.exit();
 		}
 	}

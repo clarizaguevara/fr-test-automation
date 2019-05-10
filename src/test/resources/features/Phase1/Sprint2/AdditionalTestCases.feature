@@ -22,4 +22,4 @@ Feature: Additional Test Cases
     When I create a Filter with filter name: AUT_TestDelete and Nagios-Pet as source
     Then I go back to Browse page and open filter AUT_TestDelete
     And I click the Delete button to delete the filter
-    Then filter AUT_TestDelete should be deleted successfully
+    Then filter AUT_TestDelete should be successfully deleted

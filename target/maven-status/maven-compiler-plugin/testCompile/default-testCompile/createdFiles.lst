@@ -1,4 +1,5 @@
 com\browserhelper\ChromeBrowserDriver.class
+com\pageobjects\AccessManagementPage.class
 com\pageobjects\ExtendedRulePage.class
 com\utils\SuppressionUtil.class
 com\pageobjects\BasePage.class
@@ -21,9 +22,11 @@ com\browserhelper\BrowserBuilder.class
 com\browserhelper\IEBrowserDriver.class
 com\stepdefs\phase1\sprint2\AISM18Stepdefs.class
 com\stepdefs\phase1\sprint2\AISM6Stepdefs.class
+com\utils\RolesUtil.class
 com\pageobjects\SendEmailActionPage.class
 com\stepdefs\phase1\sprint1\AISM7Stepdefs.class
 com\constants\CommonConstants.class
+com\stepdefs\phase1\sprint3\AISM39Stepdefs.class
 com\pageobjects\CreateNewFilterPage.class
 com\stepdefs\phase1\sprint2\AISM12Stepdefs.class
 com\pageobjects\EventsBrowserPage.class

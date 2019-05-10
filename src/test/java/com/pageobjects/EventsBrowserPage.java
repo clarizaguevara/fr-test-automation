@@ -13,7 +13,7 @@ import org.openqa.selenium.support.FindBys;
 
 public class EventsBrowserPage extends BasePage {
 	
-private static final Logger log = LogManager.getLogger(EventsBrowserPage.class);
+	private static final Logger log = LogManager.getLogger(EventsBrowserPage.class);
 
 	
 	/* Page Elements */

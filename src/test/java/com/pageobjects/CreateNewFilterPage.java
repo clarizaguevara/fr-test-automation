@@ -209,6 +209,7 @@ public class CreateNewFilterPage extends BasePage {
 		if(driverHelper.isElementPresent(btn_Home)) {
 			driverHelper.embedScreenshot(scenario);
 			driverHelper.clickButton(btn_Home);
+			driverHelper.explicitWait();
 			log.exit();
 		} else {
 			System.out.println("Home Button is not present.");

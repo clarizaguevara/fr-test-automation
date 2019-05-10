@@ -55,7 +55,7 @@ public class AdditionalTestCasesStepdefs implements En {
 			homePage.verifySuccessfulNavigationToHomePage();
 			homePage.inputFilterTitle(filterName);
 			homePage.clickApplyButton();
-			homePage.clickFilterName();
+			homePage.selectFilterInList(filterName);
 			createNewFilterPage.verifySuccessfulNavigationToEditFilterPage();
 			Assert.assertTrue("Values are not the same", (createNewFilterPage.getFilterName()).equals(filterName));
 		});
@@ -73,7 +73,7 @@ public class AdditionalTestCasesStepdefs implements En {
 			homePage.verifySuccessfulNavigationToHomePage();
 			homePage.inputFilterTitle(filterName);
 			homePage.clickApplyButton();
-			homePage.clickFilterName();
+			homePage.selectFilterInList(filterName);
 			createNewFilterPage.verifySuccessfulNavigationToEditFilterPage();
 			Assert.assertTrue("Values are not the same", (createNewFilterPage.getFilterName()).equals(filterName));
 			//Assert.assertTrue("Values are not the same", (filterRulePage.getKeyword()).equals(keyword));
@@ -106,12 +106,12 @@ public class AdditionalTestCasesStepdefs implements En {
 			createNewFilterPage.verifySuccessfulNavigationToCreateNewFilterPage();
 		});
 	
-		Then("filter (.*) should be deleted successfully", (String filterName) -> {
+		Then("filter (.*) should be successfully deleted", (String filterName) -> {
 			createNewFilterPage.clickHomeButton();
 			homePage.verifySuccessfulNavigationToHomePage();
 			homePage.inputFilterTitle(filterName);
 			homePage.clickApplyButton();
-			homePage.verifyFilterNotFound();
+			homePage.verifyFilterNotFound(filterName);
 		});
 
 	

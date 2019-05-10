@@ -74,6 +74,7 @@ public class FilterRulePage extends BasePage {
 	public void inputKeywordValue(String keywordValue) {
 		log.entry();
 		if(driverHelper.isElementPresent(fld_keywordvalue)) {
+			fld_keywordvalue.clear();
 			driverHelper.inputFieldValue(fld_keywordvalue, keywordValue);
 			driverHelper.embedScreenshot(scenario);
 			log.exit();
