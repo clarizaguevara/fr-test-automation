@@ -2,7 +2,7 @@ package com.stepdefs.phase1.sprint2;
 
 import com.constants.CommonConstants;
 import com.pageobjects.CreateNewFilterPage;
-import com.pageobjects.CreateSNOWTicket;
+import com.pageobjects.CreateSNOWTicketPage;
 import com.pageobjects.FilterRulePage;
 import com.pageobjects.LoginPage;
 import com.stepdefs.ScenarioHooks;
@@ -12,7 +12,7 @@ import cucumber.api.java8.En;
 public class AISM13Stepdefs implements En {
 	
 	public AISM13Stepdefs(ScenarioHooks hooks, LoginPage loginPage, CreateNewFilterPage createNewFilterPage, FilterRulePage filterRulePage,
-			CreateSNOWTicket createSNOWTicket) {
+			CreateSNOWTicketPage createSNOWTicket) {
 		
 		And("with Action: Create SNOW Ticket \"([^\\\"]*)\"$", (String uniqueName) -> {
 			createNewFilterPage.setDriver(hooks.getDriverHelper(), ScenarioHooks.getScenarioName());

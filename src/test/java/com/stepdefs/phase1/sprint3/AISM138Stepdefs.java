@@ -3,13 +3,11 @@ package com.stepdefs.phase1.sprint3;
 import com.pageobjects.EventsBrowserPage;
 import com.pageobjects.HomePage;
 import com.stepdefs.ScenarioHooks;
-import com.utils.SourceUtil;
-
 import cucumber.api.java8.En;
 
 public class AISM138Stepdefs implements En {
 	
-	public AISM138Stepdefs(ScenarioHooks hooks, HomePage homePage, EventsBrowserPage eventsBrowserPage, SourceUtil sourceUtil) {
+	public AISM138Stepdefs(ScenarioHooks hooks, HomePage homePage, EventsBrowserPage eventsBrowserPage) {
 		
 		And("I am on Home page", () -> {
 			homePage.setDriver(hooks.getDriverHelper(), ScenarioHooks.getScenarioName());
@@ -41,7 +39,14 @@ public class AISM138Stepdefs implements En {
 		});
 		
 		Then("Events Browser page should list the events received from (.*) to (.*) and with (.*) as source", (String timestampFrom, String timestampTo, String source) -> {
-			eventsBrowserPage.verifySourceOfSearchResults(sourceUtil.convertSourceName(source));
+			eventsBrowserPage.verifySourceOfSearchResults(source);
+			eventsBrowserPage.verifyDateOfSearchResults(timestampFrom, timestampTo);
+		});
+		
+		/*-----------------------------*/
+		
+		Then("From date should not be greater than To date when selecting Date Range", () -> {
+			eventsBrowserPage.verifyFromAndToTimestamps();
 		});
 		
 		/*-----------------------------*/

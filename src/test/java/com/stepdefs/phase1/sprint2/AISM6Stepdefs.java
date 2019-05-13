@@ -37,7 +37,7 @@ public class AISM6Stepdefs implements En {
 		
 		And("Slack Channel field is left blank$", () -> {
 			createJiraTicketActionPage.setDriver(hooks.getDriverHelper(), ScenarioHooks.getScenarioName());
-			createJiraTicketActionPage.inputSlackChannel(CommonConstants.JIRA_SLACK_CHANNEL);
+			createJiraTicketActionPage.inputSlackChannel("");
 		});
 	}
 }

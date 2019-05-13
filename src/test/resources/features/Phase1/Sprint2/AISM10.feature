@@ -13,6 +13,6 @@ Feature: AISM-10
 
     Examples: 
       | filter name          | keyword | comparator | keyword value | timeFrom | timeTo | timezone | days                |
-      | AUT_TestSuppression4 | Shop    | Equals     | UQ            | 11:00    | 20:00  | Japan    | MON,TUE,WED,THU,FRI |
+      | AUT_TestSuppression4 | Shop    | Equals     | UQ            | 11:00    | 18:00  | Japan    | MON,TUE,WED,THU,FRI |
       | AUT_TestSuppression5 | Country | Equals     | JP            | 02:00    | 11:00  | GMT      | MON,TUE,WED,THU,FRI |
-      | AUT_TestSuppression6 | Device  | Contains   | SDC           | 10:00    | 19:00  | Japan    | MON,WED,FRI         |
+      | AUT_TestSuppression6 | Device  | Contains   | SDC           | 10:00    | 19:00  | Japan    | TUE,THU,SAT         |

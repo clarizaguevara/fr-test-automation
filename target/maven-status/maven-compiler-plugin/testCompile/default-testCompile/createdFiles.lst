@@ -1,12 +1,11 @@
 com\browserhelper\ChromeBrowserDriver.class
 com\pageobjects\AccessManagementPage.class
 com\pageobjects\ExtendedRulePage.class
-com\utils\SuppressionUtil.class
 com\pageobjects\BasePage.class
 com\pageobjects\CreateJiraTicketActionPage.class
 com\stepdefs\phase1\sprint1\AISM22Stepdefs.class
 com\utils\WebDriverHelper$1.class
-com\pageobjects\CreateSNOWTicket.class
+Parallel02IT.class
 com\stepdefs\phase1\sprint4\AISM47Stepdefs.class
 com\pageobjects\DeleteFilterPage.class
 com\pageobjects\HomePage.class
@@ -22,13 +21,13 @@ com\browserhelper\BrowserBuilder.class
 com\browserhelper\IEBrowserDriver.class
 com\stepdefs\phase1\sprint2\AISM18Stepdefs.class
 com\stepdefs\phase1\sprint2\AISM6Stepdefs.class
-com\utils\RolesUtil.class
 com\pageobjects\SendEmailActionPage.class
 com\stepdefs\phase1\sprint1\AISM7Stepdefs.class
 com\constants\CommonConstants.class
 com\stepdefs\phase1\sprint3\AISM39Stepdefs.class
 com\pageobjects\CreateNewFilterPage.class
 com\stepdefs\phase1\sprint2\AISM12Stepdefs.class
+com\utils\DataHelper.class
 com\pageobjects\EventsBrowserPage.class
 com\pageobjects\SuppressionPage.class
 com\stepdefs\ScenarioHooks.class
@@ -43,6 +42,6 @@ com\pageobjects\LoginPage.class
 com\utils\ScenarioName.class
 com\pageobjects\FilterRulePage.class
 com\pageobjects\PageActions.class
+com\pageobjects\CreateSNOWTicketPage.class
 com\stepdefs\phase1\sprint2\AISM11Stepdefs.class
-com\utils\SourceUtil.class
 com\stepdefs\phase1\sprint3\AISM21Stepdefs.class

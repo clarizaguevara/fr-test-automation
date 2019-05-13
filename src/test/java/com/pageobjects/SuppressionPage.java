@@ -1,9 +1,12 @@
 package com.pageobjects;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.FindBys;
@@ -45,27 +48,6 @@ public class SuppressionPage extends BasePage {
 	@FindBy (xpath ="//div[@class='css-1wy0on6']//following::div[@class='css-1n9lbrx']")
 	private WebElement fld_timezoneOptions;
 	
-	@FindBy(xpath= "//label[text()='Days:']//following::div[@data-toggle='buttons'][1]")
-	private WebElement btn_MON;
-	
-	@FindBy(xpath= "//label[text()='Days:']//following::div[@data-toggle='buttons'][2]")
-	private WebElement btn_TUE;
-	
-	@FindBy(xpath= "//label[text()='Days:']//following::div[@data-toggle='buttons'][3]")
-	private WebElement btn_WED;
-	
-	@FindBy(xpath= "//label[text()='Days:']//following::div[@data-toggle='buttons'][4]")
-	private WebElement btn_THU;
-	
-	@FindBy(xpath= "//label[text()='Days:']//following::div[@data-toggle='buttons'][5]")
-	private WebElement btn_FRI;
-	
-	@FindBy(xpath= "//label[text()='Days:']//following::div[@data-toggle='buttons'][6]")
-	private WebElement btn_SAT;
-	
-	@FindBy(xpath= "//label[text()='Days:']//following::div[@data-toggle='buttons'][7]")
-	private WebElement btn_SUN;
-	
 	@FindBys(value = @FindBy (xpath = "//div[@class='col-sm-2 offset-sm-1 pl-1 pr-0']//select[@class='form-control']//option"))
 	private List<WebElement> list_timeRange;
 	
@@ -78,11 +60,12 @@ public class SuppressionPage extends BasePage {
 	/**
 	 * Select From time
 	 */
-	public void selectTimeFrom(String timeFrom_hours, String timeFrom_minutes) {
+	public void selectTimeFrom(String timeFrom) {
 		log.entry();
+		List<String> time_From = Arrays.asList(timeFrom.split(":"));
 		if(driverHelper.isElementPresent(fld_timeFrom_hours)) {
 			driverHelper.clickButton(fld_timeFrom_hours);
-			driverHelper.setValueDropdown(list_timeFrom_hours, fld_timeFrom_hours, timeFrom_hours);
+			driverHelper.setValueDropdown(list_timeFrom_hours, fld_timeFrom_hours, time_From.get(0));
 			driverHelper.embedScreenshot(scenario);
 			log.exit();
 		} else {
@@ -91,7 +74,7 @@ public class SuppressionPage extends BasePage {
 		}
 		if(driverHelper.isElementPresent(fld_timeFrom_minutes)) {
 			driverHelper.clickButton(fld_timeFrom_minutes);
-			driverHelper.setValueDropdown(list_timeFrom_minutes, fld_timeFrom_minutes, timeFrom_minutes);
+			driverHelper.setValueDropdown(list_timeFrom_minutes, fld_timeFrom_minutes, time_From.get(1));
 			driverHelper.embedScreenshot(scenario);
 			log.exit();
 		} else {
@@ -103,11 +86,12 @@ public class SuppressionPage extends BasePage {
 	/**
 	 * Select To time
 	 */
-	public void selectTimeTo(String timeTo_hours, String timeTo_minutes) {
+	public void selectTimeTo(String timeTo) {
 		log.entry();
+		List<String> time_To = Arrays.asList(timeTo.split(":"));
 		if(driverHelper.isElementPresent(fld_timeTo_hours)) {
 			driverHelper.clickButton(fld_timeTo_hours);
-			driverHelper.setValueDropdown(list_timeTo_hours, fld_timeTo_hours, timeTo_hours);
+			driverHelper.setValueDropdown(list_timeTo_hours, fld_timeTo_hours, time_To.get(0));
 			driverHelper.embedScreenshot(scenario);
 			log.exit();
 		} else {
@@ -116,7 +100,7 @@ public class SuppressionPage extends BasePage {
 		}
 		if(driverHelper.isElementPresent(fld_timeTo_minutes)) {
 			driverHelper.clickButton(fld_timeTo_minutes);
-			driverHelper.setValueDropdown(list_timeTo_minutes, fld_timeTo_minutes, timeTo_minutes);
+			driverHelper.setValueDropdown(list_timeTo_minutes, fld_timeTo_minutes, time_To.get(1));
 			driverHelper.embedScreenshot(scenario);
 			log.exit();
 		} else {
@@ -145,101 +129,37 @@ public class SuppressionPage extends BasePage {
 	}
 	
 	/**
-	 * Click MON button
+	 * Select/Deselect Days
 	 */
-	public void selectMON() {
+	public void selectDays(String days) {
 		log.entry();
-		if(driverHelper.isElementPresent(btn_MON)) {
-			driverHelper.clickButton(btn_MON);
-			log.exit();
-		} else {
-			System.out.println("MON button is not present.");
-			log.exit();
-		}
-	}
-	
-	/**
-	 * Click TUE button
-	 */
-	public void selectTUE() {
-		log.entry();
-		if(driverHelper.isElementPresent(btn_TUE)) {
-			driverHelper.clickButton(btn_TUE);
-			log.exit();
-		} else {
-			System.out.println("TUE button is not present.");
-			log.exit();
-		}
-	}
-	
-	/**
-	 * Click WED button
-	 */
-	public void selectWED() {
-		log.entry();
-		if(driverHelper.isElementPresent(btn_WED)) {
-			driverHelper.clickButton(btn_WED);
-			log.exit();
-		} else {
-			System.out.println("WED button is not present.");
-			log.exit();
-		}
-	}
-	
-	/**
-	 * Click THU button
-	 */
-	public void selectTHU() {
-		log.entry();
-		if(driverHelper.isElementPresent(btn_THU)) {
-			driverHelper.clickButton(btn_THU);
-			log.exit();
-		} else {
-			System.out.println("THU button is not present.");
-			log.exit();
-		}
-	}
-	
-	/**
-	 * Click FRI button
-	 */
-	public void selectFRI() {
-		log.entry();
-		if(driverHelper.isElementPresent(btn_FRI)) {
-			driverHelper.clickButton(btn_FRI);
-			log.exit();
-		} else {
-			System.out.println("FRI button is not present.");
-			log.exit();
-		}
-	}
-	
-	/**
-	 * Click SAT button
-	 */
-	public void selectSAT() {
-		log.entry();
-		if(driverHelper.isElementPresent(btn_SAT)) {
-			driverHelper.clickButton(btn_SAT);
-			log.exit();
-		} else {
-			System.out.println("SAT button is not present.");
-			log.exit();
-		}
-	}
-	
-	/**
-	 * Click SUN button
-	 */
-	public void selectSUN() {
-		log.entry();
-		if(driverHelper.isElementPresent(btn_SUN)) {
-			driverHelper.clickButton(btn_SUN);
-			log.exit();
-		} else {
-			System.out.println("SUN button is not present.");
-			log.exit();
-		}
+		ArrayList<String> LOV_DAYS = new ArrayList<>(Arrays.asList("MON","TUE","WED","THU","FRI"));
+		List<String> selectedDays = Arrays.asList(days.split(","));
+    	
+    	for (int counter = 0; counter < LOV_DAYS.size(); counter++) {
+    		By fld_day = By.xpath("//label[text()='" + LOV_DAYS.get(counter) + "']");
+    		By fld_day_active = By.xpath("//label[@class='btn w-100 active w-100' and text()='" + LOV_DAYS.get(counter) + "']");
+    		
+    		//Check if the day is selected
+    		if(selectedDays.contains(LOV_DAYS.get(counter))) {
+    			//Day is selected
+    			
+	    		//Check if the selected day is inactive
+	    		//If so, select it. If not, do nothing
+	    		if(!driverHelper.isButtonSelected(fld_day_active)) {
+	    			driverHelper.clickButton(fld_day);
+	    		}
+    		} else {
+    			//Day is not selected
+    			
+    			//Check if the unselected day is active
+	    		//If so, deselect it. If not, do nothing
+	    		if(driverHelper.isButtonSelected(fld_day_active)) {
+	    			driverHelper.clickButton(fld_day);
+	    		}
+    		}
+    	}
+		log.exit();
 	}
 	
 	/**

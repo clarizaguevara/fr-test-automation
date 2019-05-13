@@ -148,6 +148,7 @@ public class CreateJiraTicketActionPage extends BasePage {
 		log.entry();
 		driverHelper.waitForPageLoaded();
 		if(driverHelper.isElementPresent(fld_closingCondition)) {
+			fld_closingCondition.clear();
 			driverHelper.inputFieldValue(fld_closingCondition, closingCondition);
 			driverHelper.embedScreenshot(scenario);
 			log.exit();
@@ -181,7 +182,7 @@ public class CreateJiraTicketActionPage extends BasePage {
 		log.entry();
 		driverHelper.waitForPageLoaded();
 		if(driverHelper.isElementPresent(fld_assignee)) {
-			driverHelper.clickButton(fld_assignee);
+			//driverHelper.clickButton(fld_assignee);
 			driverHelper.inputFieldValue(fld_assignee, assignee);
 			driverHelper.waitForElementVisible(fld_assigneeOptions);
 			driverHelper.explicitWait();
@@ -201,7 +202,7 @@ public class CreateJiraTicketActionPage extends BasePage {
 		log.entry();
 		driverHelper.waitForPageLoaded();
 		if(driverHelper.isElementPresent(fld_watchers)) {
-			driverHelper.clickButton(fld_watchers);
+			//driverHelper.clickButton(fld_watchers);
 			driverHelper.inputFieldValue(fld_watchers, watchers);
 			driverHelper.waitForElementVisible(fld_watchersOptions);
 			driverHelper.explicitWait();

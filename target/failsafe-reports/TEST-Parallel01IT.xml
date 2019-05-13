@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="Parallel01IT" time="89.589" tests="7" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="Parallel01IT" time="189.129" tests="64" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_211\jre\bin"/>
@@ -26,7 +26,7 @@
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="user.variant" value=""/>
     <property name="os.name" value="Windows 10"/>
-    <property name="classworlds.conf" value="C:\Users\cguevara6\FRAutomation\.metadata\.plugins\org.eclipse.m2e.launching\launches\m2conf5927305648502545333.tmp"/>
+    <property name="classworlds.conf" value="C:\Users\cguevara6\FRAutomation\.metadata\.plugins\org.eclipse.m2e.launching\launches\m2conf5201606402952979127.tmp"/>
     <property name="sun.jnu.encoding" value="Cp1252"/>
     <property name="java.library.path" value="C:\Program Files\Java\jdk1.8.0_211\bin;C:\windows\Sun\Java\bin;C:\windows\system32;C:\windows;C:/Program Files/Java/jre1.8.0_211/bin/server;C:/Program Files/Java/jre1.8.0_211/bin;C:/Program Files/Java/jre1.8.0_211/lib/amd64;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\windows\system32;C:\windows;C:\windows\System32\Wbem;C:\windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Symantec\VIP Access Client\;C:\Program Files (x86)\OpenVPN\bin;C:\Program Files\Java\jdk1.8.0_211;C:\Program Files\apache-maven-3.6.0\bin;C:\Program Files\Git\cmd;C:\Program Files\nodejs\;C:\Program Files (x86)\Microsoft SQL Server\Client SDK\ODBC\110\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\120\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\120\DTS\Binn\;C:\Program Files\Java\jdk1.8.0_211\bin;C:\Program Files\apache-maven-3.6.0\bin;C:\Users\cguevara6\AppData\Local\Microsoft\WindowsApps;C:\Program Files\apache-maven-3.6.0\bin;C:\Users\cguevara6\AppData\Roaming\npm;C:\Users\cguevara6\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\cguevara6\AppData\Local\GitHubDesktop\bin;C:\Users\cguevara6\AppData\Local\Box\Box Edit\;C:\Users\cguevara6\eclipse\java-2018-12\eclipse;;."/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
@@ -60,11 +60,68 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase name="Given I am login" classname="Scenario: Verify that user can Delete a filter" time="0.003"/>
-  <testcase name="And I am on Create New Filter page" classname="Scenario: Verify that user can Delete a filter" time="0"/>
-  <testcase name="When I create a Filter with filter name: AUT_TestDelete and Nagios-Pet as source" classname="Scenario: Verify that user can Delete a filter" time="0"/>
-  <testcase name="Then I go back to Browse page and open filter AUT_TestDelete" classname="Scenario: Verify that user can Delete a filter" time="0"/>
-  <testcase name="And I click the Delete button to delete the filter" classname="Scenario: Verify that user can Delete a filter" time="0"/>
-  <testcase name="Then filter AUT_TestDelete should be successfully deleted" classname="Scenario: Verify that user can Delete a filter" time="0"/>
-  <testcase name="Scenario: Verify that user can Delete a filter" classname="Scenario: Verify that user can Delete a filter" time="0.87"/>
+  <testcase name="Given I am login" classname="Scenario: Verify successful navigation to Events Browser page" time="0.001"/>
+  <testcase name="And I am on Home page" classname="Scenario: Verify successful navigation to Events Browser page" time="0.001"/>
+  <testcase name="When I click Events tab" classname="Scenario: Verify successful navigation to Events Browser page" time="0"/>
+  <testcase name="Then Events Browser page should be loaded successfully" classname="Scenario: Verify successful navigation to Events Browser page" time="0"/>
+  <testcase name="Scenario: Verify successful navigation to Events Browser page" classname="Scenario: Verify successful navigation to Events Browser page" time="0.997"/>
+  <testcase name="Given I am login" classname="| Nagios-Pet |" time="0"/>
+  <testcase name="And I am on Home page" classname="| Nagios-Pet |" time="0"/>
+  <testcase name="When I click Events tab" classname="| Nagios-Pet |" time="0"/>
+  <testcase name="And I select Nagios-Pet as Source" classname="| Nagios-Pet |" time="0"/>
+  <testcase name="And I select Date Range: From 05/01/2019 00:00 To 06/01/2019 00:00" classname="| Nagios-Pet |" time="0"/>
+  <testcase name="And I click Apply" classname="| Nagios-Pet |" time="0"/>
+  <testcase name="Then Events Browser page should list the events received from 05/01/2019 00:00 to 06/01/2019 00:00 and with Nagios-Pet as source" classname="| Nagios-Pet |" time="0"/>
+  <testcase name="| Nagios-Pet |" classname="| Nagios-Pet |" time="0.937"/>
+  <testcase name="Given I am login" classname="| Cisco Meraki |" time="0"/>
+  <testcase name="And I am on Home page" classname="| Cisco Meraki |" time="0"/>
+  <testcase name="When I click Events tab" classname="| Cisco Meraki |" time="0"/>
+  <testcase name="And I select Cisco Meraki as Source" classname="| Cisco Meraki |" time="0"/>
+  <testcase name="And I select Date Range: From 05/01/2019 00:00 To 06/01/2019 00:00" classname="| Cisco Meraki |" time="0"/>
+  <testcase name="And I click Apply" classname="| Cisco Meraki |" time="0"/>
+  <testcase name="Then Events Browser page should list the events received from 05/01/2019 00:00 to 06/01/2019 00:00 and with Cisco Meraki as source" classname="| Cisco Meraki |" time="0"/>
+  <testcase name="| Cisco Meraki |" classname="| Cisco Meraki |" time="0.903"/>
+  <testcase name="Given I am login" classname="Scenario: Verify that From date cannot be greater than To date when selecting Date Range" time="0.001"/>
+  <testcase name="And I am on Home page" classname="Scenario: Verify that From date cannot be greater than To date when selecting Date Range" time="0"/>
+  <testcase name="When I click Events tab" classname="Scenario: Verify that From date cannot be greater than To date when selecting Date Range" time="0"/>
+  <testcase name="And I select Date Range: From 05/01/2019 00:00 To 04/10/2019 00:00" classname="Scenario: Verify that From date cannot be greater than To date when selecting Date Range" time="0"/>
+  <testcase name="And I click Apply" classname="Scenario: Verify that From date cannot be greater than To date when selecting Date Range" time="0"/>
+  <testcase name="Then From date should not be greater than To date when selecting Date Range" classname="Scenario: Verify that From date cannot be greater than To date when selecting Date Range" time="0"/>
+  <testcase name="Scenario: Verify that From date cannot be greater than To date when selecting Date Range" classname="Scenario: Verify that From date cannot be greater than To date when selecting Date Range" time="0.962"/>
+  <testcase name="Given I am login" classname="Scenario: Verify Payload Info of an event" time="0"/>
+  <testcase name="And I am on Home page" classname="Scenario: Verify Payload Info of an event" time="0"/>
+  <testcase name="When I click Events tab" classname="Scenario: Verify Payload Info of an event" time="0"/>
+  <testcase name="And I click the Payload button of each event" classname="Scenario: Verify Payload Info of an event" time="0"/>
+  <testcase name="Then Payload info of the event is shown" classname="Scenario: Verify Payload Info of an event" time="0"/>
+  <testcase name="Scenario: Verify Payload Info of an event" classname="Scenario: Verify Payload Info of an event" time="0.966"/>
+  <testcase name="Given I am login" classname="Scenario: Verify Filter details of an event" time="0"/>
+  <testcase name="And I am on Home page" classname="Scenario: Verify Filter details of an event" time="0"/>
+  <testcase name="When I click Events tab" classname="Scenario: Verify Filter details of an event" time="0"/>
+  <testcase name="And I select an event in the list" classname="Scenario: Verify Filter details of an event" time="0"/>
+  <testcase name="Then Filter details of the event is shown" classname="Scenario: Verify Filter details of an event" time="0"/>
+  <testcase name="When I click the Back button" classname="Scenario: Verify Filter details of an event" time="0"/>
+  <testcase name="Then Events Browser page should be loaded successfully" classname="Scenario: Verify Filter details of an event" time="0"/>
+  <testcase name="Scenario: Verify Filter details of an event" classname="Scenario: Verify Filter details of an event" time="0.922"/>
+  <testcase name="Given I am login" classname="Scenario: Verify Action details of a filter" time="0"/>
+  <testcase name="And I am on Home page" classname="Scenario: Verify Action details of a filter" time="0"/>
+  <testcase name="When I click Events tab" classname="Scenario: Verify Action details of a filter" time="0"/>
+  <testcase name="And I select an event in the list" classname="Scenario: Verify Action details of a filter" time="0"/>
+  <testcase name="Then Filter details of the event is shown" classname="Scenario: Verify Action details of a filter" time="0"/>
+  <testcase name="Then Filter details of the event is shown" classname="Scenario: Verify Action details of a filter" time="0"/>
+  <testcase name="When I select a filter in the filter list" classname="Scenario: Verify Action details of a filter" time="0"/>
+  <testcase name="Then Action details of the filter is shown" classname="Scenario: Verify Action details of a filter" time="0"/>
+  <testcase name="When I click the Back button" classname="Scenario: Verify Action details of a filter" time="0"/>
+  <testcase name="Scenario: Verify Action details of a filter" classname="Scenario: Verify Action details of a filter" time="0.95"/>
+  <testcase name="Given I am login" classname="Scenario: Verify Payload details of an action" time="0"/>
+  <testcase name="And I am on Home page" classname="Scenario: Verify Payload details of an action" time="0"/>
+  <testcase name="When I click Events tab" classname="Scenario: Verify Payload details of an action" time="0"/>
+  <testcase name="And I select an event in the list" classname="Scenario: Verify Payload details of an action" time="0"/>
+  <testcase name="Then Filter details of the event is shown" classname="Scenario: Verify Payload details of an action" time="0"/>
+  <testcase name="When I select a filter in the filter list" classname="Scenario: Verify Payload details of an action" time="0"/>
+  <testcase name="Then Action details of the filter is shown" classname="Scenario: Verify Payload details of an action" time="0"/>
+  <testcase name="Then Action details of the filter is shown" classname="Scenario: Verify Payload details of an action" time="0"/>
+  <testcase name="When I select an action in the action list" classname="Scenario: Verify Payload details of an action" time="0"/>
+  <testcase name="Then Payload of the action is shown" classname="Scenario: Verify Payload details of an action" time="0"/>
+  <testcase name="When I click the Back button" classname="Scenario: Verify Payload details of an action" time="0"/>
+  <testcase name="Scenario: Verify Payload details of an action" classname="Scenario: Verify Payload details of an action" time="1.031"/>
 </testsuite>

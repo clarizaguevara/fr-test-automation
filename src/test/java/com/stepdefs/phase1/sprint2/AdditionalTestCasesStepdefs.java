@@ -1,7 +1,5 @@
 package com.stepdefs.phase1.sprint2;
 
-import org.junit.Assert;
-
 import com.constants.CommonConstants;
 import com.pageobjects.CreateNewFilterPage;
 import com.pageobjects.DeleteFilterPage;
@@ -21,6 +19,7 @@ public class AdditionalTestCasesStepdefs implements En {
 		
 		When("I create a Filter with filter name (.*) and set Void as action", (String filterName) -> {
 			createNewFilterPage.inputFilterName(filterName);
+			createNewFilterPage.enableOrDisableFilter("disabled");
 			filterRulePage.setDriver(hooks.getDriverHelper(), ScenarioHooks.getScenarioName());
 			filterRulePage.selectComparator("Contains");
 			filterRulePage.inputKeywordValue("TEST");
@@ -36,6 +35,7 @@ public class AdditionalTestCasesStepdefs implements En {
 		When("I create a Filter with filter name (.*), (.*) as source, and with Filter rule: (.*) (.*) (.*)", (String filterName, String source, String keyword, String comparator, String keywordValue) -> {
 			createNewFilterPage.inputFilterName(filterName);
 			createNewFilterPage.selectSource(source);
+			createNewFilterPage.enableOrDisableFilter("disabled");
 			filterRulePage.setDriver(hooks.getDriverHelper(), ScenarioHooks.getScenarioName());
 			filterRulePage.selectKeyword(keyword);
 			filterRulePage.selectComparator(comparator);
@@ -57,7 +57,7 @@ public class AdditionalTestCasesStepdefs implements En {
 			homePage.clickApplyButton();
 			homePage.selectFilterInList(filterName);
 			createNewFilterPage.verifySuccessfulNavigationToEditFilterPage();
-			Assert.assertTrue("Values are not the same", (createNewFilterPage.getFilterName()).equals(filterName));
+			createNewFilterPage.checkFilterName(filterName);
 		});
 		
 		And("I edit the Filter Rule to: (.*) (.*) (.*)", (String keyword, String comparator, String keywordValue) -> {
@@ -75,10 +75,8 @@ public class AdditionalTestCasesStepdefs implements En {
 			homePage.clickApplyButton();
 			homePage.selectFilterInList(filterName);
 			createNewFilterPage.verifySuccessfulNavigationToEditFilterPage();
-			Assert.assertTrue("Values are not the same", (createNewFilterPage.getFilterName()).equals(filterName));
-			//Assert.assertTrue("Values are not the same", (filterRulePage.getKeyword()).equals(keyword));
-			//Assert.assertTrue("Values are not the same", (filterRulePage.getComparator()).equals(comparator));
-			Assert.assertTrue("Values are not the same", (filterRulePage.getKeywordValue()).equals(keywordValue));
+			createNewFilterPage.checkFilterName(filterName);
+			filterRulePage.checkKeywordValue(keywordValue);
 		});
 		
 		/*DELETE scenario*/
@@ -86,6 +84,7 @@ public class AdditionalTestCasesStepdefs implements En {
 		When("I create a Filter with filter name: (.*) and (.*) as source", (String filterName, String source) -> {
 			createNewFilterPage.inputFilterName(filterName);
 			createNewFilterPage.selectSource(source);
+			createNewFilterPage.enableOrDisableFilter("disabled");
 			filterRulePage.setDriver(hooks.getDriverHelper(), ScenarioHooks.getScenarioName());
 			filterRulePage.selectComparator("Contains");
 			filterRulePage.inputKeywordValue("TEST");

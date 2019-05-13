@@ -8,9 +8,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.FindBys;
 
-public class CreateSNOWTicket extends BasePage {
+public class CreateSNOWTicketPage extends BasePage {
 
-	private static final Logger log = LogManager.getLogger(CreateSNOWTicket.class);
+	private static final Logger log = LogManager.getLogger(CreateSNOWTicketPage.class);
 	
 	/* Page Elements */
 	@FindBys(value = @FindBy (xpath = "//label[contains(text(), 'Project:')]//following::div[@class='col-sm-9'][1]//select//option"))
@@ -91,7 +91,7 @@ public class CreateSNOWTicket extends BasePage {
 		driverHelper.waitForPageLoaded();
 		driver.switchTo().defaultContent();
 		if(driverHelper.isElementPresent(fld_impactedUsers)) {
-			driverHelper.clickButton(fld_impactedUsers);
+			//driverHelper.clickButton(fld_impactedUsers);
 			driverHelper.inputFieldValue(fld_impactedUsers, impactedUsers);
 			driverHelper.waitForElementVisible(fld_impactedUsersOptions);
 			driverHelper.explicitWaitSNOW();
@@ -112,7 +112,7 @@ public class CreateSNOWTicket extends BasePage {
 		driverHelper.waitForPageLoaded();
 		driver.switchTo().defaultContent();
 		if(driverHelper.isElementPresent(fld_assignmentGroup)) {
-			driverHelper.clickButton(fld_assignmentGroup);
+			//driverHelper.clickButton(fld_assignmentGroup);
 			driverHelper.inputFieldValue(fld_assignmentGroup, assignmentGroup);
 			driverHelper.waitForElementVisible(fld_assignmentGroupOptions);
 			driverHelper.explicitWaitSNOW();
@@ -133,7 +133,7 @@ public class CreateSNOWTicket extends BasePage {
 		driverHelper.waitForPageLoaded();
 		driver.switchTo().defaultContent();
 		if(driverHelper.isElementPresent(fld_assignedTo)) {
-			driverHelper.clickButton(fld_assignedTo);
+			//driverHelper.clickButton(fld_assignedTo);
 			driverHelper.inputFieldValue(fld_assignedTo, assignedTo);
 			driverHelper.waitForElementVisible(fld_assignedToOptions);
 			driverHelper.explicitWaitSNOW();
@@ -154,7 +154,7 @@ public class CreateSNOWTicket extends BasePage {
 		driverHelper.waitForPageLoaded();
 		driver.switchTo().defaultContent();
 		if(driverHelper.isElementPresent(fld_category)) {
-			driverHelper.clickButton(fld_category);
+			//driverHelper.clickButton(fld_category);
 			driverHelper.inputFieldValue(fld_category, category);
 			driverHelper.waitForElementVisible(fld_categoryOptions);
 			driverHelper.explicitWaitSNOW();
@@ -175,7 +175,7 @@ public class CreateSNOWTicket extends BasePage {
 		driverHelper.waitForPageLoaded();
 		driver.switchTo().defaultContent();
 		if(driverHelper.isElementPresent(fld_subCategory)) {
-			driverHelper.clickButton(fld_subCategory);
+			//driverHelper.clickButton(fld_subCategory);
 			driverHelper.inputFieldValue(fld_subCategory, subCategory);
 			driverHelper.waitForElementVisible(fld_subCategoryOptions);
 			driverHelper.explicitWaitSNOW();
@@ -196,7 +196,7 @@ public class CreateSNOWTicket extends BasePage {
 		driverHelper.waitForPageLoaded();
 		driver.switchTo().defaultContent();
 		if(driverHelper.isElementPresent(fld_area)) {
-			driverHelper.clickButton(fld_area);
+			//driverHelper.clickButton(fld_area);
 			driverHelper.inputFieldValue(fld_area, area);
 			driverHelper.waitForElementVisible(fld_areaOptions);
 			driverHelper.explicitWaitSNOW();
@@ -217,7 +217,7 @@ public class CreateSNOWTicket extends BasePage {
 		driverHelper.waitForPageLoaded();
 		driver.switchTo().defaultContent();
 		if(driverHelper.isElementPresent(fld_ticketType)) {
-			driverHelper.clickButton(fld_ticketType);
+			//driverHelper.clickButton(fld_ticketType);
 			driverHelper.inputFieldValue(fld_ticketType, ticketType);
 			driverHelper.explicitWaitSNOW();
 			driverHelper.clickEnter(fld_ticketType);
@@ -237,7 +237,7 @@ public class CreateSNOWTicket extends BasePage {
 		driverHelper.waitForPageLoaded();
 		driver.switchTo().defaultContent();
 		if(driverHelper.isElementPresent(fld_language)) {
-			driverHelper.clickButton(fld_language);
+			//driverHelper.clickButton(fld_language);
 			driverHelper.inputFieldValue(fld_language, language);
 			driverHelper.clickEnter(fld_language);
 			driverHelper.explicitWaitSNOW();
@@ -256,7 +256,7 @@ public class CreateSNOWTicket extends BasePage {
 		log.entry();
 		driver.switchTo().defaultContent();
 		if(driverHelper.isElementPresent(fld_contactType)) {
-			driverHelper.clickButton(fld_contactType);
+			//driverHelper.clickButton(fld_contactType);
 			driverHelper.inputFieldValue(fld_contactType, contactType);
 			driverHelper.clickEnter(fld_contactType);
 			driverHelper.explicitWaitSNOW();
@@ -275,7 +275,7 @@ public class CreateSNOWTicket extends BasePage {
 		log.entry();
 		driver.switchTo().defaultContent();
 		if(driverHelper.isElementPresent(fld_impact)) {
-			driverHelper.clickButton(fld_impact);
+			//driverHelper.clickButton(fld_impact);
 			driverHelper.inputFieldValue(fld_impact, impact);
 			driverHelper.clickEnter(fld_impact);
 			driverHelper.explicitWaitSNOW();
@@ -294,7 +294,7 @@ public class CreateSNOWTicket extends BasePage {
 		log.entry();
 		driver.switchTo().defaultContent();
 		if(driverHelper.isElementPresent(fld_urgency)) {
-			driverHelper.clickButton(fld_urgency);
+			//driverHelper.clickButton(fld_urgency);
 			driverHelper.inputFieldValue(fld_urgency, urgency);
 			driverHelper.clickEnter(fld_urgency);
 			driverHelper.explicitWaitSNOW();
@@ -313,7 +313,7 @@ public class CreateSNOWTicket extends BasePage {
 		log.entry();
 		driver.switchTo().defaultContent();
 		if(driverHelper.isElementPresent(fld_priority)) {
-			driverHelper.clickButton(fld_priority);
+			//driverHelper.clickButton(fld_priority);
 			driverHelper.inputFieldValue(fld_priority, priority);
 			driverHelper.clickEnter(fld_priority);
 			driverHelper.explicitWaitSNOW();

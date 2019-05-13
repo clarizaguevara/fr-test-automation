@@ -487,4 +487,26 @@ public class WebDriverHelper {
 		}
 		log.exit();
 	}
+	
+	/**
+     * Check if button is selected
+     * Used in:
+     * -Selecting Days in Suppression Condition
+     * -Selecting Roles in Access Management
+     */
+    public boolean isButtonSelected(By locator) {
+    	try {
+            driver.manage().timeouts().implicitlyWait(1, TimeUnit.MILLISECONDS);
+            WebDriverWait wait = new WebDriverWait(driver, 1);
+			wait.until(ExpectedConditions.presenceOfElementLocated(locator));
+			return true;
+        } catch (NoSuchElementException | StaleElementReferenceException e) {
+            log.error(ELEMENT_NOT_FOUND, e);
+        } catch (Exception e) {
+            log.error(GENERIC_EXCEPTION_OCCURRED, e);
+        } finally {
+            driver.manage().timeouts().implicitlyWait(1, TimeUnit.MILLISECONDS);
+        }
+        return false;
+    }
 }

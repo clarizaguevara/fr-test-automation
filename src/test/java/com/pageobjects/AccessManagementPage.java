@@ -1,5 +1,7 @@
 package com.pageobjects;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import org.apache.logging.log4j.LogManager;
@@ -9,6 +11,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.FindBys;
+
+import com.utils.DataHelper;
 
 public class AccessManagementPage extends BasePage {
 	
@@ -325,7 +329,7 @@ public class AccessManagementPage extends BasePage {
 	}
 	
 	/**
-	 * Select Role
+	 * Select Role (Role dropdown in User management)
 	 */
 	public void selectRole(String role) {
 		log.entry();
@@ -445,33 +449,30 @@ public class AccessManagementPage extends BasePage {
 	}
 	
 	/**
-	 * Get Employee Id
+	 * Check Employee Id
 	 */
-	public String getEmployeeId() {
+	public void checkEmployeeId(String employeeId) {
 		log.entry();
-		String employeeId = fld_employeeId.getAttribute("value");
+		Assert.assertTrue("Values are not the same", (fld_employeeId.getAttribute("value")).equals(employeeId));
 		log.exit();
-		return employeeId;
 	}
 	
 	/**
-	 * Get Name
+	 * Check Name
 	 */
-	public String getName() {
+	public void checkName(String name) {
 		log.entry();
-		String name = fld_name.getAttribute("value");
+		Assert.assertTrue("Values are not the same", (fld_name.getAttribute("value")).equals(name));
 		log.exit();
-		return name;
 	}
 	
 	/**
-	 * Get Role Name
+	 * Check Role Name
 	 */
-	public String getRoleName() {
+	public void checkRoleName(String roleName) {
 		log.entry();
-		String name = fld_roleName.getAttribute("value");
+		Assert.assertTrue("Values are not the same", (fld_roleName.getAttribute("value")).equals(roleName));
 		log.exit();
-		return name;
 	}
 	
 	/**
@@ -485,17 +486,63 @@ public class AccessManagementPage extends BasePage {
 	}
 	
 	/**
-	 * Select Roles
+	 * Select/Deselect Roles
 	 */
-	public void selectRoles(String roleName) {
+	public void selectRoles(String roleNames) {
 		log.entry();
-		By fld_roleName = By.xpath("//label[text()='" + roleName + "']");
-		if(driverHelper.isElementPresent(fld_roleName)) {
-			driverHelper.clickButton(fld_roleName);
-		} else {
-			System.out.println("Role is not present.");
-			log.exit();
-		}
+		ArrayList<String> LOV_ROLES = 
+				new ArrayList<>(Arrays.asList("FILTER_CREATE","FILTER_READ","FILTER_UPDATE","FILTER_DELETE",
+						"USER_CREATE","USER_READ","USER_UPDATE","USER_DELETE",
+						"ROLE_CREATE","ROLE_READ","ROLE_UPDATE","ROLE_DELETE"));
+		List<String> selectedRoles = Arrays.asList(roleNames.split(","));
+    	
+    	for (int counter = 0; counter < LOV_ROLES.size(); counter++) {
+    		By fld_roleName = By.xpath("//label[text()='" + LOV_ROLES.get(counter) + "']");
+    		By fld_roleName_active = By.xpath("//label[@class='btn w-100 active w-100' and text()='" + LOV_ROLES.get(counter) + "']");
+    		
+    		//Check if the role is selected
+    		if(selectedRoles.contains(LOV_ROLES.get(counter))) {
+    			//Role is selected
+    			
+	    		//Check if the selected role is inactive
+	    		//If so, select it. If not, do nothing
+	    		if(!driverHelper.isButtonSelected(fld_roleName_active)) {
+	    			driverHelper.clickButton(fld_roleName);
+	    		}
+    		} else {
+    			//Role is not selected
+    			
+    			//Check if the unselected role is active
+	    		//If so, deselect it. If not, do nothing
+	    		if(driverHelper.isButtonSelected(fld_roleName_active)) {
+	    			driverHelper.clickButton(fld_roleName);
+	    		}
+    		}
+    	}
+		log.exit();
+	}
+	
+	/**
+	 * Verify if role/s is/are selected
+	 */
+	public void verifyIfRoleIsSelected(String roleNames) {
+		log.entry();
+		List<String> selectedRoles = Arrays.asList(roleNames.split(","));
+    	
+    	for (int counter = 0; counter < selectedRoles.size(); counter++) {
+    		By fld_roleName_active = By.xpath("//label[@class='btn w-100 active w-100' and text()='" + selectedRoles.get(counter) + "']");
+    		
+    		Assert.assertTrue("Role is not selected", driverHelper.isElementPresent(fld_roleName_active));
+    	}
+		log.exit();
+	}
+	
+	/**
+	 * Verify From and To dates
+	 */
+	public void verifyFromAndToDates() {
+		log.entry();
+		Assert.assertTrue("From date is greater than To date", DataHelper.compareDates(fld_dateFrom.getAttribute("value"), fld_dateTo.getAttribute("value"))); 
 		log.exit();
 	}
 

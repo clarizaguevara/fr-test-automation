@@ -62,6 +62,10 @@ public class CreateNewFilterPage extends BasePage {
 	@FindBy(xpath= "//button[@title='Delete filter']")
 	private WebElement btn_Delete;
 	
+	@FindBy(xpath= "//input[@id='filterEnableDisable' and @checked]")
+	private WebElement btn_enableDisableFilter;
+	
+	
 	/* Methods */
 	
 	/**
@@ -229,13 +233,12 @@ public class CreateNewFilterPage extends BasePage {
 	}
 	
 	/**
-	 * Get Filter name
+	 * Check Filter Name
 	 */
-	public String getFilterName() {
+	public void checkFilterName(String filterName) {
 		log.entry();
-		String filterName = fld_filterName.getAttribute("value");
+		Assert.assertTrue("Values are not the same", (fld_filterName.getAttribute("value")).equals(filterName));
 		log.exit();
-		return filterName;
 	}
 	
 	/**
@@ -252,4 +255,23 @@ public class CreateNewFilterPage extends BasePage {
 			log.exit();
 		}
 	}
+	
+	/**
+	 * Enable/Disable filter
+	 * Accepts "enabled" if filter is to enable. Else, "disabled"
+	 */
+	public void enableOrDisableFilter(String filterState) {
+		log.entry();
+		if(filterState.equals("enabled")) {
+			if(!driverHelper.isElementPresent(btn_enableDisableFilter)) {
+    			driverHelper.clickButton(btn_enableDisableFilter);
+    		}
+		} else {
+			if(driverHelper.isElementPresent(btn_enableDisableFilter)) {
+    			driverHelper.clickButton(btn_enableDisableFilter);
+    		}
+		}
+		log.exit();
+	}
+	
 }

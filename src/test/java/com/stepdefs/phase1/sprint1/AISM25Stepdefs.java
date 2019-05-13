@@ -3,7 +3,7 @@ package com.stepdefs.phase1.sprint1;
 import com.constants.CommonConstants;
 import com.pageobjects.CreateJiraTicketActionPage;
 import com.pageobjects.CreateNewFilterPage;
-import com.pageobjects.CreateSNOWTicket;
+import com.pageobjects.CreateSNOWTicketPage;
 import com.pageobjects.FilterRulePage;
 import com.pageobjects.HomePage;
 import com.pageobjects.SendEmailActionPage;
@@ -15,7 +15,7 @@ import cucumber.api.java8.En;
 public class AISM25Stepdefs implements En {
 	
 	public AISM25Stepdefs(ScenarioHooks hooks, HomePage homePage, CreateNewFilterPage createNewFilterPage, FilterRulePage filterRulePage,
-			SendToSlackActionPage sendToSlackActionPage, CreateJiraTicketActionPage createJiraTicketActionPage, CreateSNOWTicket createSNOWTicketActionPage, SendEmailActionPage sendEmailActionPage) {
+			SendToSlackActionPage sendToSlackActionPage, CreateJiraTicketActionPage createJiraTicketActionPage, CreateSNOWTicketPage createSNOWTicketActionPage, SendEmailActionPage sendEmailActionPage) {
 
 		And("I am on Create New Filter page", () -> {
 			homePage.setDriver(hooks.getDriverHelper(), ScenarioHooks.getScenarioName());
@@ -30,14 +30,14 @@ public class AISM25Stepdefs implements En {
 			createNewFilterPage.selectSource(source);
 		});
 	
-		And("with Filter Rule: (.*) - (.*) - (.*), NOT button (.*)", (String keyword, String comparator, String keywordValue, String notBtn) -> {
+		And("I leave Keyword Value blank in the Filter Rule: (.*) - (.*)", (String keyword, String comparator) -> {
 			filterRulePage.setDriver(hooks.getDriverHelper(), ScenarioHooks.getScenarioName());
 			filterRulePage.selectKeyword(keyword);
 			filterRulePage.selectComparator(comparator);
-			filterRulePage.inputKeywordValue(keywordValue);
-			if(notBtn.equals("enabled")) {
-				filterRulePage.enableNOTButton();
-			}
+		});
+		
+		And("NOT button (.*)", (String btnState) -> {
+			filterRulePage.clickNOTButton(btnState);
 		});
 	
 		And("(.*) has Action: Send to Slack", (String filterName) -> {

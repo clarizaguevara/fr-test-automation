@@ -23,6 +23,12 @@ Feature: AISM-138
       | Nagios-Pet   |
       | Cisco Meraki |
 
+  Scenario: Verify that From date cannot be greater than To date when selecting Date Range
+    When I click Events tab
+    And I select Date Range: From 05/01/2019 00:00 To 04/10/2019 00:00
+    And I click Apply
+    Then From date should not be greater than To date when selecting Date Range
+  
   Scenario: Verify Payload Info of an event
     When I click Events tab
     And I click the Payload button of each event

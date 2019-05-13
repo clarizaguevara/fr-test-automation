@@ -1,19 +1,14 @@
 package com.stepdefs.phase1.sprint3;
 
-import org.junit.Assert;
-
 import com.pageobjects.AccessManagementPage;
 import com.pageobjects.HomePage;
 import com.stepdefs.ScenarioHooks;
-import com.utils.RolesUtil;
-import com.utils.SourceUtil;
 
 import cucumber.api.java8.En;
 
 public class AISM39Stepdefs implements En {
 	
-	public AISM39Stepdefs(ScenarioHooks hooks, HomePage homePage, AccessManagementPage accessManagementPage, 
-			SourceUtil sourceUtil, RolesUtil rolesUtil) {
+	public AISM39Stepdefs(ScenarioHooks hooks, HomePage homePage, AccessManagementPage accessManagementPage) {
 		
 		When("I click Maintenance tab", () -> {
 			homePage.clickMaintenanceTab();
@@ -73,8 +68,21 @@ public class AISM39Stepdefs implements En {
 		Then("User should be editted successfully with new values: Employee Id: (.*), Name: (.*), Role: (.*)", (String employeeId, String name, String role) -> {
 			accessManagementPage.selectInList(name);
 			accessManagementPage.verifyEditUserPopUp();
-			Assert.assertTrue("Values are not the same", (accessManagementPage.getEmployeeId()).equals(employeeId));
-			Assert.assertTrue("Values are not the same", (accessManagementPage.getName()).equals(name));
+			accessManagementPage.checkEmployeeId(employeeId);
+			accessManagementPage.checkName(name);
+		});
+		
+		/*-----------------------------*/
+		
+		And("I change the Expiration date to: (.*) to (.*)", (String dateFrom, String dateTo) -> {
+			accessManagementPage.inputDateFrom(dateFrom);
+			accessManagementPage.inputDateTo(dateTo);
+		});
+		
+		Then("User should be editted successfully and (.*)'s From date is not greater than To date", (String name) -> {
+			accessManagementPage.selectInList(name);
+			accessManagementPage.verifyEditUserPopUp();
+			accessManagementPage.verifyFromAndToDates();
 		});
 		
 		/*-----------------------------*/
@@ -102,7 +110,7 @@ public class AISM39Stepdefs implements En {
 		
 		And("I fill-in the fields with values: Role Name: (.*), Roles: (.*)", (String roleName, String roles) -> {
 			accessManagementPage.inputRoleName(roleName);
-			rolesUtil.selectRoles(roles,accessManagementPage);
+			accessManagementPage.selectRoles(roles);
 		});
 		
 		Then("Role should be added successfully", () -> {
@@ -122,14 +130,16 @@ public class AISM39Stepdefs implements En {
 			accessManagementPage.verifyEditRolePopUp();
 		});
 		
-		And("I edit the fields with values: Role Name: (.*)", (String roleName) -> {
+		And("I edit the fields with values: Role Name: (.*), Roles: (.*)", (String roleName, String roles) -> {
 			accessManagementPage.inputRoleName(roleName);
+			accessManagementPage.selectRoles(roles);
 		});
 		
-		Then("Role should be editted successfully with new values: Role Name: (.*)", (String roleName) -> {
+		Then("Role should be editted successfully with new values: Role Name: (.*), Roles: (.*)", (String roleName, String roles) -> {
 			accessManagementPage.selectInList(roleName);
 			accessManagementPage.verifyEditRolePopUp();
-			Assert.assertTrue("Values are not the same", (accessManagementPage.getRoleName()).equals(roleName));
+			accessManagementPage.checkRoleName(roleName);
+			accessManagementPage.verifyIfRoleIsSelected(roles);
 		});
 		
 		/*-----------------------------*/

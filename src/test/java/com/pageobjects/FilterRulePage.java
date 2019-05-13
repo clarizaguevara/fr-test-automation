@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.FindBys;
@@ -31,7 +32,7 @@ public class FilterRulePage extends BasePage {
 	@FindBy(xpath= "//div[@class='col-sm']//input[not(contains(@class, 'form-control block borderless-input'))]")
 	private WebElement fld_keywordvalue;
 	
-	@FindBy(xpath= "//div[contains(@class, 'btn-group-toggle')]")
+	@FindBy(xpath= "//label[@class='btn w-100' and text()='NOT']")
 	private WebElement btn_NOT;
 	
 	/* Methods */
@@ -85,46 +86,29 @@ public class FilterRulePage extends BasePage {
 	}
 	
 	/**
-	 * Enable NOT button
+	 * Click NOT Button
+	 * Accepts "enabled" if button is to enable. Else, "disabled"
 	 */
-	public void enableNOTButton() {
+	public void clickNOTButton(String btnState) {
 		log.entry();
-		if(driverHelper.isElementPresent(btn_NOT)) {
-			driverHelper.clickButton(btn_NOT);
-			log.exit();
+		if(btnState.equals("enabled")) {
+			if(driverHelper.isElementPresent(btn_NOT)) {
+    			driverHelper.clickButton(btn_NOT);
+    		}
 		} else {
-			System.out.println("NOT button is not present.");
-			log.exit();
+			if(!driverHelper.isElementPresent(btn_NOT)) {
+    			driverHelper.clickButton(btn_NOT);
+    		}
 		}
+		log.exit();
 	}
 	
 	/**
-	 * Get Keyword
+	 * Check Keyword Value
 	 */
-	public String getKeyword() {
+	public void checkKeywordValue(String keywordValue) {
 		log.entry();
-		String keyword = fld_keyword.getAttribute("value");
+		Assert.assertTrue("Values are not the same", (fld_keywordvalue.getAttribute("value")).equals(keywordValue));
 		log.exit();
-		return keyword;
-	}
-	
-	/**
-	 * Get Comparator
-	 */
-	public String getComparator() {
-		log.entry();
-		String comparator = fld_comparator.getAttribute("value");
-		log.exit();
-		return comparator;
-	}
-	
-	/**
-	 * Get Keyword value
-	 */
-	public String getKeywordValue() {
-		log.entry();
-		String keywordValue = fld_keywordvalue.getAttribute("value");
-		log.exit();
-		return keywordValue;
 	}
 }

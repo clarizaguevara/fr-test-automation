@@ -7,14 +7,13 @@ import com.pageobjects.FilterRulePage;
 import com.pageobjects.SendToSlackActionPage;
 import com.pageobjects.SuppressionPage;
 import com.stepdefs.ScenarioHooks;
-import com.utils.SuppressionUtil;
 
 import cucumber.api.java8.En;
 
 public class AISM9Stepdefs implements En {
 	
 	public AISM9Stepdefs(ScenarioHooks hooks, CreateNewFilterPage createNewFilterPage, FilterRulePage filterRulePage,
-			ExtendedRulePage extendedRulePage, SuppressionPage suppressionPage, SuppressionUtil suppressionUtil, SendToSlackActionPage sendToSlackActionPage) {
+			ExtendedRulePage extendedRulePage, SuppressionPage suppressionPage, SendToSlackActionPage sendToSlackActionPage) {
 
 		When("I create a Filter with filter name (.*), Filter rule: (.*) - (.*) - (.*), and add a Suppression condition with fields: time= (.*) to (.*), timezone= (.*), days= (.*), (.*) these time ranges", (String filterName, String keyword, String comparator, String keywordValue, String timeFrom, String timeTo, String timezone, String days, String timeRange) -> {
 			filterRulePage.setDriver(hooks.getDriverHelper(), ScenarioHooks.getScenarioName());
@@ -32,9 +31,10 @@ public class AISM9Stepdefs implements En {
 			//suppression
 			createNewFilterPage.addExtendedRule();
 			extendedRulePage.selectExtendedRule(CommonConstants.EXTENDED_RULE_SUPPRESSION);
-			suppressionUtil.selectTime(timeFrom, timeTo, suppressionPage);
+			suppressionPage.selectTimeFrom(timeFrom);
+			suppressionPage.selectTimeTo(timeTo);
 			suppressionPage.setTimezone(timezone);
-			suppressionUtil.selectDays(days,suppressionPage);
+			suppressionPage.selectDays(days);
 			suppressionPage.selectTimeRange(timeRange);
 			
 			//action

@@ -11,6 +11,8 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.FindBys;
 
+import com.utils.DataHelper;
+
 public class EventsBrowserPage extends BasePage {
 	
 	private static final Logger log = LogManager.getLogger(EventsBrowserPage.class);
@@ -139,6 +141,7 @@ public class EventsBrowserPage extends BasePage {
 			driverHelper.clickButton(btn_apply);
 			driverHelper.waitForPageLoaded();
 			driverHelper.explicitWait();
+			driverHelper.embedScreenshot(scenario);
 			log.exit();
 		} else {
 			System.out.println("Apply button is not present.");
@@ -166,12 +169,25 @@ public class EventsBrowserPage extends BasePage {
 	public void verifySourceOfSearchResults(String source) {
 		log.entry();
 		By search_source = By.xpath("//tbody//tr//td[2]");
-		driverHelper.embedScreenshot(scenario);
+		String abbr_source = DataHelper.convertSourceName(source);
 		List<WebElement> list_search_source = driver.findElements(search_source);
 		for (int counter = 0; counter < list_search_source.size(); counter++) {
 			WebElement searchEntry = list_search_source.get(counter);
-			System.out.println(searchEntry.getText());
-			Assert.assertTrue("Values do not match", (searchEntry.getText()).equals(source)); 
+			Assert.assertTrue("Values do not match", (searchEntry.getText()).equals(abbr_source)); 
+		}
+		log.exit();
+	}
+	
+	/**
+	 * Verify date of search results
+	 */
+	public void verifyDateOfSearchResults(String timestampFrom, String timestampTo) {
+		log.entry();
+		By search_date = By.xpath("//tbody//tr//td[3]");
+		List<WebElement> list_search_date = driver.findElements(search_date);
+		for (int counter = 0; counter < list_search_date.size(); counter++) {
+			WebElement searchEntry = list_search_date.get(counter);
+			Assert.assertTrue("Date is not in range", DataHelper.isDateInRange(searchEntry.getText(), timestampFrom, timestampTo)); 
 		}
 		log.exit();
 	}
@@ -291,6 +307,15 @@ public class EventsBrowserPage extends BasePage {
        driverHelper.embedScreenshot(scenario);
        Assert.assertTrue("Payload details is not present", driverHelper.isElementPresent(label_payloaddetails));
        log.exit();
+	}
+	
+	/**
+	 * Verify From and To timestamps
+	 */
+	public void verifyFromAndToTimestamps() {
+		log.entry();
+		Assert.assertTrue("From date is greater than To date", DataHelper.compareDates(fld_timestampFrom.getAttribute("value"), fld_timestampTo.getAttribute("value"))); 
+		log.exit();
 	}
 
 
