@@ -187,7 +187,7 @@ public class CreateNewFilterPage extends BasePage {
 	public void verifyFilterisNOTSuccessfullySaved() {
 		log.entry();
 		driverHelper.waitForElementNotVisible(icn_loading);
-		Assert.assertTrue("Filter is Successfully saved.", driverHelper.isElementPresent(label_SaveUnsuccessful));
+		Assert.assertTrue("Filter is Successfully saved.", driverHelper.isElementNotPresent(label_Save));
 		log.exit();
 	}
 	

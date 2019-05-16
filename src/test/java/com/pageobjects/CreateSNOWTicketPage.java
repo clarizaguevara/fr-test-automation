@@ -55,20 +55,35 @@ public class CreateSNOWTicketPage extends BasePage {
 	@FindBy (xpath ="//label[contains(text(), 'Ticket Type')]//following::div[@class='col-sm-4'][1]//select")
 	private WebElement fld_ticketType;
 	
+	@FindBys(value = @FindBy (xpath ="//label[contains(text(), 'Ticket Type')]//following::div[@class='col-sm-4'][1]//select//option"))
+	private List<WebElement> list_ticketType;
+	
 	@FindBy (xpath ="//label[contains(text(), 'Language')]//following::div[@class='css-rsyb7x'][1]//input[@id='react-select-2-input']")
 	private WebElement fld_language;
 	
 	@FindBy (xpath ="//label[contains(text(), 'Contact Type')]//following::div[@class='col-sm-4'][1]//select")
 	private WebElement fld_contactType;
 	
+	@FindBys(value = @FindBy (xpath ="//label[contains(text(), 'Contact Type')]//following::div[@class='col-sm-4'][1]//select//option"))
+	private List<WebElement> list_contactType;
+	
 	@FindBy (xpath ="//label[contains(text(), 'Impact')]//following::div[@class='col-sm-4'][1]//select")
 	private WebElement fld_impact;
+	
+	@FindBys(value = @FindBy (xpath ="//label[contains(text(), 'Impact')]//following::div[@class='col-sm-4'][1]//select//option"))
+	private List<WebElement> list_impact;
 	
 	@FindBy (xpath ="//label[contains(text(), 'Urgency')]//following::div[@class='col-sm-4'][1]//select")
 	private WebElement fld_urgency;
 	
+	@FindBys(value = @FindBy (xpath ="//label[contains(text(), 'Urgency')]//following::div[@class='col-sm-4'][1]//select//option"))
+	private List<WebElement> list_urgency;
+	
 	@FindBy (xpath ="//label[contains(text(), 'Priority')]//following::div[@class='col-sm-4'][1]//select")
 	private WebElement fld_priority;
+	
+	@FindBys(value = @FindBy (xpath ="//label[contains(text(), 'Priority')]//following::div[@class='col-sm-4'][1]//select//option"))
+	private List<WebElement> list_priority;
 	
 	@FindBy (xpath ="//label[contains(text(), 'Description')]//following::div[@class='col-sm'][2]//textarea")
 	private WebElement fld_description;
@@ -217,10 +232,9 @@ public class CreateSNOWTicketPage extends BasePage {
 		driverHelper.waitForPageLoaded();
 		driver.switchTo().defaultContent();
 		if(driverHelper.isElementPresent(fld_ticketType)) {
-			//driverHelper.clickButton(fld_ticketType);
-			driverHelper.inputFieldValue(fld_ticketType, ticketType);
-			driverHelper.explicitWaitSNOW();
-			driverHelper.clickEnter(fld_ticketType);
+			driverHelper.scrollIntoView(fld_ticketType);
+			driverHelper.clickButton(fld_ticketType);
+			driverHelper.setValueDropdown(list_ticketType, fld_ticketType, ticketType);
 			driverHelper.embedScreenshot(scenario);
 			log.exit();
 		} else {
@@ -256,10 +270,9 @@ public class CreateSNOWTicketPage extends BasePage {
 		log.entry();
 		driver.switchTo().defaultContent();
 		if(driverHelper.isElementPresent(fld_contactType)) {
-			//driverHelper.clickButton(fld_contactType);
-			driverHelper.inputFieldValue(fld_contactType, contactType);
-			driverHelper.clickEnter(fld_contactType);
-			driverHelper.explicitWaitSNOW();
+			driverHelper.scrollIntoView(fld_contactType);
+			driverHelper.clickButton(fld_contactType);
+			driverHelper.setValueDropdown(list_contactType, fld_contactType, contactType);
 			driverHelper.embedScreenshot(scenario);
 			log.exit();
 		} else {
@@ -275,10 +288,9 @@ public class CreateSNOWTicketPage extends BasePage {
 		log.entry();
 		driver.switchTo().defaultContent();
 		if(driverHelper.isElementPresent(fld_impact)) {
-			//driverHelper.clickButton(fld_impact);
-			driverHelper.inputFieldValue(fld_impact, impact);
-			driverHelper.clickEnter(fld_impact);
-			driverHelper.explicitWaitSNOW();
+			driverHelper.scrollIntoView(fld_impact);
+			driverHelper.clickButton(fld_impact);
+			driverHelper.setValueDropdown(list_impact, fld_impact, impact);
 			driverHelper.embedScreenshot(scenario);
 			log.exit();
 		} else {
@@ -294,10 +306,9 @@ public class CreateSNOWTicketPage extends BasePage {
 		log.entry();
 		driver.switchTo().defaultContent();
 		if(driverHelper.isElementPresent(fld_urgency)) {
-			//driverHelper.clickButton(fld_urgency);
-			driverHelper.inputFieldValue(fld_urgency, urgency);
-			driverHelper.clickEnter(fld_urgency);
-			driverHelper.explicitWaitSNOW();
+			driverHelper.scrollIntoView(fld_urgency);
+			driverHelper.clickButton(fld_urgency);
+			driverHelper.setValueDropdown(list_urgency, fld_urgency, urgency);
 			driverHelper.embedScreenshot(scenario);
 			log.exit();
 		} else {
@@ -313,11 +324,9 @@ public class CreateSNOWTicketPage extends BasePage {
 		log.entry();
 		driver.switchTo().defaultContent();
 		if(driverHelper.isElementPresent(fld_priority)) {
-			//driverHelper.clickButton(fld_priority);
-			driverHelper.inputFieldValue(fld_priority, priority);
-			driverHelper.clickEnter(fld_priority);
-			driverHelper.explicitWaitSNOW();
-			driverHelper.embedScreenshot(scenario);
+			driverHelper.scrollIntoView(fld_priority);
+			driverHelper.clickButton(fld_priority);
+			driverHelper.setValueDropdown(list_priority, fld_priority, priority);
 			log.exit();
 		} else {
 			System.out.println("Priority field is not present.");

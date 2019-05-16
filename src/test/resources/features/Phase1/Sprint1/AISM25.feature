@@ -1,4 +1,4 @@
-@scenarios @FilterRules
+@scenarios @AISM25 @FilterRules
 Feature: AISM-25
   As a Tool Administrator
   I can configure so that alert will be filtered by field in alert
@@ -36,3 +36,8 @@ Feature: AISM-25
     Examples: 
       | filter name                 | source       | keyword | comparator | action        |
       | AUT_TestFieldNameAndValue11 | Cisco Meraki | Country | Equals     | Send to Slack |
+  
+  Scenario: Verify that "Successfully saved!" message is removed when you click "Create New Filter" right after creating a filter
+    When I create a Filter with filter name AUT_TestSave, Nagios-Pet as source, and with Filter rule: Summary Contains TEST
+    And I click Create New Filter after saving
+    Then "Successfully saved!" message should be removed

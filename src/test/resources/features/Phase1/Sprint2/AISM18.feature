@@ -36,6 +36,13 @@ Scenario Outline: Verify Filter is saved if non mandatory fields are left blank
 	
 	Examples: 
 		| filter name                | source       | keyword      | comparator    | keyword value        |
-		| AUT_TestCreateJiraAction4  | Cisco Meraki | Shop         | Ends With     | UQ                   |		
+		| AUT_TestCreateJiraAction4  | Cisco Meraki | Shop         | Ends With     | UQ                   |	
+		
+Scenario: Verify that Slack channel disappears if "Send ticket ID to Slack channel" checkbox is unchecked
+	When I go back to Browse page and open filter AUT_TestCreateJiraAction4
+	And I untick "Send ticket ID to Slack channel" checkbox
+	Then Slack channel field should be blank
+	When I tick "Send ticket ID to Slack channel" checkbox and input Slack channel
+	Then Slack channel should be filled up
 		
 		

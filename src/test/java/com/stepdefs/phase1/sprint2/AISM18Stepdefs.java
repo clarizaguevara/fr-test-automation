@@ -45,5 +45,28 @@ public class AISM18Stepdefs implements En {
 			createJiraTicketActionPage.checkSendTicketToSlackIDChannel();
 			createJiraTicketActionPage.inputSlackChannel(CommonConstants.JIRA_SLACK_CHANNEL);
 		});
+		
+		And("I untick \"Send ticket ID to Slack channel\" checkbox", () -> {
+			createJiraTicketActionPage.setDriver(hooks.getDriverHelper(), ScenarioHooks.getScenarioName());
+			createJiraTicketActionPage.checkSendTicketToSlackIDChannel();
+			createNewFilterPage.clickSaveButton();
+			createNewFilterPage.verifyFilterSuccessfullySaved();
+		});
+		
+		Then("Slack channel field should be blank", () -> {
+			createJiraTicketActionPage.checkSlackChannelValue("");
+		});
+		
+		When("I tick \"Send ticket ID to Slack channel\" checkbox and input Slack channel", () -> {
+			createJiraTicketActionPage.setDriver(hooks.getDriverHelper(), ScenarioHooks.getScenarioName());
+			createJiraTicketActionPage.checkSendTicketToSlackIDChannel();
+			createJiraTicketActionPage.inputSlackChannel(CommonConstants.JIRA_SLACK_CHANNEL);
+			createNewFilterPage.clickSaveButton();
+			createNewFilterPage.verifyFilterSuccessfullySaved();
+		});
+		
+		Then("Slack channel should be filled up", () -> {
+			createJiraTicketActionPage.checkSlackChannelValue(CommonConstants.JIRA_SLACK_CHANNEL);
+		});
 	}
 }
