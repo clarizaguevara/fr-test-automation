@@ -38,3 +38,13 @@ Scenario Outline: Verify filter is not saved if required fields are left blank
 	Examples: 
 		| filter name         | source       | keyword        | comparator    | keyword value        |
 		| AUT_TestSendEmail4  | Cisco Meraki | Device Serial  | Equals        | Q2JD-XJGK-F8Y3       |
+		
+Scenario Outline: Verify Tool Administrator can configure so that an email with sub-domain will be sent automatically
+	When I create a Filter with filter name <filter name> and <source> as source 
+	And with Filter Rule: <keyword> - <comparator> - <keyword value> 
+	And with Action: Send Email with sub-domain "<filter name>"
+	Then I should be able to save successfully 
+	
+	Examples: 
+		| filter name         | source       | keyword        | comparator    | keyword value        |
+		| AUT_TestSendEmail5  | Cisco Meraki | Country        | Equals        | JP                   |

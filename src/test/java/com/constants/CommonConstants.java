@@ -62,4 +62,6 @@ public class CommonConstants {
 	/*-----EMAIL FIELDS-----*/
 	public static final String EMAIL_TO = PropertyUtil.getProp("src/test/resources/properties/test-data.properties", "action.SendEmail.To");
 	public static final String EMAIL_CC = PropertyUtil.getProp("src/test/resources/properties/test-data.properties", "action.SendEmail.CC");
+	public static final String EMAIL_BCC = PropertyUtil.getProp("src/test/resources/properties/test-data.properties", "action.SendEmail.BCC");
+	public static final String EMAIL_TO_SUBDOMAIN = PropertyUtil.getProp("src/test/resources/properties/test-data.properties", "action.SendEmail.To.Subdomain");
 }

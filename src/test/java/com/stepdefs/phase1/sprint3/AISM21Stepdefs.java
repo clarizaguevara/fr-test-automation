@@ -20,6 +20,7 @@ public class AISM21Stepdefs implements En {
 			createNewFilterPage.selectAction(CommonConstants.ACTION_SEND_EMAIL);
 			sendEmailActionPage.inputTo(CommonConstants.EMAIL_TO);
 			sendEmailActionPage.inputCC(CommonConstants.EMAIL_CC);
+			sendEmailActionPage.inputBCC(CommonConstants.EMAIL_BCC);
 			sendEmailActionPage.inputSubject(uniqueName);
 			sendEmailActionPage.inputEmailMessage(uniqueName);
 		});
@@ -31,6 +32,15 @@ public class AISM21Stepdefs implements En {
 			sendEmailActionPage.inputTo(" ");
 			sendEmailActionPage.inputCC(CommonConstants.EMAIL_CC);
 			sendEmailActionPage.inputSubject(" ");
+			sendEmailActionPage.inputEmailMessage(uniqueName);
+		});
+		
+		And("with Action: Send Email with sub-domain \"([^\\\"]*)\"$", (String uniqueName) -> {
+			createNewFilterPage.setDriver(hooks.getDriverHelper(), ScenarioHooks.getScenarioName());
+			sendEmailActionPage.setDriver(hooks.getDriverHelper(), ScenarioHooks.getScenarioName());
+			createNewFilterPage.selectAction(CommonConstants.ACTION_SEND_EMAIL);
+			sendEmailActionPage.inputTo(CommonConstants.EMAIL_TO_SUBDOMAIN);
+			sendEmailActionPage.inputSubject(uniqueName);
 			sendEmailActionPage.inputEmailMessage(uniqueName);
 		});
 	}
