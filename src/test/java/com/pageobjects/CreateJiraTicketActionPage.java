@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.FindBys;
@@ -70,6 +71,9 @@ public class CreateJiraTicketActionPage extends BasePage {
 	@FindBy(xpath= "//label[contains(text(), 'Progress:')]//following::div[@class='col-sm-5'][1]//select")
 	private WebElement fld_progress;
 	
+	@FindBys(value = @FindBy (xpath = "//label[contains(text(), 'Progress:')]//following::div[@class='col-sm-5'][1]//select//option"))
+	private List<WebElement> list_progress;
+	
 	/* Methods */
 	
 	/**
@@ -80,8 +84,8 @@ public class CreateJiraTicketActionPage extends BasePage {
 		driverHelper.waitForElementClickable(fld_project);
 		if(driverHelper.isElementVisible(fld_project)) {
 			driverHelper.clickButton(fld_project);
-			driverHelper.inputFieldValue(fld_project, project);
-			driverHelper.explicitWait();
+			driverHelper.setValueDropdown(list_project, fld_project, project);
+			//driverHelper.explicitWait();
 			driverHelper.embedScreenshot(scenario);
 			log.exit();
 		} else {
@@ -98,7 +102,7 @@ public class CreateJiraTicketActionPage extends BasePage {
 		driver.switchTo().defaultContent();
 		if(driverHelper.isElementPresent(fld_summary)) {
 			driverHelper.scrollIntoView(fld_summary);
-			driverHelper.clickButton(fld_summary);
+			fld_summary.clear();
 			driverHelper.inputFieldValue(fld_summary, summary);
 			driverHelper.embedScreenshot(scenario);
 			log.exit();
@@ -115,6 +119,7 @@ public class CreateJiraTicketActionPage extends BasePage {
 		log.entry();
 		driverHelper.waitForPageLoaded();
 		if(driverHelper.isElementPresent(fld_description)) {
+			fld_description.clear();
 			driverHelper.inputFieldValue(fld_description, description);
 			driverHelper.embedScreenshot(scenario);
 			log.exit();
@@ -132,7 +137,7 @@ public class CreateJiraTicketActionPage extends BasePage {
 		driverHelper.waitForPageLoaded();
 		if(driverHelper.isElementPresent(fld_brand)) {
 			driverHelper.clickButton(fld_brand);
-			driverHelper.inputFieldValue(fld_brand, brand);
+			driverHelper.setValueDropdown(list_brand, fld_brand, brand);
 			driverHelper.embedScreenshot(scenario);
 			log.exit();
 		} else {
@@ -166,7 +171,7 @@ public class CreateJiraTicketActionPage extends BasePage {
 		driverHelper.waitForPageLoaded();
 		if(driverHelper.isElementPresent(fld_priority)) {
 			driverHelper.clickButton(fld_priority);
-			driverHelper.inputFieldValue(fld_priority, priority);
+			driverHelper.setValueDropdown(list_priority, fld_priority, priority);
 			driverHelper.embedScreenshot(scenario);
 			log.exit();
 		} else {
@@ -272,7 +277,7 @@ public class CreateJiraTicketActionPage extends BasePage {
 		driverHelper.waitForPageLoaded();
 		driver.switchTo().defaultContent();
 		if(driverHelper.isElementPresent(fld_platform)) {
-			driverHelper.jsClick(fld_platform);
+			//driverHelper.jsClick(fld_platform);
 			driverHelper.inputFieldValue(fld_platform, platform);
 			driverHelper.clickEnter(fld_platform);
 			driverHelper.embedScreenshot(scenario);
@@ -290,7 +295,7 @@ public class CreateJiraTicketActionPage extends BasePage {
 		log.entry();
 		driver.switchTo().defaultContent();
 		if(driverHelper.isElementPresent(fld_markets)) {
-			driverHelper.clickButton(fld_markets);
+			//driverHelper.clickButton(fld_markets);
 			driverHelper.inputFieldValue(fld_markets, market);
 			driverHelper.clickEnter(fld_markets);
 			driverHelper.embedScreenshot(scenario);
@@ -309,13 +314,21 @@ public class CreateJiraTicketActionPage extends BasePage {
 		driver.switchTo().defaultContent();
 		if(driverHelper.isElementPresent(fld_progress)) {
 			driverHelper.clickButton(fld_progress);
-			driverHelper.inputFieldValue(fld_progress, progress);
-			driverHelper.clickEnter(fld_progress);
+			driverHelper.setValueDropdown(list_progress, fld_progress, progress);
 			driverHelper.embedScreenshot(scenario);
 			log.exit();
 		} else {
 			System.out.println("Progress field is not present.");
 			log.exit();
 		}
+	}
+	
+	/**
+	 * Check Slack channel value
+	 */
+	public void checkSlackChannelValue(String slackChannelValue) {
+		log.entry();
+		Assert.assertTrue("Values are not the same", (fld_slackChannel.getAttribute("value")).equals(slackChannelValue));
+		log.exit();
 	}
 }

@@ -91,6 +91,15 @@ public class AISM25Stepdefs implements En {
 			createNewFilterPage.clickSaveButton();
 			createNewFilterPage.verifyFilterisNOTSuccessfullySaved();
 		});
+		
+		And("I click Create New Filter after saving", () -> {
+			createNewFilterPage.clickCreateNewFilterButton();
+		});
+		
+		
+		Then("\"Successfully saved!\" message should be removed", () -> {
+			createNewFilterPage.verifyFilterisNOTSuccessfullySaved();
+		});
 
 	
 	}

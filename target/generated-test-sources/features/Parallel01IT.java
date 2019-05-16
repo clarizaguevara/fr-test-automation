@@ -15,11 +15,11 @@ import cucumber.api.junit.Cucumber;
 @RunWith(Cucumber.class)
 @CucumberOptions(
         strict = true,
-        features = {"C:/Users/cguevara6/OneDrive - DXC Production/Documents/GitHub/FR-Test-Automation/src/test/resources/features/Phase1/Sprint3/AISM138.feature"},
+        features = {"C:/Users/cguevara6/OneDrive - DXC Production/Documents/GitHub/FR-Test-Automation/src/test/resources/features/Phase1/Sprint3/AISM39.feature"},
         plugin = {"com.cucumber.listener.ExtentCucumberFormatter:C:/Users/cguevara6/OneDrive - DXC Production/Documents/GitHub/FR-Test-Automation/target/cucumber-parallel/1.html", "json:C:/Users/cguevara6/OneDrive - DXC Production/Documents/GitHub/FR-Test-Automation/target/cucumber-parallel/1.json", "html:C:/Users/cguevara6/OneDrive - DXC Production/Documents/GitHub/FR-Test-Automation/target/cucumber-parallel/1"},
         monochrome = false,
         
-        tags = {"@EventsBrowser,@AccessManagement"},
+        tags = {"@AISM39"},
         glue = {"com.stepdefs"})
 public class Parallel01IT {
 	

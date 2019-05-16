@@ -493,7 +493,10 @@ public class AccessManagementPage extends BasePage {
 		ArrayList<String> LOV_ROLES = 
 				new ArrayList<>(Arrays.asList("FILTER_CREATE","FILTER_READ","FILTER_UPDATE","FILTER_DELETE",
 						"USER_CREATE","USER_READ","USER_UPDATE","USER_DELETE",
-						"ROLE_CREATE","ROLE_READ","ROLE_UPDATE","ROLE_DELETE"));
+						"ROLE_CREATE","ROLE_READ","ROLE_UPDATE","ROLE_DELETE",
+						"PRIVILEGE_CREATE","PRIVILEGE_READ","PRIVILEGE_UPDATE","PRIVILEGE_DELETE",
+						"FIELD_CREATE","FIELD_READ","FIELD_UPDATE","FIELD_DELETE",
+						"KEYWORD_CREATE","KEYWORD_READ","KEYWORD_UPDATE","KEYWORD_DELETE"));
 		List<String> selectedRoles = Arrays.asList(roleNames.split(","));
     	
     	for (int counter = 0; counter < LOV_ROLES.size(); counter++) {

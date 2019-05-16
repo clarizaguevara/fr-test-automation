@@ -5,7 +5,6 @@ com\pageobjects\BasePage.class
 com\pageobjects\CreateJiraTicketActionPage.class
 com\stepdefs\phase1\sprint1\AISM22Stepdefs.class
 com\utils\WebDriverHelper$1.class
-Parallel02IT.class
 com\stepdefs\phase1\sprint4\AISM47Stepdefs.class
 com\pageobjects\DeleteFilterPage.class
 com\pageobjects\HomePage.class

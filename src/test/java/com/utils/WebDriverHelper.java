@@ -496,17 +496,18 @@ public class WebDriverHelper {
      */
     public boolean isButtonSelected(By locator) {
     	try {
-            driver.manage().timeouts().implicitlyWait(1, TimeUnit.MILLISECONDS);
-            WebDriverWait wait = new WebDriverWait(driver, 1);
-			wait.until(ExpectedConditions.presenceOfElementLocated(locator));
-			return true;
+            driver.manage().timeouts().implicitlyWait(0, TimeUnit.MILLISECONDS);
+            WebElement weElement = driver.findElement(locator);
+    		weElement.isDisplayed();
+            return true;
         } catch (NoSuchElementException | StaleElementReferenceException e) {
             log.error(ELEMENT_NOT_FOUND, e);
+            return false;
         } catch (Exception e) {
             log.error(GENERIC_EXCEPTION_OCCURRED, e);
+            return false;
         } finally {
-            driver.manage().timeouts().implicitlyWait(1, TimeUnit.MILLISECONDS);
+            driver.manage().timeouts().implicitlyWait(0, TimeUnit.MILLISECONDS);
         }
-        return false;
     }
 }

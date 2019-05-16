@@ -160,7 +160,7 @@
 							<format>json,html</format>
 							<filterFeaturesByTags>true</filterFeaturesByTags>
 							<tags>
-								<tag>@EventsBrowser,@AccessManagement</tag>
+								<tag>@AISM39</tag>
 							</tags>
 							<namingScheme>simple</namingScheme>
 							<mainClass>cucumber.jvm.parallel.ReportBuilderJava</mainClass>
@@ -181,7 +181,7 @@
 				<artifactId>maven-failsafe-plugin</artifactId>
 				<version>2.19.1</version>
 				<configuration>
-					<forkCount>5</forkCount>
+					<forkCount>7</forkCount>
 					<reuseForks>false</reuseForks>
 					<includes>
 						<include>**/*IT.java</include>
