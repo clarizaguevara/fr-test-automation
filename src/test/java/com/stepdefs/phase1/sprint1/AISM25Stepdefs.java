@@ -99,6 +99,7 @@ public class AISM25Stepdefs implements En {
 		
 		Then("\"Successfully saved!\" message should be removed", () -> {
 			createNewFilterPage.verifyFilterisNOTSuccessfullySaved();
+			createNewFilterPage.verifySuccessfulNavigationToCreateNewFilterPage();
 		});
 
 	

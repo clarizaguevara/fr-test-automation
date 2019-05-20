@@ -18,10 +18,10 @@ public class ExtendedRulePage extends BasePage {
 	@FindBy(xpath= "//h4[text()='Extended Rules']//following::span[contains(@class,'delete')]")
 	private WebElement btn_deleteExtendedRule;
 	
-	@FindBys(value = @FindBy (xpath = "//div[@class='col-sm-3 px-1']//select[@class='form-control']//option"))
+	@FindBys(value = @FindBy (xpath = "//div[@class='col-sm-2 px-1']//select[@class='form-control']//option"))
 	private List<WebElement> list_extendedRule;
 	
-	@FindBy(xpath= "//div[@class='col-sm-3 px-1']//select[@class='form-control']")
+	@FindBy(xpath= "//div[@class='col-sm-2 px-1']//select[@class='form-control']")
 	private WebElement fld_extendedRule;
 	
 	

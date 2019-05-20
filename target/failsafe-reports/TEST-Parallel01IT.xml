@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="Parallel01IT" time="283.932" tests="85" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="Parallel01IT" time="79.555" tests="7" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_211\jre\bin"/>
@@ -26,7 +26,7 @@
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="user.variant" value=""/>
     <property name="os.name" value="Windows 10"/>
-    <property name="classworlds.conf" value="C:\Users\cguevara6\FRAutomation\.metadata\.plugins\org.eclipse.m2e.launching\launches\m2conf7838500572308415142.tmp"/>
+    <property name="classworlds.conf" value="C:\Users\cguevara6\FRAutomation\.metadata\.plugins\org.eclipse.m2e.launching\launches\m2conf7218359212310762315.tmp"/>
     <property name="sun.jnu.encoding" value="Cp1252"/>
     <property name="java.library.path" value="C:\Program Files\Java\jdk1.8.0_211\bin;C:\windows\Sun\Java\bin;C:\windows\system32;C:\windows;C:/Program Files/Java/jre1.8.0_211/bin/server;C:/Program Files/Java/jre1.8.0_211/bin;C:/Program Files/Java/jre1.8.0_211/lib/amd64;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\windows\system32;C:\windows;C:\windows\System32\Wbem;C:\windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Symantec\VIP Access Client\;C:\Program Files (x86)\OpenVPN\bin;C:\Program Files\Java\jdk1.8.0_211;C:\Program Files\apache-maven-3.6.0\bin;C:\Program Files\Git\cmd;C:\Program Files\nodejs\;C:\Program Files (x86)\Microsoft SQL Server\Client SDK\ODBC\110\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\120\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\120\DTS\Binn\;C:\Program Files\Java\jdk1.8.0_211\bin;C:\Program Files\apache-maven-3.6.0\bin;C:\Users\cguevara6\AppData\Local\Microsoft\WindowsApps;C:\Program Files\apache-maven-3.6.0\bin;C:\Users\cguevara6\AppData\Roaming\npm;C:\Users\cguevara6\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\cguevara6\AppData\Local\GitHubDesktop\bin;C:\Users\cguevara6\AppData\Local\Box\Box Edit\;C:\Users\cguevara6\eclipse\java-2018-12\eclipse;;."/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
@@ -60,89 +60,11 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase name="Given I am login" classname="Scenario: Verify successful navigation to Access Management page" time="0.004"/>
-  <testcase name="And I am on Home page" classname="Scenario: Verify successful navigation to Access Management page" time="0"/>
-  <testcase name="When I click Maintenance tab" classname="Scenario: Verify successful navigation to Access Management page" time="0"/>
-  <testcase name="And I select Access Management" classname="Scenario: Verify successful navigation to Access Management page" time="0"/>
-  <testcase name="Then Access Management page should be loaded successfully" classname="Scenario: Verify successful navigation to Access Management page" time="0"/>
-  <testcase name="Scenario: Verify successful navigation to Access Management page" classname="Scenario: Verify successful navigation to Access Management page" time="1.093"/>
-  <testcase name="Given I am login" classname="Scenario: Verify adding a new User" time="0"/>
-  <testcase name="And I am on Home page" classname="Scenario: Verify adding a new User" time="0"/>
-  <testcase name="When I click Maintenance tab" classname="Scenario: Verify adding a new User" time="0"/>
-  <testcase name="And I select Access Management" classname="Scenario: Verify adding a new User" time="0"/>
-  <testcase name="And I click Add User button" classname="Scenario: Verify adding a new User" time="0"/>
-  <testcase name="And I fill-in the fields with values: Employee Id: 12345, Name: AUT_TestUser, Role: Admin, Expiration date: From 05/01/2019 To 12/31/2019" classname="Scenario: Verify adding a new User" time="0"/>
-  <testcase name="And I click Save" classname="Scenario: Verify adding a new User" time="0"/>
-  <testcase name="Then User should be added successfully" classname="Scenario: Verify adding a new User" time="0"/>
-  <testcase name="Scenario: Verify adding a new User" classname="Scenario: Verify adding a new User" time="1.196"/>
-  <testcase name="Given I am login" classname="Scenario: Verify adding a new Role" time="0"/>
-  <testcase name="And I am on Home page" classname="Scenario: Verify adding a new Role" time="0"/>
-  <testcase name="When I click Maintenance tab" classname="Scenario: Verify adding a new Role" time="0"/>
-  <testcase name="And I select Access Management" classname="Scenario: Verify adding a new Role" time="0"/>
-  <testcase name="And I go to Roles section" classname="Scenario: Verify adding a new Role" time="0"/>
-  <testcase name="And I click Add Role button" classname="Scenario: Verify adding a new Role" time="0"/>
-  <testcase name="And I fill-in the fields with values: Role Name: AUT_TestRole, Roles: FILTER_CREATE,FILTER_READ,FILTER_UPDATE,FILTER_DELETE" classname="Scenario: Verify adding a new Role" time="0"/>
-  <testcase name="And I click Save" classname="Scenario: Verify adding a new Role" time="0"/>
-  <testcase name="Then Role should be added successfully" classname="Scenario: Verify adding a new Role" time="0"/>
-  <testcase name="Scenario: Verify adding a new Role" classname="Scenario: Verify adding a new Role" time="1.239"/>
-  <testcase name="Given I am login" classname="Scenario: Verify editting a User" time="0"/>
-  <testcase name="And I am on Home page" classname="Scenario: Verify editting a User" time="0"/>
-  <testcase name="When I click Maintenance tab" classname="Scenario: Verify editting a User" time="0"/>
-  <testcase name="And I select Access Management" classname="Scenario: Verify editting a User" time="0"/>
-  <testcase name="And I click the user with name: AUT_TestUser" classname="Scenario: Verify editting a User" time="0"/>
-  <testcase name="And I edit the fields with values: Employee Id: 67890, Name: AUT_TestEdittedUser, Role: AUT_TestRole" classname="Scenario: Verify editting a User" time="0"/>
-  <testcase name="And I click Save" classname="Scenario: Verify editting a User" time="0"/>
-  <testcase name="Then User should be editted successfully with new values: Employee Id: 67890, Name: AUT_TestEdittedUser, Role: AUT_TestRole" classname="Scenario: Verify editting a User" time="0"/>
-  <testcase name="Scenario: Verify editting a User" classname="Scenario: Verify editting a User" time="1.384"/>
-  <testcase name="Given I am login" classname="Scenario: Verify that From date cannot be greater than To date when setting Expiration date for User" time="0"/>
-  <testcase name="And I am on Home page" classname="Scenario: Verify that From date cannot be greater than To date when setting Expiration date for User" time="0"/>
-  <testcase name="When I click Maintenance tab" classname="Scenario: Verify that From date cannot be greater than To date when setting Expiration date for User" time="0"/>
-  <testcase name="And I select Access Management" classname="Scenario: Verify that From date cannot be greater than To date when setting Expiration date for User" time="0"/>
-  <testcase name="And I click the user with name: AUT_TestEdittedUser" classname="Scenario: Verify that From date cannot be greater than To date when setting Expiration date for User" time="0"/>
-  <testcase name="And I change the Expiration date to: 05/01/2019 to 04/15/2019" classname="Scenario: Verify that From date cannot be greater than To date when setting Expiration date for User" time="0"/>
-  <testcase name="And I click Save" classname="Scenario: Verify that From date cannot be greater than To date when setting Expiration date for User" time="0"/>
-  <testcase name="Then User should be editted successfully and AUT_TestEdittedUser&apos;s From date is not greater than To date" classname="Scenario: Verify that From date cannot be greater than To date when setting Expiration date for User" time="0"/>
-  <testcase name="Scenario: Verify that From date cannot be greater than To date when setting Expiration date for User" classname="Scenario: Verify that From date cannot be greater than To date when setting Expiration date for User" time="1.509"/>
-  <testcase name="Given I am login" classname="Scenario: Verify editting a Role" time="0"/>
-  <testcase name="And I am on Home page" classname="Scenario: Verify editting a Role" time="0"/>
-  <testcase name="When I click Maintenance tab" classname="Scenario: Verify editting a Role" time="0"/>
-  <testcase name="And I select Access Management" classname="Scenario: Verify editting a Role" time="0"/>
-  <testcase name="And I go to Roles section" classname="Scenario: Verify editting a Role" time="0"/>
-  <testcase name="And I click the role with name: AUT_TestRole" classname="Scenario: Verify editting a Role" time="0"/>
-  <testcase name="And I edit the fields with values: Role Name: AUT_TestEdittedRole, Roles: FILTER_CREATE,USER_READ,ROLE_UPDATE" classname="Scenario: Verify editting a Role" time="0"/>
-  <testcase name="And I click Save" classname="Scenario: Verify editting a Role" time="0"/>
-  <testcase name="Then Role should be editted successfully with new values: Role Name: AUT_TestEdittedRole, Roles: FILTER_CREATE,USER_READ,ROLE_UPDATE" classname="Scenario: Verify editting a Role" time="0"/>
-  <testcase name="Scenario: Verify editting a Role" classname="Scenario: Verify editting a Role" time="1.384"/>
-  <testcase name="Given I am login" classname="Scenario: Verify deleting a User" time="0"/>
-  <testcase name="And I am on Home page" classname="Scenario: Verify deleting a User" time="0"/>
-  <testcase name="When I click Maintenance tab" classname="Scenario: Verify deleting a User" time="0"/>
-  <testcase name="And I select Access Management" classname="Scenario: Verify deleting a User" time="0"/>
-  <testcase name="And I click the delete button of user AUT_TestEdittedUser" classname="Scenario: Verify deleting a User" time="0"/>
-  <testcase name="Then AUT_TestEdittedUser should be deleted successfully" classname="Scenario: Verify deleting a User" time="0"/>
-  <testcase name="Scenario: Verify deleting a User" classname="Scenario: Verify deleting a User" time="1.433"/>
-  <testcase name="Given I am login" classname="Scenario: Verify deleting a Role" time="0"/>
-  <testcase name="And I am on Home page" classname="Scenario: Verify deleting a Role" time="0"/>
-  <testcase name="When I click Maintenance tab" classname="Scenario: Verify deleting a Role" time="0"/>
-  <testcase name="And I select Access Management" classname="Scenario: Verify deleting a Role" time="0"/>
-  <testcase name="And I go to Roles section" classname="Scenario: Verify deleting a Role" time="0"/>
-  <testcase name="And I click the delete button of role AUT_TestEdittedRole" classname="Scenario: Verify deleting a Role" time="0"/>
-  <testcase name="Then AUT_TestEdittedRole should be deleted successfully" classname="Scenario: Verify deleting a Role" time="0"/>
-  <testcase name="Scenario: Verify deleting a Role" classname="Scenario: Verify deleting a Role" time="1.247"/>
-  <testcase name="Given I am login(Scenario: Verify adding a new User with mandatory fields " classname="Given I am login(Scenario: Verify adding a new User with mandatory fields (Employee Id, Name) left blank)" time="0"/>
-  <testcase name="And I am on Home page(Scenario: Verify adding a new User with mandatory fields " classname="And I am on Home page(Scenario: Verify adding a new User with mandatory fields (Employee Id, Name) left blank)" time="0"/>
-  <testcase name="When I click Maintenance tab(Scenario: Verify adding a new User with mandatory fields " classname="When I click Maintenance tab(Scenario: Verify adding a new User with mandatory fields (Employee Id, Name) left blank)" time="0"/>
-  <testcase name="And I select Access Management(Scenario: Verify adding a new User with mandatory fields " classname="And I select Access Management(Scenario: Verify adding a new User with mandatory fields (Employee Id, Name) left blank)" time="0"/>
-  <testcase name="And I click Add User button(Scenario: Verify adding a new User with mandatory fields " classname="And I click Add User button(Scenario: Verify adding a new User with mandatory fields (Employee Id, Name) left blank)" time="0"/>
-  <testcase name="And I click Save(Scenario: Verify adding a new User with mandatory fields " classname="And I click Save(Scenario: Verify adding a new User with mandatory fields (Employee Id, Name) left blank)" time="0"/>
-  <testcase name="Then User should not be added successfully(Scenario: Verify adding a new User with mandatory fields " classname="Then User should not be added successfully(Scenario: Verify adding a new User with mandatory fields (Employee Id, Name) left blank)" time="0"/>
-  <testcase name="Scenario: Verify adding a new User with mandatory fields " classname="Scenario: Verify adding a new User with mandatory fields (Employee Id, Name) left blank" time="1.649"/>
-  <testcase name="Given I am login(Scenario: Verify adding a new Role with mandatory fields " classname="Given I am login(Scenario: Verify adding a new Role with mandatory fields (Role Name) left blank)" time="0"/>
-  <testcase name="And I am on Home page(Scenario: Verify adding a new Role with mandatory fields " classname="And I am on Home page(Scenario: Verify adding a new Role with mandatory fields (Role Name) left blank)" time="0"/>
-  <testcase name="When I click Maintenance tab(Scenario: Verify adding a new Role with mandatory fields " classname="When I click Maintenance tab(Scenario: Verify adding a new Role with mandatory fields (Role Name) left blank)" time="0"/>
-  <testcase name="And I select Access Management(Scenario: Verify adding a new Role with mandatory fields " classname="And I select Access Management(Scenario: Verify adding a new Role with mandatory fields (Role Name) left blank)" time="0"/>
-  <testcase name="And I go to Roles section(Scenario: Verify adding a new Role with mandatory fields " classname="And I go to Roles section(Scenario: Verify adding a new Role with mandatory fields (Role Name) left blank)" time="0"/>
-  <testcase name="And I click Add Role button(Scenario: Verify adding a new Role with mandatory fields " classname="And I click Add Role button(Scenario: Verify adding a new Role with mandatory fields (Role Name) left blank)" time="0"/>
-  <testcase name="And I click Save(Scenario: Verify adding a new Role with mandatory fields " classname="And I click Save(Scenario: Verify adding a new Role with mandatory fields (Role Name) left blank)" time="0"/>
-  <testcase name="Then Role should not be added successfully(Scenario: Verify adding a new Role with mandatory fields " classname="Then Role should not be added successfully(Scenario: Verify adding a new Role with mandatory fields (Role Name) left blank)" time="0"/>
-  <testcase name="Scenario: Verify adding a new Role with mandatory fields " classname="Scenario: Verify adding a new Role with mandatory fields (Role Name) left blank" time="1.346"/>
+  <testcase name="Given I am login" classname="Scenario: Verify that user can Edit a filter" time="0.002"/>
+  <testcase name="And I am on Create New Filter page" classname="Scenario: Verify that user can Edit a filter" time="0"/>
+  <testcase name="When I create a Filter with filter name AUT_TestEdit, Nagios-Pet as source, and with Filter rule: Summary Contains TEST" classname="Scenario: Verify that user can Edit a filter" time="0"/>
+  <testcase name="Then I go back to Browse page and open filter AUT_TestEdit" classname="Scenario: Verify that user can Edit a filter" time="0"/>
+  <testcase name="And I edit the Filter Rule to: Description Contains ERROR" classname="Scenario: Verify that user can Edit a filter" time="0"/>
+  <testcase name="Then filter AUT_TestEdit should be editted successfully with new Filter rule values: Description Contains ERROR" classname="Scenario: Verify that user can Edit a filter" time="0"/>
+  <testcase name="Scenario: Verify that user can Edit a filter" classname="Scenario: Verify that user can Edit a filter" time="1.024"/>
 </testsuite>

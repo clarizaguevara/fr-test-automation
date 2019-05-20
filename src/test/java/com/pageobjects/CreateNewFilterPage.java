@@ -38,7 +38,7 @@ public class CreateNewFilterPage extends BasePage {
 	@FindBys(value = @FindBy (xpath = "//h4[contains(text(), 'Actions')]//following::div[@class='col-sm-4 py-0 px-1'][1]//select//option"))
 	private List<WebElement> list_action;
 	
-	@FindBy(xpath= "//div[@class='col-sm-auto text-right px-0']//button[@class='btn btn-primary pt-2']")
+	@FindBy(xpath= "//button[@type='button']//i[@class='fa fa-save']")
 	private WebElement btn_Save;
 	
 	@FindBy(xpath= "//label[@class='label text-success mt-2']")
@@ -55,6 +55,9 @@ public class CreateNewFilterPage extends BasePage {
 	
 	@FindBy(xpath= "//a[text()='Home']")
 	private WebElement btn_Home;
+	
+	@FindBy(xpath="//span[text()='NEW']")
+	private WebElement icn_new;
 	
 	@FindBy(xpath="//span[text()='EDIT']")
 	private WebElement icn_edit;
@@ -74,7 +77,8 @@ public class CreateNewFilterPage extends BasePage {
 	public void verifySuccessfulNavigationToCreateNewFilterPage() {
 		log.entry();
 		driverHelper.embedScreenshot(scenario);
-		Assert.assertTrue("Successful navigation in Command Center Create New Filter Page", driverHelper.isElementPresent(page_filter));
+		Assert.assertTrue("Unsuccessful navigation to Command Center Create New Filter Page", driverHelper.isElementPresent(page_filter));
+		Assert.assertTrue("Unsuccessful navigation to Command Center Create New Filter Page", driverHelper.isElementPresent(icn_new));
 		log.exit();
 	}
 	
@@ -228,7 +232,7 @@ public class CreateNewFilterPage extends BasePage {
 		log.entry();
 		driverHelper.embedScreenshot(scenario);
 		driverHelper.waitForElementVisible(fld_action);
-		Assert.assertTrue("Successful navigation in Command Center Edit Filter Page", driverHelper.isElementPresent(icn_edit));
+		Assert.assertTrue("Unsuccessful navigation to Command Center Edit Filter Page", driverHelper.isElementPresent(icn_edit));
 		log.exit();
 	}
 	

@@ -26,7 +26,7 @@ public class FilterRulePage extends BasePage {
 	@FindBys(value = @FindBy (xpath = "//div[@class='col-sm-auto px-1'][3]//select[@class='form-control']//option"))
 	private List<WebElement> list_comparator;
 	
-	@FindBy(xpath= "//div[@class='col-sm-auto px-1'][3]")
+	@FindBy(xpath= "//div[@class='col-sm-auto px-1'][3]//select")
 	private WebElement fld_comparator;
 	
 	@FindBy(xpath= "//div[@class='col-sm']//input[not(contains(@class, 'form-control block borderless-input'))]")

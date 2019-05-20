@@ -62,7 +62,7 @@ public class AdditionalTestCasesStepdefs implements En {
 		
 		And("I edit the Filter Rule to: (.*) (.*) (.*)", (String keyword, String comparator, String keywordValue) -> {
 			filterRulePage.selectKeyword(keyword);
-			filterRulePage.selectComparator(comparator);
+			//filterRulePage.selectComparator(comparator);
 			filterRulePage.inputKeywordValue(keywordValue);
 			createNewFilterPage.clickSaveButton();
 			createNewFilterPage.verifyFilterSuccessfullySaved();
@@ -102,11 +102,9 @@ public class AdditionalTestCasesStepdefs implements En {
 			deletePage.setDriver(hooks.getDriverHelper(), ScenarioHooks.getScenarioName());
 			deletePage.verifyDeletePopUp();
 			deletePage.clickDeleteYesButton();
-			createNewFilterPage.verifySuccessfulNavigationToCreateNewFilterPage();
 		});
 	
 		Then("filter (.*) should be successfully deleted", (String filterName) -> {
-			createNewFilterPage.clickHomeButton();
 			homePage.verifySuccessfulNavigationToHomePage();
 			homePage.inputFilterTitle(filterName);
 			homePage.clickApplyButton();
