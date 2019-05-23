@@ -65,4 +65,9 @@ public class CommonConstants {
 	public static final String EMAIL_CC = PropertyUtil.getProp("src/test/resources/properties/test-data.properties", "action.SendEmail.CC");
 	public static final String EMAIL_BCC = PropertyUtil.getProp("src/test/resources/properties/test-data.properties", "action.SendEmail.BCC");
 	public static final String EMAIL_TO_SUBDOMAIN = PropertyUtil.getProp("src/test/resources/properties/test-data.properties", "action.SendEmail.To.Subdomain");
+
+	/*-----KEYWORD LISTS-----*/
+	public static final String KEYWORD_LISTNAME = PropertyUtil.getProp("src/test/resources/properties/test-data.properties", "keyword.ListName");
+	public static final String KEYWORD_KEYWORDVALUE = PropertyUtil.getProp("src/test/resources/properties/test-data.properties", "keyword.KeywordValue");
+	public static final String KEYWORD_LISTNAME_EDITED = PropertyUtil.getProp("src/test/resources/properties/test-data.properties", "keyword.ListName.Edited");
 }

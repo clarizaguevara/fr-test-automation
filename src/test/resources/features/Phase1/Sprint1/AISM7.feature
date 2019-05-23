@@ -7,7 +7,6 @@ Background:
 	Given I am login 
 	And I am on Create New Filter page
 
-@onescenario
 Scenario Outline: Verify Tool Administrator can configure so that message is sent to users on Slack automatically
 	When I create a Filter with filter name <filter name> and <source> as source 
 	And with Filter Rule: <keyword> - <comparator> - <keyword value> 

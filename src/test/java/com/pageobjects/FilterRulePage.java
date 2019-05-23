@@ -37,6 +37,12 @@ public class FilterRulePage extends BasePage {
 	@FindBy(xpath= "//label[@class='btn w-100' and text()='NOT']")
 	private WebElement btn_NOT;
 	
+	@FindBys(value = @FindBy (xpath = "//div[@class='col-sm px-1']//select[@class='form-control']//option"))
+	private List<WebElement> list_keywordValue;
+	
+	@FindBy(xpath= "//div[@class='col-sm px-1']//select[@class='form-control']")
+	private WebElement fld_keywordvaluedropdown;
+	
 	/* Methods */
 	
 	/**
@@ -125,5 +131,18 @@ public class FilterRulePage extends BasePage {
 			Assert.assertTrue("Keyword dropdown value is incorrect", keywordDropdownValues.contains(dropdownValue)); 
 		}
 		log.exit();
+	 *Input Keyword Value
+	 */
+	public void selectKeywordValue(String keywordValue) {
+		log.entry();
+		if(driverHelper.isElementPresent(fld_keywordvaluedropdown)) {
+			driverHelper.clickButton(fld_keywordvaluedropdown);
+			driverHelper.setValueDropdown(list_keywordValue, fld_keywordvaluedropdown, keywordValue);
+			driverHelper.embedScreenshot(scenario);
+			log.exit();
+		} else {
+			System.out.println("Keyword Value field is not present.");
+			log.exit();
+		}
 	}
 }
