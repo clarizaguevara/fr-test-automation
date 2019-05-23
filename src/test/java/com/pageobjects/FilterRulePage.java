@@ -9,6 +9,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.FindBys;
 
+import java.util.Arrays;
+
 public class FilterRulePage extends BasePage {
 
 	private static final Logger log = LogManager.getLogger(FilterRulePage.class);
@@ -109,6 +111,19 @@ public class FilterRulePage extends BasePage {
 	public void checkKeywordValue(String keywordValue) {
 		log.entry();
 		Assert.assertTrue("Values are not the same", (fld_keywordvalue.getAttribute("value")).equals(keywordValue));
+		log.exit();
+	}
+	
+	/**
+	 * Verify keyword dropdown for source
+	 */
+	public void verifyKeywordDropdownValues(String dropdownValues) {
+		log.entry();
+		List<String> keywordDropdownValues = Arrays.asList(dropdownValues.split(","));
+		for (int counter = 0; counter < list_keyword.size(); counter++) {
+			String dropdownValue = list_keyword.get(counter).getText();
+			Assert.assertTrue("Keyword dropdown value is incorrect", keywordDropdownValues.contains(dropdownValue)); 
+		}
 		log.exit();
 	}
 }

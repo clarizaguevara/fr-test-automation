@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.FindBys;
@@ -12,7 +13,9 @@ public class CreateSNOWTicketPage extends BasePage {
 
 	private static final Logger log = LogManager.getLogger(CreateSNOWTicketPage.class);
 	
+	
 	/* Page Elements */
+	
 	@FindBys(value = @FindBy (xpath = "//label[contains(text(), 'Project:')]//following::div[@class='col-sm-9'][1]//select//option"))
 	private List<WebElement> list_project;
 	
@@ -97,7 +100,15 @@ public class CreateSNOWTicketPage extends BasePage {
 	@FindBy(xpath= "//div[@class='col-sm-auto offset-sm-2']//div[@class='form-check']//input[@type='checkbox']")
 	private WebElement btn_automaticallyClosedTicket;
 	
+	@FindBy(xpath= "//div[@class='col-sm-auto offset-sm-2 pt-2']//input[@type='checkbox']")
+	private WebElement btn_sendToSlackChannel;
+	
+	@FindBy(xpath= "//input[@placeholder='Slack channel']")
+	private WebElement fld_slackChannel;
+	
+	
 	/* Methods */
+	
 	/**
 	 * Set Impacted Users
 	 */
@@ -108,7 +119,7 @@ public class CreateSNOWTicketPage extends BasePage {
 		if(driverHelper.isElementPresent(fld_impactedUsers)) {
 			//driverHelper.clickButton(fld_impactedUsers);
 			driverHelper.inputFieldValue(fld_impactedUsers, impactedUsers);
-			driverHelper.waitForElementVisible(fld_impactedUsersOptions);
+			//driverHelper.waitForElementVisible(fld_impactedUsersOptions);
 			driverHelper.explicitWaitSNOW();
 			driverHelper.clickEnter(fld_impactedUsers);
 			driverHelper.embedScreenshot(scenario);
@@ -129,7 +140,7 @@ public class CreateSNOWTicketPage extends BasePage {
 		if(driverHelper.isElementPresent(fld_assignmentGroup)) {
 			//driverHelper.clickButton(fld_assignmentGroup);
 			driverHelper.inputFieldValue(fld_assignmentGroup, assignmentGroup);
-			driverHelper.waitForElementVisible(fld_assignmentGroupOptions);
+			//driverHelper.waitForElementVisible(fld_assignmentGroupOptions);
 			driverHelper.explicitWaitSNOW();
 			driverHelper.clickEnter(fld_assignmentGroup);
 			driverHelper.embedScreenshot(scenario);
@@ -150,7 +161,7 @@ public class CreateSNOWTicketPage extends BasePage {
 		if(driverHelper.isElementPresent(fld_assignedTo)) {
 			//driverHelper.clickButton(fld_assignedTo);
 			driverHelper.inputFieldValue(fld_assignedTo, assignedTo);
-			driverHelper.waitForElementVisible(fld_assignedToOptions);
+			//driverHelper.waitForElementVisible(fld_assignedToOptions);
 			driverHelper.explicitWaitSNOW();
 			driverHelper.clickEnter(fld_assignedTo);
 			driverHelper.embedScreenshot(scenario);
@@ -171,7 +182,7 @@ public class CreateSNOWTicketPage extends BasePage {
 		if(driverHelper.isElementPresent(fld_category)) {
 			//driverHelper.clickButton(fld_category);
 			driverHelper.inputFieldValue(fld_category, category);
-			driverHelper.waitForElementVisible(fld_categoryOptions);
+			//driverHelper.waitForElementVisible(fld_categoryOptions);
 			driverHelper.explicitWaitSNOW();
 			driverHelper.clickEnter(fld_category);
 			driverHelper.embedScreenshot(scenario);
@@ -192,7 +203,7 @@ public class CreateSNOWTicketPage extends BasePage {
 		if(driverHelper.isElementPresent(fld_subCategory)) {
 			//driverHelper.clickButton(fld_subCategory);
 			driverHelper.inputFieldValue(fld_subCategory, subCategory);
-			driverHelper.waitForElementVisible(fld_subCategoryOptions);
+			//driverHelper.waitForElementVisible(fld_subCategoryOptions);
 			driverHelper.explicitWaitSNOW();
 			driverHelper.clickEnter(fld_subCategory);
 			driverHelper.embedScreenshot(scenario);
@@ -213,7 +224,7 @@ public class CreateSNOWTicketPage extends BasePage {
 		if(driverHelper.isElementPresent(fld_area)) {
 			//driverHelper.clickButton(fld_area);
 			driverHelper.inputFieldValue(fld_area, area);
-			driverHelper.waitForElementVisible(fld_areaOptions);
+			//driverHelper.waitForElementVisible(fld_areaOptions);
 			driverHelper.explicitWaitSNOW();
 			driverHelper.clickEnter(fld_area);
 			driverHelper.embedScreenshot(scenario);
@@ -253,8 +264,8 @@ public class CreateSNOWTicketPage extends BasePage {
 		if(driverHelper.isElementPresent(fld_language)) {
 			//driverHelper.clickButton(fld_language);
 			driverHelper.inputFieldValue(fld_language, language);
-			driverHelper.clickEnter(fld_language);
 			driverHelper.explicitWaitSNOW();
+			driverHelper.clickEnter(fld_language);
 			driverHelper.embedScreenshot(scenario);
 			log.exit();
 		} else {
@@ -327,6 +338,7 @@ public class CreateSNOWTicketPage extends BasePage {
 			driverHelper.scrollIntoView(fld_priority);
 			driverHelper.clickButton(fld_priority);
 			driverHelper.setValueDropdown(list_priority, fld_priority, priority);
+			driverHelper.embedScreenshot(scenario);
 			log.exit();
 		} else {
 			System.out.println("Priority field is not present.");
@@ -398,5 +410,47 @@ public class CreateSNOWTicketPage extends BasePage {
 			System.out.println("Automatically Closed Ticket checkbox is not present.");
 			log.exit();
 		}
+	}
+	
+	/**
+	 * Check send ticket to slack ID channel
+	 */
+	public void checkSendTicketToSlackIDChannel() {
+		log.entry();
+		driverHelper.waitForPageLoaded();
+		if(driverHelper.isElementPresent(btn_sendToSlackChannel)) {
+			driverHelper.clickButton(btn_sendToSlackChannel);
+			driverHelper.embedScreenshot(scenario);
+			log.exit();
+		} else {
+			System.out.println("Send ticket to Slack ID channel checkbox is not present.");
+			log.exit();
+		}
+	}
+	
+	/**
+	 *Input Slack Channel
+	 */
+	public void inputSlackChannel(String slackChannel) {
+		log.entry();
+		driverHelper.waitForPageLoaded();
+		if(driverHelper.isElementPresent(fld_slackChannel)) {
+			fld_slackChannel.clear();
+			driverHelper.inputFieldValue(fld_slackChannel, slackChannel);
+			driverHelper.embedScreenshot(scenario);
+			log.exit();
+		} else {
+			System.out.println("Slack Channel field is not present.");
+			log.exit();
+		}
+	}
+	
+	/**
+	 * Check Slack channel value
+	 */
+	public void checkSlackChannelValue(String slackChannelValue) {
+		log.entry();
+		Assert.assertTrue("Values are not the same", (fld_slackChannel.getAttribute("value")).equals(slackChannelValue));
+		log.exit();
 	}
 }

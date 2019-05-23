@@ -58,6 +58,7 @@ public class CommonConstants {
 	public static final String SNOW_IMPACT = PropertyUtil.getProp("src/test/resources/properties/test-data.properties", "action.CreateSNOWTicket.Impact");
 	public static final String SNOW_URGENCY = PropertyUtil.getProp("src/test/resources/properties/test-data.properties", "action.CreateSNOWTicket.Urgency");
 	public static final String SNOW_PRIORITY = PropertyUtil.getProp("src/test/resources/properties/test-data.properties", "action.CreateSNOWTicket.Priority");
+	public static final String SNOW_SLACK_CHANNEL = PropertyUtil.getProp("src/test/resources/properties/test-data.properties", "action.CreateSNOWTicket.SlackChannel");
 	
 	/*-----EMAIL FIELDS-----*/
 	public static final String EMAIL_TO = PropertyUtil.getProp("src/test/resources/properties/test-data.properties", "action.SendEmail.To");

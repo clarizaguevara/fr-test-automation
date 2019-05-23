@@ -1,11 +1,16 @@
 package com.pageobjects;
 
+import java.util.List;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.FindBys;
+
+import com.utils.DataHelper;
 
 public class HomePage extends BasePage{
 
@@ -36,8 +41,18 @@ public class HomePage extends BasePage{
 	@FindBy(xpath= "//a[text()='Keyword Lists']")
 	private WebElement btn_keywordlists;
 	
+	@FindBy(xpath= "//a[text()='Templates Management']")
+	private WebElement btn_templatesmanagement;
+	
 	@FindBy(xpath= "//button[contains (text(), ' Create New Filter')]")
 	private WebElement btn_createNewFilter;
+	
+	@FindBy(xpath= "//label[text()='Source:']//following::select")
+	private WebElement fld_filterSource;
+	
+	@FindBys(value = @FindBy (xpath = "//label[text()='Source:']//following::select//option"))
+	private List<WebElement> list_filterSource;
+	
 	
 	/* Methods */
 	
@@ -46,8 +61,8 @@ public class HomePage extends BasePage{
 	 */
 	public void verifySuccessfulNavigationToHomePage() {
 		log.entry();
-		driverHelper.embedScreenshot(scenario);
 		Assert.assertTrue("Unsuccessful navigation in Command Center Home Page", driverHelper.isElementPresent(page_browse));
+		driverHelper.embedScreenshot(scenario);
 		log.exit();
 	}
 	
@@ -57,7 +72,6 @@ public class HomePage extends BasePage{
 	public void clickHomeButton() {
 		log.entry();
 		if(driverHelper.isElementPresent(btn_Home)) {
-			driverHelper.embedScreenshot(scenario);
 			driverHelper.clickButton(btn_Home);
 			log.exit();
 		} else {
@@ -87,9 +101,9 @@ public class HomePage extends BasePage{
 	public void clickApplyButton() {
 		log.entry();
 		if(driverHelper.isElementPresent(btn_Apply)) {
-			driverHelper.embedScreenshot(scenario);
 			driverHelper.clickButton(btn_Apply);
 			driverHelper.explicitWait();
+			driverHelper.embedScreenshot(scenario);
 			log.exit();
 		} else {
 			System.out.println("Apply Button is not present.");
@@ -129,7 +143,6 @@ public class HomePage extends BasePage{
 	public void clickEventsTab() {
 		log.entry();
 		if(driverHelper.isElementPresent(btn_events)) {
-			driverHelper.embedScreenshot(scenario);
 			driverHelper.clickButton(btn_events);
 			driverHelper.explicitWait();
 			log.exit();
@@ -145,8 +158,8 @@ public class HomePage extends BasePage{
 	public void clickMaintenanceTab() {
 		log.entry();
 		if(driverHelper.isElementPresent(btn_maintenance)) {
-			driverHelper.embedScreenshot(scenario);
 			driverHelper.clickButton(btn_maintenance);
+			driverHelper.embedScreenshot(scenario);
 			log.exit();
 		} else {
 			System.out.println("Maintenance tab is not present.");
@@ -160,7 +173,6 @@ public class HomePage extends BasePage{
 	public void clickAccessManagement() {
 		log.entry();
 		if(driverHelper.isElementPresent(btn_accessmanagement)) {
-			driverHelper.embedScreenshot(scenario);
 			driverHelper.clickButton(btn_accessmanagement);
 			driverHelper.explicitWait();
 			log.exit();
@@ -176,7 +188,6 @@ public class HomePage extends BasePage{
 	public void clickKeywordLists() {
 		log.entry();
 		if(driverHelper.isElementPresent(btn_keywordlists)) {
-			driverHelper.embedScreenshot(scenario);
 			driverHelper.clickButton(btn_keywordlists);
 			driverHelper.explicitWait();
 			log.exit();
@@ -187,16 +198,61 @@ public class HomePage extends BasePage{
 	}
 	
 	/**
+	 * Click Templates Management
+	 */
+	public void clickTemplatesManagement() {
+		log.entry();
+		if(driverHelper.isElementPresent(btn_templatesmanagement)) {
+			driverHelper.clickButton(btn_templatesmanagement);
+			driverHelper.explicitWait();
+			log.exit();
+		} else {
+			System.out.println("Templates Management is not present.");
+			log.exit();
+		}
+	}
+	
+	/**
 	 * Click Create New Filter Button
 	 */
 	public void clickCreateNewFilterButton() {
 		log.entry();
 		if(driverHelper.isElementPresent(btn_createNewFilter)) {
-			driverHelper.embedScreenshot(scenario);
 			driverHelper.clickButton(btn_createNewFilter);
 			log.exit();
 		} else {
-			System.out.println("Home Button is not present.");
+			System.out.println("Create New Filter Button is not present.");
+			log.exit();
+		}
+	}
+	
+	/**
+	 * Verify source of search results
+	 */
+	public void verifySourceOfSearchResults(String source) {
+		log.entry();
+		By search_source = By.xpath("//tbody//tr//td[3]");
+		String abbr_source = DataHelper.convertSourceName(source);
+		List<WebElement> list_search_source = driver.findElements(search_source);
+		for (int counter = 0; counter < list_search_source.size(); counter++) {
+			WebElement searchEntry = list_search_source.get(counter);
+			Assert.assertTrue("Values do not match", (searchEntry.getText()).equals(abbr_source)); 
+		}
+		log.exit();
+	}
+	
+	/**
+	 * Select Source
+	 */
+	public void selectSource(String source) {
+		log.entry();
+		if(driverHelper.isElementPresent(fld_filterSource)) {
+			driverHelper.clickButton(fld_filterSource);
+			driverHelper.setValueDropdown(list_filterSource, fld_filterSource, source);
+			driverHelper.embedScreenshot(scenario);
+			log.exit();
+		} else {
+			System.out.println("Source field is not present.");
 			log.exit();
 		}
 	}

@@ -383,7 +383,8 @@ public class WebDriverHelper {
      */
 	public void embedScreenshot(Scenario scenario) {
 		String timeStamp = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date());
-		String outPath = System.getProperty("user.dir") + "\\target\\screenshots\\" + scenario.getId().split(";")[0] + "\\" + scenario.getName().replaceAll("\\s", "_") + "_" + timeStamp + ".png";
+		String outPath = System.getProperty("user.dir") + "\\target\\screenshots\\" + scenario.getId().split(";")[0] + "\\" + scenario.getName().replaceAll("\\s|\"|\\(|\\:|\\,|\\)|\\/", "_") + "_" + timeStamp + ".png";
+		//System.out.println(outPath);
 		try {
 			File scrFile = ((TakesScreenshot) getDriver()).getScreenshotAs(OutputType.FILE);
 			FileUtils.copyFile(scrFile, new File(outPath).getAbsoluteFile());

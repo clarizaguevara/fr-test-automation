@@ -28,7 +28,7 @@ public class ReportBuilderJava {
         //reportBuilder.enableVoiceControl();
         
         // Add additional info for Report
-        reportBuilder.setAdditionalInfo("Environment", "http://206.164.57.173:6080/");
+        reportBuilder.setAdditionalInfo("Environment", "Dev s3");
 
         // Create list or report Files or Directories or URLs or JSONObject or JSONString
         List<Object> cucumberJsonReports = new ArrayList<>();

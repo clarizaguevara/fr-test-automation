@@ -76,9 +76,9 @@ public class CreateNewFilterPage extends BasePage {
 	 */
 	public void verifySuccessfulNavigationToCreateNewFilterPage() {
 		log.entry();
-		driverHelper.embedScreenshot(scenario);
 		Assert.assertTrue("Unsuccessful navigation to Command Center Create New Filter Page", driverHelper.isElementPresent(page_filter));
 		Assert.assertTrue("Unsuccessful navigation to Command Center Create New Filter Page", driverHelper.isElementPresent(icn_new));
+		driverHelper.embedScreenshot(scenario);
 		log.exit();
 	}
 	
@@ -88,11 +88,10 @@ public class CreateNewFilterPage extends BasePage {
 	public void clickCreateNewFilterButton() {
 		log.entry();
 		if(driverHelper.isElementPresent(btn_createNewFilter)) {
-			driverHelper.embedScreenshot(scenario);
 			driverHelper.clickButton(btn_createNewFilter);
 			log.exit();
 		} else {
-			System.out.println("Home Button is not present.");
+			System.out.println("Create New Filter Button is not present.");
 			log.exit();
 		}
 	}
@@ -182,6 +181,7 @@ public class CreateNewFilterPage extends BasePage {
 		log.entry();
 		driverHelper.waitForElementNotVisible(icn_loading);
 		Assert.assertTrue("Filter is NOT Successfully saved.", driverHelper.isElementPresent(label_Save));
+		driverHelper.embedScreenshot(scenario);
 		log.exit();
 	}
 	
@@ -192,6 +192,7 @@ public class CreateNewFilterPage extends BasePage {
 		log.entry();
 		driverHelper.waitForElementNotVisible(icn_loading);
 		Assert.assertTrue("Filter is Successfully saved.", driverHelper.isElementNotPresent(label_Save));
+		driverHelper.embedScreenshot(scenario);
 		log.exit();
 	}
 	
@@ -202,6 +203,7 @@ public class CreateNewFilterPage extends BasePage {
 		log.entry();
 		if(driverHelper.isElementPresent(btn_addExtendedRule)) {
 			driverHelper.clickButton(btn_addExtendedRule);
+			driverHelper.embedScreenshot(scenario);
 			log.exit();
 		} else {
 			System.out.println("Add Rule button in Extended Rules is not present.");
@@ -215,7 +217,6 @@ public class CreateNewFilterPage extends BasePage {
 	public void clickHomeButton() {
 		log.entry();
 		if(driverHelper.isElementPresent(btn_Home)) {
-			driverHelper.embedScreenshot(scenario);
 			driverHelper.clickButton(btn_Home);
 			driverHelper.explicitWait();
 			log.exit();
@@ -230,9 +231,9 @@ public class CreateNewFilterPage extends BasePage {
 	 */
 	public void verifySuccessfulNavigationToEditFilterPage() {
 		log.entry();
-		driverHelper.embedScreenshot(scenario);
 		driverHelper.waitForElementVisible(fld_action);
 		Assert.assertTrue("Unsuccessful navigation to Command Center Edit Filter Page", driverHelper.isElementPresent(icn_edit));
+		driverHelper.embedScreenshot(scenario);
 		log.exit();
 	}
 	
@@ -251,7 +252,6 @@ public class CreateNewFilterPage extends BasePage {
 	public void clickDeleteButton() {
 		log.entry();
 		if(driverHelper.isElementPresent(btn_Delete)) {
-			driverHelper.embedScreenshot(scenario);
 			driverHelper.clickButton(btn_Delete);
 			log.exit();
 		} else {

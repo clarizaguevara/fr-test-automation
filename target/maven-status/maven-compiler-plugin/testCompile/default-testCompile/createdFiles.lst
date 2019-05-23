@@ -2,9 +2,12 @@ com\browserhelper\ChromeBrowserDriver.class
 com\pageobjects\AccessManagementPage.class
 com\pageobjects\ExtendedRulePage.class
 com\pageobjects\BasePage.class
+com\stepdefs\phase2\sprint2\AISM215Stepdefs.class
 com\pageobjects\CreateJiraTicketActionPage.class
 com\stepdefs\phase1\sprint1\AISM22Stepdefs.class
+com\stepdefs\phase2\sprint1\AISM153Stepdefs.class
 com\utils\WebDriverHelper$1.class
+com\pageobjects\TemplatesManagementPage.class
 com\stepdefs\phase1\sprint4\AISM47Stepdefs.class
 com\pageobjects\DeleteFilterPage.class
 com\pageobjects\HomePage.class
@@ -31,6 +34,8 @@ com\pageobjects\EventsBrowserPage.class
 com\pageobjects\SuppressionPage.class
 com\stepdefs\ScenarioHooks.class
 com\stepdefs\phase1\sprint2\AISM13Stepdefs.class
+com\stepdefs\phase2\sprint1\AISM143Stepdefs.class
+com\pageobjects\CreateNewTemplatePage.class
 com\stepdefs\phase1\sprint1\AISM23Stepdefs.class
 com\stepdefs\phase1\sprint2\AISM9Stepdefs.class
 com\stepdefs\phase1\sprint3\AISM62Stepdefs.class
@@ -44,3 +49,4 @@ com\pageobjects\PageActions.class
 com\pageobjects\CreateSNOWTicketPage.class
 com\stepdefs\phase1\sprint2\AISM11Stepdefs.class
 com\stepdefs\phase1\sprint3\AISM21Stepdefs.class
+com\stepdefs\phase2\sprint2\AISM149Stepdefs.class
