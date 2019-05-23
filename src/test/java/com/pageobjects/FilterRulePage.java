@@ -131,6 +131,10 @@ public class FilterRulePage extends BasePage {
 			Assert.assertTrue("Keyword dropdown value is incorrect", keywordDropdownValues.contains(dropdownValue)); 
 		}
 		log.exit();
+	}
+	
+
+	/**
 	 *Input Keyword Value
 	 */
 	public void selectKeywordValue(String keywordValue) {
