@@ -27,6 +27,7 @@ public class SendToSlackActionPage extends BasePage {
 	public void inputSlackChannel(String slackChannel) {
 		log.entry();
 		if(driverHelper.isElementPresent(fld_slackChannel)) {
+			fld_slackChannel.clear();
 			driverHelper.inputFieldValue(fld_slackChannel, slackChannel);
 			driverHelper.embedScreenshot(scenario);
 			log.exit();
