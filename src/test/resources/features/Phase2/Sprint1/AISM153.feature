@@ -18,3 +18,17 @@ Feature: AISM-153
       | Email - WhatsUp Gold |
       | Nagios-Pet           |
       | Cisco Meraki         |
+
+  Scenario Outline: Verify browsing of Filters by Filter name and Source: <source>
+    When I browse filters with source: <source>
+    And with name that contains AUT
+    Then Browse Filters page should list the filters with <source> as source
+    And filters with AUT in name
+
+    Examples: 
+      | source               |
+      | Email - JP1          |
+      | Email - Nagios-Pet   |
+      | Email - WhatsUp Gold |
+      | Nagios-Pet           |
+      | Cisco Meraki         |

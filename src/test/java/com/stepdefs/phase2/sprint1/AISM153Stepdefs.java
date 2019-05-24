@@ -11,11 +11,19 @@ public class AISM153Stepdefs implements En {
 		
 		When("I browse filters with source: (.*)", (String source) -> {
 			homePage.selectSource(source);
-			homePage.clickApplyButton();
+		});
+		
+		And("with name that contains (.*)", (String name) -> {
+			homePage.inputFilterTitle(name);
 		});
 		
 		Then("Browse Filters page should list the filters with (.*) as source", (String source) -> {
+			homePage.clickApplyButton();
 			homePage.verifySourceOfSearchResults(source);
+		});
+		
+		And("filters with (.*) in name", (String name) -> {
+			homePage.verifyFilterNameOfSearchResults(name);
 		});
 		
 	}
