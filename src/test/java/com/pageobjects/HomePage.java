@@ -233,9 +233,7 @@ public class HomePage extends BasePage{
 		log.entry();
 		By search_source = By.xpath("//tbody//tr//td[3]");
 		String abbr_source = DataHelper.convertSourceName(source);
-		List<WebElement> list_search_source = driver.findElements(search_source);
-		for (int counter = 0; counter < list_search_source.size(); counter++) {
-			WebElement searchEntry = list_search_source.get(counter);
+		for (WebElement searchEntry : driver.findElements(search_source)) {
 			Assert.assertTrue("Values do not match", (searchEntry.getText()).equals(abbr_source)); 
 		}
 		log.exit();
@@ -255,5 +253,17 @@ public class HomePage extends BasePage{
 			System.out.println("Source field is not present.");
 			log.exit();
 		}
+	}
+	
+	/**
+	 * Verify filter name of search results
+	 */
+	public void verifyFilterNameOfSearchResults(String name) {
+		log.entry();
+		By search_source = By.xpath("//tbody//tr//td[2]");
+		for (WebElement searchEntry : driver.findElements(search_source)) {
+			Assert.assertTrue("Filter name does not contain keyword", (searchEntry.getText()).contains(name)); 
+		}
+		log.exit();
 	}
 }

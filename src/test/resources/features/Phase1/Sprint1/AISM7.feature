@@ -45,7 +45,7 @@ Scenario Outline: Verify filter is not saved when Slack Channel field is blank
 	And with Filter Rule: <keyword> - <comparator> - <keyword value> 
 	And with Action: Send To Slack "<filter name>"
 	And I left Slack Channel field blank
-	Then I should be able to save successfully 
+	Then I should not be able to save successfully
 	
 		Examples: 
 		| filter name                | source       | keyword      | comparator    | keyword value        |

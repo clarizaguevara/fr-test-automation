@@ -5,12 +5,15 @@ com\pageobjects\BasePage.class
 com\stepdefs\phase2\sprint2\AISM215Stepdefs.class
 com\pageobjects\CreateJiraTicketActionPage.class
 com\stepdefs\phase1\sprint1\AISM22Stepdefs.class
+com\pageobjects\KeywordListsPage.class
 com\stepdefs\phase2\sprint1\AISM153Stepdefs.class
 com\utils\WebDriverHelper$1.class
+com\stepdefs\phase2\sprint1\AISM145Stepdefs.class
 com\pageobjects\TemplatesManagementPage.class
 com\stepdefs\phase1\sprint4\AISM47Stepdefs.class
 com\pageobjects\DeleteFilterPage.class
 com\pageobjects\HomePage.class
+com\stepdefs\phase2\sprint2\AISM147Stepdefs.class
 com\utils\PropertyUtil.class
 com\pageobjects\CorrelationPage.class
 com\stepdefs\phase1\sprint2\AdditionalTestCasesStepdefs.class
@@ -22,6 +25,7 @@ com\stepdefs\phase1\sprint3\AISM138Stepdefs.class
 com\browserhelper\BrowserBuilder.class
 com\browserhelper\IEBrowserDriver.class
 com\stepdefs\phase1\sprint2\AISM18Stepdefs.class
+com\stepdefs\phase2\sprint1\AISM146Stepdefs.class
 com\stepdefs\phase1\sprint2\AISM6Stepdefs.class
 com\pageobjects\SendEmailActionPage.class
 com\stepdefs\phase1\sprint1\AISM7Stepdefs.class

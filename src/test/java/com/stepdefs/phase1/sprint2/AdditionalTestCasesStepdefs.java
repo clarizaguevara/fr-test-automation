@@ -53,8 +53,6 @@ public class AdditionalTestCasesStepdefs implements En {
 			createNewFilterPage.clickHomeButton();
 			homePage.setDriver(hooks.getDriverHelper(), ScenarioHooks.getScenarioName());
 			homePage.verifySuccessfulNavigationToHomePage();
-			homePage.inputFilterTitle(filterName);
-			homePage.clickApplyButton();
 			homePage.selectFilterInList(filterName);
 			createNewFilterPage.verifySuccessfulNavigationToEditFilterPage();
 			createNewFilterPage.checkFilterName(filterName);
@@ -71,8 +69,6 @@ public class AdditionalTestCasesStepdefs implements En {
 		Then("filter (.*) should be editted successfully with new Filter rule values: (.*) (.*) (.*)", (String filterName, String keyword, String comparator, String keywordValue) -> {
 			createNewFilterPage.clickHomeButton();
 			homePage.verifySuccessfulNavigationToHomePage();
-			homePage.inputFilterTitle(filterName);
-			homePage.clickApplyButton();
 			homePage.selectFilterInList(filterName);
 			createNewFilterPage.verifySuccessfulNavigationToEditFilterPage();
 			createNewFilterPage.checkFilterName(filterName);
@@ -106,8 +102,6 @@ public class AdditionalTestCasesStepdefs implements En {
 	
 		Then("filter (.*) should be successfully deleted", (String filterName) -> {
 			homePage.verifySuccessfulNavigationToHomePage();
-			homePage.inputFilterTitle(filterName);
-			homePage.clickApplyButton();
 			homePage.verifyFilterNotFound(filterName);
 		});
 
