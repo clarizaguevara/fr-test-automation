@@ -31,7 +31,7 @@ public class AISM7Stepdefs implements En {
 		
 		And("I left Slack Channel field blank$", () -> {
 			sendToSlackActionPage.setDriver(hooks.getDriverHelper(), ScenarioHooks.getScenarioName());
-			sendToSlackActionPage.inputSlackMessage(" ");
+			sendToSlackActionPage.inputSlackChannel("");
 		});
 		
 		Then("I should be able to save successfully$", () -> {
