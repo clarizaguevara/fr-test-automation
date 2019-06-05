@@ -71,6 +71,12 @@ public class EventsBrowserPage extends BasePage {
 	@FindBy(xpath= "//h4[contains(text(),'Payload')]")
 	private WebElement label_payloaddetails;
 	
+	@FindBy(xpath= "//label[text()='Status:']//following::select")
+	private WebElement fld_alertStatus;
+	
+	@FindBys(value = @FindBy (xpath = "//label[text()='Status:']//following::select//option"))
+	private List<WebElement> list_alertStatus;
+	
 	
 	/* Methods */
 	
@@ -171,8 +177,7 @@ public class EventsBrowserPage extends BasePage {
 		By search_source = By.xpath("//tbody//tr//td[2]");
 		String abbr_source = DataHelper.convertSourceName(source);
 		List<WebElement> list_search_source = driver.findElements(search_source);
-		for (int counter = 0; counter < list_search_source.size(); counter++) {
-			WebElement searchEntry = list_search_source.get(counter);
+		for (WebElement searchEntry : list_search_source) {
 			Assert.assertTrue("Values do not match", (searchEntry.getText()).equals(abbr_source)); 
 		}
 		log.exit();
@@ -185,8 +190,7 @@ public class EventsBrowserPage extends BasePage {
 		log.entry();
 		By search_date = By.xpath("//tbody//tr//td[3]");
 		List<WebElement> list_search_date = driver.findElements(search_date);
-		for (int counter = 0; counter < list_search_date.size(); counter++) {
-			WebElement searchEntry = list_search_date.get(counter);
+		for (WebElement searchEntry : list_search_date) {
 			Assert.assertTrue("Date is not in range", DataHelper.isDateInRange(searchEntry.getText(), timestampFrom, timestampTo)); 
 		}
 		log.exit();
@@ -200,8 +204,7 @@ public class EventsBrowserPage extends BasePage {
 		By btn_payload = By.xpath("//tbody//tr//td[10]//i");
 		List<WebElement> list_btn_payload = driver.findElements(btn_payload);
 		Actions builder = new Actions(driver); 
-		for (int counter = 0; counter < list_btn_payload.size(); counter++) {
-			WebElement searchEntry = list_btn_payload.get(counter);
+		for (WebElement searchEntry : list_btn_payload) {
 			if(driverHelper.isElementPresent(searchEntry)) {
 				driverHelper.clickButton(searchEntry);
 				driverHelper.waitForPageLoaded();
@@ -315,6 +318,36 @@ public class EventsBrowserPage extends BasePage {
 	public void verifyFromAndToTimestamps() {
 		log.entry();
 		Assert.assertTrue("From date is greater than To date", DataHelper.compareDates(fld_timestampFrom.getAttribute("value"), fld_timestampTo.getAttribute("value"))); 
+		log.exit();
+	}
+	
+	/**
+	 * Select Status
+	 */
+	public void selectStatus(String status) {
+		log.entry();
+		if(driverHelper.isElementPresent(fld_alertStatus)) {
+			driverHelper.clickButton(fld_alertStatus);
+			driverHelper.setValueDropdown(list_alertStatus, fld_alertStatus, status);
+			driverHelper.embedScreenshot(scenario);
+			log.exit();
+		} else {
+			System.out.println("Status field is not present.");
+			log.exit();
+		}
+	}
+	
+	/**
+	 * Verify status of search results
+	 */
+	public void verifyStatusOfSearchResults(String status) {
+		log.entry();
+		By search_row = By.xpath("//tbody//tr");
+		String statusColor = "row-" + DataHelper.convertToStatusColor(status);
+		List<WebElement> list_search_row = driver.findElements(search_row);
+		for (WebElement searchEntry : list_search_row) {
+			Assert.assertTrue("Values do not match", (searchEntry.getAttribute("class")).equals(statusColor)); 
+		}
 		log.exit();
 	}
 

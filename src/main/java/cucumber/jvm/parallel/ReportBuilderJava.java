@@ -22,7 +22,7 @@ public class ReportBuilderJava {
         reportBuilder.setReportTitle("Fast Retailing Event Automation Test Report");
         
         // Set Report Color for more visit http://materializecss.com/color.html
-        reportBuilder.setReportColor(Color.CYAN);
+        reportBuilder.setReportColor(Color.BROWN);
         
         // Enable voice control for report
         //reportBuilder.enableVoiceControl();

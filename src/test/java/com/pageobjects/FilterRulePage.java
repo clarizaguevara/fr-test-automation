@@ -133,9 +133,10 @@ public class FilterRulePage extends BasePage {
 	public void verifyKeywordDropdownValues(String dropdownValues) {
 		log.entry();
 		List<String> keywordDropdownValues = Arrays.asList(dropdownValues.split(","));
-		for (int counter = 0; counter < list_keyword.size(); counter++) {
-			String dropdownValue = list_keyword.get(counter).getText();
-			Assert.assertTrue("Keyword dropdown value is incorrect", keywordDropdownValues.contains(dropdownValue)); 
+		for (WebElement webElement : list_keyword) {
+			String dropdownValue = webElement.getText();
+			Assert.assertTrue("Keyword dropdown value is incorrect", keywordDropdownValues.contains(dropdownValue));
+			Assert.assertTrue("Number of values is incorrect", keywordDropdownValues.size() == list_keyword.size()); 
 		}
 		log.exit();
 	}

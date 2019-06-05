@@ -108,4 +108,20 @@ public class DataHelper {
     	
     }
     
+    /**
+     * Convert Event Status to their corresponding color
+     */
+    public static String convertToStatusColor(String status) {
+    	log.entry();
+    	String status_color = "";
+		switch(status) {
+		case "Success": status_color = "green"; break;
+		case "Partially Successful": status_color = "yellow"; break;
+		case "Failed": status_color = "red"; break;
+		default: break;
+		}
+		log.exit();
+    	return status_color;
+    }
+    
 }

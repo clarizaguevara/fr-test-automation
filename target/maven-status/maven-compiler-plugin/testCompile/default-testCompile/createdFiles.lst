@@ -19,6 +19,7 @@ com\pageobjects\CorrelationPage.class
 com\stepdefs\phase1\sprint2\AdditionalTestCasesStepdefs.class
 com\runner\JunitRunner.class
 com\stepdefs\phase1\sprint1\AISM25Stepdefs.class
+com\stepdefs\phase2\sprint3\AISM214Stepdefs.class
 com\utils\WebDriverHelper.class
 com\pageobjects\SendToSlackActionPage.class
 com\stepdefs\phase1\sprint3\AISM138Stepdefs.class
