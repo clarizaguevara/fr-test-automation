@@ -1,4 +1,4 @@
-@scenarios @AISM149 @Templates
+@AISM149 @Templates
 Feature: AISM-149
   As an Operator
   I can create a template
@@ -23,7 +23,6 @@ Feature: AISM-149
     Examples: 
       | template name          | template type | source       | keyword  | comparator | keyword value  | action             |
       | AUT_TestTemplateMaster | Master        | Cisco Meraki | Hostname | Equals     | UQ-JP-0088-SDC | Send to Slack      |
-      | AUT_TestTemplateCopy   | Copy          | Nagios-Pet   | Summary  | Contains   | TEST           | Create Jira Ticket |
 
   Scenario Outline: Verify saving of template and mandatory field (keyword value) left blank
     When I click Maintenance tab
@@ -51,10 +50,3 @@ Feature: AISM-149
     Examples: 
       | template name        | template type | source       | keyword  | comparator | keyword value  | action        |
       | AUT_TestEditTemplate | Master        | Cisco Meraki | Hostname | Equals     | UQ-JP-0088-SDC | Send to Slack |
-
-  Scenario: Verify that user can Delete a template
-    When I click Maintenance tab
-    And I select Templates Management
-    And I open template AUT_TestEditTemplate
-    And I click the Delete button to delete the template
-    Then template AUT_TestEditTemplate should be successfully deleted

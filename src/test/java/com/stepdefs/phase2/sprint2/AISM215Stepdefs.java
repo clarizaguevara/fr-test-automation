@@ -25,13 +25,13 @@ public class AISM215Stepdefs implements En {
 		When("I tick \"Send ticket URL to Slack channel\" checkbox and input Slack channel", () -> {
 			createSNOWTicketPage.setDriver(hooks.getDriverHelper(), ScenarioHooks.getScenarioName());
 			createSNOWTicketPage.checkSendTicketToSlackIDChannel();
-			createSNOWTicketPage.inputSlackChannel(CommonConstants.SNOW_SLACK_CHANNEL);
+			createSNOWTicketPage.inputSlackChannel(CommonConstants.SLACK_CHANNEL);
 		});
 		
 		Then("Slack channel field of SNOW action should be filled up", () -> {
 			createNewFilterPage.clickSaveButton();
 			createNewFilterPage.verifyFilterSuccessfullySaved();
-			createSNOWTicketPage.checkSlackChannelValue(CommonConstants.SNOW_SLACK_CHANNEL);
+			createSNOWTicketPage.checkSlackChannelValue(CommonConstants.SLACK_CHANNEL);
 		});
 	}
 

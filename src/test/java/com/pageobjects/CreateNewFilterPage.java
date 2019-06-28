@@ -181,6 +181,7 @@ public class CreateNewFilterPage extends BasePage {
 		log.entry();
 		driverHelper.waitForElementNotVisible(icn_loading);
 		Assert.assertTrue("Filter is NOT Successfully saved.", driverHelper.isElementPresent(label_Save));
+		Assert.assertTrue("Unsuccessful navigation to Command Center Edit Filter Page", driverHelper.isElementPresent(icn_edit));
 		driverHelper.embedScreenshot(scenario);
 		log.exit();
 	}

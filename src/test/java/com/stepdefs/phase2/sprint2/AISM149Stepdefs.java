@@ -69,26 +69,6 @@ public class AISM149Stepdefs implements En {
 			filterRulePage.checkKeywordValue(keywordValue);
 		});
 		
-		/*-----------------------------*/
-		
-		And("I open template (.*)", (String templateName) -> {
-			templatesManagementPage.selectTemplateInList(templateName);
-			createNewFilterPage.setDriver(hooks.getDriverHelper(), ScenarioHooks.getScenarioName());
-			createNewFilterPage.verifySuccessfulNavigationToEditFilterPage();
-		});
-		
-		And("I click the Delete button to delete the template", () -> {
-			createNewFilterPage.clickDeleteButton();
-			deleteFilterPage.setDriver(hooks.getDriverHelper(), ScenarioHooks.getScenarioName());
-			deleteFilterPage.verifyDeletePopUp();
-			deleteFilterPage.clickDeleteYesButton();
-		});
-	
-		Then("template (.*) should be successfully deleted", (String templateName) -> {
-			templatesManagementPage.verifySuccessfulNavigationToTemplatesManagementPage();
-			templatesManagementPage.verifyTemplateNotFound(templateName);
-		});
-		
 	}
 
 }

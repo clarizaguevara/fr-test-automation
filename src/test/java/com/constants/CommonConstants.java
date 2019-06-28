@@ -33,7 +33,6 @@ public class CommonConstants {
 	
 	/*-----JIRA FIELDS-----*/
 	public static final String JIRA_ASSIGNEE = PropertyUtil.getProp("src/test/resources/properties/test-data.properties", "action.CreateJiraTicket.Assignee");
-	public static final String JIRA_SLACK_CHANNEL = PropertyUtil.getProp("src/test/resources/properties/test-data.properties", "action.CreateJiraTicket.SlackChannel");
 	public static final String JIRA_PROJECT_TYPE_ACPF = PropertyUtil.getProp("src/test/resources/properties/test-data.properties", "action.CreateJiraTicket.ProjectType.Task");
 	public static final String JIRA_PLATFORM = PropertyUtil.getProp("src/test/resources/properties/test-data.properties", "action.CreateJiraTicket.Platform");
 	public static final String JIRA_PROGRESS = PropertyUtil.getProp("src/test/resources/properties/test-data.properties", "action.CreateJiraTicket.Progress");
@@ -58,7 +57,6 @@ public class CommonConstants {
 	public static final String SNOW_IMPACT = PropertyUtil.getProp("src/test/resources/properties/test-data.properties", "action.CreateSNOWTicket.Impact");
 	public static final String SNOW_URGENCY = PropertyUtil.getProp("src/test/resources/properties/test-data.properties", "action.CreateSNOWTicket.Urgency");
 	public static final String SNOW_PRIORITY = PropertyUtil.getProp("src/test/resources/properties/test-data.properties", "action.CreateSNOWTicket.Priority");
-	public static final String SNOW_SLACK_CHANNEL = PropertyUtil.getProp("src/test/resources/properties/test-data.properties", "action.CreateSNOWTicket.SlackChannel");
 	
 	/*-----EMAIL FIELDS-----*/
 	public static final String EMAIL_TO = PropertyUtil.getProp("src/test/resources/properties/test-data.properties", "action.SendEmail.To");

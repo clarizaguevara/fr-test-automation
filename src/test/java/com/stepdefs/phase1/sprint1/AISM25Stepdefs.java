@@ -56,7 +56,7 @@ public class AISM25Stepdefs implements En {
 			createJiraTicketActionPage.setAssignee(CommonConstants.JIRA_ASSIGNEE);
 			createJiraTicketActionPage.inputLabels(filterName);
 			createJiraTicketActionPage.checkSendTicketToSlackIDChannel();
-			createJiraTicketActionPage.inputSlackChannel(CommonConstants.JIRA_SLACK_CHANNEL);
+			createJiraTicketActionPage.inputSlackChannel(CommonConstants.SLACK_CHANNEL);
 		});
 		
 		And("(.*) has Action: Create SNOW Ticket", (String filterName) -> {
@@ -70,6 +70,8 @@ public class AISM25Stepdefs implements En {
 			createSNOWTicketActionPage.setArea(CommonConstants.SNOW_AREA);
 			createSNOWTicketActionPage.inputShortDescription(filterName);
 			createSNOWTicketActionPage.inputDescription(filterName);
+			createSNOWTicketActionPage.checkSendTicketToSlackIDChannel();
+			createSNOWTicketActionPage.inputSlackChannel(CommonConstants.SLACK_CHANNEL);
 		});
 		
 		And("(.*) has Action: Send Email", (String filterName) -> {

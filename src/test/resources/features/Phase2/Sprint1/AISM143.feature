@@ -16,5 +16,5 @@ Feature: AISM-143
       | Email - JP1          | Sender,Subject,Body                                                                                        |
       | Email - Nagios-Pet   | Sender,Subject,Body                                                                                        |
       | Email - WhatsUp Gold | Sender,Subject,Body                                                                                        |
-      | Nagios-Pet           | Summary,Description                                                                                        |
+      | Nagios-Pet           | Summary,Description,Slack Channel                                                                                        |
       | Cisco Meraki         | Hostname,Country,Device,Mac Address,Timestamp,Network Id,IP Address,Shop,Device Serial,Description,Summary |

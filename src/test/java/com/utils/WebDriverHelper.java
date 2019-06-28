@@ -67,7 +67,7 @@ public class WebDriverHelper {
      */
     public boolean isElementPresent(By locator) {
         try {
-            driver.manage().timeouts().implicitlyWait(CommonConstants.DEFAULT_WAIT_FOR_ELEMENT, TimeUnit.SECONDS);
+            //driver.manage().timeouts().implicitlyWait(CommonConstants.DEFAULT_WAIT_FOR_ELEMENT, TimeUnit.SECONDS);
             WebDriverWait wait = new WebDriverWait(driver, CommonConstants.DEFAULT_WEBDRIVER_TIMEOUT);
 			wait.until(ExpectedConditions.presenceOfElementLocated(locator));
 			return true;
@@ -76,7 +76,7 @@ public class WebDriverHelper {
         } catch (Exception e) {
             log.error(GENERIC_EXCEPTION_OCCURRED, e);
         } finally {
-            driver.manage().timeouts().implicitlyWait(CommonConstants.DEFAULT_IMPLICIT_TIMEOUT, TimeUnit.SECONDS);
+            //driver.manage().timeouts().implicitlyWait(CommonConstants.DEFAULT_IMPLICIT_TIMEOUT, TimeUnit.SECONDS);
         }
         return false;
     }
@@ -88,7 +88,7 @@ public class WebDriverHelper {
      */
     public boolean isElementPresent(WebElement element) {
         try {
-            driver.manage().timeouts().implicitlyWait(CommonConstants.DEFAULT_WAIT_FOR_ELEMENT, TimeUnit.SECONDS);
+            //driver.manage().timeouts().implicitlyWait(CommonConstants.DEFAULT_WAIT_FOR_ELEMENT, TimeUnit.SECONDS);
         	element.isDisplayed();
             return true;
         } catch (NoSuchElementException | StaleElementReferenceException e) {
@@ -96,7 +96,7 @@ public class WebDriverHelper {
         } catch (Exception e) {
             log.error(GENERIC_EXCEPTION_OCCURRED, e);
         } finally {
-            driver.manage().timeouts().implicitlyWait(CommonConstants.DEFAULT_IMPLICIT_TIMEOUT, TimeUnit.SECONDS);
+            //driver.manage().timeouts().implicitlyWait(CommonConstants.DEFAULT_IMPLICIT_TIMEOUT, TimeUnit.SECONDS);
         }
         return false;
     }

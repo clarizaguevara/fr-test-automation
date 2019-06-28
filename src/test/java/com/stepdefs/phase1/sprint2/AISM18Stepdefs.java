@@ -27,7 +27,7 @@ public class AISM18Stepdefs implements En {
 			createJiraTicketActionPage.setWatchers(CommonConstants.JIRA_WATCHERS);
 			createJiraTicketActionPage.inputLabels(uniqueName);
 			createJiraTicketActionPage.checkSendTicketToSlackIDChannel();
-			createJiraTicketActionPage.inputSlackChannel(CommonConstants.JIRA_SLACK_CHANNEL);
+			createJiraTicketActionPage.inputSlackChannel(CommonConstants.SLACK_CHANNEL);
 			createJiraTicketActionPage.setAssignee(CommonConstants.JIRA_ASSIGNEE_NOT_EXISTING);
 		});
 		
@@ -43,7 +43,7 @@ public class AISM18Stepdefs implements En {
 			createJiraTicketActionPage.setAssignee(CommonConstants.JIRA_ASSIGNEE);
 			createJiraTicketActionPage.inputLabels(" ");
 			createJiraTicketActionPage.checkSendTicketToSlackIDChannel();
-			createJiraTicketActionPage.inputSlackChannel(CommonConstants.JIRA_SLACK_CHANNEL);
+			createJiraTicketActionPage.inputSlackChannel(CommonConstants.SLACK_CHANNEL);
 		});
 		
 		And("I untick \"Send ticket ID to Slack channel\" checkbox", () -> {
@@ -60,13 +60,13 @@ public class AISM18Stepdefs implements En {
 		When("I tick \"Send ticket ID to Slack channel\" checkbox and input Slack channel", () -> {
 			createJiraTicketActionPage.setDriver(hooks.getDriverHelper(), ScenarioHooks.getScenarioName());
 			createJiraTicketActionPage.checkSendTicketToSlackIDChannel();
-			createJiraTicketActionPage.inputSlackChannel(CommonConstants.JIRA_SLACK_CHANNEL);
+			createJiraTicketActionPage.inputSlackChannel(CommonConstants.SLACK_CHANNEL);
 		});
 		
 		Then("Slack channel should be filled up", () -> {
 			createNewFilterPage.clickSaveButton();
 			createNewFilterPage.verifyFilterSuccessfullySaved();
-			createJiraTicketActionPage.checkSlackChannelValue(CommonConstants.JIRA_SLACK_CHANNEL);
+			createJiraTicketActionPage.checkSlackChannelValue(CommonConstants.SLACK_CHANNEL);
 		});
 	}
 }

@@ -22,11 +22,11 @@ public class AISM214Stepdefs implements En {
 			eventsBrowserPage.selectStatus(status);
 		});
 		
-		Then("Events Browser page should list all events with (.*) actions only", (String status) -> {
+		Then("Events Browser page should list all events with Status: (.*)", (String status) -> {
 			eventsBrowserPage.verifyStatusOfSearchResults(status);
 		});
 		
-		And("with (.*) actions only", (String status) -> {
+		And("with Status: (.*) only", (String status) -> {
 			eventsBrowserPage.verifyStatusOfSearchResults(status);
 		});
 		

@@ -11,7 +11,6 @@ Feature: AISM-215
     When I create a Filter with filter name AUT_TestSNOWTicketURL and Nagios-Pet as source
     And with Filter Rule: Description - Begins With - TEST
     And AUT_TestSNOWTicketURL has Action: Create SNOW Ticket
-    And I tick "Send ticket URL to Slack channel" checkbox and input Slack channel
     Then filter should be saved successfully
 
   Scenario: Verify that Slack channel disappears if "Send ticket URL to Slack channel" checkbox is unchecked

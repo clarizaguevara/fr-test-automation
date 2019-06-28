@@ -26,7 +26,7 @@ public class AISM62Stepdefs implements En {
 			createJiraTicketActionPage.selectMarkets(CommonConstants.JIRA_MARKET);
 			createJiraTicketActionPage.selectPriority(CommonConstants.JIRA_PRIORITY_ACPF);
 			createJiraTicketActionPage.checkSendTicketToSlackIDChannel();
-			createJiraTicketActionPage.inputSlackChannel(CommonConstants.JIRA_SLACK_CHANNEL);
+			createJiraTicketActionPage.inputSlackChannel(CommonConstants.SLACK_CHANNEL);
 			createJiraTicketActionPage.setAssignee(CommonConstants.JIRA_ASSIGNEE_NOT_EXISTING);
 		});
 		
@@ -44,7 +44,7 @@ public class AISM62Stepdefs implements En {
 			createJiraTicketActionPage.setAssignee(CommonConstants.JIRA_ASSIGNEE);
 			createJiraTicketActionPage.inputLabels(" ");
 			createJiraTicketActionPage.checkSendTicketToSlackIDChannel();
-			createJiraTicketActionPage.inputSlackChannel(CommonConstants.JIRA_SLACK_CHANNEL);
+			createJiraTicketActionPage.inputSlackChannel(CommonConstants.SLACK_CHANNEL);
 		});
 		
 		And("I add multiple watchers$", () -> {

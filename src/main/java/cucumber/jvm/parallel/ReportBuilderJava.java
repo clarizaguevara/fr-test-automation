@@ -6,9 +6,14 @@ import java.util.List;
 import com.rajatthareja.reportbuilder.Color;
 import com.rajatthareja.reportbuilder.ReportBuilder;
 
+import cucumber.api.cli.Main;
+
 public class ReportBuilderJava {
     
-    public static void main(String ... args) throws Exception{
+    public static void main(String ... args) throws Throwable{
+    	
+    	//Main.main(new String[]{"-g", "stepdefs", "src/test/resources/features/"});
+    	
         // Create ReportBuilder Object
         ReportBuilder reportBuilder = new ReportBuilder();
         

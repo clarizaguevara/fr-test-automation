@@ -1,4 +1,4 @@
-@scenarios @ExtendedRules @SnowDuplicate
+@scenarios @AISM12 @ExtendedRules @SnowDuplicate
 Feature: AISM-12
   As a Operator
   I can check SNOW ticket from the NW alert information

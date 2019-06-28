@@ -36,7 +36,7 @@ public class DataHelper {
     public static boolean isDateInRange(String date, String timestampFrom, String timestampTo) {
     	log.entry();
     	boolean isDateInRange = true;
-    	SimpleDateFormat dateFormat = new SimpleDateFormat("MMMMM dd, yyyy");
+    	SimpleDateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy hh:mm:ss");
     	SimpleDateFormat timestampFormat = new SimpleDateFormat("MM/dd/yyyy hh:mm");
     	try {
 			Date dtToCompare = dateFormat.parse(date);

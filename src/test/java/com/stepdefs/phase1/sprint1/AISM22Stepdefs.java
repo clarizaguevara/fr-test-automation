@@ -42,7 +42,7 @@ public class AISM22Stepdefs implements En {
 			createJiraTicketActionPage.setAssignee(CommonConstants.JIRA_ASSIGNEE);
 			createJiraTicketActionPage.inputLabels(uniqueName);
 			createJiraTicketActionPage.checkSendTicketToSlackIDChannel();
-			createJiraTicketActionPage.inputSlackChannel(CommonConstants.JIRA_SLACK_CHANNEL);
+			createJiraTicketActionPage.inputSlackChannel(CommonConstants.SLACK_CHANNEL);
 		});
 	}
 }

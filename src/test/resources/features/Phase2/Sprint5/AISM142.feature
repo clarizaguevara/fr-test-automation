@@ -1,4 +1,4 @@
-@scenarios @AISM142
+@AISM142
 Feature: AISM-142
   As an Operator
   I can select sender/subject/body in the command center

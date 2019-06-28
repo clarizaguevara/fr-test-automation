@@ -8,6 +8,7 @@ C:\Users\cguevara6\OneDrive - DXC Production\Documents\GitHub\FR-Test-Automation
 C:\Users\cguevara6\OneDrive - DXC Production\Documents\GitHub\FR-Test-Automation\src\test\java\com\pageobjects\DeleteFilterPage.java
 C:\Users\cguevara6\OneDrive - DXC Production\Documents\GitHub\FR-Test-Automation\src\test\java\com\stepdefs\phase1\sprint3\AISM21Stepdefs.java
 C:\Users\cguevara6\OneDrive - DXC Production\Documents\GitHub\FR-Test-Automation\src\test\java\com\pageobjects\LoginPage.java
+C:\Users\cguevara6\OneDrive - DXC Production\Documents\GitHub\FR-Test-Automation\src\test\java\com\stepdefs\phase2\sprint3\AISM218Stepdefs.java
 C:\Users\cguevara6\OneDrive - DXC Production\Documents\GitHub\FR-Test-Automation\src\test\java\com\pageobjects\PageActions.java
 C:\Users\cguevara6\OneDrive - DXC Production\Documents\GitHub\FR-Test-Automation\src\test\java\com\stepdefs\phase1\sprint2\AISM12Stepdefs.java
 C:\Users\cguevara6\OneDrive - DXC Production\Documents\GitHub\FR-Test-Automation\src\test\java\com\pageobjects\SuppressionPage.java
@@ -23,6 +24,7 @@ C:\Users\cguevara6\OneDrive - DXC Production\Documents\GitHub\FR-Test-Automation
 C:\Users\cguevara6\OneDrive - DXC Production\Documents\GitHub\FR-Test-Automation\src\test\java\com\stepdefs\ScenarioHooks.java
 C:\Users\cguevara6\OneDrive - DXC Production\Documents\GitHub\FR-Test-Automation\src\test\java\com\pageobjects\HomePage.java
 C:\Users\cguevara6\OneDrive - DXC Production\Documents\GitHub\FR-Test-Automation\src\test\java\com\pageobjects\CreateNewTemplatePage.java
+C:\Users\cguevara6\OneDrive - DXC Production\Documents\GitHub\FR-Test-Automation\target\generated-test-sources\features\Parallel02IT.java
 C:\Users\cguevara6\OneDrive - DXC Production\Documents\GitHub\FR-Test-Automation\src\test\java\com\pageobjects\KeywordListsPage.java
 C:\Users\cguevara6\OneDrive - DXC Production\Documents\GitHub\FR-Test-Automation\src\test\java\com\pageobjects\SendToSlackActionPage.java
 C:\Users\cguevara6\OneDrive - DXC Production\Documents\GitHub\FR-Test-Automation\src\test\java\com\pageobjects\CreateNewFilterPage.java
@@ -54,3 +56,4 @@ C:\Users\cguevara6\OneDrive - DXC Production\Documents\GitHub\FR-Test-Automation
 C:\Users\cguevara6\OneDrive - DXC Production\Documents\GitHub\FR-Test-Automation\src\test\java\com\pageobjects\CreateSNOWTicketPage.java
 C:\Users\cguevara6\OneDrive - DXC Production\Documents\GitHub\FR-Test-Automation\target\generated-test-sources\features\Parallel01IT.java
 C:\Users\cguevara6\OneDrive - DXC Production\Documents\GitHub\FR-Test-Automation\src\test\java\com\pageobjects\CiscoMerakiCheckConditionPage.java
+C:\Users\cguevara6\OneDrive - DXC Production\Documents\GitHub\FR-Test-Automation\target\generated-test-sources\features\Parallel03IT.java
