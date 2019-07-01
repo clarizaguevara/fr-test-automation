@@ -68,4 +68,13 @@ public class CommonConstants {
 	public static final String KEYWORD_LISTNAME = PropertyUtil.getProp("src/test/resources/properties/test-data.properties", "keyword.ListName");
 	public static final String KEYWORD_KEYWORDVALUE = PropertyUtil.getProp("src/test/resources/properties/test-data.properties", "keyword.KeywordValue");
 	public static final String KEYWORD_LISTNAME_EDITED = PropertyUtil.getProp("src/test/resources/properties/test-data.properties", "keyword.ListName.Edited");
+	
+	/*-----EVENT-----*/
+	public static final String EVENT_ID = PropertyUtil.getProp("src/test/resources/properties/test-data.properties", "event.EventId");
+	
+	/*-----LIST OF VALUES-----*/
+	public static final String LOV_KEYWORD_EMAIL = PropertyUtil.getProp("src/test/resources/properties/test-data.properties", "LOV.keyword.source-email");
+	public static final String LOV_KEYWORD_NP = PropertyUtil.getProp("src/test/resources/properties/test-data.properties", "LOV.keyword.source-np");
+	public static final String LOV_KEYWORD_CM = PropertyUtil.getProp("src/test/resources/properties/test-data.properties", "LOV.keyword.source-cm");
+	public static final String LOV_COMPARATOR = PropertyUtil.getProp("src/test/resources/properties/test-data.properties", "LOV.comparator");
 }

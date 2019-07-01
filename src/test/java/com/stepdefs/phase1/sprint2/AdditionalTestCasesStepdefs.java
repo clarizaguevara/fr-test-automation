@@ -104,6 +104,13 @@ public class AdditionalTestCasesStepdefs implements En {
 			homePage.verifySuccessfulNavigationToHomePage();
 			homePage.verifyFilterNotFound(filterName);
 		});
+		
+		/*COMPARATOR dropdown*/
+		
+		Then("Comparator dropdown should have the correct values", () -> {
+			filterRulePage.setDriver(hooks.getDriverHelper(), ScenarioHooks.getScenarioName());
+			filterRulePage.verifyComparatorDropdownValues(CommonConstants.LOV_COMPARATOR);
+		});
 
 	
 	}

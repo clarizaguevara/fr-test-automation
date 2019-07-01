@@ -90,7 +90,7 @@ public class FilterRulePage extends BasePage {
 	public void inputKeywordValue(String keywordValue) {
 		log.entry();
 		if(driverHelper.isElementPresent(fld_keywordvalue)) {
-			fld_keywordvalue.clear();
+			driverHelper.clearText(fld_keywordvalue);
 			driverHelper.inputFieldValue(fld_keywordvalue, keywordValue);
 			driverHelper.embedScreenshot(scenario);
 			log.exit();
@@ -135,7 +135,8 @@ public class FilterRulePage extends BasePage {
 		List<String> keywordDropdownValues = Arrays.asList(dropdownValues.split(","));
 		for (WebElement webElement : list_keyword) {
 			String dropdownValue = webElement.getText();
-			Assert.assertTrue("Keyword dropdown value is incorrect", keywordDropdownValues.contains(dropdownValue));
+			log.info(keywordDropdownValues.size() + " " + list_keyword.size());
+			Assert.assertTrue("Keyword dropdown value is incorrect", dropdownValues.contains(dropdownValue));
 			Assert.assertTrue("Number of values is incorrect", keywordDropdownValues.size() == list_keyword.size()); 
 		}
 		log.exit();
@@ -243,7 +244,7 @@ public class FilterRulePage extends BasePage {
 		log.entry();
 		By fld_keywordValue = By.xpath("//div[contains(@class,'condition-group')][" + groupNumber + "]//div[contains(@class,'justify-content-start')][" + ruleNumber + "]//div[@class='col-sm']//input[not(contains(@class, 'form-control block borderless-input'))]");
 		if(driverHelper.isElementPresent(fld_keywordValue)) {
-			driver.findElement(fld_keywordValue).clear();
+			driverHelper.clearText(fld_keywordValue);
 			driverHelper.inputFieldValue(driver.findElement(fld_keywordValue), keywordValue);
 			driverHelper.embedScreenshot(scenario);
 			log.exit();
@@ -323,6 +324,20 @@ public class FilterRulePage extends BasePage {
 				}
 				driverHelper.embedScreenshot(scenario);
 			}
+		}
+		log.exit();
+	}
+	
+	/**
+	 * Verify comparator dropdown values
+	 */
+	public void verifyComparatorDropdownValues(String dropdownValues) {
+		log.entry();
+		List<String> comparatorDropdownValues = Arrays.asList(dropdownValues.split(","));
+		for (WebElement webElement : list_comparator) {
+			String dropdownValue = webElement.getText();
+			Assert.assertTrue("Comparator dropdown value is incorrect", dropdownValues.contains(dropdownValue));
+			Assert.assertTrue("Number of values is incorrect", comparatorDropdownValues.size() == list_comparator.size()); 
 		}
 		log.exit();
 	}

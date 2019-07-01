@@ -2,6 +2,7 @@ package com.pageobjects;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 
 import org.apache.logging.log4j.LogManager;
@@ -302,7 +303,7 @@ public class AccessManagementPage extends BasePage {
 	public void inputEmployeeId(String employeeId) {
 		log.entry();
 		if(driverHelper.isElementPresent(fld_employeeId)) {
-			fld_employeeId.clear();
+			driverHelper.clearText(fld_employeeId);
 			driverHelper.inputFieldValue(fld_employeeId, employeeId);
 			driverHelper.embedScreenshot(scenario);
 			log.exit();
@@ -318,7 +319,7 @@ public class AccessManagementPage extends BasePage {
 	public void inputName(String name) {
 		log.entry();
 		if(driverHelper.isElementPresent(fld_name)) {
-			fld_name.clear();
+			driverHelper.clearText(fld_name);
 			driverHelper.inputFieldValue(fld_name, name);
 			driverHelper.embedScreenshot(scenario);
 			log.exit();
@@ -350,7 +351,7 @@ public class AccessManagementPage extends BasePage {
 	public void inputDateFrom(String dateFrom) {
 		log.entry();
 		if(driverHelper.isElementPresent(fld_dateFrom)) {
-			fld_dateFrom.clear();
+			driverHelper.clearText(fld_dateFrom);
 			driverHelper.inputFieldValue(fld_dateFrom, dateFrom);
 			driverHelper.clickEnter(fld_dateFrom);
 			driverHelper.embedScreenshot(scenario);
@@ -366,7 +367,7 @@ public class AccessManagementPage extends BasePage {
 	public void inputDateTo(String dateTo) {
 		log.entry();
 		if(driverHelper.isElementPresent(fld_dateTo)) {
-			fld_dateTo.clear();
+			driverHelper.clearText(fld_dateTo);
 			driverHelper.inputFieldValue(fld_dateTo, dateTo);
 			driverHelper.clickEnter(fld_dateTo);
 			driverHelper.embedScreenshot(scenario);
@@ -382,7 +383,7 @@ public class AccessManagementPage extends BasePage {
 	public void inputRoleName(String roleName) {
 		log.entry();
 		if(driverHelper.isElementPresent(fld_roleName)) {
-			fld_roleName.clear();
+			driverHelper.clearText(fld_roleName);
 			driverHelper.inputFieldValue(fld_roleName, roleName);
 			driverHelper.embedScreenshot(scenario);
 			log.exit();
@@ -545,7 +546,11 @@ public class AccessManagementPage extends BasePage {
 	 */
 	public void verifyFromAndToDates() {
 		log.entry();
-		Assert.assertTrue("From date is greater than To date", DataHelper.compareDates(fld_dateFrom.getAttribute("value"), fld_dateTo.getAttribute("value"))); 
+		String dateFormat = "MM/dd/yyyy";
+		Date dtDateFrom = DataHelper.parseDateTime(dateFormat, fld_dateFrom.getAttribute("value"));
+		Date dtDateTo = DataHelper.parseDateTime(dateFormat, fld_dateTo.getAttribute("value"));
+		
+		Assert.assertTrue("From date is greater than To date", dtDateFrom.before(dtDateTo)); 
 		log.exit();
 	}
 

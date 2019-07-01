@@ -477,6 +477,35 @@ public class WebDriverHelper {
 	}
 	
 	/**
+	 * Clear text in a field
+	 * @param WebElement
+	 */
+	public void clearText(WebElement webElement) {
+		log.entry();
+		if (isElementPresent(webElement)) {
+			webElement.clear();
+        } else {
+            log.error("Element not found.");
+        }
+		log.exit();
+	}
+	
+	/**
+	 * Clear text in a field
+	 * @param By
+	 */
+	public void clearText(By byElement) {
+		log.entry();
+		WebElement webElement = driver.findElement(byElement);
+		if (isElementPresent(webElement)) {
+			webElement.clear();
+        } else {
+            log.error("Element not found.");
+        }
+		log.exit();
+	}
+	
+	/**
 	 * Explicitly wait for an element to appear
 	 */
 	public void explicitWaitSNOW() {

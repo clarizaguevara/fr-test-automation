@@ -23,3 +23,7 @@ Feature: Additional Test Cases
     Then I go back to Browse page and open filter AUT_TestDelete
     And I click the Delete button to delete the filter
     Then filter AUT_TestDelete should be successfully deleted
+    
+  @ComparatorDropdown
+  Scenario: Verify Comparator dropdown values
+    Then Comparator dropdown should have the correct values

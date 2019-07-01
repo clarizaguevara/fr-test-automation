@@ -1,5 +1,6 @@
 package com.pageobjects;
 
+import java.util.Date;
 import java.util.List;
 
 import org.apache.logging.log4j.LogManager;
@@ -77,6 +78,9 @@ public class EventsBrowserPage extends BasePage {
 	@FindBys(value = @FindBy (xpath = "//label[text()='Status:']//following::select//option"))
 	private List<WebElement> list_alertStatus;
 	
+	@FindBy(id= "event-id-filter")
+	private WebElement fld_eventId;
+	
 	
 	/* Methods */
 	
@@ -112,7 +116,7 @@ public class EventsBrowserPage extends BasePage {
 	public void inputTimestampFrom(String timestampFrom) {
 		log.entry();
 		if(driverHelper.isElementPresent(fld_timestampFrom)) {
-			fld_timestampFrom.clear();
+			driverHelper.clearText(fld_timestampFrom);
 			driverHelper.inputFieldValue(fld_timestampFrom, timestampFrom);
 			driverHelper.clickEnter(fld_timestampFrom);
 			driverHelper.embedScreenshot(scenario);
@@ -128,7 +132,7 @@ public class EventsBrowserPage extends BasePage {
 	public void inputTimestampTo(String timestampTo) {
 		log.entry();
 		if(driverHelper.isElementPresent(fld_timestampTo)) {
-			fld_timestampTo.clear();
+			driverHelper.clearText(fld_timestampTo);
 			driverHelper.inputFieldValue(fld_timestampTo, timestampTo);
 			driverHelper.clickEnter(fld_timestampTo);
 			driverHelper.embedScreenshot(scenario);
@@ -188,10 +192,17 @@ public class EventsBrowserPage extends BasePage {
 	 */
 	public void verifyDateOfSearchResults(String timestampFrom, String timestampTo) {
 		log.entry();
+		String timestampFormat_search = "MM/dd/yyyy HH:mm:ss";
+		String timestampFormat_field = "MM/dd/yyyy HH:mm";
+		Date dtToCompare = null;
+		Date dtTimestampFrom = DataHelper.parseDateTime(timestampFormat_field, timestampFrom);
+		Date dtTimestampTo = DataHelper.parseDateTime(timestampFormat_field, timestampTo);
 		By search_date = By.xpath("//tbody//tr//td[3]");
+		
 		List<WebElement> list_search_date = driver.findElements(search_date);
 		for (WebElement searchEntry : list_search_date) {
-			Assert.assertTrue("Date is not in range", DataHelper.isDateInRange(searchEntry.getText(), timestampFrom, timestampTo)); 
+			dtToCompare = DataHelper.parseDateTime(timestampFormat_search, searchEntry.getText());
+			Assert.assertTrue("Date is not in range", dtToCompare.compareTo(dtTimestampFrom) >= 0 && dtToCompare.compareTo(dtTimestampTo) <= 0); 
 		}
 		log.exit();
 	}
@@ -317,7 +328,11 @@ public class EventsBrowserPage extends BasePage {
 	 */
 	public void verifyFromAndToTimestamps() {
 		log.entry();
-		Assert.assertTrue("From date is greater than To date", DataHelper.compareTimestamps(fld_timestampFrom.getAttribute("value"), fld_timestampTo.getAttribute("value"))); 
+		String timestampFormat = "MM/dd/yyyy HH:mm";
+		Date dtTimestampFrom = DataHelper.parseDateTime(timestampFormat, fld_timestampFrom.getAttribute("value"));
+		Date dtTimestampTo = DataHelper.parseDateTime(timestampFormat, fld_timestampTo.getAttribute("value"));
+		
+		Assert.assertTrue("From date is greater than To date", dtTimestampFrom.before(dtTimestampTo)); 
 		log.exit();
 	}
 	
@@ -601,6 +616,63 @@ public class EventsBrowserPage extends BasePage {
 			}
 		}
 		
+		log.exit();
+	}
+	
+	/**
+	 * Verify that Event Id field is present
+	 */
+	public void isEventIdFieldPresent() {
+		log.entry();
+		Assert.assertTrue("Event Id field is not present", driverHelper.isElementPresent(fld_eventId));
+		log.exit();
+	}
+	
+	/**
+	 * Input Event ID
+	 */
+	public void inputEventId(String eventId) {
+		log.entry();
+		if(driverHelper.isElementPresent(fld_eventId)) {
+			driverHelper.clearText(fld_eventId);
+			driverHelper.inputFieldValue(fld_eventId, eventId);
+			driverHelper.embedScreenshot(scenario);
+			log.exit();
+		} else {
+			System.out.println("Event ID field is not present.");
+		}
+		log.exit();
+	}
+	
+	/**
+	 * Verify event id of search results
+	 */
+	public void verifyEventIdOfSearchResults(String eventId) {
+		log.entry();
+		By search_eventId = By.xpath("//tbody//tr//td[1]");
+		List<WebElement> list_search_eventId = driver.findElements(search_eventId);
+		for (WebElement searchEntry : list_search_eventId) {
+			Assert.assertTrue("Values are not equal", (searchEntry.getText()).equals(eventId)); 
+		}
+		log.exit();
+	}
+	
+	/**
+	 * Verify format of timestamps
+	 */
+	public void verifyTimestampFormat(String format) {
+		log.entry();
+		By search_timestamp = By.xpath("//tbody//tr//td[3]");
+		String strDate = "";
+		Date dtDate = null;
+		
+		List<WebElement> list_search_timestamp = driver.findElements(search_timestamp);
+		for (WebElement searchEntry : list_search_timestamp) {
+			dtDate = DataHelper.parseDateTime(format, searchEntry.getText());
+			strDate = DataHelper.formatDateTime(format, dtDate);
+			//log.info(searchEntry.getText() + " " + strDate);
+			Assert.assertTrue("Values are not equal", (searchEntry.getText()).equals(strDate)); 
+		}
 		log.exit();
 	}
 

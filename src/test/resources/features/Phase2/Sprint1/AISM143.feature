@@ -7,14 +7,14 @@ Feature: AISM-143
     Given I am login
     And I am on Create New Filter page
 
-  Scenario Outline: Verify keyword dropdown values if Source: <source> is selected
+  Scenario Outline: Verify keyword dropdown values for Source: <source>
     When I select <source> as source
-    Then Keyword dropdown values should be: <dropdown values>
+    Then Keyword dropdown should have the correct values for source: <source>
 
     Examples: 
-      | source               | dropdown values                                                                                            |
-      | Email - JP1          | Sender,Subject,Body                                                                                        |
-      | Email - Nagios-Pet   | Sender,Subject,Body                                                                                        |
-      | Email - WhatsUp Gold | Sender,Subject,Body                                                                                        |
-      | Nagios-Pet           | Summary,Description,Slack Channel                                                                                        |
-      | Cisco Meraki         | Hostname,Country,Device,Mac Address,Timestamp,Network Id,IP Address,Shop,Device Serial,Description,Summary |
+      | source               |
+      | Email - JP1          |
+      | Email - Nagios-Pet   |
+      | Email - WhatsUp Gold |
+      | Nagios-Pet           |
+      | Cisco Meraki         |
