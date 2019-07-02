@@ -67,7 +67,7 @@ public class WebDriverHelper {
      */
     public boolean isElementPresent(By locator) {
         try {
-            //driver.manage().timeouts().implicitlyWait(CommonConstants.DEFAULT_WAIT_FOR_ELEMENT, TimeUnit.SECONDS);
+            driver.manage().timeouts().implicitlyWait(CommonConstants.DEFAULT_WAIT_FOR_ELEMENT, TimeUnit.MILLISECONDS);
             WebDriverWait wait = new WebDriverWait(driver, CommonConstants.DEFAULT_WEBDRIVER_TIMEOUT);
 			wait.until(ExpectedConditions.presenceOfElementLocated(locator));
 			return true;
@@ -76,7 +76,7 @@ public class WebDriverHelper {
         } catch (Exception e) {
             log.error(GENERIC_EXCEPTION_OCCURRED, e);
         } finally {
-            //driver.manage().timeouts().implicitlyWait(CommonConstants.DEFAULT_IMPLICIT_TIMEOUT, TimeUnit.SECONDS);
+            driver.manage().timeouts().implicitlyWait(CommonConstants.DEFAULT_IMPLICIT_TIMEOUT, TimeUnit.MILLISECONDS);
         }
         return false;
     }

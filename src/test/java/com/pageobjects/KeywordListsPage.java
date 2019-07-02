@@ -26,7 +26,7 @@ public class KeywordListsPage extends BasePage {
 	@FindBy(xpath= "//label[contains(text(), 'List name:')]//following::div[@class='col-sm'][1]//input[@class='form-control']")
 	private WebElement fld_listName;
 	
-	@FindBy(xpath= "//label[contains(text(), 'Keywords:')]//following::div[@class='col-sm-10 pr-0'][1]//input[@class='form-control']")
+	@FindBy(xpath= "//label[contains(text(), 'Keywords:')]//following::div[text()='Add set of keywords...'][1]")
 	private WebElement fld_keyword;
 	
 	@FindBy(css= "div[class='col-sm pl-0 pr-3'] button[class='btn btn-primary btn-block']")
@@ -70,7 +70,6 @@ public class KeywordListsPage extends BasePage {
 	 */
 	public void clickNewKeywordListButton() {
 		log.entry();
-		driverHelper.explicitWait();
 		if(driverHelper.isElementPresent(btn_newKeywordLists)) {
 			driverHelper.embedScreenshot(scenario);
 			driverHelper.clickButton(btn_newKeywordLists);
@@ -87,7 +86,7 @@ public class KeywordListsPage extends BasePage {
 	public void inputListName(String listName) {
 		log.entry();
 		if(driverHelper.isElementPresent(fld_listName)) {
-			fld_listName.clear();
+			driverHelper.clearText(fld_listName);
 			driverHelper.inputFieldValue(fld_listName, listName);
 			driverHelper.embedScreenshot(scenario);
 			log.exit();
@@ -103,7 +102,10 @@ public class KeywordListsPage extends BasePage {
 	public void inputKeywords(String keyword) {
 		log.entry();
 		if(driverHelper.isElementPresent(fld_keyword)) {
+			driverHelper.explicitWaitSNOW();
+			driverHelper.clickButton(fld_keyword);
 			driverHelper.inputFieldValue(fld_keyword, keyword);
+			driverHelper.clickEnter(fld_keyword);
 			driverHelper.embedScreenshot(scenario);
 			log.exit();
 		} else {

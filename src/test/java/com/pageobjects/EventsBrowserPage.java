@@ -357,15 +357,43 @@ public class EventsBrowserPage extends BasePage {
 	 */
 	public void verifyStatusOfSearchResults(String status) {
 		log.entry();
+		By success_filters = By.xpath("//tbody//tr//td[5]");
+		By partial_filters = By.xpath("//tbody//tr//td[6]");
+		By failed_filters = By.xpath("//tbody//tr//td[7]");
+		By success_actions = By.xpath("//tbody//tr//td[8]");
+		By failed_actions = By.xpath("//tbody//tr//td[9]");
 		
+		//Check the row color
 		checkRowColor(status);
 		
-		switch(status) {
-		case "Success": checkCountForSuccessStatus(); break;
-		case "Partially Successful": checkCountForPartiallySuccessfulStatus(); break;
-		case "Failed": checkCountForFailedStatus(); break;
-		case "No Action": checkCountForNoActionStatus(); break;
-		default: break;
+		//Check filter and action count
+		if(status.equals("Success")) {
+			checkCountIfNotZero(success_filters);
+			checkCountIfZero(partial_filters);
+			checkCountIfZero(failed_filters);
+			checkCountIfNotZero(success_actions);
+			checkCountIfZero(failed_actions);
+		}
+		else if(status.equals("Partially Successful")) {
+			checkCountIfNotZero(success_filters);
+			checkCountIfNotZero(partial_filters);
+			checkCountIfNotZero(failed_filters);
+			checkCountIfNotZero(success_actions);
+			checkCountIfNotZero(failed_actions);
+		}
+		else if(status.equals("Failed")) {
+			checkCountIfZero(success_filters);
+			checkCountIfZero(partial_filters);
+			checkCountIfNotZero(failed_filters);
+			checkCountIfZero(success_actions);
+			checkCountIfNotZero(failed_actions);
+		}
+		else if(status.equals("No Action")) {
+			checkCountIfZero(success_filters);
+			checkCountIfZero(partial_filters);
+			checkCountIfZero(failed_filters);
+			checkCountIfZero(success_actions);
+			checkCountIfZero(failed_actions);
 		}
 		
 		log.exit();
@@ -373,21 +401,18 @@ public class EventsBrowserPage extends BasePage {
 	
 	private void checkRowColor(String status) {
 		log.entry();
-		By row_color;
 		String statusColor = "";
+		By row_count = By.xpath("//tbody//tr[@class]");
 		
-		if(status.equals("No Action")) {
-			row_color = By.xpath("//tbody//tr[@class]");
-		} else {
+		if(!(status.equals("No Action"))) {
 			statusColor = "row-" + DataHelper.convertToStatusColor(status);
-			row_color = By.xpath("//tbody//tr[@class='" + statusColor + "']");
 		}
 		
-		if(driverHelper.isElementPresent(row_color)) {
-			List<WebElement> list_search_row = driver.findElements(row_color);
-			if(!list_search_row.isEmpty()) {
-				for (WebElement searchEntry : list_search_row) {
-					Assert.assertTrue("Row is not present", driverHelper.isElementPresent(searchEntry));
+		if(driverHelper.isElementPresent(row_count)) {
+			List<WebElement> list_row_count = driver.findElements(row_count);
+			if(list_row_count.size() != 0) {
+				for (WebElement searchEntry : list_row_count) {
+					Assert.assertTrue("Row is not present for status: " + status, (searchEntry.getAttribute("class")).equals(statusColor));
 				}
 			}
 		}
@@ -395,227 +420,29 @@ public class EventsBrowserPage extends BasePage {
 		log.exit();
 	}
 	
-	private void checkCountForSuccessStatus() {
+	private void checkCountIfZero(By byElement) {
 		log.entry();
-		By success_filters = By.xpath("//tbody//tr//td[5]");
-		By partial_filters = By.xpath("//tbody//tr//td[6]");
-		By failed_filters = By.xpath("//tbody//tr//td[7]");
-		By success_actions = By.xpath("//tbody//tr//td[8]");
-		By failed_actions = By.xpath("//tbody//tr//td[9]");
-		
-		if(driverHelper.isElementPresent(success_filters)) {
-			List<WebElement> list_success_filters_count = driver.findElements(success_filters);
-			if(!list_success_filters_count.isEmpty()) {
-				for (WebElement searchEntry : list_success_filters_count) {
-					Assert.assertTrue("Count not equal", !("0".equals(searchEntry.getText())));
+		if(driverHelper.isElementPresent(byElement)) {
+			List<WebElement> list_element_count = driver.findElements(byElement);
+			if(list_element_count.size() != 0) {
+				for (WebElement searchEntry : list_element_count) {
+					Assert.assertTrue("Count not equal to zero", "0".equals(searchEntry.getText()));
 				}
 			}
 		}
-		
-		if(driverHelper.isElementPresent(partial_filters)) {
-			List<WebElement> list_partial_filters_count = driver.findElements(partial_filters);
-			if(!list_partial_filters_count.isEmpty()) {
-				for (WebElement searchEntry : list_partial_filters_count) {
-					Assert.assertTrue("Count not equal", "0".equals(searchEntry.getText()));
-				}
-			}
-		}
-		
-		if(driverHelper.isElementPresent(failed_filters)) {
-			List<WebElement> list_failed_filters_count = driver.findElements(failed_filters);
-			if(!list_failed_filters_count.isEmpty()) {
-				for (WebElement searchEntry : list_failed_filters_count) {
-					Assert.assertTrue("Count not equal", "0".equals(searchEntry.getText()));
-				}
-			}
-		}
-		
-		if(driverHelper.isElementPresent(success_actions)) {
-			List<WebElement> list_success_actions_count = driver.findElements(success_actions);
-			if(!list_success_actions_count.isEmpty()) {
-				for (WebElement searchEntry : list_success_actions_count) {
-					Assert.assertTrue("Count not equal", !("0".equals(searchEntry.getText())));
-				}
-			}
-		}
-		
-		if(driverHelper.isElementPresent(failed_actions)) {
-			List<WebElement> list_failed_actions_count = driver.findElements(failed_actions);
-			if(!list_failed_actions_count.isEmpty()) {
-				for (WebElement searchEntry : list_failed_actions_count) {
-					Assert.assertTrue("Count not equal", "0".equals(searchEntry.getText()));
-				}
-			}
-		}
-		
 		log.exit();
 	}
 	
-	private void checkCountForPartiallySuccessfulStatus() {
+	private void checkCountIfNotZero(By byElement) {
 		log.entry();
-		By success_filters = By.xpath("//tbody//tr//td[5]");
-		By partial_filters = By.xpath("//tbody//tr//td[6]");
-		By failed_filters = By.xpath("//tbody//tr//td[7]");
-		By success_actions = By.xpath("//tbody//tr//td[8]");
-		By failed_actions = By.xpath("//tbody//tr//td[9]");
-		
-		if(driverHelper.isElementPresent(success_filters)) {
-			List<WebElement> list_success_filters_count = driver.findElements(success_filters);
-			if(!list_success_filters_count.isEmpty()) {
-				for (WebElement searchEntry : list_success_filters_count) {
-					Assert.assertTrue("Count not equal", !("0".equals(searchEntry.getText())));
+		if(driverHelper.isElementPresent(byElement)) {
+			List<WebElement> list_element_count = driver.findElements(byElement);
+			if(list_element_count.size() != 0) {
+				for (WebElement searchEntry : list_element_count) {
+					Assert.assertTrue("Count is equal to zero", !("0".equals(searchEntry.getText())));
 				}
 			}
 		}
-		
-		if(driverHelper.isElementPresent(partial_filters)) {
-			List<WebElement> list_partial_filters_count = driver.findElements(partial_filters);
-			if(!list_partial_filters_count.isEmpty()) {
-				for (WebElement searchEntry : list_partial_filters_count) {
-					Assert.assertTrue("Count not equal", !("0".equals(searchEntry.getText())));
-				}
-			}
-		}
-		
-		if(driverHelper.isElementPresent(failed_filters)) {
-			List<WebElement> list_failed_filters_count = driver.findElements(failed_filters);
-			if(!list_failed_filters_count.isEmpty()) {
-				for (WebElement searchEntry : list_failed_filters_count) {
-					Assert.assertTrue("Count not equal", !("0".equals(searchEntry.getText())));
-				}
-			}
-		}
-		
-		if(driverHelper.isElementPresent(success_actions)) {
-			List<WebElement> list_success_actions_count = driver.findElements(success_actions);
-			if(!list_success_actions_count.isEmpty()) {
-				for (WebElement searchEntry : list_success_actions_count) {
-					Assert.assertTrue("Count not equal", !("0".equals(searchEntry.getText())));
-				}
-			}
-		}
-		
-		if(driverHelper.isElementPresent(failed_actions)) {
-			List<WebElement> list_failed_actions_count = driver.findElements(failed_actions);
-			if(!list_failed_actions_count.isEmpty()) {
-				for (WebElement searchEntry : list_failed_actions_count) {
-					Assert.assertTrue("Count not equal", !("0".equals(searchEntry.getText())));
-				}
-			}
-		}
-		
-		log.exit();
-	}
-	
-	private void checkCountForFailedStatus() {
-		log.entry();
-		By success_filters = By.xpath("//tbody//tr//td[5]");
-		By partial_filters = By.xpath("//tbody//tr//td[6]");
-		By failed_filters = By.xpath("//tbody//tr//td[7]");
-		By success_actions = By.xpath("//tbody//tr//td[8]");
-		By failed_actions = By.xpath("//tbody//tr//td[9]");
-		
-		if(driverHelper.isElementPresent(success_filters)) {
-			List<WebElement> list_success_filters_count = driver.findElements(success_filters);
-			if(!list_success_filters_count.isEmpty()) {
-				for (WebElement searchEntry : list_success_filters_count) {
-					Assert.assertTrue("Count not equal", "0".equals(searchEntry.getText()));
-				}
-			}
-		}
-		
-		if(driverHelper.isElementPresent(partial_filters)) {
-			List<WebElement> list_partial_filters_count = driver.findElements(partial_filters);
-			if(!list_partial_filters_count.isEmpty()) {
-				for (WebElement searchEntry : list_partial_filters_count) {
-					Assert.assertTrue("Count not equal", "0".equals(searchEntry.getText()));
-				}
-			}
-		}
-		
-		if(driverHelper.isElementPresent(failed_filters)) {
-			List<WebElement> list_failed_filters_count = driver.findElements(failed_filters);
-			if(!list_failed_filters_count.isEmpty()) {
-				for (WebElement searchEntry : list_failed_filters_count) {
-					Assert.assertTrue("Count not equal", !("0".equals(searchEntry.getText())));
-				}
-			}
-		}
-		
-		if(driverHelper.isElementPresent(success_actions)) {
-			List<WebElement> list_success_actions_count = driver.findElements(success_actions);
-			if(!list_success_actions_count.isEmpty()) {
-				for (WebElement searchEntry : list_success_actions_count) {
-					Assert.assertTrue("Count not equal", "0".equals(searchEntry.getText()));
-				}
-			}
-		}
-		
-		if(driverHelper.isElementPresent(failed_actions)) {
-			List<WebElement> list_failed_actions_count = driver.findElements(failed_actions);
-			if(!list_failed_actions_count.isEmpty()) {
-				for (WebElement searchEntry : list_failed_actions_count) {
-					Assert.assertTrue("Count not equal", !("0".equals(searchEntry.getText())));
-				}
-			}
-		}
-		
-		log.exit();
-	}
-	
-	private void checkCountForNoActionStatus() {
-		log.entry();
-		By success_filters = By.xpath("//tbody//tr//td[5]");
-		By partial_filters = By.xpath("//tbody//tr//td[6]");
-		By failed_filters = By.xpath("//tbody//tr//td[7]");
-		By success_actions = By.xpath("//tbody//tr//td[8]");
-		By failed_actions = By.xpath("//tbody//tr//td[9]");
-
-		if(driverHelper.isElementPresent(success_filters)) {
-			List<WebElement> list_success_filters_count = driver.findElements(success_filters);
-			if(!list_success_filters_count.isEmpty()) {
-				for (WebElement searchEntry : list_success_filters_count) {
-					Assert.assertTrue("Count not equal", "0".equals(searchEntry.getText()));
-				}
-			}
-		}
-		
-		if(driverHelper.isElementPresent(partial_filters)) {
-			List<WebElement> list_partial_filters_count = driver.findElements(partial_filters);
-			if(!list_partial_filters_count.isEmpty()) {
-				for (WebElement searchEntry : list_partial_filters_count) {
-					Assert.assertTrue("Count not equal", "0".equals(searchEntry.getText()));
-				}
-			}
-		}
-		
-		if(driverHelper.isElementPresent(failed_filters)) {
-			List<WebElement> list_failed_filters_count = driver.findElements(failed_filters);
-			if(!list_failed_filters_count.isEmpty()) {
-				for (WebElement searchEntry : list_failed_filters_count) {
-					Assert.assertTrue("Count not equal", "0".equals(searchEntry.getText()));
-				}
-			}
-		}
-		
-		if(driverHelper.isElementPresent(success_actions)) {
-			List<WebElement> list_success_actions_count = driver.findElements(success_actions);
-			if(!list_success_actions_count.isEmpty()) {
-				for (WebElement searchEntry : list_success_actions_count) {
-					Assert.assertTrue("Count not equal", "0".equals(searchEntry.getText()));
-				}
-			}
-		}
-		
-		if(driverHelper.isElementPresent(failed_actions)) {
-			List<WebElement> list_failed_actions_count = driver.findElements(failed_actions);
-			if(!list_failed_actions_count.isEmpty()) {
-				for (WebElement searchEntry : list_failed_actions_count) {
-					Assert.assertTrue("Count not equal", "0".equals(searchEntry.getText()));
-				}
-			}
-		}
-		
 		log.exit();
 	}
 	
