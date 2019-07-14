@@ -24,12 +24,12 @@ public class AISM25Stepdefs implements En {
 			homePage.clickCreateNewFilterButton();
 			createNewFilterPage.verifySuccessfulNavigationToCreateNewFilterPage();
 		});
-	
+		
 		When("I create a Filter with filter name (.*) and (.*) as source", (String filterName, String source) -> {
 			createNewFilterPage.inputFilterName(filterName);
 			createNewFilterPage.selectSource(source);
 		});
-	
+		
 		And("I leave Keyword Value blank in the Filter Rule: (.*) - (.*)", (String keyword, String comparator) -> {
 			filterRulePage.setDriver(hooks.getDriverHelper(), ScenarioHooks.getScenarioName());
 			filterRulePage.selectKeyword(keyword);
@@ -39,13 +39,13 @@ public class AISM25Stepdefs implements En {
 		And("NOT button (.*)", (String btnState) -> {
 			filterRulePage.clickNOTButton(btnState);
 		});
-	
+		
 		And("(.*) has Action: Send to Slack", (String filterName) -> {
 			sendToSlackActionPage.setDriver(hooks.getDriverHelper(), ScenarioHooks.getScenarioName());
 			createNewFilterPage.selectAction(CommonConstants.ACTION_SEND_TO_SLACK);
 			sendToSlackActionPage.inputSlackChannel(CommonConstants.SLACK_CHANNEL);
 			sendToSlackActionPage.inputSlackMessage(filterName);
-			sendToSlackActionPage.checkIncludeOriginalAlertMessage();
+			//sendToSlackActionPage.checkIncludeOriginalAlertMessage();
 		});
 		
 		And("(.*) has Action: Create Jira Ticket", (String filterName) -> {
@@ -64,7 +64,7 @@ public class AISM25Stepdefs implements En {
 			createNewFilterPage.selectAction(CommonConstants.ACTION_CREATE_SNOW_TICKET);
 			createSNOWTicketActionPage.setImpactedUsers(CommonConstants.SNOW_IMPACTED_USER);
 			createSNOWTicketActionPage.setAssignmentGroup(CommonConstants.SNOW_ASSIGNMENT_GROUP);
-			createSNOWTicketActionPage.setAssignedTo(CommonConstants.SNOW_ASSIGNED_TO);
+			//createSNOWTicketActionPage.setAssignedTo(CommonConstants.SNOW_ASSIGNED_TO);
 			createSNOWTicketActionPage.setCategory(CommonConstants.SNOW_CATEGORY);
 			createSNOWTicketActionPage.setSubCategory(CommonConstants.SNOW_SUB_CATEGORY);
 			createSNOWTicketActionPage.setArea(CommonConstants.SNOW_AREA);
@@ -80,9 +80,9 @@ public class AISM25Stepdefs implements En {
 			sendEmailActionPage.inputTo(CommonConstants.EMAIL_TO);
 			sendEmailActionPage.inputSubject(filterName);
 			sendEmailActionPage.inputEmailMessage(filterName);
-			sendEmailActionPage.checkIncludeOriginalAlertMessage();
+			//sendEmailActionPage.checkIncludeOriginalAlertMessage();
 		});
-	
+		
 		Then("filter should be saved successfully", () -> {
 			createNewFilterPage.clickSaveButton();
 			createNewFilterPage.verifyFilterSuccessfullySaved();

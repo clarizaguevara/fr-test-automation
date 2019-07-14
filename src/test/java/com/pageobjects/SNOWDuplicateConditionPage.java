@@ -15,10 +15,10 @@ public class SNOWDuplicateConditionPage extends BasePage {
 	
 	/* Page Elements */
 	
-	@FindBys(value = @FindBy (xpath = "//*[@id=\"content\"]/div/div/div/div[5]/div[3]/div[2]/div/div[2]/select//option"))
+	@FindBys(value = @FindBy (xpath = "//h4[text()='Extended Conditions']//following::select[@class='form-control'][2]//option"))
 	private List<WebElement> list_with;
 	
-	@FindBy(xpath= "//*[@id=\"content\"]/div/div/div/div[5]/div[3]/div[2]/div/div[2]/select")
+	@FindBy(xpath= "//h4[text()='Extended Conditions']//following::select[@class='form-control'][2]")
 	private WebElement fld_with;
 	
 	@FindBys(value = @FindBy (xpath = "//label[contains(text(),'open tickets')]//following::div[@class='col-sm-auto']//select[@class='form-control']//option"))

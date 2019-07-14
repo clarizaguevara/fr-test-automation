@@ -464,6 +464,17 @@ public class WebDriverHelper {
 	}
 	
 	/**
+	 * Click keyboard enter key
+	 * @param By
+	 */
+	public void clickEnter(By byElement) {
+		log.entry();
+		driver.findElement(byElement).sendKeys(Keys.ENTER);
+		log.info("Enter key is press.");
+		log.exit();
+	}
+	
+	/**
 	 * Explicitly wait for an element to appear
 	 */
 	public void explicitWait() {

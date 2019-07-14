@@ -97,7 +97,7 @@ public class CreateSNOWTicketPage extends BasePage {
 	@FindBy(xpath= "//div[@class='col-sm-4 offset-sm-2 pt-2']//div[@class='form-check']//input[@type='checkbox']")
 	private WebElement btn_pendingLevel;
 	
-	@FindBy(xpath= "//div[@class='col-sm-auto offset-sm-2']//div[@class='form-check']//input[@type='checkbox']")
+	@FindBy(xpath= "//label[contains(text(),'Description')]//following::input[@type='checkbox'][1]")
 	private WebElement btn_automaticallyClosedTicket;
 	
 	@FindBy(xpath= "//div[@class='col-sm-auto offset-sm-2 pt-2']//input[@type='checkbox']")
@@ -105,6 +105,9 @@ public class CreateSNOWTicketPage extends BasePage {
 	
 	@FindBy(xpath= "//input[@placeholder='Slack channel']")
 	private WebElement fld_slackChannel;
+	
+	@FindBy(xpath= "//label[contains(text(),'Automatically')]//following::input[@type='checkbox'][1]")
+	private WebElement btn_consolidateTicket;
 	
 	
 	/* Methods */
@@ -353,6 +356,7 @@ public class CreateSNOWTicketPage extends BasePage {
 		log.entry();
 		driverHelper.waitForPageLoaded();
 		if(driverHelper.isElementPresent(fld_description)) {
+			driverHelper.clearText(fld_description);
 			driverHelper.inputFieldValue(fld_description, description);
 			driverHelper.embedScreenshot(scenario);
 			log.exit();
@@ -369,6 +373,7 @@ public class CreateSNOWTicketPage extends BasePage {
 		log.entry();
 		driverHelper.waitForPageLoaded();
 		if(driverHelper.isElementPresent(fld_shortDescription)) {
+			driverHelper.clearText(fld_shortDescription);
 			driverHelper.inputFieldValue(fld_shortDescription, shortDescription);
 			driverHelper.embedScreenshot(scenario);
 			log.exit();
@@ -453,4 +458,22 @@ public class CreateSNOWTicketPage extends BasePage {
 		Assert.assertTrue("Values are not the same", (fld_slackChannel.getAttribute("value")).equals(slackChannelValue));
 		log.exit();
 	}
+	
+	/**
+	 * Check Consolidate Ticket
+	 */
+	public void checkConsolidateTicket() {
+		log.entry();
+		driverHelper.waitForPageLoaded();
+		driver.switchTo().defaultContent();
+		if(driverHelper.isElementPresent(btn_consolidateTicket)) {
+			driverHelper.clickButton(btn_consolidateTicket);
+			driverHelper.embedScreenshot(scenario);
+			log.exit();
+		} else {
+			System.out.println("Consolidate Ticket checkbox is not present.");
+			log.exit();
+		}
+	}
+	
 }

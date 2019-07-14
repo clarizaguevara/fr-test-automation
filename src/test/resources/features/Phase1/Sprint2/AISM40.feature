@@ -1,4 +1,4 @@
-@scenarios @ExtendedRules @SnowDuplicate
+@scenarios @AISM40 @Phase1 @Phase1-Sprint2 @ExtendedRules @SnowDuplicate
 Feature: AISM-40
   As a Tool Administrator
   I can configure so that a new ticket will not be created for duplicate alert.
@@ -8,8 +8,11 @@ Feature: AISM-40
     And I am on Create New Filter page
 
   Scenario Outline: Verify saving of filter with Snow Duplicate Check condition (<with> open tickets for <snow keyword>)
-    When I create a Filter with filter name <filter name>, <source> as source, Filter rule: <keyword> - <comparator> - <keyword value>, and add a Snow Duplicate Check condition: <with> open tickets for <snow keyword>
-    Then filter with Snow Duplicate Check condition should be saved successfully
+  	When I create a Filter with filter name <filter name> and <source> as source
+    And with Filter Rule: <keyword> - <comparator> - <keyword value>
+    And add a Snow Duplicate Check condition: <with> open tickets for <snow keyword>
+    And <filter name> has Action: Create SNOW Ticket
+    Then filter should be saved successfully
 
     Examples: 
       | filter name            | source       | keyword    | comparator | keyword value | with    | snow keyword |

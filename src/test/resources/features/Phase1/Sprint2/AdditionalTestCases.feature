@@ -1,4 +1,4 @@
-@scenarios @AdditionalTestCases
+@scenarios @AdditionalTestCases @Phase1 @Phase1-Sprint2
 Feature: Additional Test Cases
 
   Background: 
@@ -8,7 +8,7 @@ Feature: Additional Test Cases
   @VoidAction
   Scenario: Verify saving of filter with Void action
     When I create a Filter with filter name AUT_TestVoid and set Void as action
-    Then filter with Void action should be saved successfully
+    Then filter should be saved successfully
 
   @EditFilter
   Scenario: Verify that user can Edit a filter
@@ -23,7 +23,7 @@ Feature: Additional Test Cases
     Then I go back to Browse page and open filter AUT_TestDelete
     And I click the Delete button to delete the filter
     Then filter AUT_TestDelete should be successfully deleted
-    
+
   @ComparatorDropdown
   Scenario: Verify Comparator dropdown values
     Then Comparator dropdown should have the correct values

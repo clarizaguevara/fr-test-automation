@@ -15,16 +15,16 @@ public class CorrelationPage extends BasePage {
 	
 	/* Page Elements */
 	
-	@FindBy(xpath= "//h4[text()='Extended Rules']//following::input[@class='form-control px-1'][1]")
+	@FindBy(xpath= "//h4[text()='Extended Conditions']//following::input[@class='form-control px-1'][1]")
 	private WebElement fld_frequency;
 	
-	@FindBy(xpath= "//h4[text()='Extended Rules']//following::input[@class='form-control px-1'][2]")
+	@FindBy(xpath= "//h4[text()='Extended Conditions']//following::input[@class='form-control px-1'][2]")
 	private WebElement fld_timeValue;
 	
-	@FindBys(value = @FindBy (xpath = "//h4[text()='Extended Rules']//following::div[@class='col-sm-auto px-1']//select[@class='form-control']//option"))
+	@FindBys(value = @FindBy (xpath = "//h4[text()='Extended Conditions']//following::div[@class='col-sm-auto px-1']//select[@class='form-control']//option"))
 	private List<WebElement> list_timeUnit;
 	
-	@FindBy(xpath= "//h4[text()='Extended Rules']//following::div[@class='col-sm-auto px-1']//select[@class='form-control']")
+	@FindBy(xpath= "//h4[text()='Extended Conditions']//following::div[@class='col-sm-auto px-1']//select[@class='form-control']")
 	private WebElement fld_timeUnit;
 	
 	
@@ -36,7 +36,7 @@ public class CorrelationPage extends BasePage {
 	public void inputFrequency(String frequency) {
 		log.entry();
 		if(driverHelper.isElementPresent(fld_frequency)) {
-			fld_frequency.clear();
+			driverHelper.clearText(fld_frequency);
 			driverHelper.inputFieldValue(fld_frequency, frequency);
 			driverHelper.embedScreenshot(scenario);
 			log.exit();
@@ -52,7 +52,7 @@ public class CorrelationPage extends BasePage {
 	public void inputTimeValue(String timeValue) {
 		log.entry();
 		if(driverHelper.isElementPresent(fld_timeValue)) {
-			fld_timeValue.clear();
+			driverHelper.clearText(fld_timeValue);
 			driverHelper.inputFieldValue(fld_timeValue, timeValue);
 			driverHelper.embedScreenshot(scenario);
 			log.exit();

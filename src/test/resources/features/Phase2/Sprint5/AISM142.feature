@@ -1,4 +1,4 @@
-@AISM142
+@scenarios @AISM142 @Phase2 @Phase2-Sprint5
 Feature: AISM-142
   As an Operator
   I can select sender/subject/body in the command center
@@ -15,13 +15,7 @@ Feature: AISM-142
     Then filter should be saved successfully
 
     Examples: 
-      | filter name       | source               | keyword | comparator  | keyword value | NOT      | action             |
-      | AUT_TestEmailJP11 | Email - JP1          | Sender  | Contains    | TEST          | disabled | Send to Slack      |
-      | AUT_TestEmailJP12 | Email - JP1          | Subject | Like        | TEST          | disabled | Create Jira Ticket |
-      | AUT_TestEmailJP13 | Email - JP1          | Body    | Begins With | TEST          | disabled | Create SNOW Ticket |
-      | AUT_TestEmailNP1  | Email - Nagios-Pet   | Sender  | Ends With   | TEST          | disabled | Send Email         |
-      | AUT_TestEmailNP2  | Email - Nagios-Pet   | Subject | Equals      | TEST          | enabled  | Send to Slack      |
-      | AUT_TestEmailNP3  | Email - Nagios-Pet   | Body    | Contains    | TEST          | enabled  | Create Jira Ticket |
-      | AUT_TestEmailWUG1 | Email - WhatsUp Gold | Sender  | Like        | TEST          | enabled  | Create SNOW Ticket |
-      | AUT_TestEmailWUG2 | Email - WhatsUp Gold | Subject | Begins With | TEST          | enabled  | Send Email         |
-      | AUT_TestEmailWUG3 | Email - WhatsUp Gold | Body    | Ends With   | TEST          | disabled | Send to Slack      |
+      | filter name    | source | keyword | comparator  | keyword value | NOT      | action             |
+      | AUT_TestEmail1 | Email  | Sender  | Contains    | dxc           | disabled | Send to Slack      |
+      | AUT_TestEmail2 | Email  | Subject | Like        | TEST          | disabled | Create Jira Ticket |
+      | AUT_TestEmail3 | Email  | Body    | Begins With | TEST          | enabled  | Create SNOW Ticket |

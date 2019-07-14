@@ -22,9 +22,7 @@ public class DataHelper {
 		switch(source) {
 		case "Nagios-Pet": source_shortname = "NP"; break;
 		case "Cisco Meraki": source_shortname = "CM"; break;
-		case "Email - JP1": source_shortname = "E-JP1"; break;
-		case "Email - Nagios-Pet": source_shortname = "E-NP"; break;
-		case "Email - WhatsUp Gold": source_shortname = "E-WUG"; break;
+		case "Email": source_shortname = "EMAIL"; break;
 		default: break;
 		}
 		//System.out.println(source_shortname);
@@ -97,9 +95,7 @@ public class DataHelper {
 		switch(source) {
 		case "Nagios-Pet": lov = CommonConstants.LOV_KEYWORD_NP; break;
 		case "Cisco Meraki": lov = CommonConstants.LOV_KEYWORD_CM; break;
-		case "Email - JP1": lov = CommonConstants.LOV_KEYWORD_EMAIL; break;
-		case "Email - Nagios-Pet": lov = CommonConstants.LOV_KEYWORD_EMAIL; break;
-		case "Email - WhatsUp Gold": lov = CommonConstants.LOV_KEYWORD_EMAIL; break;
+		case "Email": lov = CommonConstants.LOV_KEYWORD_EMAIL; break;
 		default: break;
 		}
 		log.exit();

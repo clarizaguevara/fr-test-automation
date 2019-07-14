@@ -1,4 +1,4 @@
-@scenarios @AISM153 @BrowseFilters
+@scenarios @AISM153 @Phase2 @Phase2-Sprint1 @BrowseFilters
 Feature: AISM-153
   As an Operator
   I can filter by email source on filter browse page
@@ -12,12 +12,10 @@ Feature: AISM-153
     Then Browse Filters page should list the filters with <source> as source
 
     Examples: 
-      | source               |
-      | Email - JP1          |
-      | Email - Nagios-Pet   |
-      | Email - WhatsUp Gold |
-      | Nagios-Pet           |
-      | Cisco Meraki         |
+      | source       |
+      | Email        |
+      | Nagios-Pet   |
+      | Cisco Meraki |
 
   Scenario Outline: Verify browsing of Filters by Filter name and Source: <source>
     When I browse filters with source: <source>
@@ -26,9 +24,7 @@ Feature: AISM-153
     And filters with AUT in name
 
     Examples: 
-      | source               |
-      | Email - JP1          |
-      | Email - Nagios-Pet   |
-      | Email - WhatsUp Gold |
-      | Nagios-Pet           |
-      | Cisco Meraki         |
+      | source       |
+      | Email        |
+      | Nagios-Pet   |
+      | Cisco Meraki |

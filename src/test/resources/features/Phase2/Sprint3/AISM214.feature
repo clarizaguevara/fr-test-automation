@@ -1,4 +1,4 @@
-@scenarios @AISM214 @EventsBrowser
+@scenarios @AISM214 @Phase2 @Phase2-Sprint3 @EventsBrowser
 Feature: AISM-214
   As an Operator
   I can filter by status of events in event page
@@ -37,3 +37,7 @@ Feature: AISM-214
       | Cisco Meraki | Partially Successful |
       | Cisco Meraki | Failed               |
       | Cisco Meraki | No Action            |
+      | Email        | Success              |
+      | Email        | Partially Successful |
+      | Email        | Failed               |
+      | Email        | No Action            |

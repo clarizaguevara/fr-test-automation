@@ -1,4 +1,4 @@
-@scenarios @AISM12 @ExtendedRules @SnowDuplicate
+@scenarios @AISM12 @Phase1 @Phase1-Sprint2 @ExtendedRules @SnowDuplicate
 Feature: AISM-12
   As a Operator
   I can check SNOW ticket from the NW alert information
@@ -8,8 +8,11 @@ Feature: AISM-12
     And I am on Create New Filter page
 
   Scenario Outline: Verify saving of filter with Snow Duplicate Check condition (<with> open tickets for <snow keyword>)
-    When I create a Filter with filter name <filter name>, <source> as source, Filter rule: <keyword> - <comparator> - <keyword value>, and add a Snow Duplicate Check condition: <with> open tickets for <snow keyword>
-    Then filter with Snow Duplicate Check condition should be saved successfully
+  	When I create a Filter with filter name <filter name> and <source> as source
+    And with Filter Rule: <keyword> - <comparator> - <keyword value>
+    And add a Snow Duplicate Check condition: <with> open tickets for <snow keyword>
+    And <filter name> has Action: Create SNOW Ticket
+    Then filter should be saved successfully
 
     Examples: 
       | filter name            | source       | keyword | comparator | keyword value | with    | snow keyword |

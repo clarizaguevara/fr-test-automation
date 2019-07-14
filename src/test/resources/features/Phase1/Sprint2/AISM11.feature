@@ -1,4 +1,4 @@
-@scenarios @ExtendedRules @CiscoMerakiCheck
+@scenarios @AISM11 @Phase1 @Phase1-Sprint2 @ExtendedRules @CiscoMerakiCheck
 Feature: AISM-11
   As a Operator
   I can check network status from the alert information
@@ -8,8 +8,11 @@ Feature: AISM-11
     And I am on Create New Filter page
 
   Scenario Outline: Verify saving of filter with Cisco Meraki Check condition (device status = <device status>)
-    When I create a Filter with filter name <filter name>, <source> as source, Filter rule: <keyword> - <comparator> - <keyword value>, and add a Cisco Meraki Check condition: Check if device causing alert is <device status>
-    Then filter with Cisco Meraki Check condition should be saved successfully
+  	When I create a Filter with filter name <filter name> and <source> as source
+    And with Filter Rule: <keyword> - <comparator> - <keyword value>
+    And add a Cisco Meraki Check condition: Check if device causing alert is <device status>
+    And <filter name> has Action: Send to Slack
+    Then filter should be saved successfully
 
     Examples: 
       | filter name          | source       | keyword       | comparator  | keyword value | device status |

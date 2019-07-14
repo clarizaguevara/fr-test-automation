@@ -1,4 +1,4 @@
-@scenarios @AISM248 @EventsBrowser
+@scenarios @AISM248 @Phase2 @Phase2-Sprint5 @EventsBrowser
 Feature: AISM-248
   As an Tool Administrator
   I can configure so that hour, minute, and second is displayed in the timestamp on the event page.

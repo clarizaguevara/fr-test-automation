@@ -14,18 +14,13 @@ public class AISM138Stepdefs implements En {
 			homePage.verifySuccessfulNavigationToHomePage();
 		});
 		
-		When("I click Events tab", () -> {
-			homePage.clickEventsTab();
-			eventsBrowserPage.setDriver(hooks.getDriverHelper(), ScenarioHooks.getScenarioName());
-		});
-		
 		Then("Events Browser page should be loaded successfully", () -> {
 			eventsBrowserPage.verifySuccessfulNavigationToEventsBrowserPage();
 		});
 		
 		/*-----------------------------*/
 		
-		And("I select (.*) as Source", (String source) -> {
+		When("I select (.*) as Source", (String source) -> {
 			eventsBrowserPage.selectSource(source);
 		});
 		
@@ -51,7 +46,7 @@ public class AISM138Stepdefs implements En {
 		
 		/*-----------------------------*/
 		
-		And("I click the Payload button of each event", () -> {
+		When("I click the Payload button of each event", () -> {
 			
 		});
 		
@@ -61,7 +56,9 @@ public class AISM138Stepdefs implements En {
 		
 		/*-----------------------------*/
 		
-		And("I select an event in the list", () -> {
+		When("I select an event in the list", () -> {
+			eventsBrowserPage.selectStatus("Success");
+			eventsBrowserPage.clickApplyButton();
 			eventsBrowserPage.clickEventId();
 		});
 		

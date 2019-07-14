@@ -1,5 +1,5 @@
-@AISM18 @scenarios
-Feature: AISM - 18
+@scenarios @AISM18 @Phase1 @Phase1-Sprint2
+Feature: AISM-18
   As a Tool Administrator
   I can configure so that a JIRA ticket will be created automatically (KKA)
 
@@ -7,11 +7,11 @@ Feature: AISM - 18
     Given I am login
     And I am on Create New Filter page
 
-  Scenario Outline: Verify Tool Administrator can configure so that a JIRA ticket will be created automatically
+  Scenario Outline: Verify Tool Administrator can configure so that a JIRA ticket will be created automatically (source: <source>)
     When I create a Filter with filter name <filter name> and <source> as source
     And with Filter Rule: <keyword> - <comparator> - <keyword value>
-    And with Action: Create Jira Ticket-KKA "<filter name>"
-    Then I should be able to save successfully
+    And <filter name> has Action: Jira-KKA
+    Then filter should be saved successfully
 
     Examples: 
       | filter name               | source       | keyword     | comparator  | keyword value |
@@ -21,8 +21,8 @@ Feature: AISM - 18
   Scenario Outline: Verify Filter is not saved if mandatory fields are left blank
     When I create a Filter with filter name <filter name> and <source> as source
     And with Filter Rule: <keyword> - <comparator> - <keyword value>
-    And with Action: Create Jira Ticket-KKA but mandatory fields are left blank "<filter name>"
-    Then I should not be able to save successfully
+    And <filter name> has Action: Jira Project Issue type but mandatory fields are left blank
+    Then filter should not be saved
 
     Examples: 
       | filter name               | source       | keyword | comparator | keyword value |
@@ -31,8 +31,8 @@ Feature: AISM - 18
   Scenario Outline: Verify Filter is saved if non mandatory fields are left blank
     When I create a Filter with filter name <filter name> and <source> as source
     And with Filter Rule: <keyword> - <comparator> - <keyword value>
-    And with Action: Create Jira Ticket-KKA but non mandatory fields are left blank "<filter name>"
-    Then I should be able to save successfully
+    And <filter name> has Action: Jira Project Issue type but non mandatory fields are left blank
+    Then filter should be saved successfully
 
     Examples: 
       | filter name               | source       | keyword | comparator | keyword value |

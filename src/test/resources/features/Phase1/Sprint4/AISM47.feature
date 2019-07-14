@@ -1,4 +1,4 @@
-@scenarios @CreateSNOWTicket @SNOWAutoCloseTicket
+@scenarios @AISM47 @Phase1 @Phase1-Sprint4 @CreateSNOWTicket @SNOWAutoCloseTicket
 Feature: AISM-47
   As a Tool Administrator
   I can configure so that a SNOW ticket can be closed automatically after creation
@@ -8,9 +8,11 @@ Feature: AISM-47
     And I am on Create New Filter page
 
   Scenario Outline: Verify saving of filter with SNOW action and ticket is automatically closed after creation
-    When I create a Filter with filter name <filter name>, <source> as source, Filter rule: <keyword> - <comparator> - <keyword value>, action as Create SNOW Ticket
+    When I create a Filter with filter name <filter name> and <source> as source
+    And with Filter Rule: <keyword> - <comparator> - <keyword value>
+    And <filter name> has Action: Create SNOW Ticket
     And I tick "Automatically close SNOW ticket" checkbox
-    Then filter with SNOW action should be saved successfully
+    Then filter should be saved successfully
 
     Examples: 
       | filter name                 | source       | keyword     | comparator | keyword value |

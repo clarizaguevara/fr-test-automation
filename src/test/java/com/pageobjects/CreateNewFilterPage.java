@@ -50,7 +50,7 @@ public class CreateNewFilterPage extends BasePage {
 	@FindBy(xpath="//span[@class='loader']")
 	private WebElement icn_loading;
 	
-	@FindBy(xpath= "//h4[text()='Extended Rules']//following::button[contains(text(), 'Add Rule')]")
+	@FindBy(xpath= "//h4[text()='Extended Conditions']//following::button[contains(text(), 'Add Rule')]")
 	private WebElement btn_addExtendedRule;
 	
 	@FindBy(xpath= "//a[text()='Home']")
@@ -65,7 +65,7 @@ public class CreateNewFilterPage extends BasePage {
 	@FindBy(xpath= "//button[@title='Delete filter']")
 	private WebElement btn_Delete;
 	
-	@FindBy(xpath= "//input[@id='filterEnableDisable' and @checked]")
+	@FindBy(xpath= "//input[@class='form-check-input' and @checked]")
 	private WebElement btn_enableDisableFilter;
 	
 	

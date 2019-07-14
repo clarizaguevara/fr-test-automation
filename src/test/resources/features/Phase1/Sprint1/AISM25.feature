@@ -1,4 +1,4 @@
-@scenarios @AISM25 @FilterRules
+@scenarios @AISM25 @Phase1 @Phase1-Sprint1
 Feature: AISM-25
   As a Tool Administrator
   I can configure so that alert will be filtered by field in alert

@@ -1,5 +1,5 @@
-@AISM7 @scenarios
-Feature: AISM - 7
+@scenarios @AISM7 @Phase1 @Phase1-Sprint1
+Feature: AISM-7
   As a Tool Administrator
   I can configure so that message is sent to users on Slack automatically
 
@@ -7,11 +7,11 @@ Feature: AISM - 7
     Given I am login
     And I am on Create New Filter page
 
-  Scenario Outline: Verify Tool Administrator can configure so that message is sent to users on Slack automatically
+  Scenario Outline: Verify Tool Administrator can configure so that message is sent to users on Slack automatically (source: <source>)
     When I create a Filter with filter name <filter name> and <source> as source
     And with Filter Rule: <keyword> - <comparator> - <keyword value>
-    And with Action: Send To Slack "<filter name>"
-    Then I should be able to save successfully
+    And <filter name> has Action: Send to Slack
+    Then filter should be saved successfully
 
     Examples: 
       | filter name                | source       | keyword  | comparator  | keyword value |
@@ -21,9 +21,9 @@ Feature: AISM - 7
   Scenario Outline: Verify EvA bot can include original alert message to the message posted with quotation
     When I create a Filter with filter name <filter name> and <source> as source
     And with Filter Rule: <keyword> - <comparator> - <keyword value>
-    And with Action: Send To Slack "<filter name>"
+    And <filter name> has Action: Send to Slack
     And I ticked include original alert message
-    Then I should be able to save successfully
+    Then filter should be saved successfully
 
     Examples: 
       | filter name                | source     | keyword     | comparator | keyword value |
@@ -32,9 +32,9 @@ Feature: AISM - 7
   Scenario Outline: Verify EvA can send mention
     When I create a Filter with filter name <filter name> and <source> as source
     And with Filter Rule: <keyword> - <comparator> - <keyword value>
-    And with Action: Send To Slack "<filter name>"
+    And <filter name> has Action: Send to Slack
     And I add mention
-    Then I should be able to save successfully
+    Then filter should be saved successfully
 
     Examples: 
       | filter name                | source       | keyword | comparator | keyword value |
@@ -43,9 +43,9 @@ Feature: AISM - 7
   Scenario Outline: Verify filter is not saved when Slack Channel field is blank
     When I create a Filter with filter name <filter name> and <source> as source
     And with Filter Rule: <keyword> - <comparator> - <keyword value>
-    And with Action: Send To Slack "<filter name>"
+    And <filter name> has Action: Send to Slack
     And I left Slack Channel field blank
-    Then I should not be able to save successfully
+    Then filter should not be saved
 
     Examples: 
       | filter name                | source       | keyword     | comparator | keyword value |

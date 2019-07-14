@@ -25,11 +25,6 @@ public class AdditionalTestCasesStepdefs implements En {
 			filterRulePage.inputKeywordValue("TEST");
 		});
 	
-		Then("filter with Void action should be saved successfully", () -> {
-			createNewFilterPage.clickSaveButton();
-			createNewFilterPage.verifyFilterSuccessfullySaved();
-		});
-	
 		/*EDIT scenario*/
 		
 		When("I create a Filter with filter name (.*), (.*) as source, and with Filter rule: (.*) (.*) (.*)", (String filterName, String source, String keyword, String comparator, String keywordValue) -> {
@@ -65,7 +60,7 @@ public class AdditionalTestCasesStepdefs implements En {
 			createNewFilterPage.clickSaveButton();
 			createNewFilterPage.verifyFilterSuccessfullySaved();
 		});
-	
+		
 		Then("filter (.*) should be editted successfully with new Filter rule values: (.*) (.*) (.*)", (String filterName, String keyword, String comparator, String keywordValue) -> {
 			createNewFilterPage.clickHomeButton();
 			homePage.verifySuccessfulNavigationToHomePage();
@@ -99,7 +94,7 @@ public class AdditionalTestCasesStepdefs implements En {
 			deletePage.verifyDeletePopUp();
 			deletePage.clickDeleteYesButton();
 		});
-	
+		
 		Then("filter (.*) should be successfully deleted", (String filterName) -> {
 			homePage.verifySuccessfulNavigationToHomePage();
 			homePage.verifyFilterNotFound(filterName);

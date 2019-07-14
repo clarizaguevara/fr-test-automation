@@ -1,4 +1,4 @@
-@scenarios @AISM147
+@scenarios @AISM147 @Phase2 @Phase2-Sprint2
 Feature: AISM-147
   As an Operator
   I can use OR in filter conditions

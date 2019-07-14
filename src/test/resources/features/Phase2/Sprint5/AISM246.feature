@@ -1,4 +1,4 @@
-@scenarios @AISM246 @EventsBrowser
+@scenarios @AISM246 @Phase2 @Phase2-Sprint5 @EventsBrowser
 Feature: AISM-246
   As an Operator
   I can filter events by event id

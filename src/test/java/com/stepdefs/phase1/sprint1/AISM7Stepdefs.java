@@ -33,17 +33,5 @@ public class AISM7Stepdefs implements En {
 			sendToSlackActionPage.setDriver(hooks.getDriverHelper(), ScenarioHooks.getScenarioName());
 			sendToSlackActionPage.inputSlackChannel("");
 		});
-		
-		Then("I should be able to save successfully$", () -> {
-			createNewFilterPage.setDriver(hooks.getDriverHelper(), ScenarioHooks.getScenarioName());
-			createNewFilterPage.clickSaveButton();
-			createNewFilterPage.verifyFilterSuccessfullySaved();
-		});
-		
-		Then("I should not be able to save successfully$", () -> {
-			createNewFilterPage.setDriver(hooks.getDriverHelper(), ScenarioHooks.getScenarioName());
-			createNewFilterPage.clickSaveButton();
-			createNewFilterPage.verifyFilterisNOTSuccessfullySaved();
-		});
 	}
 }

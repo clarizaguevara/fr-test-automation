@@ -15,7 +15,7 @@ public class AISM18Stepdefs implements En {
 	public AISM18Stepdefs(ScenarioHooks hooks, LoginPage loginPage, CreateNewFilterPage createNewFilterPage, FilterRulePage filterRulePage,
 			SendToSlackActionPage sendToSlackActionPage, CreateJiraTicketActionPage createJiraTicketActionPage) {
 		
-		And("with Action: Create Jira Ticket-KKA but mandatory fields are left blank \"([^\\\"]*)\"$", (String uniqueName) -> {
+		And("(.*) has Action: Jira Project Issue type but mandatory fields are left blank", (String uniqueName) -> {
 			createNewFilterPage.setDriver(hooks.getDriverHelper(), ScenarioHooks.getScenarioName());
 			createJiraTicketActionPage.setDriver(hooks.getDriverHelper(), ScenarioHooks.getScenarioName());
 			createNewFilterPage.selectAction(CommonConstants.ACTION_CREATE_JIRA_TICKET);
@@ -31,7 +31,7 @@ public class AISM18Stepdefs implements En {
 			createJiraTicketActionPage.setAssignee(CommonConstants.JIRA_ASSIGNEE_NOT_EXISTING);
 		});
 		
-		And("with Action: Create Jira Ticket-KKA but non mandatory fields are left blank \"([^\\\"]*)\"$", (String uniqueName) -> {
+		And("(.*) has Action: Jira Project Issue type but non mandatory fields are left blank", (String uniqueName) -> {
 			createNewFilterPage.setDriver(hooks.getDriverHelper(), ScenarioHooks.getScenarioName());
 			createJiraTicketActionPage.setDriver(hooks.getDriverHelper(), ScenarioHooks.getScenarioName());
 			createNewFilterPage.selectAction(CommonConstants.ACTION_CREATE_JIRA_TICKET);

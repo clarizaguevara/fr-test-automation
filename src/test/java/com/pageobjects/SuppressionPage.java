@@ -133,7 +133,7 @@ public class SuppressionPage extends BasePage {
 	 */
 	public void selectDays(String days) {
 		log.entry();
-		ArrayList<String> LOV_DAYS = new ArrayList<>(Arrays.asList("MON","TUE","WED","THU","FRI"));
+		ArrayList<String> LOV_DAYS = new ArrayList<>(Arrays.asList("MON","TUE","WED","THU","FRI","SAT","SUN"));
 		List<String> selectedDays = Arrays.asList(days.split(","));
     	
     	for (int counter = 0; counter < LOV_DAYS.size(); counter++) {

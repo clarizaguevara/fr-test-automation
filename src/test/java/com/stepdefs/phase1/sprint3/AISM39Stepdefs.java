@@ -10,6 +10,17 @@ public class AISM39Stepdefs implements En {
 	
 	public AISM39Stepdefs(ScenarioHooks hooks, HomePage homePage, AccessManagementPage accessManagementPage) {
 		
+		And("I am on Access Management page", () -> {
+			homePage.setDriver(hooks.getDriverHelper(), ScenarioHooks.getScenarioName());
+			homePage.verifySuccessfulNavigationToHomePage();
+			homePage.clickMaintenanceTab();
+			homePage.clickAccessManagement();
+			accessManagementPage.setDriver(hooks.getDriverHelper(), ScenarioHooks.getScenarioName());
+			accessManagementPage.verifySuccessfulNavigationToAccessManagementPage();
+		});
+		
+		/*-----------------------------*/
+		
 		When("I click Maintenance tab", () -> {
 			homePage.clickMaintenanceTab();
 		});
@@ -25,7 +36,7 @@ public class AISM39Stepdefs implements En {
 		
 		/*-----------------------------*/
 		
-		And("I click Add User button", () -> {
+		When("I click Add User button", () -> {
 			accessManagementPage.clickAddUserButton();
 			accessManagementPage.verifyAddUserPopUp();
 		});
@@ -54,7 +65,7 @@ public class AISM39Stepdefs implements En {
 		
 		/*-----------------------------*/
 		
-		And("I click the user with name: (.*)", (String name) -> {
+		When("I click the user with name: (.*)", (String name) -> {
 			accessManagementPage.selectInList(name);
 			accessManagementPage.verifyEditUserPopUp();
 		});
@@ -87,7 +98,7 @@ public class AISM39Stepdefs implements En {
 		
 		/*-----------------------------*/
 		
-		And("I click the delete button of user (.*)", (String name) -> {
+		When("I click the delete button of user (.*)", (String name) -> {
 			accessManagementPage.clickDeleteButtonOfSelected(name);
 			accessManagementPage.verifyDeleteUserPopUp();
 			accessManagementPage.clickDeleteUserButton();
@@ -99,7 +110,7 @@ public class AISM39Stepdefs implements En {
 		
 		/*-----------------------------*/
 		
-		And("I go to Roles section", () -> {
+		When("I go to Roles section", () -> {
 			accessManagementPage.clickRolesButton();
 		});
 		
@@ -125,7 +136,7 @@ public class AISM39Stepdefs implements En {
 		
 		/*-----------------------------*/
 		
-		And("I click the role with name: (.*)", (String name) -> {
+		When("I click the role with name: (.*)", (String name) -> {
 			accessManagementPage.selectInList(name);
 			accessManagementPage.verifyEditRolePopUp();
 		});
@@ -144,7 +155,7 @@ public class AISM39Stepdefs implements En {
 		
 		/*-----------------------------*/
 		
-		And("I click the delete button of role (.*)", (String name) -> {
+		When("I click the delete button of role (.*)", (String name) -> {
 			accessManagementPage.clickDeleteButtonOfSelected(name);
 			accessManagementPage.verifyDeleteRolePopUp();
 			accessManagementPage.clickDeleteRoleButton();

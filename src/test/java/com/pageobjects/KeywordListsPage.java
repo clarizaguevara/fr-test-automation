@@ -20,19 +20,19 @@ public class KeywordListsPage extends BasePage {
 	@FindBy(css= "div[class='keywords-maintenance']")
 	private WebElement page_keywordLists;
 	
-	@FindBy(css= "button[class='btn btn-primary']")
+	@FindBy(xpath= "//button[@class='btn btn-primary']")
 	private WebElement btn_newKeywordLists;
 	
 	@FindBy(xpath= "//label[contains(text(), 'List name:')]//following::div[@class='col-sm'][1]//input[@class='form-control']")
 	private WebElement fld_listName;
 	
-	@FindBy(xpath= "//label[contains(text(), 'Keywords:')]//following::div[text()='Add set of keywords...'][1]")
+	@FindBy(xpath= "//label[contains(text(), 'Keywords:')]//following::div[text()='Add set of keywords...']//following::input[1]")
 	private WebElement fld_keyword;
 	
-	@FindBy(css= "div[class='col-sm pl-0 pr-3'] button[class='btn btn-primary btn-block']")
+	@FindBy(xpath= "//div[@class='col-sm pl-0 pr-3']//button[@class='btn btn-primary btn-block']")
 	private WebElement btn_add;
 	
-	@FindBy(css= "div[class='col-sm pl-0'] button[class='btn btn-primary btn-block']")
+	@FindBy(xpath= "//div[@class='col-sm pl-0']//button[@class='btn btn-primary btn-block']")
 	private WebElement btn_save;
 	
 	@FindBy(xpath= "//label[contains(text(), 'New keyword list successfully saved.')]")
@@ -41,7 +41,7 @@ public class KeywordListsPage extends BasePage {
 	@FindBy(xpath= "//label[contains(text(), 'Keyword list successfully updated.')]")
 	private WebElement lbl_keywordEditedSuccessfully;
 	
-	@FindBy(css= "div[class='col-sm pr-0 mr-1'] button[class='btn btn-secondary btn-block']")
+	@FindBy(xpath= "//div[@class='col-sm pr-0 mr-1']//button[@class='btn btn-secondary btn-block']")
 	private WebElement btn_cancel;
 	
 	@FindBys(value = @FindBy (xpath = "//table[@class='table table-sm table-bordered table-hover table-striped']//td[2]"))
@@ -101,11 +101,10 @@ public class KeywordListsPage extends BasePage {
 	 */
 	public void inputKeywords(String keyword) {
 		log.entry();
+		By fld_keyword_click = By.xpath("//label[contains(text(), 'Keywords:')]//following::div[text()='Add set of keywords...']");
 		if(driverHelper.isElementPresent(fld_keyword)) {
-			driverHelper.explicitWaitSNOW();
-			driverHelper.clickButton(fld_keyword);
+			driverHelper.clickButton(fld_keyword_click);
 			driverHelper.inputFieldValue(fld_keyword, keyword);
-			driverHelper.clickEnter(fld_keyword);
 			driverHelper.embedScreenshot(scenario);
 			log.exit();
 		} else {

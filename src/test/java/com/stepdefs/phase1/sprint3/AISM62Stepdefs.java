@@ -14,7 +14,7 @@ public class AISM62Stepdefs implements En {
 	public AISM62Stepdefs(ScenarioHooks hooks, LoginPage loginPage, CreateNewFilterPage createNewFilterPage, FilterRulePage filterRulePage,
 			CreateJiraTicketActionPage createJiraTicketActionPage) {
 		
-		And("with Action: Create Jira Ticket-ACPF but mandatory fields are left blank \"([^\\\"]*)\"$", (String uniqueName) -> {
+		And("(.*) has Action: Jira Task type but mandatory fields are left blank", (String uniqueName) -> {
 			createNewFilterPage.setDriver(hooks.getDriverHelper(), ScenarioHooks.getScenarioName());
 			createJiraTicketActionPage.setDriver(hooks.getDriverHelper(), ScenarioHooks.getScenarioName());
 			createNewFilterPage.selectAction(CommonConstants.ACTION_CREATE_JIRA_TICKET);
@@ -30,7 +30,7 @@ public class AISM62Stepdefs implements En {
 			createJiraTicketActionPage.setAssignee(CommonConstants.JIRA_ASSIGNEE_NOT_EXISTING);
 		});
 		
-		And("with Action: Create Jira Ticket-ACPF but non mandatory fields are left blank \"([^\\\"]*)\"$", (String uniqueName) -> {
+		And("(.*) has Action: Jira Task type but non mandatory fields are left blank", (String uniqueName) -> {
 			createNewFilterPage.setDriver(hooks.getDriverHelper(), ScenarioHooks.getScenarioName());
 			createJiraTicketActionPage.setDriver(hooks.getDriverHelper(), ScenarioHooks.getScenarioName());
 			createNewFilterPage.selectAction(CommonConstants.ACTION_CREATE_JIRA_TICKET);

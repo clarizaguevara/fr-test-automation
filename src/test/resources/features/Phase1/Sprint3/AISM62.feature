@@ -1,5 +1,5 @@
-@AISM62 @scenarios
-Feature: AISM - 62
+@scenarios @AISM62 @Phase1 @Phase1-Sprint3
+Feature: AISM-62
   As an Operator
   I can configure so that a JIRA ticket will be created automatically (ACPF)
 
@@ -7,11 +7,11 @@ Feature: AISM - 62
     Given I am login
     And I am on Create New Filter page
 
-  Scenario Outline: Verify Tool Administrator can configure so that a JIRA ticket will be created automatically
+  Scenario Outline: Verify Tool Administrator can configure so that a JIRA ticket will be created automatically (source: <source>)
     When I create a Filter with filter name <filter name> and <source> as source
     And with Filter Rule: <keyword> - <comparator> - <keyword value>
-    And with Action: Create Jira Ticket-ACPF "<filter name>"
-    Then I should be able to save successfully
+    And <filter name> has Action: Jira-ACPF
+    Then filter should be saved successfully
 
     Examples: 
       | filter name                        | source       | keyword    | comparator | keyword value |
@@ -21,8 +21,8 @@ Feature: AISM - 62
   Scenario Outline: Verify Filter is not saved if mandatory fields are left blank
     When I create a Filter with filter name <filter name> and <source> as source
     And with Filter Rule: <keyword> - <comparator> - <keyword value>
-    And with Action: Create Jira Ticket-ACPF but mandatory fields are left blank "<filter name>"
-    Then I should not be able to save successfully
+    And <filter name> has Action: Jira Task type but mandatory fields are left blank
+    Then filter should not be saved
 
     Examples: 
       | filter name                        | source       | keyword | comparator | keyword value |
@@ -31,8 +31,8 @@ Feature: AISM - 62
   Scenario Outline: Verify Filter is saved if non mandatory fields are left blank
     When I create a Filter with filter name <filter name> and <source> as source
     And with Filter Rule: <keyword> - <comparator> - <keyword value>
-    And with Action: Create Jira Ticket-ACPF but non mandatory fields are left blank "<filter name>"
-    Then I should be able to save successfully
+    And <filter name> has Action: Jira Task type but non mandatory fields are left blank
+    Then filter should be saved successfully
 
     Examples: 
       | filter name                        | source       | keyword | comparator | keyword value |
@@ -41,9 +41,9 @@ Feature: AISM - 62
   Scenario Outline: Verify Multiple watchers can be added
     When I create a Filter with filter name <filter name> and <source> as source
     And with Filter Rule: <keyword> - <comparator> - <keyword value>
-    And with Action: Create Jira Ticket-ACPF "<filter name>"
+    And <filter name> has Action: Jira-ACPF
     And I add multiple watchers
-    Then I should be able to save successfully
+    Then filter should be saved successfully
 
     Examples: 
       | filter name                        | source     | keyword     | comparator | keyword value |
@@ -52,9 +52,9 @@ Feature: AISM - 62
   Scenario Outline: Verify Multiple labels can be added
     When I create a Filter with filter name <filter name> and <source> as source
     And with Filter Rule: <keyword> - <comparator> - <keyword value>
-    And with Action: Create Jira Ticket-ACPF "<filter name>"
+    And <filter name> has Action: Jira-ACPF
     And I add multiple labels
-    Then I should be able to save successfully
+    Then filter should be saved successfully
 
     Examples: 
       | filter name                        | source     | keyword | comparator | keyword value |

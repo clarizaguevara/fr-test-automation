@@ -14,18 +14,7 @@ public class AISM21Stepdefs implements En {
 	public AISM21Stepdefs(ScenarioHooks hooks, LoginPage loginPage, CreateNewFilterPage createNewFilterPage, FilterRulePage filterRulePage,
 			SendEmailActionPage sendEmailActionPage) {
 		
-		And("with Action: Send Email \"([^\\\"]*)\"$", (String uniqueName) -> {
-			createNewFilterPage.setDriver(hooks.getDriverHelper(), ScenarioHooks.getScenarioName());
-			sendEmailActionPage.setDriver(hooks.getDriverHelper(), ScenarioHooks.getScenarioName());
-			createNewFilterPage.selectAction(CommonConstants.ACTION_SEND_EMAIL);
-			sendEmailActionPage.inputTo(CommonConstants.EMAIL_TO);
-			sendEmailActionPage.inputCC(CommonConstants.EMAIL_CC);
-			sendEmailActionPage.inputBCC(CommonConstants.EMAIL_BCC);
-			sendEmailActionPage.inputSubject(uniqueName);
-			sendEmailActionPage.inputEmailMessage(uniqueName);
-		});
-		
-		And("with Action: Send Email but mandatory fields are left blank \"([^\\\"]*)\"$", (String uniqueName) -> {
+		And("(.*) has Action: Email but mandatory fields are left blank", (String uniqueName) -> {
 			createNewFilterPage.setDriver(hooks.getDriverHelper(), ScenarioHooks.getScenarioName());
 			sendEmailActionPage.setDriver(hooks.getDriverHelper(), ScenarioHooks.getScenarioName());
 			createNewFilterPage.selectAction(CommonConstants.ACTION_SEND_EMAIL);
@@ -35,7 +24,7 @@ public class AISM21Stepdefs implements En {
 			sendEmailActionPage.inputEmailMessage(uniqueName);
 		});
 		
-		And("with Action: Send Email with sub-domain \"([^\\\"]*)\"$", (String uniqueName) -> {
+		And("(.*) has Action: Email with sub-domain", (String uniqueName) -> {
 			createNewFilterPage.setDriver(hooks.getDriverHelper(), ScenarioHooks.getScenarioName());
 			sendEmailActionPage.setDriver(hooks.getDriverHelper(), ScenarioHooks.getScenarioName());
 			createNewFilterPage.selectAction(CommonConstants.ACTION_SEND_EMAIL);

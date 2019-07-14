@@ -12,12 +12,21 @@ public class AISM146Stepdefs implements En {
 	
 	public AISM146Stepdefs(ScenarioHooks hooks, HomePage homePage, KeywordListsPage keywordListsPage, AccessManagementPage accessManagementPage) {
 		
+		And("I am on Keyword Lists page", () -> {
+			homePage.setDriver(hooks.getDriverHelper(), ScenarioHooks.getScenarioName());
+			homePage.verifySuccessfulNavigationToHomePage();
+			homePage.clickMaintenanceTab();
+			homePage.clickKeywordLists();
+			keywordListsPage.setDriver(hooks.getDriverHelper(), ScenarioHooks.getScenarioName());
+			keywordListsPage.verifySuccessfulNavigationToKeywordListsPage();
+		});
+		
 		And("I select Keyword Lists", () -> {
 			homePage.setDriver(hooks.getDriverHelper(), ScenarioHooks.getScenarioName());
 			homePage.clickKeywordLists();
 		});
 		
-		And("I add new keyword list", () -> {
+		When("I add new keyword list", () -> {
 			keywordListsPage.setDriver(hooks.getDriverHelper(), ScenarioHooks.getScenarioName());
 			keywordListsPage.clickNewKeywordListButton();
 			keywordListsPage.inputListName(CommonConstants.KEYWORD_LISTNAME);
@@ -26,21 +35,21 @@ public class AISM146Stepdefs implements En {
 			keywordListsPage.clickSaveButton();
 		});
 		
-		And("I edit existing keyword lists", () -> {
+		When("I edit existing keyword lists", () -> {
 			keywordListsPage.setDriver(hooks.getDriverHelper(), ScenarioHooks.getScenarioName());
 			keywordListsPage.selectKeywordInList(CommonConstants.KEYWORD_LISTNAME);
 			keywordListsPage.inputListName(CommonConstants.KEYWORD_LISTNAME_EDITED);
 			keywordListsPage.clickSaveButton();
 		});
 		
-		And("I delete existing keyword lists", () -> {
+		When("I delete existing keyword lists", () -> {
 			keywordListsPage.setDriver(hooks.getDriverHelper(), ScenarioHooks.getScenarioName());
 			accessManagementPage.setDriver(hooks.getDriverHelper(), ScenarioHooks.getScenarioName());
 			accessManagementPage.clickDeleteButtonOfSelected(CommonConstants.KEYWORD_LISTNAME_EDITED);
 			keywordListsPage.clickDeleteKeywordButton();
 		});
 		
-		And("I left mandatory fields blank in Add New Keyword List popup", () -> {
+		When("I left mandatory fields blank in Add New Keyword List popup", () -> {
 			keywordListsPage.setDriver(hooks.getDriverHelper(), ScenarioHooks.getScenarioName());
 			keywordListsPage.clickNewKeywordListButton();
 			keywordListsPage.clickSaveButton();

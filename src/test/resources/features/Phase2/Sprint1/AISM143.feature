@@ -1,4 +1,4 @@
-@scenarios @AISM143
+@scenarios @AISM143 @Phase2 @Phase2-Sprint1
 Feature: AISM-143
   As an Tool Administrator
   I can configure so that source will be mapped with email sender
@@ -12,9 +12,7 @@ Feature: AISM-143
     Then Keyword dropdown should have the correct values for source: <source>
 
     Examples: 
-      | source               |
-      | Email - JP1          |
-      | Email - Nagios-Pet   |
-      | Email - WhatsUp Gold |
-      | Nagios-Pet           |
-      | Cisco Meraki         |
+      | source       |
+      | Email        |
+      | Nagios-Pet   |
+      | Cisco Meraki |

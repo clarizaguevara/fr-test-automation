@@ -13,7 +13,7 @@ public class AISM6Stepdefs implements En {
 	public AISM6Stepdefs(ScenarioHooks hooks, LoginPage loginPage, CreateNewFilterPage createNewFilterPage, FilterRulePage filterRulePage,
 			 CreateJiraTicketActionPage createJiraTicketActionPage) {
 		
-		And("with Action: Create Jira Ticket-ACPF \"([^\\\"]*)\"$", (String uniqueName) -> {
+		And("(.*) has Action: Jira-ACPF", (String uniqueName) -> {
 			createNewFilterPage.setDriver(hooks.getDriverHelper(), ScenarioHooks.getScenarioName());
 			createJiraTicketActionPage.setDriver(hooks.getDriverHelper(), ScenarioHooks.getScenarioName());
 			createNewFilterPage.selectAction(CommonConstants.ACTION_CREATE_JIRA_TICKET);
