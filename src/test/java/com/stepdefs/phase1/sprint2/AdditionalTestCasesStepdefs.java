@@ -54,6 +54,7 @@ public class AdditionalTestCasesStepdefs implements En {
 		});
 		
 		And("I edit the Filter Rule to: (.*) (.*) (.*)", (String keyword, String comparator, String keywordValue) -> {
+			filterRulePage.setDriver(hooks.getDriverHelper(), ScenarioHooks.getScenarioName());
 			filterRulePage.selectKeyword(keyword);
 			//filterRulePage.selectComparator(comparator);
 			filterRulePage.inputKeywordValue(keywordValue);

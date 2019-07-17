@@ -72,7 +72,7 @@ public class TemplatesManagementPage extends BasePage {
 			driverHelper.clickButton(fld_template);
 			driverHelper.waitForPageLoaded();	
 		} else {
-			System.out.println("Template is not present.");
+			log.info("Template is not present.");
 			log.exit();
 		}
 		log.exit();
@@ -160,6 +160,16 @@ public class TemplatesManagementPage extends BasePage {
 			System.out.println("Create New Template Button is not present.");
 			log.exit();
 		}
+	}
+	
+	/**
+	 * Verify version number of template
+	 */
+	public void verifyTemplateVersion(String templateName, String versionNumber) {
+		log.entry();
+		By fld_template_version = By.xpath("//td[text()='" + templateName + "']//following::td[text()='" + versionNumber + "']");
+		Assert.assertTrue("Template has wrong version number", driverHelper.isElementPresent(fld_template_version));
+		log.exit();
 	}
 
 }

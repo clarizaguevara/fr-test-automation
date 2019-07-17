@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.FindBys;
@@ -67,6 +68,9 @@ public class CreateNewFilterPage extends BasePage {
 	
 	@FindBy(xpath= "//input[@class='form-check-input' and @checked]")
 	private WebElement btn_enableDisableFilter;
+	
+	@FindBy(xpath= "//button[@title='Apply Templates']")
+	private WebElement btn_applyTemplates;
 	
 	
 	/* Methods */
@@ -276,6 +280,37 @@ public class CreateNewFilterPage extends BasePage {
     			driverHelper.clickButton(btn_enableDisableFilter);
     		}
 		}
+		log.exit();
+	}
+	
+	/**
+	 * Click Apply Templates Button
+	 */
+	public void clickApplyTemplatesButton() {
+		log.entry();
+		if(driverHelper.isElementPresent(btn_applyTemplates)) {
+			driverHelper.clickButton(btn_applyTemplates);
+			log.exit();
+		} else {
+			System.out.println("Apply Templates Button is not present.");
+			log.exit();
+		}
+	}
+	
+	/**
+	 * Verify if template is applied
+	 */
+	public void verifyIfTemplateIsApplied(String templateName, String versionNumber) {
+		log.entry();
+		By label_templateName_fieldConditions = By.xpath("//h4[text()='Filter Conditions']//following::label[text()='" + templateName + " [" + versionNumber + "]'][1]");
+		By label_templateName_extConditions = By.xpath("//h4[text()='Extended Conditions']//following::label[text()='" + templateName + " [" + versionNumber + "]'][1]");
+		By label_templateName_actions = By.xpath("//h4[text()='Actions']//following::label[text()='" + templateName + " [" + versionNumber + "]'][1]");
+		
+		Assert.assertTrue("Template is not applied to filter conditions", driverHelper.isElementPresent(label_templateName_fieldConditions));
+		Assert.assertTrue("Template is not applied to extended conditions", driverHelper.isElementPresent(label_templateName_extConditions));
+		Assert.assertTrue("Template is not applied to actions", driverHelper.isElementPresent(label_templateName_actions));
+		
+		driverHelper.embedScreenshot(scenario);
 		log.exit();
 	}
 	

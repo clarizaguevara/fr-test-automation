@@ -53,6 +53,12 @@ public class HomePage extends BasePage{
 	@FindBys(value = @FindBy (xpath = "//label[text()='Source:']//following::select//option"))
 	private List<WebElement> list_filterSource;
 	
+	@FindBy(xpath= "//label[text()='Status:']//following::select")
+	private WebElement fld_filterStatus;
+	
+	@FindBys(value = @FindBy (xpath = "//label[text()='Status:']//following::select//option"))
+	private List<WebElement> list_filterStatus;
+	
 	
 	/* Methods */
 	
@@ -265,5 +271,33 @@ public class HomePage extends BasePage{
 			Assert.assertTrue("Filter name does not contain keyword", (searchEntry.getText()).contains(name)); 
 		}
 		log.exit();
+	}
+	
+	/**
+	 * Verify status of search results
+	 */
+	public void verifyStatusOfSearchResults(String status) {
+		log.entry();
+		By search_status = By.xpath("//tbody//tr//td[4]");
+		for (WebElement searchEntry : driver.findElements(search_status)) {
+			Assert.assertTrue("Values do not match", (searchEntry.getText()).equals(status)); 
+		}
+		log.exit();
+	}
+	
+	/**
+	 * Select Status
+	 */
+	public void selectStatus(String status) {
+		log.entry();
+		if(driverHelper.isElementPresent(fld_filterStatus)) {
+			driverHelper.clickButton(fld_filterStatus);
+			driverHelper.setValueDropdown(list_filterStatus, fld_filterStatus, status);
+			driverHelper.embedScreenshot(scenario);
+			log.exit();
+		} else {
+			log.info("Status field is not present.");
+			log.exit();
+		}
 	}
 }

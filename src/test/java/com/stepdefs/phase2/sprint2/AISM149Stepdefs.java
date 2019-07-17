@@ -15,6 +15,17 @@ public class AISM149Stepdefs implements En {
 	public AISM149Stepdefs(ScenarioHooks hooks, HomePage homePage, TemplatesManagementPage templatesManagementPage,
 			CreateNewTemplatePage createNewTemplatePage, CreateNewFilterPage createNewFilterPage, FilterRulePage filterRulePage, DeleteFilterPage deleteFilterPage) {
 		
+		And("I am on Templates Management page", () -> {
+			homePage.setDriver(hooks.getDriverHelper(), ScenarioHooks.getScenarioName());
+			homePage.verifySuccessfulNavigationToHomePage();
+			homePage.clickMaintenanceTab();
+			homePage.clickTemplatesManagement();
+			templatesManagementPage.setDriver(hooks.getDriverHelper(), ScenarioHooks.getScenarioName());
+			templatesManagementPage.verifySuccessfulNavigationToTemplatesManagementPage();
+		});
+		
+		/*-----------------------------*/
+		
 		And("I select Templates Management", () -> {
 			homePage.clickTemplatesManagement();
 			templatesManagementPage.setDriver(hooks.getDriverHelper(), ScenarioHooks.getScenarioName());
@@ -26,7 +37,7 @@ public class AISM149Stepdefs implements En {
 		
 		/*-----------------------------*/
 		
-		And("I create a Template with template name (.*), template type (.*) and (.*) as source", (String templateName, String templateType, String source) -> {
+		When("I create a Template with template name (.*), template type (.*) and (.*) as source", (String templateName, String templateType, String source) -> {
 			createNewTemplatePage.setDriver(hooks.getDriverHelper(), ScenarioHooks.getScenarioName());
 			createNewFilterPage.setDriver(hooks.getDriverHelper(), ScenarioHooks.getScenarioName());
 			
@@ -56,6 +67,7 @@ public class AISM149Stepdefs implements En {
 			homePage.clickTemplatesManagement();
 			templatesManagementPage.verifySuccessfulNavigationToTemplatesManagementPage();
 			templatesManagementPage.selectTemplateInList(templateName);
+			createNewFilterPage.setDriver(hooks.getDriverHelper(), ScenarioHooks.getScenarioName());
 			createNewFilterPage.verifySuccessfulNavigationToEditFilterPage();
 		});
 		
@@ -65,8 +77,15 @@ public class AISM149Stepdefs implements En {
 			templatesManagementPage.verifySuccessfulNavigationToTemplatesManagementPage();
 			templatesManagementPage.selectTemplateInList(templateName);
 			createNewFilterPage.verifySuccessfulNavigationToEditFilterPage();
+			createNewTemplatePage.setDriver(hooks.getDriverHelper(), ScenarioHooks.getScenarioName());
 			createNewTemplatePage.checkTemplateName(templateName);
 			filterRulePage.checkKeywordValue(keywordValue);
+		});
+		
+		/*-----------------------------*/
+		
+		Then("version number of template (.*) should be (.*)", (String templateName, String versionNumber) -> {
+			templatesManagementPage.verifyTemplateVersion(templateName, versionNumber);
 		});
 		
 	}

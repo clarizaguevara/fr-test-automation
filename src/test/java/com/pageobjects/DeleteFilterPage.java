@@ -10,6 +10,7 @@ public class DeleteFilterPage extends BasePage {
 	
 	private static final Logger log = LogManager.getLogger(DeleteFilterPage.class);
 
+	
 	/* Page Elements */
 	
 	@FindBy(xpath= "//button[text()='Yes']")
@@ -20,6 +21,7 @@ public class DeleteFilterPage extends BasePage {
 	
 	@FindBy(xpath= "//div[@class='card-body']//h5")
 	private WebElement page_DeletePopUp;
+	
 	
 	/* Methods */
 
@@ -50,7 +52,7 @@ public class DeleteFilterPage extends BasePage {
 	}
 	
 	/**
-	 * Select Yes in Delete pop up
+	 * Select No in Delete pop up
 	 */
 	public void clickDeleteNoButton() {
 		log.entry();

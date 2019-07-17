@@ -36,6 +36,9 @@ private static WebDriver getWebDriver() {
 	        case "InternetExplorer":
 	        	driver = IEBrowserDriver.buildIEBrowser();
 	            break;
+	        case "Firefox":
+	        	driver = FirefoxBrowserDriver.buildFirefoxDriver();
+	            break;
 	        default:
 	            break;
 			}
@@ -47,7 +50,9 @@ private static WebDriver getWebDriver() {
 	        	capabilities = DesiredCapabilities.chrome();
 	        } else if (PropertyUtil.getConfig("capabilities.browserName").equalsIgnoreCase("internetExplorer")) {
 	        	capabilities = DesiredCapabilities.internetExplorer();
-	        } 	        
+		 	} else if (PropertyUtil.getConfig("capabilities.browserName").equalsIgnoreCase("Firefox")) {
+	        	capabilities = DesiredCapabilities.firefox();
+	        }
 	        try {
 	        	driver = new RemoteWebDriver(new URL("http://16.158.142.149:4444/wd/hub"), capabilities);
 			} catch (MalformedURLException e) {
