@@ -21,7 +21,7 @@ Feature: Templates
       | AUT_TestTemplate_CM | Master        | Cisco Meraki | Country | Equals     | JP            | Send to Slack |
 
   Scenario Outline: Create Filters
- 		When I am on Create New Filter page
+    When I am on Create New Filter page
     And I create a Filter with filter name <filter name> and <source> as source
     And with Filter Rule: <keyword> - <comparator> - <keyword value>
     And <filter name> has Action: <action>
@@ -33,14 +33,8 @@ Feature: Templates
       | AUT_TestFilter2 | Nagios-Pet | Description | Ends With   | error         | Send Email         |
 
   @ApplyTemplate
-  Scenario: [AISM-151] Verify that a button to Apply Template exists in Create New Filter page
-    When I am on Create New Filter page
-    Then a button to Apply Template should be present
-
-  @ApplyTemplate
   Scenario Outline: [AISM-151] Verify that when a template is selected, the filter conditions & actions in the template will be automatically applied
-    When I am on Create New Filter page
-    And I go back to Browse page and open filter <filter name>
+    When I go back to Browse page and open filter <filter name>
     And I apply template <template name>
     Then filter should be saved successfully
     And filter conditions and actions of <template name> <version> should be applied
@@ -51,12 +45,27 @@ Feature: Templates
 
   @ApplyTemplate
   Scenario Outline: [AISM-151] Verify that filter and template should have the same Source
-    When I am on Create New Filter page
-    And I go back to Browse page and open filter <filter name>
+    When I go back to Browse page and open filter <filter name>
     Then I should not be able to apply <template name>
     When I apply template <template name2>
-    Then filter conditions and actions of <template name2> <version> should be applied
+    Then filter should be saved successfully
+    And filter conditions and actions of <template name2> <version> should be applied
 
     Examples: 
       | filter name     | template name       | template name2      | version |
       | AUT_TestFilter2 | AUT_TestTemplate_CM | AUT_TestTemplate_NP | v1      |
+
+  @Propagate
+  Scenario Outline: [AISM-150] Verify that pressing the Apply changes button will show the list of filters that uses the old version of the template
+    When I go back to Template Browse page and open template <template name>
+    And I edit the Filter Rule to: <keyword> <comparator> <keyword value>
+    Then template <template name> should be editted successfully with new Filter rule values: <keyword> <comparator> <keyword value>
+    When I go back to Templates Management page
+    Then version number of template <template name> should be <version>
+    When I open template <template name>
+    And click Apply Changes
+    Then it should list all filters that uses the template with version older than <version>
+
+    Examples: 
+      | template name       | keyword     | comparator | keyword value | version |
+      | AUT_TestTemplate_NP | Description | Contains   | TEST          | v2      |

@@ -4,7 +4,9 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 
 public class ApplyTemplatesPage extends BasePage {
@@ -110,14 +112,17 @@ public class ApplyTemplatesPage extends BasePage {
 	 */
 	public void inputTemplateName(String templateName) {
 		log.entry();
-		driver.switchTo().defaultContent();
-		By fld_searchTemplate_click = By.xpath("//div[@class='css-1n9lbrx']");
-		By fld_searchTemplate_enter = By.xpath("//strong[text()='Apply Templates']//following::div[@class='css-108yccl']");
+		By page_popup = By.xpath("//div[@class='card-body']");
+		Actions builder = new Actions(driver);
+		Dimension pageSize = driver.findElement(page_popup).getSize();
+		int yOffset = (pageSize.height/2) - 53;
+		int xOffset = pageSize.width/2;
+		
 		if(driverHelper.isElementPresent(fld_searchTemplate)) {
 			driverHelper.clickButton(fld_searchTemplate);
 			driverHelper.inputFieldValue(fld_searchTemplate, templateName);
 			driverHelper.explicitWait();
-			driverHelper.clickEnter(fld_searchTemplate);
+			builder.moveToElement(page_ApplyTemplatesPopUp, xOffset, yOffset).click().build().perform();
 			driverHelper.embedScreenshot(scenario);
 			log.exit();
 		} else {

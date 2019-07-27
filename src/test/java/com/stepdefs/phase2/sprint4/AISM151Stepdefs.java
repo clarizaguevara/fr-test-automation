@@ -14,12 +14,6 @@ public class AISM151Stepdefs implements En {
 	public AISM151Stepdefs(ScenarioHooks hooks, HomePage homePage, TemplatesManagementPage templatesManagementPage,
 			CreateNewTemplatePage createNewTemplatePage, CreateNewFilterPage createNewFilterPage, ApplyTemplatesPage applyTemplatesPage) {
 		
-		Then("a button to Apply Template should be present", () -> {
-			createNewFilterPage.clickApplyTemplatesButton();
-		});
-		
-		/*-----------------------------*/
-		
 		And("I apply template (.*)", (String templateName) -> {
 			createNewFilterPage.clickApplyTemplatesButton();
 			applyTemplatesPage.setDriver(hooks.getDriverHelper(), ScenarioHooks.getScenarioName());
@@ -45,6 +39,27 @@ public class AISM151Stepdefs implements En {
 			applyTemplatesPage.inputTemplateName(templateName);
 			applyTemplatesPage.verifyIfTemplateIsNotSelected(templateName);
 			applyTemplatesPage.clickCancel();
+		});
+		
+		/*-----------------------------*/
+		
+		When("I go back to Templates Management page", () -> {
+			homePage.clickMaintenanceTab();
+			homePage.clickTemplatesManagement();
+			templatesManagementPage.verifySuccessfulNavigationToTemplatesManagementPage();
+		});
+		
+		When("I open template (.*)", (String templateName) -> {
+			templatesManagementPage.selectTemplateInList(templateName);
+		});
+		
+		And("click Apply Changes", () -> {
+			createNewTemplatePage.clickApplyChangesButton();
+			createNewTemplatePage.verifyApplyChangesPopUp();
+		});
+		
+		Then("it should list all filters that uses the template with version older than (.*)", (String versionNumber) -> {
+			
 		});
 		
 	}

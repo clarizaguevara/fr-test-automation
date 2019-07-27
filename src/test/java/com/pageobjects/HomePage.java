@@ -268,7 +268,7 @@ public class HomePage extends BasePage{
 		log.entry();
 		By search_source = By.xpath("//tbody//tr//td[2]");
 		for (WebElement searchEntry : driver.findElements(search_source)) {
-			Assert.assertTrue("Filter name does not contain keyword", (searchEntry.getText()).contains(name)); 
+			Assert.assertTrue("Filter name does not contain keyword", ((searchEntry.getText()).toUpperCase()).contains(name.toUpperCase())); 
 		}
 		log.exit();
 	}

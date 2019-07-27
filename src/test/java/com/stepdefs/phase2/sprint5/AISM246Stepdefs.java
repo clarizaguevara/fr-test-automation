@@ -10,10 +10,6 @@ public class AISM246Stepdefs implements En {
 	
 	public AISM246Stepdefs(ScenarioHooks hooks, EventsBrowserPage eventsBrowserPage) {
 		
-		Then("Event Id field should be present", () -> {
-			eventsBrowserPage.isEventIdFieldPresent();
-		});
-		
 		When("I input an Event Id", () -> {
 			eventsBrowserPage.inputEventId(CommonConstants.EVENT_ID);
 		});

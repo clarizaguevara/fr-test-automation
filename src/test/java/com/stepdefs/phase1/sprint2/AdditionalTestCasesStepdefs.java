@@ -45,6 +45,7 @@ public class AdditionalTestCasesStepdefs implements En {
 		});
 		
 		Then("I go back to Browse page and open filter (.*)", (String filterName) -> {
+			createNewFilterPage.setDriver(hooks.getDriverHelper(), ScenarioHooks.getScenarioName());
 			createNewFilterPage.clickHomeButton();
 			homePage.setDriver(hooks.getDriverHelper(), ScenarioHooks.getScenarioName());
 			homePage.verifySuccessfulNavigationToHomePage();

@@ -63,8 +63,10 @@ public class AISM149Stepdefs implements En {
 		/*-----------------------------*/
 		
 		When("I go back to Template Browse page and open template (.*)", (String templateName) -> {
+			homePage.setDriver(hooks.getDriverHelper(), ScenarioHooks.getScenarioName());
 			homePage.clickMaintenanceTab();
 			homePage.clickTemplatesManagement();
+			templatesManagementPage.setDriver(hooks.getDriverHelper(), ScenarioHooks.getScenarioName());
 			templatesManagementPage.verifySuccessfulNavigationToTemplatesManagementPage();
 			templatesManagementPage.selectTemplateInList(templateName);
 			createNewFilterPage.setDriver(hooks.getDriverHelper(), ScenarioHooks.getScenarioName());

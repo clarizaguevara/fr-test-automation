@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com</groupId>
   <artifactId>FR_Test_Automation</artifactId>
-  <version>2.0.1</version>
+  <version>2.0.2</version>
   
   <name>FR Test Automation</name>
   <url>http://maven.apache.org</url>

@@ -7,9 +7,6 @@ Feature: AISM-246
     Given I am login
     And I am on Events Browser page
 
-  Scenario: Verify that there is a field to input Event Id
-    Then Event Id field should be present
-    
   Scenario: Verify that user can filter events by Event Id
     When I input an Event Id
     And I click Apply

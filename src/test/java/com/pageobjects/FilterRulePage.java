@@ -22,16 +22,16 @@ public class FilterRulePage extends BasePage {
 	@FindBy(css= "div[class='filter-details']")
 	private WebElement page_filter;
 	
-	@FindBys(value = @FindBy (xpath = "//div[@class='col-sm-auto px-1'][1]//select[@class='form-control']//option"))
+	@FindBys(value = @FindBy (xpath = "//div[@class='col-sm-auto px-2']//select[@class='form-control']//option"))
 	private List<WebElement> list_keyword;
 	
-	@FindBy(xpath= "//div[@class='col-sm-auto px-1'][1]")
+	@FindBy(xpath= "//div[@class='col-sm-auto px-2']//select")
 	private WebElement fld_keyword;
 	
-	@FindBys(value = @FindBy (xpath = "//div[@class='col-sm-auto px-1'][3]//select[@class='form-control']//option"))
+	@FindBys(value = @FindBy (xpath = "//div[@class='col-sm-auto px-1'][2]//select[@class='form-control']//option"))
 	private List<WebElement> list_comparator;
 	
-	@FindBy(xpath= "//div[@class='col-sm-auto px-1'][3]//select")
+	@FindBy(xpath= "//div[@class='col-sm-auto px-1'][2]//select")
 	private WebElement fld_comparator;
 	
 	@FindBy(xpath= "//div[@class='col-sm']//input[not(contains(@class, 'form-control block borderless-input'))]")
@@ -40,10 +40,10 @@ public class FilterRulePage extends BasePage {
 	@FindBy(xpath= "//label[@class='btn w-100' and text()='NOT']")
 	private WebElement btn_NOT;
 	
-	@FindBys(value = @FindBy (xpath = "//div[@class='col-sm px-1']//select[@class='form-control']//option"))
+	@FindBys(value = @FindBy (xpath = "//div[@class='col-sm-auto px-1']//select[@class='form-control w-auto']//option"))
 	private List<WebElement> list_keywordValue;
 	
-	@FindBy(xpath= "//div[@class='col-sm px-1']//select[@class='form-control']")
+	@FindBy(xpath= "//div[@class='col-sm-auto px-1']//select[@class='form-control w-auto']")
 	private WebElement fld_keywordvaluedropdown;
 	
 	@FindBy(xpath= "//button[contains(@class,'add-condition-button')]")

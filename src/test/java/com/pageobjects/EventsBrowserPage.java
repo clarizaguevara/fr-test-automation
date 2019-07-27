@@ -1,5 +1,6 @@
 package com.pageobjects;
 
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
@@ -81,6 +82,21 @@ public class EventsBrowserPage extends BasePage {
 	@FindBy(id= "event-id-filter")
 	private WebElement fld_eventId;
 	
+	@FindBy(xpath= "//button[text()='Events list']")
+	private WebElement btn_eventsList;
+	
+	@FindBy(xpath= "//div[@class='card-body']//h5//strong[text()='Events']")
+	private WebElement page_RetryListPopUp;
+	
+	@FindBy(xpath= "//div[@class='row']//div//button[text()='Apply']")
+	private WebElement btn_RetryListPopUp_Apply;
+	
+	@FindBy(xpath= "//label[contains(text(),'Successfully Executed!')]")
+	private WebElement label_RetryListPopUp_Executed;
+	
+	@FindBy(xpath= "//button[@aria-label='Close']")
+	private WebElement btn_closeRetryListPopUp;
+	
 	
 	/* Methods */
 	
@@ -105,7 +121,7 @@ public class EventsBrowserPage extends BasePage {
 			driverHelper.embedScreenshot(scenario);
 			log.exit();
 		} else {
-			System.out.println("Source field is not present.");
+			log.info("Source field is not present.");
 			log.exit();
 		}
 	}
@@ -122,7 +138,7 @@ public class EventsBrowserPage extends BasePage {
 			driverHelper.embedScreenshot(scenario);
 			log.exit();
 		} else {
-			System.out.println("From timestamp field is not present.");
+			log.info("From timestamp field is not present.");
 		}
 	}
 	
@@ -138,7 +154,7 @@ public class EventsBrowserPage extends BasePage {
 			driverHelper.embedScreenshot(scenario);
 			log.exit();
 		} else {
-			System.out.println("To timestamp field is not present.");
+			log.info("To timestamp field is not present.");
 		}
 	}
 	
@@ -154,7 +170,7 @@ public class EventsBrowserPage extends BasePage {
 			driverHelper.embedScreenshot(scenario);
 			log.exit();
 		} else {
-			System.out.println("Apply button is not present.");
+			log.info("Apply button is not present.");
 			log.exit();
 		}
 	}
@@ -168,7 +184,7 @@ public class EventsBrowserPage extends BasePage {
 			driverHelper.clickButton(btn_back);
 			log.exit();
 		} else {
-			System.out.println("Back button is not present.");
+			log.info("Back button is not present.");
 			log.exit();
 		}
 	}
@@ -224,7 +240,7 @@ public class EventsBrowserPage extends BasePage {
 				driverHelper.embedScreenshot(scenario);
 				builder.moveToElement(page_backdrop, 10, 25).click().build().perform();
 			} else {
-				System.out.println("Payload button is not present.");
+				log.info("Payload button is not present.");
 				log.exit();
 			}  
 		}
@@ -240,7 +256,7 @@ public class EventsBrowserPage extends BasePage {
 			driverHelper.clickButton(link_eventid);
 			log.exit();
 		} else {
-			System.out.println("Event id link is not present.");
+			log.info("Event id link is not present.");
 			log.exit();
 		}
 	}
@@ -284,7 +300,7 @@ public class EventsBrowserPage extends BasePage {
 			driverHelper.clickButton(link_filtername);
 			log.exit();
 		} else {
-			System.out.println("Filter link is not present.");
+			log.info("Filter link is not present.");
 			log.exit();
 		}
 	}
@@ -308,7 +324,7 @@ public class EventsBrowserPage extends BasePage {
 			driverHelper.clickButton(link_action);
 			log.exit();
 		} else {
-			System.out.println("Action link is not present.");
+			log.info("Action link is not present.");
 			log.exit();
 		}
 	}
@@ -347,7 +363,7 @@ public class EventsBrowserPage extends BasePage {
 			driverHelper.embedScreenshot(scenario);
 			log.exit();
 		} else {
-			System.out.println("Status field is not present.");
+			log.info("Status field is not present.");
 			log.exit();
 		}
 	}
@@ -447,15 +463,6 @@ public class EventsBrowserPage extends BasePage {
 	}
 	
 	/**
-	 * Verify that Event Id field is present
-	 */
-	public void isEventIdFieldPresent() {
-		log.entry();
-		Assert.assertTrue("Event Id field is not present", driverHelper.isElementPresent(fld_eventId));
-		log.exit();
-	}
-	
-	/**
 	 * Input Event ID
 	 */
 	public void inputEventId(String eventId) {
@@ -466,7 +473,7 @@ public class EventsBrowserPage extends BasePage {
 			driverHelper.embedScreenshot(scenario);
 			log.exit();
 		} else {
-			System.out.println("Event ID field is not present.");
+			log.info("Event ID field is not present.");
 		}
 		log.exit();
 	}
@@ -501,6 +508,140 @@ public class EventsBrowserPage extends BasePage {
 			Assert.assertTrue("Values are not equal", (searchEntry.getText()).equals(strDate)); 
 		}
 		log.exit();
+	}
+	
+	/**
+	 * Click Retry checkbox of Event ID
+	 */
+	public void clickRetryOfEventIDs(String eventIds) {
+		log.entry();
+		eventIds = eventIds.replaceAll("\\[|\\]|\\s", "");
+		List<String> list_eventIds = Arrays.asList(eventIds.split(","));
+		
+		for (String eventId : list_eventIds) {
+			inputEventId(eventId);
+			clickApplyButton();
+			By retry_checkbox = By.xpath("//tbody//tr//td[text()='" + eventId + "']//following::td[10]//div//input");
+			if(driverHelper.isElementPresent(retry_checkbox)) {
+				driverHelper.clickButton(retry_checkbox);
+				driverHelper.embedScreenshot(scenario);
+				log.exit();
+			} else {
+				Assert.assertTrue("Retry checkbox of Event Id " + eventId + " is not present", driverHelper.isElementPresent(retry_checkbox));
+				//log.info("Retry checkbox of Event Id is not present.");
+				log.exit();
+			}
+		}
+	}
+	
+	/**
+	 * Click Events list Button
+	 */
+	public void clickEventsListButton() {
+		log.entry();
+		if(driverHelper.isElementPresent(btn_eventsList)) {
+			driverHelper.clickButton(btn_eventsList);
+			driverHelper.waitForPageLoaded();
+			log.exit();
+		} else {
+			log.info("Events list button is not present.");
+			log.exit();
+		}
+	}
+	
+	/**
+	 * Retry List Pop up
+	 */
+	public void verifyRetryListPopUp() {
+		log.entry();
+		driverHelper.embedScreenshot(scenario);
+		Assert.assertTrue("Retry List pop up is not present", driverHelper.isElementPresent(page_RetryListPopUp));
+		log.exit();
+	}
+	
+	/**
+	 * Verify selected events in Retry List
+	 */
+	public void verifySelectedEvents(String eventIds) {
+		log.entry();
+		eventIds = eventIds.replaceAll("\\[|\\]|\\s", "");
+		List<String> list_eventIds = Arrays.asList(eventIds.split(","));
+		By column_eventId = By.xpath("//table[contains(@class,'table-sm mini-table')]//tbody//tr//td[1]");
+		
+		if(!driverHelper.isElementPresent(column_eventId)) {
+			Assert.assertTrue("Events list is empty", driverHelper.isElementPresent(column_eventId));
+			log.exit();
+		} else {
+			List<WebElement> list_column_eventId = driver.findElements(column_eventId);
+			for (String eventId : list_eventIds) {
+				for (WebElement selected_eventId : list_column_eventId) {
+					Assert.assertTrue("Event ID " + eventId + " is not selected", selected_eventId.getText().contains(eventId)); 
+				}
+			}
+			log.exit();
+		}
+	}
+	
+	/**
+	 * Click checkbox in Retry List
+	 */
+	public void selectEventsInRetryList(String eventIds) {
+		log.entry();
+		eventIds = eventIds.replaceAll("\\[|\\]|\\s", "");
+		List<String> list_eventIds = Arrays.asList(eventIds.split(","));
+		
+		for (String eventId : list_eventIds) {
+			inputEventId(eventId);
+			clickApplyButton();
+			By retry_checkbox = By.xpath("//table[contains(@class,'table-sm mini-table')]//tbody//tr//td[text()='" + eventId + "']//following::td[4]//div//input");
+			if(driverHelper.isElementPresent(retry_checkbox)) {
+				driverHelper.clickButton(retry_checkbox);
+				driverHelper.embedScreenshot(scenario);
+				log.exit();
+			} else {
+				Assert.assertTrue("Include Action checkbox of Event Id " + eventId + " is not present", driverHelper.isElementPresent(retry_checkbox));
+				log.exit();
+			}
+		}
+	}
+	
+	/**
+	 * Click Retry Button (in Retry List)
+	 */
+	public void clickRetryButton() {
+		log.entry();
+		if(driverHelper.isElementPresent(btn_RetryListPopUp_Apply)) {
+			driverHelper.clickButton(btn_RetryListPopUp_Apply);
+			driverHelper.explicitWaitSNOW();
+			driverHelper.embedScreenshot(scenario);
+			log.exit();
+		} else {
+			log.info("Retry button is not present.");
+			log.exit();
+		}
+	}
+	
+	/**
+	 * Verify if Retry is executed (in Retry List)
+	 */
+	public void verifyIfRetryIsExecuted() {
+		log.entry();
+		Assert.assertTrue("Retry is not executed", driverHelper.isElementPresent(label_RetryListPopUp_Executed));
+		log.exit();
+	}
+	
+	/**
+	 * Click Close button (in Retry List)
+	 */
+	public void clickRetryListCloseButton() {
+		log.entry();
+		if(driverHelper.isElementPresent(btn_closeRetryListPopUp)) {
+			driverHelper.clickButton(btn_closeRetryListPopUp);
+			log.exit();
+		} else {
+			log.info("Close button is not present.");
+			log.exit();
+		}
 	}
 
 }

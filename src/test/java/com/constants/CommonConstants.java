@@ -71,6 +71,9 @@ public class CommonConstants {
 	
 	/*-----EVENT-----*/
 	public static final String EVENT_ID = PropertyUtil.getProp("src/test/resources/properties/test-data.properties", "event.EventId");
+	public static final String EVENT_ID_FAILED_STATUS = PropertyUtil.getProp("src/test/resources/properties/test-data.properties", "event.EventId.FailedStatus");
+	public static final String MULTIPLE_EVENT_IDS_FAILED_STATUS = PropertyUtil.getProp("src/test/resources/properties/test-data.properties", "event.MultipleEventIds.FailedStatus");
+	public static final String EVENT_ID_DESELECT = PropertyUtil.getProp("src/test/resources/properties/test-data.properties", "event.EventId.Deselect");
 	
 	/*-----LIST OF VALUES-----*/
 	public static final String LOV_KEYWORD_EMAIL = PropertyUtil.getProp("src/test/resources/properties/test-data.properties", "LOV.keyword.source-email");
