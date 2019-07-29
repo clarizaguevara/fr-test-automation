@@ -61,11 +61,38 @@ Feature: Templates
     And I edit the Filter Rule to: <keyword> <comparator> <keyword value>
     Then template <template name> should be editted successfully with new Filter rule values: <keyword> <comparator> <keyword value>
     When I go back to Templates Management page
-    Then version number of template <template name> should be <version>
+    Then version number of template <template name> should be <new version>
     When I open template <template name>
     And click Apply Changes
-    Then it should list all filters that uses the template with version older than <version>
+    Then it should list all filters that uses the template with version older than <new version>
 
     Examples: 
-      | template name       | keyword     | comparator | keyword value | version |
-      | AUT_TestTemplate_NP | Description | Contains   | TEST          | v2      |
+      | template name       | keyword     | comparator | keyword value | new version |
+      | AUT_TestTemplate_NP | Description | Contains   | TEST          | v2          |
+
+  @Propagate
+  Scenario Outline: [AISM-150] Verify that the changes in Template should only be applied to the selected Filter
+    When I go back to Template Browse page and open template <template name>
+    And click Apply Changes
+    Then it should list all filters that uses the template with version older than <version>
+    When I propagate the template changes to <filter name>
+    When I go back to Browse page and open filter <filter name>
+    Then filter conditions and actions of <template name> <version> should be applied
+    When I go back to Browse page and open filter <filter name2>
+    Then filter conditions and actions of <template name> <old version> should be applied
+
+    Examples: 
+      | template name       | version | filter name     | filter name2    | old version |
+      | AUT_TestTemplate_NP | v2      | AUT_TestFilter1 | AUT_TestFilter2 | v1          |
+
+  @PreviewFilter
+  Scenario Outline: [AISM-156] Verify that user can see the preview of a Filter
+    When I go back to Template Browse page and open template <template name>
+    And click Apply Changes
+    Then it should list all filters that uses the template with version older than <version>
+    When I click the preview button of <filter name>
+    Then it should show the contents of <filter name> and <template name> <old version> should be applied
+
+    Examples: 
+      | template name       | version | filter name     | old version |
+      | AUT_TestTemplate_NP | v2      | AUT_TestFilter2 | v1          |

@@ -105,6 +105,7 @@ public class KeywordListsPage extends BasePage {
 		if(driverHelper.isElementPresent(fld_keyword)) {
 			driverHelper.clickButton(fld_keyword_click);
 			driverHelper.inputFieldValue(fld_keyword, keyword);
+			clickAddIcon();
 			driverHelper.embedScreenshot(scenario);
 			log.exit();
 		} else {

@@ -1,6 +1,8 @@
 package cucumber.jvm.parallel;
 import java.io.File;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import com.rajatthareja.reportbuilder.Color;
@@ -21,10 +23,11 @@ public class ReportBuilderJava {
         reportBuilder.setReportDirectory("target/ReportBuilder/");
         
         // Set output report file name
-        reportBuilder.setReportFileName("test_results");
+        String reportDate = new SimpleDateFormat("yyyy.MM.dd").format(new Date());
+        reportBuilder.setReportFileName("FR Test Automation Results-" + reportDate);
         
         // Set Report Title
-        reportBuilder.setReportTitle("Fast Retailing Event Automation Test Report");
+        reportBuilder.setReportTitle("[FR-Event Automation] Test Report");
         
         // Set Report Color for more visit http://materializecss.com/color.html
         reportBuilder.setReportColor(Color.BROWN);

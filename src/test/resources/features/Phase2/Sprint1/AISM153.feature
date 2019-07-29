@@ -16,6 +16,7 @@ Feature: AISM-153
       | Email        |
       | Nagios-Pet   |
       | Cisco Meraki |
+      | Email        |
 
   Scenario Outline: Verify browsing of Filters by Filter name and Source: <source>
     When I browse filters with source: <source>
@@ -28,3 +29,4 @@ Feature: AISM-153
       | Email        |
       | Nagios-Pet   |
       | Cisco Meraki |
+      | Email        |

@@ -19,7 +19,11 @@ public class AISM22Stepdefs implements En {
 			filterRulePage.setDriver(hooks.getDriverHelper(), ScenarioHooks.getScenarioName());
 			filterRulePage.selectKeyword(keyword);
 			filterRulePage.selectComparator(comparator);
-			filterRulePage.inputKeywordValue(keywordValue);
+			if(comparator.equals("Contains Keywords")) {
+				filterRulePage.selectKeywordValue(keywordValue);
+			} else {
+				filterRulePage.inputKeywordValue(keywordValue);
+			}
 		});
 		
 		And("(.*) has Action: Jira-KKA", (String uniqueName) -> {

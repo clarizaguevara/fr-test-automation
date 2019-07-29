@@ -16,3 +16,4 @@ Feature: AISM-143
       | Email        |
       | Nagios-Pet   |
       | Cisco Meraki |
+      | Email        |

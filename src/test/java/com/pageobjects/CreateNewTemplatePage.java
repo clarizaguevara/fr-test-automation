@@ -1,6 +1,6 @@
 package com.pageobjects;
 
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.logging.log4j.LogManager;
@@ -41,6 +41,9 @@ public class CreateNewTemplatePage extends BasePage {
 	
 	@FindBy(xpath= "//div[@class='row']//following::div//button[text()='Cancel']")
 	private WebElement btn_ApplyChangesPopUp_Cancel;
+	
+	@FindBy(xpath= "//span[text()='PREVIEW']")
+	private WebElement label_preview;
 	
 	
 	/**
@@ -90,7 +93,6 @@ public class CreateNewTemplatePage extends BasePage {
 		log.entry();
 		if(driverHelper.isElementPresent(btn_ApplyChanges)) {
 			driverHelper.clickButton(btn_ApplyChanges);
-			driverHelper.embedScreenshot(scenario);
 			log.exit();
 		} else {
 			Assert.assertTrue("Apply Changes button is not present", driverHelper.isElementPresent(btn_ApplyChanges));
@@ -130,6 +132,7 @@ public class CreateNewTemplatePage extends BasePage {
 		log.entry();
 		if(driverHelper.isElementPresent(btn_ApplyChangesPopUp_Apply)) {
 			driverHelper.clickButton(btn_ApplyChangesPopUp_Apply);
+			driverHelper.explicitWait();
 			driverHelper.embedScreenshot(scenario);
 			log.exit();
 		} else {
@@ -156,24 +159,101 @@ public class CreateNewTemplatePage extends BasePage {
 	/**
 	 * Verify filters in Apply Changes pop up
 	 */
-//	public void verifyFiltersToApply(String filters) {
-//		log.entry();
-//		eventIds = eventIds.replaceAll("\\[|\\]|\\s", "");
-//		List<String> list_eventIds = Arrays.asList(eventIds.split(","));
-//		By column_eventId = By.xpath("//table[contains(@class,'table-sm mini-table')]//tbody//tr//td[1]");
-//		
-//		if(!driverHelper.isElementPresent(column_eventId)) {
-//			Assert.assertTrue("Events list is empty", driverHelper.isElementPresent(column_eventId));
-//			log.exit();
-//		} else {
-//			List<WebElement> list_column_eventId = driver.findElements(column_eventId);
-//			for (String eventId : list_eventIds) {
-//				for (WebElement selected_eventId : list_column_eventId) {
-//					Assert.assertTrue("Event ID " + eventId + " is not selected", selected_eventId.getText().contains(eventId)); 
-//				}
-//			}
-//			log.exit();
-//		}
-//	}
+	public void verifyTemplateVersionOfFilters(String versionNumber) {
+		log.entry();
+		int current_versionNumber = Integer.parseInt(versionNumber.substring(1));
+		log.info("Current template version: " + current_versionNumber);
+		By label_versionNumber = By.xpath("//p[contains(@class,'MuiListItemText-secondary')]");
+		
+		if(!driverHelper.isElementPresent(label_versionNumber)) {
+			Assert.assertTrue("Version number is not indicated", driverHelper.isElementPresent(label_versionNumber));
+			log.exit();
+		} else {
+			List<WebElement> list_fld_versionNumbers = driver.findElements(label_versionNumber);
+			for (WebElement selected_versionNumber : list_fld_versionNumbers) {
+				int int_selected_versionNumber = Integer.parseInt((selected_versionNumber.getText()).substring(1));
+				Assert.assertTrue("Version is not an old version", int_selected_versionNumber < current_versionNumber); 
+			}
+			log.exit();
+		}
+	}
+	
+	/**
+	 * Click checkbox of Filter in Apply Changes pop up
+	 */
+	public void clickCheckboxOfFilter(String filterName) {
+		log.entry();
+		By label_filterName = By.xpath("//span[contains(@class,'MuiListItemText-primary')]");
+		
+		if(!driverHelper.isElementPresent(label_filterName)) {
+			Assert.assertTrue("Filter name is not indicated", driverHelper.isElementPresent(label_filterName));
+			log.exit();
+		} else {
+			List<WebElement> list_fld_filterNames = driver.findElements(label_filterName);
+			for (WebElement selected_filterName : list_fld_filterNames) {
+				if((selected_filterName.getText()).equals(filterName)) {
+					By btn_filter = By.xpath("//span[text()='" + selected_filterName.getText() + "']//preceding::input[@type='checkbox']");
+					if(driverHelper.isElementPresent(btn_filter)) {
+						driverHelper.clickButton(btn_filter);
+						driverHelper.embedScreenshot(scenario);
+						log.exit();
+					} else {
+						Assert.assertTrue("Checkbox of filter " + selected_filterName.getText() + " is not present", driverHelper.isElementPresent(btn_filter));
+						log.exit();
+					}
+				}
+			}
+		}
+	}
+	
+	/**
+	 * Click preview button of Filter in Apply Changes pop up
+	 */
+	public void clickPreviewButtonOfFilter(String filterName) {
+		log.entry();
+		By label_filterName = By.xpath("//span[contains(@class,'MuiListItemText-primary')]");
+		
+		if(!driverHelper.isElementPresent(label_filterName)) {
+			Assert.assertTrue("Filter name is not indicated", driverHelper.isElementPresent(label_filterName));
+			log.exit();
+		} else {
+			List<WebElement> list_fld_filterNames = driver.findElements(label_filterName);
+			for (WebElement selected_filterName : list_fld_filterNames) {
+				if((selected_filterName.getText()).equals(filterName)) {
+					By btn_preview = By.xpath("//span[text()='" + selected_filterName.getText() + "']//preceding::button[@type='button']");
+					if(driverHelper.isElementPresent(btn_preview)) {
+						driverHelper.clickButton(btn_preview);
+						ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
+						driver.switchTo().window(tabs.get(1));
+						driverHelper.waitForPageLoaded();
+						log.exit();
+					} else {
+						Assert.assertTrue("Preview button of filter " + selected_filterName.getText() + " is not present", driverHelper.isElementPresent(btn_preview));
+						log.exit();
+					}
+				}
+			}
+		}
+	}
+	
+	/**
+	 * Preview Filter page
+	 */
+	public void verifySuccessfulNavigationToPreviewFilterPage() {
+		log.entry();
+		Assert.assertTrue("Unsuccessful navigation to Preview Filter Page", driverHelper.isElementPresent(label_preview));
+		driverHelper.embedScreenshot(scenario);
+		log.exit();
+	}
+	
+	/**
+	 * Verify filter name in preview
+	 */
+	public void verifyFilterNameInPreview(String filterName) {
+		log.entry();
+		By fld_filterName = By.xpath("//input[@type='text' and @disabled and @value ='" + filterName + "']");
+		Assert.assertTrue("Wrong filter is loaded", driverHelper.isElementPresent(fld_filterName));
+		log.exit();
+	}
 
 }

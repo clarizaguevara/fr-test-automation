@@ -135,7 +135,7 @@ public class FilterRulePage extends BasePage {
 		List<String> keywordDropdownValues = Arrays.asList(dropdownValues.split(","));
 		for (WebElement webElement : list_keyword) {
 			String dropdownValue = webElement.getText();
-			log.info(keywordDropdownValues.size() + " " + list_keyword.size());
+			//log.info(keywordDropdownValues.size() + " " + list_keyword.size());
 			Assert.assertTrue("Keyword dropdown value is incorrect", dropdownValues.contains(dropdownValue));
 			Assert.assertTrue("Number of values is incorrect", keywordDropdownValues.size() == list_keyword.size()); 
 		}

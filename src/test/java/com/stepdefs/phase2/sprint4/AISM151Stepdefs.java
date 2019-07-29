@@ -26,8 +26,10 @@ public class AISM151Stepdefs implements En {
 		And("filter conditions and actions of (.*) (.*) should be applied", (String templateName, String versionNumber) -> {
 			createNewFilterPage.verifyIfTemplateIsApplied(templateName, versionNumber);
 			createNewFilterPage.clickApplyTemplatesButton();
+			applyTemplatesPage.setDriver(hooks.getDriverHelper(), ScenarioHooks.getScenarioName());
 			applyTemplatesPage.verifyApplyTemplatesPopUp();
 			applyTemplatesPage.verifyActiveTemplate(templateName);
+			applyTemplatesPage.clickCancel();
 		});
 		
 		/*-----------------------------*/
@@ -51,15 +53,39 @@ public class AISM151Stepdefs implements En {
 		
 		When("I open template (.*)", (String templateName) -> {
 			templatesManagementPage.selectTemplateInList(templateName);
+			createNewFilterPage.verifySuccessfulNavigationToEditFilterPage();
 		});
 		
 		And("click Apply Changes", () -> {
+			createNewTemplatePage.setDriver(hooks.getDriverHelper(), ScenarioHooks.getScenarioName());
 			createNewTemplatePage.clickApplyChangesButton();
 			createNewTemplatePage.verifyApplyChangesPopUp();
 		});
 		
 		Then("it should list all filters that uses the template with version older than (.*)", (String versionNumber) -> {
-			
+			createNewTemplatePage.verifyTemplateVersionOfFilters(versionNumber);
+		});
+		
+		/*-----------------------------*/
+		
+		When("I propagate the template changes to (.*)", (String filterName) -> {
+			createNewTemplatePage.clickCheckboxOfFilter(filterName);
+			createNewTemplatePage.clickMoveSelectedRightButton();
+			createNewTemplatePage.clickApply();
+			createNewTemplatePage.clickCancel();
+		});
+		
+		/*-----------------------------*/
+		
+		When("I click the preview button of (.*)", (String filterName) -> {
+			createNewTemplatePage.clickPreviewButtonOfFilter(filterName);
+		});
+		
+		Then("it should show the contents of (.*) and (.*) (.*) should be applied", (String filterName, String templateName, String versionNumber) -> {
+			createNewTemplatePage.verifySuccessfulNavigationToPreviewFilterPage();
+			createNewFilterPage.setDriver(hooks.getDriverHelper(), ScenarioHooks.getScenarioName());
+			createNewTemplatePage.verifyFilterNameInPreview(filterName);
+			createNewFilterPage.verifyIfTemplateIsApplied(templateName, versionNumber);
 		});
 		
 	}

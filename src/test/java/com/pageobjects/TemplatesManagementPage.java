@@ -70,9 +70,10 @@ public class TemplatesManagementPage extends BasePage {
 		By fld_template = By.xpath("//td[text()='" + templateName + "']");
 		if(driverHelper.isElementPresent(fld_template)) {
 			driverHelper.clickButton(fld_template);
+			log.info(templateName + " is selected");
 			driverHelper.waitForPageLoaded();	
 		} else {
-			log.info("Template is not present.");
+			Assert.assertTrue("Template is not present", driverHelper.isElementPresent(fld_template));
 			log.exit();
 		}
 		log.exit();
