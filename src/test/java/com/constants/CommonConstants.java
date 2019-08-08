@@ -77,6 +77,7 @@ public class CommonConstants {
 	
 	/*-----LIST OF VALUES-----*/
 	public static final String LOV_KEYWORD_EMAIL = PropertyUtil.getProp("src/test/resources/properties/test-data.properties", "LOV.keyword.source-email");
+	public static final String LOV_KEYWORD_EMAILWUG = PropertyUtil.getProp("src/test/resources/properties/test-data.properties", "LOV.keyword.source-emailwug");
 	public static final String LOV_KEYWORD_NP = PropertyUtil.getProp("src/test/resources/properties/test-data.properties", "LOV.keyword.source-np");
 	public static final String LOV_KEYWORD_CM = PropertyUtil.getProp("src/test/resources/properties/test-data.properties", "LOV.keyword.source-cm");
 	public static final String LOV_COMPARATOR = PropertyUtil.getProp("src/test/resources/properties/test-data.properties", "LOV.comparator");

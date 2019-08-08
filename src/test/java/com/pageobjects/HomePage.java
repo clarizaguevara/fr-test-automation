@@ -1,5 +1,6 @@
 package com.pageobjects;
 
+import java.util.Arrays;
 import java.util.List;
 
 import org.apache.logging.log4j.LogManager;
@@ -59,6 +60,12 @@ public class HomePage extends BasePage{
 	@FindBys(value = @FindBy (xpath = "//label[text()='Status:']//following::select//option"))
 	private List<WebElement> list_filterStatus;
 	
+	@FindBy(xpath= "//div[@role='combobox']//input")
+	private WebElement fld_category;
+	
+	@FindBy(xpath= "//div[@role='combobox']//following::i[@class='dropdown icon']")
+	private WebElement btn_category;
+	
 	
 	/* Methods */
 	
@@ -81,7 +88,7 @@ public class HomePage extends BasePage{
 			driverHelper.clickButton(btn_Home);
 			log.exit();
 		} else {
-			System.out.println("Home Button is not present.");
+			Assert.assertTrue("Home Button is not present.", driverHelper.isElementPresent(btn_Home));
 			log.exit();
 		}
 	}
@@ -96,7 +103,7 @@ public class HomePage extends BasePage{
 			driverHelper.embedScreenshot(scenario);
 			log.exit();
 		} else {
-			System.out.println("Filter Title field is not present.");
+			Assert.assertTrue("Filter Title field is not present.", driverHelper.isElementPresent(fld_filterTitle));
 			log.exit();
 		}
 	}
@@ -112,7 +119,7 @@ public class HomePage extends BasePage{
 			driverHelper.embedScreenshot(scenario);
 			log.exit();
 		} else {
-			System.out.println("Apply Button is not present.");
+			Assert.assertTrue("Apply Button is not present.", driverHelper.isElementPresent(btn_Apply));
 			log.exit();
 		}
 	}
@@ -127,8 +134,7 @@ public class HomePage extends BasePage{
 			driverHelper.clickButton(fld_filter);
 			driverHelper.waitForPageLoaded();	
 		} else {
-			System.out.println("Filter is not present.");
-			log.exit();
+			Assert.assertTrue("Filter is not present.", driverHelper.isElementPresent(fld_filter));
 		}
 		log.exit();
 	}
@@ -153,7 +159,7 @@ public class HomePage extends BasePage{
 			driverHelper.explicitWait();
 			log.exit();
 		} else {
-			System.out.println("Events tab is not present.");
+			Assert.assertTrue("Events tab is not present.", driverHelper.isElementPresent(btn_events));
 			log.exit();
 		}
 	}
@@ -168,7 +174,7 @@ public class HomePage extends BasePage{
 			driverHelper.embedScreenshot(scenario);
 			log.exit();
 		} else {
-			System.out.println("Maintenance tab is not present.");
+			Assert.assertTrue("Maintenance tab is not present.", driverHelper.isElementPresent(btn_maintenance));
 			log.exit();
 		}
 	}
@@ -183,7 +189,7 @@ public class HomePage extends BasePage{
 			driverHelper.explicitWait();
 			log.exit();
 		} else {
-			System.out.println("Access Management is not present.");
+			Assert.assertTrue("Access Management is not present.", driverHelper.isElementPresent(btn_accessmanagement));
 			log.exit();
 		}
 	}
@@ -198,7 +204,7 @@ public class HomePage extends BasePage{
 			driverHelper.explicitWait();
 			log.exit();
 		} else {
-			System.out.println("Keyword Lists is not present.");
+			Assert.assertTrue("Keyword Lists is not present.", driverHelper.isElementPresent(btn_keywordlists));
 			log.exit();
 		}
 	}
@@ -213,7 +219,7 @@ public class HomePage extends BasePage{
 			driverHelper.explicitWait();
 			log.exit();
 		} else {
-			System.out.println("Templates Management is not present.");
+			Assert.assertTrue("Templates Management is not present.", driverHelper.isElementPresent(btn_templatesmanagement));
 			log.exit();
 		}
 	}
@@ -227,7 +233,7 @@ public class HomePage extends BasePage{
 			driverHelper.clickButton(btn_createNewFilter);
 			log.exit();
 		} else {
-			System.out.println("Create New Filter Button is not present.");
+			Assert.assertTrue("Create New Filter Button is not present.", driverHelper.isElementPresent(btn_createNewFilter));
 			log.exit();
 		}
 	}
@@ -256,7 +262,7 @@ public class HomePage extends BasePage{
 			driverHelper.embedScreenshot(scenario);
 			log.exit();
 		} else {
-			System.out.println("Source field is not present.");
+			Assert.assertTrue("Source field is not present.", driverHelper.isElementPresent(fld_filterSource));
 			log.exit();
 		}
 	}
@@ -296,8 +302,84 @@ public class HomePage extends BasePage{
 			driverHelper.embedScreenshot(scenario);
 			log.exit();
 		} else {
-			log.info("Status field is not present.");
+			Assert.assertTrue("Status field is not present.", driverHelper.isElementPresent(fld_filterStatus));
 			log.exit();
 		}
+	}
+	
+	/**
+	 * Input Categories
+	 */
+	public void inputCategory(String categories) {
+		log.entry();
+		if(driverHelper.isElementPresent(fld_category)) {
+			
+			if(driverHelper.isElementPresent(btn_category)) {
+				driverHelper.clickButton(btn_category);
+			} else {
+				Assert.assertTrue("Category field button is not present.", driverHelper.isElementPresent(btn_category));
+				log.exit();
+			}
+			
+			categories = categories.replaceAll("\\[|\\]|\\s", "");
+			List<String> list_categories = Arrays.asList(categories.split(","));
+			
+			for (String category : list_categories) {
+				driverHelper.inputFieldValue(fld_category, category);
+				driverHelper.clickEnter(fld_category);
+			}
+			
+			driverHelper.embedScreenshot(scenario);
+			
+		} else {
+			Assert.assertTrue("Category field is not present.", driverHelper.isElementPresent(fld_category));
+		}
+		
+		log.exit();
+	}
+	
+	/**
+	 * Click Delete Button of Categories
+	 */
+	public void removeCategory(String categories) {
+		log.entry();
+		categories = categories.replaceAll("\\[|\\]|\\s", "");
+		List<String> list_categories = Arrays.asList(categories.split(","));
+		
+		for (String category : list_categories) {
+			By btn_delete_category = By.xpath("//a[text()='" + category + "']//i");
+			if(driverHelper.isElementPresent(btn_delete_category)) {
+				driverHelper.clickButton(btn_delete_category);
+				driverHelper.embedScreenshot(scenario);
+			} else {
+				Assert.assertTrue("Delete Button of Category is not present.", driverHelper.isElementPresent(btn_delete_category));
+			}
+		}
+		log.exit();
+	}
+	
+	/**
+	 * Verify Categories of search result
+	 */
+	public void verifyCategoryOfSearchResults(String categories) {
+		log.entry();
+		categories = categories.replaceAll("\\[|\\]|\\s", "");
+		List<String> list_categories = Arrays.asList(categories.split(","));
+		By column_category = By.xpath("//tbody//tr//td[5]");
+		boolean isSearched = false;
+		
+		for (WebElement searchEntry : driver.findElements(column_category)) {
+			isSearched = false;
+			//log.info("category column: " + searchEntry.getText());
+			for (String category : list_categories) {
+				String lbl_category = "[" + category + "]";
+				if((searchEntry.getText()).contains(lbl_category)){
+					isSearched = true;
+					//log.info("entry has category: " + lbl_category);
+				} 
+			}
+			Assert.assertTrue("Wrong category is in the search list", isSearched);
+		}
+		log.exit();
 	}
 }

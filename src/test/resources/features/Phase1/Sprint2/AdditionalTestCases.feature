@@ -1,4 +1,4 @@
-@scenarios @AdditionalTestCases @Phase1 @Phase1-Sprint2
+@scenarios @AdditionalTestCases @Phase1 @Phase1-Sprint2 @Regression
 Feature: Additional Test Cases
 
   Background: 

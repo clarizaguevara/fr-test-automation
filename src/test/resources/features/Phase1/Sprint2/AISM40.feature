@@ -1,4 +1,4 @@
-@scenarios @AISM40 @Phase1 @Phase1-Sprint2 @ExtendedRules @SnowDuplicate
+@scenarios @AISM40 @Phase1 @Phase1-Sprint2 @ExtendedRules @SnowDuplicate @Regression
 Feature: AISM-40
   As a Tool Administrator
   I can configure so that a new ticket will not be created for duplicate alert.

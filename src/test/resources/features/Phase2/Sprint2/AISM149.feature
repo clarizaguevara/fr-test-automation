@@ -1,4 +1,4 @@
-@scenarios @AISM149 @Phase2 @Phase2-Sprint2 @Templates
+@scenarios @AISM149 @Phase2 @Phase2-Sprint2 @Templates @Regression
 Feature: AISM-149
   As an Operator
   I can create a template
@@ -31,7 +31,7 @@ Feature: AISM-149
       | AUT_TestTemplate2 | Master        | Cisco Meraki | Hostname | Equals     | Send to Slack |
 
   Scenario Outline: Verify that user can Edit a template
-    When I go back to Template Browse page and open template <template name>
+    When I open template <template name>
     And I edit the Filter Rule to: <keyword> <comparator> <keyword value>
     Then template <template name> should be editted successfully with new Filter rule values: <keyword> <comparator> <keyword value>
 

@@ -1,4 +1,4 @@
-@scenarios @AISM218 @Phase2 @Phase2-Sprint3
+@scenarios @AISM218 @Phase2 @Phase2-Sprint3 @Regression
 Feature: AISM-218
   As an Tool Administrator
   I can configure so that only the necessary fields are set as mandatory on SNOW

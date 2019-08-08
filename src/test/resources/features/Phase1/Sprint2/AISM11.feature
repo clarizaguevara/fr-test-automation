@@ -1,4 +1,4 @@
-@scenarios @AISM11 @Phase1 @Phase1-Sprint2 @ExtendedRules @CiscoMerakiCheck
+@scenarios @AISM11 @Phase1 @Phase1-Sprint2 @ExtendedRules @CiscoMerakiCheck @Regression
 Feature: AISM-11
   As a Operator
   I can check network status from the alert information

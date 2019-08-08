@@ -18,6 +18,7 @@ Feature: AISM-13
       | AUT_TestSnowTicketAction1 | Nagios-Pet   | Description | Contains    | TEST          |
       | AUT_TestSnowTicketAction2 | Cisco Meraki | IP Address  | Begins With |           192 |
 
+  @Regression
   Scenario Outline: Verify no SNOW Ticket is created if mandatory fields are left blank
     When I create a Filter with filter name <filter name> and <source> as source
     And with Filter Rule: <keyword> - <comparator> - <keyword value>

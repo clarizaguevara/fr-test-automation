@@ -1,4 +1,4 @@
-@scenarios @AISM155 @Phase2 @Phase2-Sprint3
+@scenarios @AISM155 @Phase2 @Phase2-Sprint3 @Regression
 Feature: AISM-155
   As an Operator
    I can have one page for maintaining components

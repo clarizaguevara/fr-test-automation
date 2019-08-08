@@ -1,4 +1,4 @@
-@scenarios @AISM214 @Phase2 @Phase2-Sprint3 @EventsBrowser
+@scenarios @AISM214 @Phase2 @Phase2-Sprint3 @EventsBrowser @Regression
 Feature: AISM-214
   As an Operator
   I can filter by status of events in event page
@@ -22,9 +22,9 @@ Feature: AISM-214
   Scenario Outline: Verify filtering of Events by Status: <status> and can combine with Source: <source> and Timestamp
     When I select <source> as Source
     And I select <status> as Status
-    And I select Date Range: From 06/01/2019 00:00 To 07/01/2019 00:00
+    And I select Date Range: From 07/01/2019 00:00 To 07/01/2099 00:00
     And I click Apply
-    Then Events Browser page should list the events received from 06/01/2019 00:00 to 07/01/2019 00:00 and with <source> as source
+    Then Events Browser page should list the events received from 07/01/2019 00:00 to 07/01/2099 00:00 and with <source> as source
     And with Status: <status> only
 
     Examples: 
@@ -41,3 +41,7 @@ Feature: AISM-214
       | Email        | Partially Successful |
       | Email        | Failed               |
       | Email        | No Action            |
+      | Email WUG    | Success              |
+      | Email WUG    | Partially Successful |
+      | Email WUG    | Failed               |
+      | Email WUG    | No Action            |

@@ -1,4 +1,4 @@
-@scenarios @AISM151 @AISM150 @AISM156 @Phase2 @Phase2-Sprint4 @Templates
+@scenarios @AISM151 @AISM150 @AISM156 @Phase2 @Phase2-Sprint4 @Templates @Regression
 Feature: Templates
   As an Operator
   I can apply the template when creating a filter (AISM-151)

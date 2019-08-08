@@ -1,4 +1,4 @@
-@scenarios @AISM143 @Phase2 @Phase2-Sprint1
+@scenarios @AISM143 @Phase2 @Phase2-Sprint1 @Regression
 Feature: AISM-143
   As an Tool Administrator
   I can configure so that source will be mapped with email sender
@@ -17,3 +17,4 @@ Feature: AISM-143
       | Nagios-Pet   |
       | Cisco Meraki |
       | Email        |
+      | Email WUG    |

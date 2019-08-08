@@ -53,6 +53,7 @@ public class AISM151Stepdefs implements En {
 		
 		When("I open template (.*)", (String templateName) -> {
 			templatesManagementPage.selectTemplateInList(templateName);
+			createNewFilterPage.setDriver(hooks.getDriverHelper(), ScenarioHooks.getScenarioName());
 			createNewFilterPage.verifySuccessfulNavigationToEditFilterPage();
 		});
 		

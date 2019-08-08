@@ -1,4 +1,4 @@
-@scenarios @AISM146 @Phase2 @Phase2-Sprint1
+@scenarios @AISM146 @Phase2 @Phase2-Sprint1 @Regression
 Feature: AISM-146
   As an Operator
   I can maintain the list of keywords

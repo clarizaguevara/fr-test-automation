@@ -1,4 +1,4 @@
-@scenarios @AISM138 @Phase1 @Phase1-Sprint3 @EventsBrowser
+@scenarios @AISM138 @Phase1 @Phase1-Sprint3 @EventsBrowser @Regression
 Feature: AISM-138
   As an Operator
   I can see the status of the Filters and the Actions Triggered.  (EvA Event Browser)
@@ -21,6 +21,7 @@ Feature: AISM-138
       | Nagios-Pet   |
       | Cisco Meraki |
       | Email        |
+      | Email WUG    |
 
   Scenario: Verify that From date cannot be greater than To date when selecting Date Range
     When I select Date Range: From 05/01/2019 00:00 To 04/10/2019 00:00

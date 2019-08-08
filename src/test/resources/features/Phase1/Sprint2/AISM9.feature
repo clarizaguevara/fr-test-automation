@@ -1,4 +1,4 @@
-@scenarios @AISM9 @Phase1 @Phase1-Sprint2 @ExtendedRules @Suppression
+@scenarios @AISM9 @Phase1 @Phase1-Sprint2 @ExtendedRules @Suppression @Regression
 Feature: AISM-9
   As a Operator
   I can filter unnecessary alert by time 1

@@ -1,4 +1,4 @@
-@scenarios @AISM215 @Phase2 @Phase2-Sprint2
+@scenarios @AISM215 @Phase2 @Phase2-Sprint2 @Regression
 Feature: AISM-215
   As an Tool Administrator
   I can configure so that SNOW URL is sent to Slack

@@ -58,6 +58,7 @@ public class AISM249Stepdefs implements En {
 			eventsBrowserPage.verifyIfRetryIsExecuted();
 			eventsBrowserPage.clickRetryListCloseButton();
 			eventsBrowserPage.inputEventId(CommonConstants.EVENT_ID_FAILED_STATUS);
+			eventsBrowserPage.inputTimestampFrom("07/01/2019 00:00");
 			eventsBrowserPage.clickApplyButton();
 			eventsBrowserPage.verifyStatusOfSearchResults(status);
 		});

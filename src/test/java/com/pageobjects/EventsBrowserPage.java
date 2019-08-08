@@ -73,10 +73,10 @@ public class EventsBrowserPage extends BasePage {
 	@FindBy(xpath= "//h4[contains(text(),'Payload')]")
 	private WebElement label_payloaddetails;
 	
-	@FindBy(xpath= "//label[text()='Status:']//following::select")
+	@FindBy(xpath= "//label[text()='Status:']//following::div[@role='alert']")
 	private WebElement fld_alertStatus;
 	
-	@FindBys(value = @FindBy (xpath = "//label[text()='Status:']//following::select//option"))
+	@FindBys(value = @FindBy (xpath = "//label[text()='Status:']//following::div[@role='alert']//following::div[@role='option']"))
 	private List<WebElement> list_alertStatus;
 	
 	@FindBy(id= "event-id-filter")
@@ -121,7 +121,7 @@ public class EventsBrowserPage extends BasePage {
 			driverHelper.embedScreenshot(scenario);
 			log.exit();
 		} else {
-			log.info("Source field is not present.");
+			Assert.assertTrue("Source field is not present.", driverHelper.isElementPresent(fld_alertSource));
 			log.exit();
 		}
 	}
@@ -138,7 +138,8 @@ public class EventsBrowserPage extends BasePage {
 			driverHelper.embedScreenshot(scenario);
 			log.exit();
 		} else {
-			log.info("From timestamp field is not present.");
+			Assert.assertTrue("From timestamp field is not present.", driverHelper.isElementPresent(fld_timestampFrom));
+			log.exit();
 		}
 	}
 	
@@ -154,7 +155,8 @@ public class EventsBrowserPage extends BasePage {
 			driverHelper.embedScreenshot(scenario);
 			log.exit();
 		} else {
-			log.info("To timestamp field is not present.");
+			Assert.assertTrue("To timestamp field is not present.", driverHelper.isElementPresent(fld_timestampTo));
+			log.exit();
 		}
 	}
 	
@@ -170,7 +172,7 @@ public class EventsBrowserPage extends BasePage {
 			driverHelper.embedScreenshot(scenario);
 			log.exit();
 		} else {
-			log.info("Apply button is not present.");
+			Assert.assertTrue("Apply button is not present.", driverHelper.isElementPresent(btn_apply));
 			log.exit();
 		}
 	}
@@ -184,7 +186,7 @@ public class EventsBrowserPage extends BasePage {
 			driverHelper.clickButton(btn_back);
 			log.exit();
 		} else {
-			log.info("Back button is not present.");
+			Assert.assertTrue("Back button is not present.", driverHelper.isElementPresent(btn_back));
 			log.exit();
 		}
 	}
@@ -240,7 +242,7 @@ public class EventsBrowserPage extends BasePage {
 				driverHelper.embedScreenshot(scenario);
 				builder.moveToElement(page_backdrop, 10, 25).click().build().perform();
 			} else {
-				log.info("Payload button is not present.");
+				Assert.assertTrue("Payload button is not present.", driverHelper.isElementPresent(searchEntry));
 				log.exit();
 			}  
 		}
@@ -256,7 +258,7 @@ public class EventsBrowserPage extends BasePage {
 			driverHelper.clickButton(link_eventid);
 			log.exit();
 		} else {
-			log.info("Event id link is not present.");
+			Assert.assertTrue("Event id link is not present.", driverHelper.isElementPresent(link_eventid));
 			log.exit();
 		}
 	}
@@ -300,7 +302,7 @@ public class EventsBrowserPage extends BasePage {
 			driverHelper.clickButton(link_filtername);
 			log.exit();
 		} else {
-			log.info("Filter link is not present.");
+			Assert.assertTrue("Filter name link is not present.", driverHelper.isElementPresent(link_filtername));
 			log.exit();
 		}
 	}
@@ -324,7 +326,7 @@ public class EventsBrowserPage extends BasePage {
 			driverHelper.clickButton(link_action);
 			log.exit();
 		} else {
-			log.info("Action link is not present.");
+			Assert.assertTrue("Action link is not present.", driverHelper.isElementPresent(link_action));
 			log.exit();
 		}
 	}
@@ -359,11 +361,17 @@ public class EventsBrowserPage extends BasePage {
 		log.entry();
 		if(driverHelper.isElementPresent(fld_alertStatus)) {
 			driverHelper.clickButton(fld_alertStatus);
-			driverHelper.setValueDropdown(list_alertStatus, fld_alertStatus, status);
+			
+			status = status.replaceAll("\\[|\\]", "");
+			List<String> list_status = Arrays.asList(status.split(","));
+			
+			for (String strStatus : list_status) {
+				driverHelper.setValueDropdown(list_alertStatus, fld_alertStatus, strStatus);
+			}
 			driverHelper.embedScreenshot(scenario);
 			log.exit();
 		} else {
-			log.info("Status field is not present.");
+			Assert.assertTrue("Status field is not present.", driverHelper.isElementPresent(fld_alertStatus));
 			log.exit();
 		}
 	}
@@ -373,93 +381,110 @@ public class EventsBrowserPage extends BasePage {
 	 */
 	public void verifyStatusOfSearchResults(String status) {
 		log.entry();
-		By success_filters = By.xpath("//tbody//tr//td[5]");
-		By partial_filters = By.xpath("//tbody//tr//td[6]");
-		By failed_filters = By.xpath("//tbody//tr//td[7]");
-		By success_actions = By.xpath("//tbody//tr//td[8]");
-		By failed_actions = By.xpath("//tbody//tr//td[9]");
+		status = status.replaceAll("\\[|\\]", "");
+		List<String> list_status = Arrays.asList(status.split(","));
+		By row_event = By.xpath("//tbody//tr");
+		boolean isSearched = false;
+		boolean isRowCorrect = false;
+		int counter = 0;
 		
-		//Check the row color
-		checkRowColor(status);
-		
-		//Check filter and action count
-		if(status.equals("Success")) {
-			checkCountIfNotZero(success_filters);
-			checkCountIfZero(partial_filters);
-			checkCountIfZero(failed_filters);
-			checkCountIfNotZero(success_actions);
-			checkCountIfZero(failed_actions);
+		for (@SuppressWarnings("unused") WebElement searchEntry : driver.findElements(row_event)) {
+			counter++;
+//			By column_eventId = By.xpath("//tbody//tr[" + counter + "]//td[1]");
+//			String eventId = driver.findElement(column_eventId).getText();
+//			log.info("Event ID: " + eventId);
+			
+			isSearched = false;
+			isRowCorrect = false;
+			for (String strStatus : list_status) {
+				//Check the row color
+				isSearched = checkRowColor(counter, strStatus);
+				if(isSearched) {
+					//log.info("Row color is correct");
+					
+					By success_filters = By.xpath("//tbody//tr[" + counter + "]//td[5]");
+					By partial_filters = By.xpath("//tbody//tr[" + counter + "]//td[6]");
+					By failed_filters = By.xpath("//tbody//tr[" + counter + "]//td[7]");
+					By success_actions = By.xpath("//tbody//tr[" + counter + "]//td[8]");
+					By failed_actions = By.xpath("//tbody//tr[" + counter + "]//td[9]");
+					
+					//Check filter and action count
+					if(status.equals("Success")) {
+						isSearched = checkCountIfNotZero(success_filters);
+						isSearched = checkCountIfZero(partial_filters);
+						isSearched = checkCountIfZero(failed_filters);
+						isSearched = checkCountIfNotZero(success_actions);
+						isSearched = checkCountIfZero(failed_actions);
+					}
+					else if(status.equals("Partially Successful")) {
+						//checkCountIfNotZero(success_filters);
+						//checkCountIfNotZero(partial_filters);
+						//checkCountIfNotZero(failed_filters);
+						isSearched = checkCountIfNotZero(success_actions);
+						isSearched = checkCountIfNotZero(failed_actions);
+					}
+					else if(status.equals("Failed")) {
+						isSearched = checkCountIfZero(success_filters);
+						isSearched = checkCountIfZero(partial_filters);
+						isSearched = checkCountIfNotZero(failed_filters);
+						isSearched = checkCountIfZero(success_actions);
+						isSearched = checkCountIfNotZero(failed_actions);
+					}
+					else if(status.equals("No Action")) {
+						isSearched = checkCountIfZero(success_filters);
+						isSearched = checkCountIfZero(partial_filters);
+						isSearched = checkCountIfZero(failed_filters);
+						isSearched = checkCountIfZero(success_actions);
+						isSearched = checkCountIfZero(failed_actions);
+					}
+					//log.info("Is count correct? " + isSearched);
+					if(isSearched) {
+						isRowCorrect = true;
+					}
+				}
+			}
+			Assert.assertTrue("Wrong status is in the search list", isRowCorrect);
 		}
-		else if(status.equals("Partially Successful")) {
-			checkCountIfNotZero(success_filters);
-			checkCountIfNotZero(partial_filters);
-			checkCountIfNotZero(failed_filters);
-			checkCountIfNotZero(success_actions);
-			checkCountIfNotZero(failed_actions);
-		}
-		else if(status.equals("Failed")) {
-			checkCountIfZero(success_filters);
-			checkCountIfZero(partial_filters);
-			checkCountIfNotZero(failed_filters);
-			checkCountIfZero(success_actions);
-			checkCountIfNotZero(failed_actions);
-		}
-		else if(status.equals("No Action")) {
-			checkCountIfZero(success_filters);
-			checkCountIfZero(partial_filters);
-			checkCountIfZero(failed_filters);
-			checkCountIfZero(success_actions);
-			checkCountIfZero(failed_actions);
-		}
-		
 		log.exit();
 	}
 	
-	private void checkRowColor(String status) {
+	private boolean checkRowColor(int counter, String status) {
 		log.entry();
+		//log.info("Checking row color for status: " + status);
 		String statusColor = "";
-		By row_count = By.xpath("//tbody//tr[@class]");
+		boolean isRowColorCorrect = false;
+		By row_event = By.xpath("//tbody//tr[" + counter + "]");
+		WebElement weRowEvent = driver.findElement(row_event);
 		
 		if(!(status.equals("No Action"))) {
 			statusColor = "row-" + DataHelper.convertToStatusColor(status);
 		}
 		
-		if(driverHelper.isElementPresent(row_count)) {
-			List<WebElement> list_row_count = driver.findElements(row_count);
-			if(list_row_count.size() != 0) {
-				for (WebElement searchEntry : list_row_count) {
-					Assert.assertTrue("Row is not present for status: " + status, (searchEntry.getAttribute("class")).equals(statusColor));
-				}
-			}
-		}
+		driverHelper.scrollIntoView(weRowEvent);
+		isRowColorCorrect = (weRowEvent.getAttribute("class")).equals(statusColor);
+
+		log.exit();
+		return isRowColorCorrect;
+	}
+	
+	private boolean checkCountIfZero(By byElement) {
+		log.entry();
+		boolean isCountCorrect = false;
+		
+		isCountCorrect = "0".equals(driver.findElement(byElement).getText());
 		
 		log.exit();
+		return isCountCorrect;
 	}
 	
-	private void checkCountIfZero(By byElement) {
+	private boolean checkCountIfNotZero(By byElement) {
 		log.entry();
-		if(driverHelper.isElementPresent(byElement)) {
-			List<WebElement> list_element_count = driver.findElements(byElement);
-			if(list_element_count.size() != 0) {
-				for (WebElement searchEntry : list_element_count) {
-					Assert.assertTrue("Count not equal to zero", "0".equals(searchEntry.getText()));
-				}
-			}
-		}
+		boolean isCountCorrect = false;
+		
+		isCountCorrect = !("0".equals(driver.findElement(byElement).getText()));
+		
 		log.exit();
-	}
-	
-	private void checkCountIfNotZero(By byElement) {
-		log.entry();
-		if(driverHelper.isElementPresent(byElement)) {
-			List<WebElement> list_element_count = driver.findElements(byElement);
-			if(list_element_count.size() != 0) {
-				for (WebElement searchEntry : list_element_count) {
-					Assert.assertTrue("Count is equal to zero", !("0".equals(searchEntry.getText())));
-				}
-			}
-		}
-		log.exit();
+		return isCountCorrect;
 	}
 	
 	/**
@@ -473,9 +498,9 @@ public class EventsBrowserPage extends BasePage {
 			driverHelper.embedScreenshot(scenario);
 			log.exit();
 		} else {
-			log.info("Event ID field is not present.");
+			Assert.assertTrue("Event ID field is not present.", driverHelper.isElementPresent(fld_eventId));
+			log.exit();
 		}
-		log.exit();
 	}
 	
 	/**
@@ -520,6 +545,7 @@ public class EventsBrowserPage extends BasePage {
 		
 		for (String eventId : list_eventIds) {
 			inputEventId(eventId);
+			inputTimestampFrom("07/01/2019 00:00");
 			clickApplyButton();
 			By retry_checkbox = By.xpath("//tbody//tr//td[text()='" + eventId + "']//following::td[10]//div//input");
 			if(driverHelper.isElementPresent(retry_checkbox)) {
@@ -544,7 +570,7 @@ public class EventsBrowserPage extends BasePage {
 			driverHelper.waitForPageLoaded();
 			log.exit();
 		} else {
-			log.info("Events list button is not present.");
+			Assert.assertTrue("Events list button is not present.", driverHelper.isElementPresent(btn_eventsList));
 			log.exit();
 		}
 	}
@@ -616,7 +642,7 @@ public class EventsBrowserPage extends BasePage {
 			driverHelper.embedScreenshot(scenario);
 			log.exit();
 		} else {
-			log.info("Retry button is not present.");
+			Assert.assertTrue("Retry button is not present.", driverHelper.isElementPresent(btn_RetryListPopUp_Apply));
 			log.exit();
 		}
 	}
@@ -639,7 +665,7 @@ public class EventsBrowserPage extends BasePage {
 			driverHelper.clickButton(btn_closeRetryListPopUp);
 			log.exit();
 		} else {
-			log.info("Close button is not present.");
+			Assert.assertTrue("Close button is not present.", driverHelper.isElementPresent(btn_closeRetryListPopUp));
 			log.exit();
 		}
 	}

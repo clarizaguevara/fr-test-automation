@@ -1,4 +1,4 @@
-@scenarios @AISM62 @Phase1 @Phase1-Sprint3
+@scenarios @AISM62 @Phase1 @Phase1-Sprint3 @Regression
 Feature: AISM-62
   As an Operator
   I can configure so that a JIRA ticket will be created automatically (ACPF)

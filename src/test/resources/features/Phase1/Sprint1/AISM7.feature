@@ -18,6 +18,7 @@ Feature: AISM-7
       | AUT_TestSlackActionFilter1 | Nagios-Pet   | Summary  | Contains    | TEST          |
       | AUT_TestSlackActionFilter2 | Cisco Meraki | Hostname | Begins With | UQ            |
 
+  @Regression
   Scenario Outline: Verify EvA bot can include original alert message to the message posted with quotation
     When I create a Filter with filter name <filter name> and <source> as source
     And with Filter Rule: <keyword> - <comparator> - <keyword value>
@@ -29,6 +30,7 @@ Feature: AISM-7
       | filter name                | source     | keyword     | comparator | keyword value |
       | AUT_TestSlackActionFilter3 | Nagios-Pet | Description | Contains   | TEST          |
 
+  @Regression
   Scenario Outline: Verify EvA can send mention
     When I create a Filter with filter name <filter name> and <source> as source
     And with Filter Rule: <keyword> - <comparator> - <keyword value>
@@ -40,6 +42,7 @@ Feature: AISM-7
       | filter name                | source       | keyword | comparator | keyword value |
       | AUT_TestSlackActionFilter4 | Cisco Meraki | Country | Equals     | JP            |
 
+  @Regression
   Scenario Outline: Verify filter is not saved when Slack Channel field is blank
     When I create a Filter with filter name <filter name> and <source> as source
     And with Filter Rule: <keyword> - <comparator> - <keyword value>

@@ -63,7 +63,7 @@ public class FilterRulePage extends BasePage {
 			driverHelper.embedScreenshot(scenario);
 			log.exit();
 		} else {
-			System.out.println("Keyword field is not present.");
+			Assert.assertTrue("Keyword field is not present.", driverHelper.isElementPresent(fld_keyword));
 			log.exit();
 		}
 	}
@@ -79,7 +79,7 @@ public class FilterRulePage extends BasePage {
 			driverHelper.embedScreenshot(scenario);
 			log.exit();
 		} else {
-			System.out.println("Keyword field is not present.");
+			Assert.assertTrue("Keyword field is not present.", driverHelper.isElementPresent(fld_comparator));
 			log.exit();
 		}
 	}
@@ -95,7 +95,7 @@ public class FilterRulePage extends BasePage {
 			driverHelper.embedScreenshot(scenario);
 			log.exit();
 		} else {
-			System.out.println("Keyword Value field is not present.");
+			Assert.assertTrue("Keyword Value field is not present.", driverHelper.isElementPresent(fld_keywordvalue));
 			log.exit();
 		}
 	}
@@ -144,7 +144,7 @@ public class FilterRulePage extends BasePage {
 	
 
 	/**
-	 *Input Keyword Value
+	 *Select Keyword Value (for Contains Keywords comparator)
 	 */
 	public void selectKeywordValue(String keywordValue) {
 		log.entry();
@@ -154,7 +154,7 @@ public class FilterRulePage extends BasePage {
 			driverHelper.embedScreenshot(scenario);
 			log.exit();
 		} else {
-			System.out.println("Keyword Value field is not present.");
+			Assert.assertTrue("Keyword Value field is not present", driverHelper.isElementPresent(fld_keywordvaluedropdown));
 			log.exit();
 		}
 	}
@@ -169,7 +169,7 @@ public class FilterRulePage extends BasePage {
 			driverHelper.clickButton(btn_AddRule);
 			log.exit();
 		} else {
-			System.out.println("Add Rule Button is not present.");
+			Assert.assertTrue("Add Rule Button is not present.", driverHelper.isElementPresent(btn_AddRule));
 			log.exit();
 		}
 	}
@@ -183,7 +183,7 @@ public class FilterRulePage extends BasePage {
 			driverHelper.clickButton(btn_addGroup);
 			log.exit();
 		} else {
-			System.out.println("Add Group Button is not present.");
+			Assert.assertTrue("Add Group Button is not present.", driverHelper.isElementPresent(btn_addGroup));
 			log.exit();
 		}
 	}
@@ -197,8 +197,11 @@ public class FilterRulePage extends BasePage {
 		By btn_ANDORrule = By.xpath("//div[contains(@class,'condition-group')][" + groupNumber + "]//div[contains(@class,'justify-content-start')][" + ruleNumber + "]//label[text()='" + condition + "']");
 		if(driverHelper.isElementPresent(btn_ANDORrule)) {
 			driverHelper.clickButton(btn_ANDORrule);
-    	}
-		log.exit();
+			log.exit();
+    	} else {
+			Assert.assertTrue("AND/OR Button is not present.", driverHelper.isElementPresent(btn_ANDORrule));
+			log.exit();
+		}
 	}
 	
 	/**
@@ -206,15 +209,15 @@ public class FilterRulePage extends BasePage {
 	 */
 	private void selectKeyword(String keyword, String groupNumber, String ruleNumber) {
 		log.entry();
-		By fld_keyword = By.xpath("//div[contains(@class,'condition-group')][" + groupNumber + "]//div[contains(@class,'justify-content-start')][" + ruleNumber + "]//div[@class='col-sm-auto px-1'][1]");
-		By list_keyword = By.xpath("//div[contains(@class,'condition-group')][" + groupNumber + "]//div[contains(@class,'justify-content-start')][" + ruleNumber + "]//div[@class='col-sm-auto px-1'][1]//option");
+		By fld_keyword = By.xpath("//div[contains(@class,'condition-group')][" + groupNumber + "]//div[contains(@class,'justify-content-start')][" + ruleNumber + "]//div[@class='col-sm-auto px-2']");
+		By list_keyword = By.xpath("//div[contains(@class,'condition-group')][" + groupNumber + "]//div[contains(@class,'justify-content-start')][" + ruleNumber + "]//div[@class='col-sm-auto px-2']//option");
 		if(driverHelper.isElementPresent(fld_keyword)) {
 			driverHelper.clickButton(fld_keyword);
 			driverHelper.setValueDropdown(driver.findElements(list_keyword), driver.findElement(fld_keyword), keyword);
 			driverHelper.embedScreenshot(scenario);
 			log.exit();
 		} else {
-			System.out.println("Keyword field is not present.");
+			Assert.assertTrue("Keyword field is not present.", driverHelper.isElementPresent(fld_keyword));
 			log.exit();
 		}
 	}
@@ -224,15 +227,15 @@ public class FilterRulePage extends BasePage {
 	 */
 	private void selectComparator(String comparator, String groupNumber, String ruleNumber) {
 		log.entry();
-		By fld_comparator = By.xpath("//div[contains(@class,'condition-group')][" + groupNumber + "]//div[contains(@class,'justify-content-start')][" + ruleNumber + "]//div[@class='col-sm-auto px-1'][3]//select");
-		By list_comparator = By.xpath("//div[contains(@class,'condition-group')][" + groupNumber + "]//div[contains(@class,'justify-content-start')][" + ruleNumber + "]//div[@class='col-sm-auto px-1'][3]//select//option");
+		By fld_comparator = By.xpath("//div[contains(@class,'condition-group')][" + groupNumber + "]//div[contains(@class,'justify-content-start')][" + ruleNumber + "]//div[@class='col-sm-auto px-1'][2]//select");
+		By list_comparator = By.xpath("//div[contains(@class,'condition-group')][" + groupNumber + "]//div[contains(@class,'justify-content-start')][" + ruleNumber + "]//div[@class='col-sm-auto px-1'][2]//select//option");
 		if(driverHelper.isElementPresent(fld_comparator)) {
 			driverHelper.clickButton(fld_comparator);
 			driverHelper.setValueDropdown(driver.findElements(list_comparator), driver.findElement(fld_comparator), comparator);
 			driverHelper.embedScreenshot(scenario);
 			log.exit();
 		} else {
-			System.out.println("Comparator field is not present.");
+			Assert.assertTrue("Comparator field is not present.", driverHelper.isElementPresent(fld_comparator));
 			log.exit();
 		}
 	}
@@ -242,14 +245,14 @@ public class FilterRulePage extends BasePage {
 	 */
 	private void inputKeywordValue(String keywordValue, String groupNumber, String ruleNumber) {
 		log.entry();
-		By fld_keywordValue = By.xpath("//div[contains(@class,'condition-group')][" + groupNumber + "]//div[contains(@class,'justify-content-start')][" + ruleNumber + "]//div[@class='col-sm']//input[not(contains(@class, 'form-control block borderless-input'))]");
+		By fld_keywordValue = By.xpath("//div[contains(@class,'condition-group')][" + groupNumber + "]//div[contains(@class,'justify-content-start')][" + ruleNumber + "]//div[contains(@class,'col-sm px-1')]//input[@type='text']");
 		if(driverHelper.isElementPresent(fld_keywordValue)) {
 			driverHelper.clearText(fld_keywordValue);
 			driverHelper.inputFieldValue(driver.findElement(fld_keywordValue), keywordValue);
 			driverHelper.embedScreenshot(scenario);
 			log.exit();
 		} else {
-			System.out.println("Keyword Value field is not present.");
+			Assert.assertTrue("Keyword Value field is not present.", driverHelper.isElementPresent(fld_keywordValue));
 			log.exit();
 		}
 	}

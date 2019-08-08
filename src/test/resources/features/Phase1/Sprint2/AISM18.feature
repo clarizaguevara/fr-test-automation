@@ -18,6 +18,7 @@ Feature: AISM-18
       | AUT_TestCreateJiraAction1 | Nagios-Pet   | Description | Contains    | TEST          |
       | AUT_TestCreateJiraAction2 | Cisco Meraki | Hostname    | Begins With | UQ            |
 
+  @Regression
   Scenario Outline: Verify Filter is not saved if mandatory fields are left blank
     When I create a Filter with filter name <filter name> and <source> as source
     And with Filter Rule: <keyword> - <comparator> - <keyword value>
@@ -38,6 +39,7 @@ Feature: AISM-18
       | filter name               | source       | keyword | comparator | keyword value |
       | AUT_TestCreateJiraAction4 | Cisco Meraki | Shop    | Ends With  | UQ            |
 
+  @Regression
   Scenario: Verify that Slack channel disappears if "Send ticket ID to Slack channel" checkbox is unchecked
     When I go back to Browse page and open filter AUT_TestCreateJiraAction4
     And I untick "Send ticket ID to Slack channel" checkbox

@@ -1,4 +1,4 @@
-@scenarios @AISM259 @Phase2 @Phase2-Sprint6
+@scenarios @AISM259 @Phase2 @Phase2-Sprint6 @BrowseFilters @Regression
 Feature: AISM-259
   As an Operator
   I can filter filters by status
@@ -38,9 +38,11 @@ Feature: AISM-259
       | Active   | Nagios-Pet   |
       | Active   | Cisco Meraki |
       | Active   | Email        |
+      | Active   | Email WUG    |
       | Inactive | Nagios-Pet   |
       | Inactive | Cisco Meraki |
       | Inactive | Email        |
+      | Inactive | Email WUG    |
 
   Scenario Outline: Verify browsing of Filters by Filter name, Source: <source> and Status: <status>
     When I browse filters with status: <status>
@@ -55,6 +57,8 @@ Feature: AISM-259
       | Active   | Nagios-Pet   |
       | Active   | Cisco Meraki |
       | Active   | Email        |
+      | Active   | Email WUG    |
       | Inactive | Nagios-Pet   |
       | Inactive | Cisco Meraki |
       | Inactive | Email        |
+      | Inactive | Email WUG    |

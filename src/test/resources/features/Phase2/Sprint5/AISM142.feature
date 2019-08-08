@@ -1,4 +1,4 @@
-@scenarios @AISM142 @Phase2 @Phase2-Sprint5
+@scenarios @AISM142 @Phase2 @Phase2-Sprint5 @Regression
 Feature: AISM-142
   As an Operator
   I can select sender/subject/body in the command center
@@ -15,7 +15,7 @@ Feature: AISM-142
     Then filter should be saved successfully
 
     Examples: 
-      | filter name    | source | keyword | comparator  | keyword value | NOT      | action             |
-      | AUT_TestEmail1 | Email  | Sender  | Contains    | dxc           | disabled | Send to Slack      |
-      | AUT_TestEmail2 | Email  | Subject | Like        | TEST          | disabled | Create Jira Ticket |
-      | AUT_TestEmail3 | Email  | Body    | Begins With | TEST          | enabled  | Create SNOW Ticket |
+      | filter name           | source | keyword | comparator  | keyword value | NOT      | action             |
+      | AUT_TestEmail_Sender  | Email  | Sender  | Contains    | dxc           | disabled | Send to Slack      |
+      | AUT_TestEmail_Subject | Email  | Subject | Like        | TEST          | disabled | Create Jira Ticket |
+      | AUT_TestEmail_Body    | Email  | Body    | Begins With | TEST          | enabled  | Create SNOW Ticket |

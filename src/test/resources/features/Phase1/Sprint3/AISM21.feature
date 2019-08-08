@@ -18,6 +18,7 @@ Feature: AISM-21
       | AUT_TestSendEmail1 | Nagios-Pet   | Description | Contains    | TEST          |
       | AUT_TestSendEmail2 | Cisco Meraki | IP Address  | Begins With |           192 |
 
+  @Regression
   Scenario Outline: Verify original alert message is included in Email if include original alert message checkbox is ticked
     When I create a Filter with filter name <filter name> and <source> as source
     And with Filter Rule: <keyword> - <comparator> - <keyword value>
@@ -29,6 +30,7 @@ Feature: AISM-21
       | filter name        | source     | keyword | comparator | keyword value |
       | AUT_TestSendEmail3 | Nagios-Pet | Summary | Contains   | TEST          |
 
+  @Regression
   Scenario Outline: Verify filter is not saved if required fields are left blank
     When I create a Filter with filter name <filter name> and <source> as source
     And with Filter Rule: <keyword> - <comparator> - <keyword value>
@@ -39,6 +41,7 @@ Feature: AISM-21
       | filter name        | source       | keyword       | comparator | keyword value  |
       | AUT_TestSendEmail4 | Cisco Meraki | Device Serial | Equals     | Q2JD-XJGK-F8Y3 |
 
+  @Regression
   Scenario Outline: Verify Tool Administrator can configure so that an email with sub-domain will be sent automatically
     When I create a Filter with filter name <filter name> and <source> as source
     And with Filter Rule: <keyword> - <comparator> - <keyword value>

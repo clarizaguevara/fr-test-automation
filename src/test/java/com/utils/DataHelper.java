@@ -23,6 +23,7 @@ public class DataHelper {
 		case "Nagios-Pet": source_shortname = "NP"; break;
 		case "Cisco Meraki": source_shortname = "CM"; break;
 		case "Email": source_shortname = "EMAIL"; break;
+		case "Email WUG": source_shortname = "E-WUG"; break;
 		default: break;
 		}
 		//System.out.println(source_shortname);
@@ -96,6 +97,7 @@ public class DataHelper {
 		case "Nagios-Pet": lov = CommonConstants.LOV_KEYWORD_NP; break;
 		case "Cisco Meraki": lov = CommonConstants.LOV_KEYWORD_CM; break;
 		case "Email": lov = CommonConstants.LOV_KEYWORD_EMAIL; break;
+		case "Email WUG": lov = CommonConstants.LOV_KEYWORD_EMAILWUG; break;
 		default: break;
 		}
 		log.exit();

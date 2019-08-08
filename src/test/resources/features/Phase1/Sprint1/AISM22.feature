@@ -1,4 +1,4 @@
-@scenarios @AISM22 @Phase1 @Phase1-Sprint1
+@scenarios @AISM22 @Phase1 @Phase1-Sprint1 @Regression
 Feature: AISM-22
   As a Tool Administrator
   I can configure so that alert will be filtered by keyword in alert message

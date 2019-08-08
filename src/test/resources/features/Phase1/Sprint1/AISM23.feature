@@ -1,4 +1,4 @@
-@scenarios @AISM23 @Phase1 @Phase1-Sprint1 @ExtendedRules @Correlation
+@scenarios @AISM23 @Phase1 @Phase1-Sprint1 @ExtendedRules @Correlation @Regression
 Feature: AISM-23
   As a Tool Administrator
   I can configure so that alert can be filtered by correlation

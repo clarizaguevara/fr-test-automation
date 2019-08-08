@@ -1,5 +1,6 @@
 package com.pageobjects;
 
+import java.util.Arrays;
 import java.util.List;
 
 import org.apache.logging.log4j.LogManager;
@@ -72,6 +73,12 @@ public class CreateNewFilterPage extends BasePage {
 	@FindBy(xpath= "//button[@title='Apply Templates']")
 	private WebElement btn_applyTemplates;
 	
+	@FindBy(xpath= "//div[@role='combobox']//input")
+	private WebElement fld_category;
+	
+	@FindBy(xpath= "//div[@role='combobox']//following::i[@class='dropdown icon']")
+	private WebElement btn_category;
+	
 	
 	/* Methods */
 	
@@ -95,7 +102,7 @@ public class CreateNewFilterPage extends BasePage {
 			driverHelper.clickButton(btn_createNewFilter);
 			log.exit();
 		} else {
-			System.out.println("Create New Filter Button is not present.");
+			Assert.assertTrue("Create New Filter Button is not present.", driverHelper.isElementPresent(btn_createNewFilter));
 			log.exit();
 		}
 	}
@@ -110,7 +117,7 @@ public class CreateNewFilterPage extends BasePage {
 			driverHelper.embedScreenshot(scenario);
 			log.exit();
 		} else {
-			System.out.println("Filter Name field is not present.");
+			Assert.assertTrue("Filter Name field is not present.", driverHelper.isElementPresent(fld_filterName));
 			log.exit();
 		}
 	}
@@ -126,7 +133,7 @@ public class CreateNewFilterPage extends BasePage {
 			driverHelper.embedScreenshot(scenario);
 			log.exit();
 		} else {
-			System.out.println("Source field is not present.");
+			Assert.assertTrue("Source field is not present.", driverHelper.isElementPresent(fld_source));
 			log.exit();
 		}
 	}
@@ -142,7 +149,8 @@ public class CreateNewFilterPage extends BasePage {
 			driverHelper.embedScreenshot(scenario);
 			log.exit();
 		} else {
-			System.out.println("Owner Name field is not present.");
+			Assert.assertTrue("Owner Name field is not present.", driverHelper.isElementPresent(fld_ownerName));
+			log.exit();
 		}
 	}
 	
@@ -159,7 +167,7 @@ public class CreateNewFilterPage extends BasePage {
 			driverHelper.waitForElementNotVisible(icn_loading);
 			log.exit();
 		} else {
-			System.out.println("Action field is not present.");
+			Assert.assertTrue("Action field is not present.", driverHelper.isElementPresent(fld_action));
 			log.exit();
 		}
 	}
@@ -173,7 +181,7 @@ public class CreateNewFilterPage extends BasePage {
 			driverHelper.clickButton(btn_Save);
 			log.exit();
 		} else {
-			System.out.println("Save button is not present.");
+			Assert.assertTrue("Save Button is not present.", driverHelper.isElementPresent(btn_Save));
 			log.exit();
 		}
 	}
@@ -211,7 +219,7 @@ public class CreateNewFilterPage extends BasePage {
 			driverHelper.embedScreenshot(scenario);
 			log.exit();
 		} else {
-			System.out.println("Add Rule button in Extended Rules is not present.");
+			Assert.assertTrue("Add Rule button in Extended Conditions is not present.", driverHelper.isElementPresent(btn_addExtendedRule));
 			log.exit();
 		}
 	}
@@ -226,7 +234,7 @@ public class CreateNewFilterPage extends BasePage {
 			driverHelper.explicitWait();
 			log.exit();
 		} else {
-			System.out.println("Home Button is not present.");
+			Assert.assertTrue("Home Button is not present.", driverHelper.isElementPresent(btn_Home));
 			log.exit();
 		}
 	}
@@ -260,7 +268,7 @@ public class CreateNewFilterPage extends BasePage {
 			driverHelper.clickButton(btn_Delete);
 			log.exit();
 		} else {
-			System.out.println("Delete Button is not present.");
+			Assert.assertTrue("Delete Button is not present.", driverHelper.isElementPresent(btn_Delete));
 			log.exit();
 		}
 	}
@@ -292,7 +300,7 @@ public class CreateNewFilterPage extends BasePage {
 			driverHelper.clickButton(btn_applyTemplates);
 			log.exit();
 		} else {
-			System.out.println("Apply Templates Button is not present.");
+			Assert.assertTrue("Apply Templates Button is not present.", driverHelper.isElementPresent(btn_applyTemplates));
 			log.exit();
 		}
 	}
@@ -311,6 +319,72 @@ public class CreateNewFilterPage extends BasePage {
 		Assert.assertTrue("Template is not applied to actions", driverHelper.isElementPresent(label_templateName_actions));
 		
 		driverHelper.embedScreenshot(scenario);
+		log.exit();
+	}
+	
+	/**
+	 * Input Categories
+	 */
+	public void inputCategory(String categories) {
+		log.entry();
+		if(driverHelper.isElementPresent(fld_category)) {
+			
+			if(driverHelper.isElementPresent(btn_category)) {
+				driverHelper.clickButton(btn_category);
+			} else {
+				Assert.assertTrue("Category field button is not present.", driverHelper.isElementPresent(btn_category));
+				log.exit();
+			}
+			
+			categories = categories.replaceAll("\\[|\\]|\\s", "");
+			List<String> list_categories = Arrays.asList(categories.split(","));
+			
+			for (String category : list_categories) {
+				driverHelper.inputFieldValue(fld_category, category);
+				driverHelper.clickEnter(fld_category);
+			}
+			
+			driverHelper.embedScreenshot(scenario);
+			
+		} else {
+			Assert.assertTrue("Category field is not present.", driverHelper.isElementPresent(fld_category));
+		}
+		
+		log.exit();
+	}
+	
+	/**
+	 * Click Delete Button of Categories
+	 */
+	public void removeCategory(String categories) {
+		log.entry();
+		categories = categories.replaceAll("\\[|\\]|\\s", "");
+		List<String> list_categories = Arrays.asList(categories.split(","));
+		
+		for (String category : list_categories) {
+			By btn_delete_category = By.xpath("//a[text()='" + category + "']//i");
+			if(driverHelper.isElementPresent(btn_delete_category)) {
+				driverHelper.clickButton(btn_delete_category);
+				driverHelper.embedScreenshot(scenario);
+			} else {
+				Assert.assertTrue("Delete Button of Category is not present.", driverHelper.isElementPresent(btn_delete_category));
+			}
+		}
+		log.exit();
+	}
+	
+	/**
+	 * Verify Categories
+	 */
+	public void verifyCategory(String categories) {
+		log.entry();
+		categories = categories.replaceAll("\\[|\\]|\\s", "");
+		List<String> list_categories = Arrays.asList(categories.split(","));
+		
+		for (String category : list_categories) {
+			By selected_category = By.xpath("//a[@value='" + category + "']");
+			Assert.assertTrue("Category is not selected.", driverHelper.isElementPresent(selected_category));
+		}
 		log.exit();
 	}
 	

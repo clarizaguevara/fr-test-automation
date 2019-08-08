@@ -551,4 +551,18 @@ public class WebDriverHelper {
             driver.manage().timeouts().implicitlyWait(0, TimeUnit.MILLISECONDS);
         }
     }
+    
+    /**
+	 * Alternative way to clear text
+	 * @param WebElement
+	 */
+	public void clearText_alt(WebElement webElement) {
+		log.entry();
+		if (isElementPresent(webElement)) {
+			webElement.sendKeys(Keys.chord(Keys.CONTROL,"a", Keys.DELETE));
+        } else {
+            log.error("Element not found.");
+        }
+		log.exit();
+	}
 }

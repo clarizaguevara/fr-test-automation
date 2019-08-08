@@ -1,4 +1,4 @@
-@scenarios @AISM262 @Phase2 @Phase2-Sprint6
+@scenarios @AISM262 @Phase2 @Phase2-Sprint6 @Regression
 Feature: AISM-262
   As an Tool Administrator
   I can configure so that EvA can handle alerts from Prometheus (Ariake SCM) - via EMAIL

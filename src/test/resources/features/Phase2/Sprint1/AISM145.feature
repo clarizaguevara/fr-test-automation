@@ -1,4 +1,4 @@
-@scenarios @AISM145 @Phase2 @Phase2-Sprint1
+@scenarios @AISM145 @Phase2 @Phase2-Sprint1 @Regression
 Feature: AISM-145
   As an Operator, 
   I can select contains keyword as an operator.

@@ -1,4 +1,4 @@
-@scenarios @AISM39 @Phase1 @Phase1-Sprint3 @AccessManagement
+@scenarios @AISM39 @Phase1 @Phase1-Sprint3 @AccessManagement @Regression
 Feature: AISM-39
   As an Administrator
   I can manage roles assigned to a user based on username provided by ADFS

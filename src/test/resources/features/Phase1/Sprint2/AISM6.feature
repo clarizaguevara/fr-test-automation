@@ -18,6 +18,7 @@ Feature: AISM-6
       | AUT_TestCreateJiraSendToSlack1 | Nagios-Pet   | Summary | Contains   | TEST          | Jira-KKA  |
       | AUT_TestCreateJiraSendToSlack2 | Cisco Meraki | Country | Equals     | JP            | Jira-ACPF |
 
+  @Regression
   Scenario Outline: Verify JIRA ticket URL is not sent to Slack if Send ticket ID to Slack Channel checkbox is not ticked
     When I create a Filter with filter name <filter name> and <source> as source
     And with Filter Rule: <keyword> - <comparator> - <keyword value>
@@ -29,6 +30,7 @@ Feature: AISM-6
       | filter name                    | source       | keyword | comparator | keyword value |
       | AUT_TestCreateJiraSendToSlack3 | Cisco Meraki | Device  | Equals     | SDC-AP1-API   |
 
+  @Regression
   Scenario Outline: Verify slack channel field should not be left blank if Send ticket ID to Slack channel check box is ticked
     When I create a Filter with filter name <filter name> and <source> as source
     And with Filter Rule: <keyword> - <comparator> - <keyword value>

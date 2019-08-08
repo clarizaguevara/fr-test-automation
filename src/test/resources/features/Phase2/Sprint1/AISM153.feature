@@ -1,4 +1,4 @@
-@scenarios @AISM153 @Phase2 @Phase2-Sprint1 @BrowseFilters
+@scenarios @AISM153 @Phase2 @Phase2-Sprint1 @BrowseFilters @Regression
 Feature: AISM-153
   As an Operator
   I can filter by email source on filter browse page
@@ -17,6 +17,7 @@ Feature: AISM-153
       | Nagios-Pet   |
       | Cisco Meraki |
       | Email        |
+      | Email WUG    |
 
   Scenario Outline: Verify browsing of Filters by Filter name and Source: <source>
     When I browse filters with source: <source>
@@ -30,3 +31,4 @@ Feature: AISM-153
       | Nagios-Pet   |
       | Cisco Meraki |
       | Email        |
+      | Email WUG    |

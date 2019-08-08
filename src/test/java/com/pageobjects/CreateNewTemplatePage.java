@@ -241,6 +241,7 @@ public class CreateNewTemplatePage extends BasePage {
 	 */
 	public void verifySuccessfulNavigationToPreviewFilterPage() {
 		log.entry();
+		driverHelper.explicitWait();
 		Assert.assertTrue("Unsuccessful navigation to Preview Filter Page", driverHelper.isElementPresent(label_preview));
 		driverHelper.embedScreenshot(scenario);
 		log.exit();

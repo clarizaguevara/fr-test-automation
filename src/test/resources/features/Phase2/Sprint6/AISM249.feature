@@ -1,4 +1,4 @@
-@scenarios @AISM249 @Phase2 @Phase2-Sprint6
+@scenarios @AISM249 @Phase2 @Phase2-Sprint6 @Regression
 Feature: AISM-249
   As an Operator
   I can retry actions from the event page

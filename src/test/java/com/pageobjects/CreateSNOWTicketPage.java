@@ -384,6 +384,22 @@ public class CreateSNOWTicketPage extends BasePage {
 	}
 	
 	/**
+	 *Input Short Description
+	 */
+	public void clearShortDescription() {
+		log.entry();
+		driverHelper.waitForPageLoaded();
+		if(driverHelper.isElementPresent(fld_shortDescription)) {
+			driverHelper.clearText_alt(fld_shortDescription);
+			driverHelper.embedScreenshot(scenario);
+			log.exit();
+		} else {
+			System.out.println("Short Description field is not present.");
+			log.exit();
+		}
+	}
+	
+	/**
 	 * Check Pending Level 1
 	 */
 	public void checkPendingLevel() {

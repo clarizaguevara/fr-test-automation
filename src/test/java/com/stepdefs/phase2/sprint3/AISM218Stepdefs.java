@@ -12,7 +12,7 @@ public class AISM218Stepdefs implements En {
 		
 		And("I remove a non-mandatory field: Short Description", () -> {
 			createSNOWTicket.setDriver(hooks.getDriverHelper(), ScenarioHooks.getScenarioName());
-			createSNOWTicket.inputShortDescription("");
+			createSNOWTicket.clearShortDescription();
 		});
 	}
 

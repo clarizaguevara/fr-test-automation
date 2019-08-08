@@ -1,4 +1,4 @@
-@scenarios @AISM147 @Phase2 @Phase2-Sprint2
+@scenarios @AISM147 @Phase2 @Phase2-Sprint2 @Regression
 Feature: AISM-147
   As an Operator
   I can use OR in filter conditions
@@ -16,10 +16,10 @@ Feature: AISM-147
     Then filter should be saved successfully
 
     Examples: 
-      | filter name             | source       | group1 conditions                                                               | andor | group2 conditions                                                                           |
-      | AUT_TestAND/OR_CM_TRUE  | Cisco Meraki | Device-Contains-TEST OR Network_Id-NOT-Equals-TEST AND Shop-Equals-GU           | OR    | Hostname-Begins_With-e0 AND Country-Ends_With-JP OR Device_Serial-Contains-Q2JD             |
-      | AUT_TestAND/OR_CM_FALSE | Cisco Meraki | Hostname-Contains-TEST OR Country-NOT-Equals-PH AND Shop-Equals-GU              | OR    | Mac_Address-Begins_With-e0 AND Device-Ends_With-TEST OR Device_Serial-Contains-Q1JD         |
-      | AUT_TestAND/OR_NP_ALLOR | Nagios-Pet   | Summary-Begins_With-error OR Summary-Begins_With-TEST OR Summary-Ends_With-TEST | OR    | Description-Contains-CRITICAL OR Description-Contains-warn OR Description-Contains-WARNING  |
+      | filter name             | source       | group1 conditions                                                               | andor | group2 conditions                                                                          |
+      | AUT_TestAND/OR_CM_TRUE  | Cisco Meraki | Device-Contains-TEST OR Network_Id-NOT-Equals-TEST AND Shop-Equals-GU           | OR    | Hostname-Begins_With-e0 AND Country-Ends_With-JP OR Device_Serial-Contains-Q2JD            |
+      | AUT_TestAND/OR_CM_FALSE | Cisco Meraki | Hostname-Contains-TEST OR Country-NOT-Equals-PH AND Shop-Equals-GU              | OR    | Mac_Address-Begins_With-e0 AND Device-Ends_With-TEST OR Device_Serial-Contains-Q1JD        |
+      | AUT_TestAND/OR_NP_ALLOR | Nagios-Pet   | Summary-Begins_With-error OR Summary-Begins_With-TEST OR Summary-Ends_With-TEST | OR    | Description-Contains-CRITICAL OR Description-Contains-warn OR Description-Contains-WARNING |
 
   Scenario Outline: Verify saving of filter with AND/OR conditions (source: <source>)
     When I create a Filter with filter name <filter name> and <source> as source
@@ -33,5 +33,5 @@ Feature: AISM-147
 
     Examples: 
       | filter name             | source     | group1 conditions                              | andor | group2 conditions                                                                           | andor2 | group3 conditions             |
-      | AUT_TestAND/OR_NP_TRUE  | Nagios-Pet | Summary-Contains-TEST AND Summary-Contains-cif | OR    | Description-Contains-CRITICAL OR Description-Contains-TEST AND Description-Contains-WARNING | AND    | Summary-NOT-Contains-CRITICAL |
+      | AUT_TestAND/OR_NP_TRUE  | Nagios-Pet | Summary-Contains-TEST AND Summary-Contains-cif | OR    | Description-Contains-CRITICAL OR Description-Contains-TEST AND Description-Contains-WARNING | OR     | Summary-NOT-Contains-CRITICAL |
       | AUT_TestAND/OR_NP_FALSE | Nagios-Pet | Summary-Contains-TEST AND Summary-Contains-cif | OR    | Description-Contains-CRITICAL OR Description-Contains-TEST AND Description-Contains-WARNING | AND    | Summary-Contains-CRITICAL     |
