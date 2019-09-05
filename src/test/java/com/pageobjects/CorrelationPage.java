@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.FindBys;
@@ -21,11 +22,17 @@ public class CorrelationPage extends BasePage {
 	@FindBy(xpath= "//h4[text()='Extended Conditions']//following::input[@class='form-control px-1'][2]")
 	private WebElement fld_timeValue;
 	
-	@FindBys(value = @FindBy (xpath = "//h4[text()='Extended Conditions']//following::div[@class='col-sm-auto px-1']//select[@class='form-control']//option"))
+	@FindBys(value = @FindBy (xpath = "//h4[text()='Extended Conditions']//following::div[@class='col-sm']//select[@class='form-control']//option"))
 	private List<WebElement> list_timeUnit;
 	
-	@FindBy(xpath= "//h4[text()='Extended Conditions']//following::div[@class='col-sm-auto px-1']//select[@class='form-control']")
+	@FindBy(xpath= "//h4[text()='Extended Conditions']//following::div[@class='col-sm']//select[@class='form-control']")
 	private WebElement fld_timeUnit;
+	
+	@FindBys(value = @FindBy (xpath = "//select[contains(@class,'text-variable')]//option"))
+	private List<WebElement> list_variable;
+	
+	@FindBy(xpath= "//select[contains(@class,'text-variable')]")
+	private WebElement fld_variable;
 	
 	
 	/* Methods */
@@ -41,7 +48,7 @@ public class CorrelationPage extends BasePage {
 			driverHelper.embedScreenshot(scenario);
 			log.exit();
 		} else {
-			System.out.println("Frequency field is not present.");
+			Assert.assertTrue("Frequency field is not present", driverHelper.isElementPresent(fld_frequency));
 			log.exit();
 		}
 	}
@@ -57,7 +64,7 @@ public class CorrelationPage extends BasePage {
 			driverHelper.embedScreenshot(scenario);
 			log.exit();
 		} else {
-			System.out.println("Time value field is not present.");
+			Assert.assertTrue("Time value field is not present", driverHelper.isElementPresent(fld_timeValue));
 			log.exit();
 		}
 	}
@@ -73,7 +80,24 @@ public class CorrelationPage extends BasePage {
 			driverHelper.embedScreenshot(scenario);
 			log.exit();
 		} else {
-			System.out.println("Time unit field is not present.");
+			Assert.assertTrue("Time unit field is not present", driverHelper.isElementPresent(fld_timeUnit));
+			log.exit();
+		}
+	}
+	
+	/**
+	 * Select Variable
+	 */
+	public void selectVariable(String variable) {
+		log.entry();
+		variable = "${" + variable + "}";
+		if(driverHelper.isElementPresent(fld_variable)) {
+			driverHelper.clickButton(fld_variable);
+			driverHelper.setValueDropdown(list_variable, fld_variable, variable);
+			driverHelper.embedScreenshot(scenario);
+			log.exit();
+		} else {
+			Assert.assertTrue("Variable field is not present", driverHelper.isElementPresent(fld_variable));
 			log.exit();
 		}
 	}

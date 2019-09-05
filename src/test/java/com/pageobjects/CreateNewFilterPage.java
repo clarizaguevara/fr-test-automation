@@ -79,6 +79,9 @@ public class CreateNewFilterPage extends BasePage {
 	@FindBy(xpath= "//div[@role='combobox']//following::i[@class='dropdown icon']")
 	private WebElement btn_category;
 	
+	@FindBy(xpath= "//button[contains(@class,'btn-sm pull-right')]")
+	private WebElement btn_addVariable;
+	
 	
 	/* Methods */
 	
@@ -386,6 +389,21 @@ public class CreateNewFilterPage extends BasePage {
 			Assert.assertTrue("Category is not selected.", driverHelper.isElementPresent(selected_category));
 		}
 		log.exit();
+	}
+	
+	/**
+	 * Click Add Variable Button
+	 */
+	public void clickAddVariableButton() {
+		log.entry();
+		if(driverHelper.isElementPresent(btn_addVariable)) {
+			driverHelper.clickButton(btn_addVariable);
+			driverHelper.embedScreenshot(scenario);
+			log.exit();
+		} else {
+			Assert.assertTrue("Add Variable Button is not present.", driverHelper.isElementPresent(btn_addVariable));
+			log.exit();
+		}
 	}
 	
 }

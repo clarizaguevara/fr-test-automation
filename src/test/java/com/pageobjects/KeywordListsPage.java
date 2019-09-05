@@ -32,7 +32,7 @@ public class KeywordListsPage extends BasePage {
 	@FindBy(xpath= "//div[@class='col-sm pl-0 pr-3']//button[@class='btn btn-primary btn-block']")
 	private WebElement btn_add;
 	
-	@FindBy(xpath= "//div[@class='col-sm pl-0']//button[@class='btn btn-primary btn-block']")
+	@FindBy(xpath= "//button[text()='Save']")
 	private WebElement btn_save;
 	
 	@FindBy(xpath= "//label[contains(text(), 'New keyword list successfully saved.')]")
@@ -41,7 +41,7 @@ public class KeywordListsPage extends BasePage {
 	@FindBy(xpath= "//label[contains(text(), 'Keyword list successfully updated.')]")
 	private WebElement lbl_keywordEditedSuccessfully;
 	
-	@FindBy(xpath= "//div[@class='col-sm pr-0 mr-1']//button[@class='btn btn-secondary btn-block']")
+	@FindBy(xpath= "//button[text()='Cancel']")
 	private WebElement btn_cancel;
 	
 	@FindBys(value = @FindBy (xpath = "//table[@class='table table-sm table-bordered table-hover table-striped']//td[2]"))
@@ -52,6 +52,10 @@ public class KeywordListsPage extends BasePage {
 	
 	@FindBy(xpath= "//div[contains(text(), 'List name cannot be empty.')]")
 	private WebElement lbl_keywordSavedUnSuccessfully;
+	
+	@FindBy(xpath= "//button[text()='Clear']")
+	private WebElement btn_clear;
+	
 	
 	/* Methods */
 	
@@ -75,7 +79,7 @@ public class KeywordListsPage extends BasePage {
 			driverHelper.clickButton(btn_newKeywordLists);
 			log.exit();
 		} else {
-			System.out.println("New Keyword List button is not present.");
+			Assert.assertTrue("New Keyword List button is not present.", driverHelper.isElementPresent(btn_newKeywordLists));
 			log.exit();
 		}
 	}
@@ -91,7 +95,7 @@ public class KeywordListsPage extends BasePage {
 			driverHelper.embedScreenshot(scenario);
 			log.exit();
 		} else {
-			System.out.println("List Name field is not present.");
+			Assert.assertTrue("List Name field is not present.", driverHelper.isElementPresent(fld_listName));
 			log.exit();
 		}
 	}
@@ -109,7 +113,7 @@ public class KeywordListsPage extends BasePage {
 			driverHelper.embedScreenshot(scenario);
 			log.exit();
 		} else {
-			System.out.println("Keyword field is not present.");
+			Assert.assertTrue("Keyword field is not present.", driverHelper.isElementPresent(fld_keyword));
 			log.exit();
 		}
 	}
@@ -124,7 +128,7 @@ public class KeywordListsPage extends BasePage {
 			driverHelper.clickButton(btn_add);
 			log.exit();
 		} else {
-			System.out.println("Add icon is not present.");
+			Assert.assertTrue("Add icon is not present.", driverHelper.isElementPresent(btn_add));
 			log.exit();
 		}
 	}
@@ -139,7 +143,7 @@ public class KeywordListsPage extends BasePage {
 			driverHelper.clickButton(btn_save);
 			log.exit();
 		} else {
-			System.out.println("Save button is not present.");
+			Assert.assertTrue("Save button is not present.", driverHelper.isElementPresent(btn_save));
 			log.exit();
 		}
 	}
@@ -185,7 +189,7 @@ public class KeywordListsPage extends BasePage {
 			driverHelper.clickButton(fld_name);
 			driverHelper.waitForPageLoaded();	
 		} else {
-			System.out.println("Keyword is not present.");
+			Assert.assertTrue("Keyword is not present.", driverHelper.isElementPresent(fld_name));
 			log.exit();
 		}
 		log.exit();
@@ -216,7 +220,7 @@ public class KeywordListsPage extends BasePage {
 			driverHelper.explicitWait();
 			log.exit();
 		} else {
-			System.out.println("Delete keyword button is not present.");
+			Assert.assertTrue("Delete keyword button is not present.", driverHelper.isElementPresent(btn_delete));
 			log.exit();
 		}
 	}
@@ -243,4 +247,20 @@ public class KeywordListsPage extends BasePage {
 		driverHelper.clickButton(btn_cancel);
 		log.exit();
 	}
+	
+	/**
+	 * Click Clear Button
+	 */
+	public void clickClearButton() {
+		log.entry();
+		if(driverHelper.isElementPresent(btn_clear)) {
+			driverHelper.clickButton(btn_clear);
+			driverHelper.embedScreenshot(scenario);
+			log.exit();
+		} else {
+			Assert.assertTrue("Clear button is not present.", driverHelper.isElementPresent(btn_clear));
+			log.exit();
+		}
+	}
+	
 }

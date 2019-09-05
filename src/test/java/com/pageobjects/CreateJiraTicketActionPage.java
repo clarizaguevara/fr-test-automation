@@ -190,7 +190,7 @@ public class CreateJiraTicketActionPage extends BasePage {
 			//driverHelper.clickButton(fld_assignee);
 			driverHelper.inputFieldValue(fld_assignee, assignee);
 			driverHelper.waitForElementVisible(fld_assigneeOptions);
-			driverHelper.explicitWaitSNOW();
+			driverHelper.explicitWait();
 			driverHelper.clickEnter(fld_assignee);
 			driverHelper.embedScreenshot(scenario);
 			log.exit();

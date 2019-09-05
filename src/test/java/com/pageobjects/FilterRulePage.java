@@ -22,10 +22,10 @@ public class FilterRulePage extends BasePage {
 	@FindBy(css= "div[class='filter-details']")
 	private WebElement page_filter;
 	
-	@FindBys(value = @FindBy (xpath = "//div[@class='col-sm-auto px-2']//select[@class='form-control']//option"))
+	@FindBys(value = @FindBy (xpath = "//div[@class='col-sm-auto px-3']//select[@class='form-control']//option"))
 	private List<WebElement> list_keyword;
 	
-	@FindBy(xpath= "//div[@class='col-sm-auto px-2']//select")
+	@FindBy(xpath= "//div[@class='col-sm-auto px-3']//select")
 	private WebElement fld_keyword;
 	
 	@FindBys(value = @FindBy (xpath = "//div[@class='col-sm-auto px-1'][2]//select[@class='form-control']//option"))
@@ -34,7 +34,7 @@ public class FilterRulePage extends BasePage {
 	@FindBy(xpath= "//div[@class='col-sm-auto px-1'][2]//select")
 	private WebElement fld_comparator;
 	
-	@FindBy(xpath= "//div[@class='col-sm']//input[not(contains(@class, 'form-control block borderless-input'))]")
+	@FindBy(xpath= "//div[contains(@class,'col-sm px-1')]//input[@type='text']")
 	private WebElement fld_keywordvalue;
 	
 	@FindBy(xpath= "//label[@class='btn w-100' and text()='NOT']")
@@ -209,8 +209,8 @@ public class FilterRulePage extends BasePage {
 	 */
 	private void selectKeyword(String keyword, String groupNumber, String ruleNumber) {
 		log.entry();
-		By fld_keyword = By.xpath("//div[contains(@class,'condition-group')][" + groupNumber + "]//div[contains(@class,'justify-content-start')][" + ruleNumber + "]//div[@class='col-sm-auto px-2']");
-		By list_keyword = By.xpath("//div[contains(@class,'condition-group')][" + groupNumber + "]//div[contains(@class,'justify-content-start')][" + ruleNumber + "]//div[@class='col-sm-auto px-2']//option");
+		By fld_keyword = By.xpath("//div[contains(@class,'condition-group')][" + groupNumber + "]//div[contains(@class,'justify-content-start')][" + ruleNumber + "]//div[@class='col-sm-auto px-3']");
+		By list_keyword = By.xpath("//div[contains(@class,'condition-group')][" + groupNumber + "]//div[contains(@class,'justify-content-start')][" + ruleNumber + "]//div[@class='col-sm-auto px-3']//option");
 		if(driverHelper.isElementPresent(fld_keyword)) {
 			driverHelper.clickButton(fld_keyword);
 			driverHelper.setValueDropdown(driver.findElements(list_keyword), driver.findElement(fld_keyword), keyword);

@@ -29,6 +29,7 @@ Feature: AISM-18
       | filter name               | source       | keyword | comparator | keyword value |
       | AUT_TestCreateJiraAction3 | Cisco Meraki | Country | Ends With  | JP            |
 
+  @Regression
   Scenario Outline: Verify Filter is saved if non mandatory fields are left blank
     When I create a Filter with filter name <filter name> and <source> as source
     And with Filter Rule: <keyword> - <comparator> - <keyword value>

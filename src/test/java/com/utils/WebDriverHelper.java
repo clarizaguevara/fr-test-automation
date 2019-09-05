@@ -314,12 +314,14 @@ public class WebDriverHelper {
 				webElement.click();
 				log.info(value + " is selected");
 				isSelected = true;
+				break;
 			} else {
 				//log.debug("Option not available.");
 			}
 		}
 		if(!isSelected) {
-			log.debug(value + " is not available.");
+			//log.debug(value + " is not available.");
+			Assert.assertTrue(value + " is not available.", isSelected);
 		}
 	}
 	

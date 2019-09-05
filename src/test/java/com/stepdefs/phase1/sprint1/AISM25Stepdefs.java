@@ -28,6 +28,7 @@ public class AISM25Stepdefs implements En {
 		When("I create a Filter with filter name (.*) and (.*) as source", (String filterName, String source) -> {
 			createNewFilterPage.inputFilterName(filterName);
 			createNewFilterPage.selectSource(source);
+			createNewFilterPage.inputCategory("automation,regression");
 		});
 		
 		And("I leave Keyword Value blank in the Filter Rule: (.*) - (.*)", (String keyword, String comparator) -> {

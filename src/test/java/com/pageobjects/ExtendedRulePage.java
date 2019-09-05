@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.FindBys;
@@ -36,7 +37,7 @@ public class ExtendedRulePage extends BasePage {
 			driverHelper.clickButton(btn_deleteExtendedRule);
 			log.exit();
 		} else {
-			System.out.println("Delete Rule button in Extended Rules is not present.");
+			Assert.assertTrue("Delete Rule button in Extended Rules is not present", driverHelper.isElementPresent(btn_deleteExtendedRule));
 			log.exit();
 		}
 	}
@@ -52,7 +53,7 @@ public class ExtendedRulePage extends BasePage {
 			driverHelper.embedScreenshot(scenario);
 			log.exit();
 		} else {
-			System.out.println("Extended Rule field is not present.");
+			Assert.assertTrue("Extended Rule field is not present", driverHelper.isElementPresent(fld_extendedRule));
 			log.exit();
 		}
 	}
