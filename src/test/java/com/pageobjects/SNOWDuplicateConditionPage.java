@@ -22,11 +22,17 @@ public class SNOWDuplicateConditionPage extends BasePage {
 	@FindBy(xpath= "//h4[text()='Extended Conditions']//following::select[@class='form-control'][2]")
 	private WebElement fld_with;
 	
-	@FindBys(value = @FindBy (xpath = "//label[contains(text(),'open tickets')]//following::div[@class='col-sm-auto']//select[contains(@class,'form-control')]//option"))
+	@FindBys(value = @FindBy (xpath = "//label[contains(text(),'open tickets')]//following::div[@class='col-sm-auto'][2]//select[contains(@class,'form-control')]//option"))
 	private List<WebElement> list_keyword;
 	
-	@FindBy(xpath= "//label[contains(text(),'open tickets')]//following::div[@class='col-sm-auto']//select[contains(@class,'form-control')]")
+	@FindBy(xpath= "//label[contains(text(),'open tickets')]//following::div[@class='col-sm-auto'][2]//select[contains(@class,'form-control')]")
 	private WebElement fld_keyword;
+	
+	@FindBys(value = @FindBy (xpath = "//label[contains(text(),'open tickets')]//following::div[@class='col-sm-auto'][1]//select[contains(@class,'form-control')]//option"))
+	private List<WebElement> list_snowkeyword;
+	
+	@FindBy(xpath= "//label[contains(text(),'open tickets')]//following::div[@class='col-sm-auto'][1]//select[contains(@class,'form-control')]")
+	private WebElement fld_snowkeyword;
 	
 	
 	/* Methods */
@@ -52,7 +58,7 @@ public class SNOWDuplicateConditionPage extends BasePage {
 	 */
 	public void selectKeyword(String keyword) {
 		log.entry();
-		keyword = "${" + keyword + "}";
+		//keyword = "${" + keyword + "}";
 		if(driverHelper.isElementPresent(fld_keyword)) {
 			driverHelper.clickButton(fld_keyword);
 			driverHelper.setValueDropdown(list_keyword, fld_keyword, keyword);
@@ -60,6 +66,22 @@ public class SNOWDuplicateConditionPage extends BasePage {
 			log.exit();
 		} else {
 			Assert.assertTrue("Keyword field is not present", driverHelper.isElementPresent(fld_keyword));
+			log.exit();
+		}
+	}
+	
+	/**
+	 * Select snow keyword (Short description or Description)
+	 */
+	public void selectSnowKeyword(String keyword) {
+		log.entry();
+		if(driverHelper.isElementPresent(fld_snowkeyword)) {
+			driverHelper.clickButton(fld_snowkeyword);
+			driverHelper.setValueDropdown(list_snowkeyword, fld_snowkeyword, keyword);
+			driverHelper.embedScreenshot(scenario);
+			log.exit();
+		} else {
+			Assert.assertTrue("SNow Keyword field is not present", driverHelper.isElementPresent(fld_snowkeyword));
 			log.exit();
 		}
 	}

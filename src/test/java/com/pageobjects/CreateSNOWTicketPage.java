@@ -117,8 +117,8 @@ public class CreateSNOWTicketPage extends BasePage {
 	 */
 	public void setImpactedUsers(String impactedUsers) {
 		log.entry();
-		driverHelper.waitForPageLoaded();
-		driver.switchTo().defaultContent();
+		//driverHelper.waitForPageLoaded();
+		//driver.switchTo().defaultContent();
 		if(driverHelper.isElementPresent(fld_impactedUsers)) {
 			//driverHelper.clickButton(fld_impactedUsers);
 			driverHelper.inputFieldValue(fld_impactedUsers, impactedUsers);
@@ -128,7 +128,7 @@ public class CreateSNOWTicketPage extends BasePage {
 			driverHelper.embedScreenshot(scenario);
 			log.exit();
 		} else {
-			System.out.println("Impacted User field is not present.");
+			Assert.assertTrue("Impacted User field is not present.", driverHelper.isElementPresent(fld_impactedUsers));
 			log.exit();
 		}
 	}
@@ -138,8 +138,8 @@ public class CreateSNOWTicketPage extends BasePage {
 	 */
 	public void setAssignmentGroup(String assignmentGroup) {
 		log.entry();
-		driverHelper.waitForPageLoaded();
-		driver.switchTo().defaultContent();
+		//driverHelper.waitForPageLoaded();
+		//driver.switchTo().defaultContent();
 		if(driverHelper.isElementPresent(fld_assignmentGroup)) {
 			//driverHelper.clickButton(fld_assignmentGroup);
 			driverHelper.inputFieldValue(fld_assignmentGroup, assignmentGroup);
@@ -149,7 +149,7 @@ public class CreateSNOWTicketPage extends BasePage {
 			driverHelper.embedScreenshot(scenario);
 			log.exit();
 		} else {
-			System.out.println("Assignment Group field is not present.");
+			Assert.assertTrue("Assignment Group field is not present.", driverHelper.isElementPresent(fld_assignmentGroup));
 			log.exit();
 		}
 	}
@@ -159,8 +159,8 @@ public class CreateSNOWTicketPage extends BasePage {
 	 */
 	public void setAssignedTo(String assignedTo) {
 		log.entry();
-		driverHelper.waitForPageLoaded();
-		driver.switchTo().defaultContent();
+		//driverHelper.waitForPageLoaded();
+		//driver.switchTo().defaultContent();
 		if(driverHelper.isElementPresent(fld_assignedTo)) {
 			//driverHelper.clickButton(fld_assignedTo);
 			driverHelper.inputFieldValue(fld_assignedTo, assignedTo);
@@ -170,7 +170,7 @@ public class CreateSNOWTicketPage extends BasePage {
 			driverHelper.embedScreenshot(scenario);
 			log.exit();
 		} else {
-			System.out.println("Assigned To field is not present.");
+			Assert.assertTrue("Assigned To field is not present.", driverHelper.isElementPresent(fld_assignedTo));
 			log.exit();
 		}
 	}
@@ -180,8 +180,8 @@ public class CreateSNOWTicketPage extends BasePage {
 	 */
 	public void setCategory(String category) {
 		log.entry();
-		driverHelper.waitForPageLoaded();
-		driver.switchTo().defaultContent();
+		//driverHelper.waitForPageLoaded();
+		//driver.switchTo().defaultContent();
 		if(driverHelper.isElementPresent(fld_category)) {
 			//driverHelper.clickButton(fld_category);
 			driverHelper.inputFieldValue(fld_category, category);
@@ -191,7 +191,7 @@ public class CreateSNOWTicketPage extends BasePage {
 			driverHelper.embedScreenshot(scenario);
 			log.exit();
 		} else {
-			System.out.println("Category field is not present.");
+			Assert.assertTrue("Category field is not present.", driverHelper.isElementPresent(fld_category));
 			log.exit();
 		}
 	}
@@ -201,8 +201,8 @@ public class CreateSNOWTicketPage extends BasePage {
 	 */
 	public void setSubCategory(String subCategory) {
 		log.entry();
-		driverHelper.waitForPageLoaded();
-		driver.switchTo().defaultContent();
+		//driverHelper.waitForPageLoaded();
+		//driver.switchTo().defaultContent();
 		if(driverHelper.isElementPresent(fld_subCategory)) {
 			//driverHelper.clickButton(fld_subCategory);
 			driverHelper.inputFieldValue(fld_subCategory, subCategory);
@@ -212,7 +212,7 @@ public class CreateSNOWTicketPage extends BasePage {
 			driverHelper.embedScreenshot(scenario);
 			log.exit();
 		} else {
-			System.out.println("Sub-Category field is not present.");
+			Assert.assertTrue("Sub-Category field is not present.", driverHelper.isElementPresent(fld_subCategory));
 			log.exit();
 		}
 	}
@@ -222,8 +222,8 @@ public class CreateSNOWTicketPage extends BasePage {
 	 */
 	public void setArea(String area) {
 		log.entry();
-		driverHelper.waitForPageLoaded();
-		driver.switchTo().defaultContent();
+		//driverHelper.waitForPageLoaded();
+		//driver.switchTo().defaultContent();
 		if(driverHelper.isElementPresent(fld_area)) {
 			//driverHelper.clickButton(fld_area);
 			driverHelper.inputFieldValue(fld_area, area);
@@ -233,7 +233,7 @@ public class CreateSNOWTicketPage extends BasePage {
 			driverHelper.embedScreenshot(scenario);
 			log.exit();
 		} else {
-			System.out.println("Area field is not present.");
+			Assert.assertTrue("Area field is not present.", driverHelper.isElementPresent(fld_area));
 			log.exit();
 		}
 	}
@@ -243,16 +243,16 @@ public class CreateSNOWTicketPage extends BasePage {
 	 */
 	public void selectTicketType(String ticketType) {
 		log.entry();
-		driverHelper.waitForPageLoaded();
-		driver.switchTo().defaultContent();
+		//driverHelper.waitForPageLoaded();
+		//driver.switchTo().defaultContent();
 		if(driverHelper.isElementPresent(fld_ticketType)) {
-			driverHelper.scrollIntoView(fld_ticketType);
+			//driverHelper.scrollIntoView(fld_ticketType);
 			driverHelper.clickButton(fld_ticketType);
 			driverHelper.setValueDropdown(list_ticketType, fld_ticketType, ticketType);
 			driverHelper.embedScreenshot(scenario);
 			log.exit();
 		} else {
-			System.out.println("Ticket Type field is not present.");
+			Assert.assertTrue("Ticket Type field is not present.", driverHelper.isElementPresent(fld_ticketType));
 			log.exit();
 		}
 	}
@@ -262,8 +262,8 @@ public class CreateSNOWTicketPage extends BasePage {
 	 */
 	public void selectLanguage(String language) {
 		log.entry();
-		driverHelper.waitForPageLoaded();
-		driver.switchTo().defaultContent();
+		//driverHelper.waitForPageLoaded();
+		//driver.switchTo().defaultContent();
 		if(driverHelper.isElementPresent(fld_language)) {
 			//driverHelper.clickButton(fld_language);
 			driverHelper.inputFieldValue(fld_language, language);
@@ -272,7 +272,7 @@ public class CreateSNOWTicketPage extends BasePage {
 			driverHelper.embedScreenshot(scenario);
 			log.exit();
 		} else {
-			System.out.println("Language field is not present.");
+			Assert.assertTrue("Language field is not present.", driverHelper.isElementPresent(fld_language));
 			log.exit();
 		}
 	}
@@ -282,15 +282,15 @@ public class CreateSNOWTicketPage extends BasePage {
 	 */
 	public void selectContactType(String contactType) {
 		log.entry();
-		driver.switchTo().defaultContent();
+		//driver.switchTo().defaultContent();
 		if(driverHelper.isElementPresent(fld_contactType)) {
-			driverHelper.scrollIntoView(fld_contactType);
+			//driverHelper.scrollIntoView(fld_contactType);
 			driverHelper.clickButton(fld_contactType);
 			driverHelper.setValueDropdown(list_contactType, fld_contactType, contactType);
 			driverHelper.embedScreenshot(scenario);
 			log.exit();
 		} else {
-			System.out.println("Contact Type field is not present.");
+			Assert.assertTrue("Contact Type field is not present.", driverHelper.isElementPresent(fld_contactType));
 			log.exit();
 		}
 	}
@@ -300,15 +300,15 @@ public class CreateSNOWTicketPage extends BasePage {
 	 */
 	public void selectImpact(String impact) {
 		log.entry();
-		driver.switchTo().defaultContent();
+		//driver.switchTo().defaultContent();
 		if(driverHelper.isElementPresent(fld_impact)) {
-			driverHelper.scrollIntoView(fld_impact);
+			//driverHelper.scrollIntoView(fld_impact);
 			driverHelper.clickButton(fld_impact);
 			driverHelper.setValueDropdown(list_impact, fld_impact, impact);
 			driverHelper.embedScreenshot(scenario);
 			log.exit();
 		} else {
-			System.out.println("Impact field is not present.");
+			Assert.assertTrue("Impact field is not present.", driverHelper.isElementPresent(fld_impact));
 			log.exit();
 		}
 	}
@@ -318,15 +318,15 @@ public class CreateSNOWTicketPage extends BasePage {
 	 */
 	public void selectUrgency(String urgency) {
 		log.entry();
-		driver.switchTo().defaultContent();
+		//driver.switchTo().defaultContent();
 		if(driverHelper.isElementPresent(fld_urgency)) {
-			driverHelper.scrollIntoView(fld_urgency);
+			//driverHelper.scrollIntoView(fld_urgency);
 			driverHelper.clickButton(fld_urgency);
 			driverHelper.setValueDropdown(list_urgency, fld_urgency, urgency);
 			driverHelper.embedScreenshot(scenario);
 			log.exit();
 		} else {
-			System.out.println("Urgency field is not present.");
+			Assert.assertTrue("Urgency field is not present.", driverHelper.isElementPresent(fld_urgency));
 			log.exit();
 		}
 	}
@@ -336,15 +336,15 @@ public class CreateSNOWTicketPage extends BasePage {
 	 */
 	public void selectPriority(String priority) {
 		log.entry();
-		driver.switchTo().defaultContent();
+		//driver.switchTo().defaultContent();
 		if(driverHelper.isElementPresent(fld_priority)) {
-			driverHelper.scrollIntoView(fld_priority);
+			//driverHelper.scrollIntoView(fld_priority);
 			driverHelper.clickButton(fld_priority);
 			driverHelper.setValueDropdown(list_priority, fld_priority, priority);
 			driverHelper.embedScreenshot(scenario);
 			log.exit();
 		} else {
-			System.out.println("Priority field is not present.");
+			Assert.assertTrue("Priority field is not present.", driverHelper.isElementPresent(fld_priority));
 			log.exit();
 		}
 	}
@@ -361,7 +361,7 @@ public class CreateSNOWTicketPage extends BasePage {
 			driverHelper.embedScreenshot(scenario);
 			log.exit();
 		} else {
-			System.out.println("Description field is not present.");
+			Assert.assertTrue("Description field is not present.", driverHelper.isElementPresent(fld_description));
 			log.exit();
 		}
 	}
@@ -378,7 +378,7 @@ public class CreateSNOWTicketPage extends BasePage {
 			driverHelper.embedScreenshot(scenario);
 			log.exit();
 		} else {
-			System.out.println("Short Description field is not present.");
+			Assert.assertTrue("Short Description field is not present.", driverHelper.isElementPresent(fld_shortDescription));
 			log.exit();
 		}
 	}
@@ -390,11 +390,11 @@ public class CreateSNOWTicketPage extends BasePage {
 		log.entry();
 		driverHelper.waitForPageLoaded();
 		if(driverHelper.isElementPresent(fld_shortDescription)) {
-			driverHelper.clearText_alt(fld_shortDescription);
+			driverHelper.clearText(fld_shortDescription);
 			driverHelper.embedScreenshot(scenario);
 			log.exit();
 		} else {
-			System.out.println("Short Description field is not present.");
+			Assert.assertTrue("Short Description field is not present.", driverHelper.isElementPresent(fld_shortDescription));
 			log.exit();
 		}
 	}
@@ -404,14 +404,14 @@ public class CreateSNOWTicketPage extends BasePage {
 	 */
 	public void checkPendingLevel() {
 		log.entry();
-		driverHelper.waitForPageLoaded();
-		driver.switchTo().defaultContent();
+		//driverHelper.waitForPageLoaded();
+		//driver.switchTo().defaultContent();
 		if(driverHelper.isElementPresent(btn_pendingLevel)) {
 			driverHelper.clickButton(btn_pendingLevel);
 			driverHelper.embedScreenshot(scenario);
 			log.exit();
 		} else {
-			System.out.println("Pending Level 1 checkbox is not present.");
+			Assert.assertTrue("Pending Level 1 field is not present.", driverHelper.isElementPresent(btn_pendingLevel));
 			log.exit();
 		}
 	}
@@ -421,14 +421,14 @@ public class CreateSNOWTicketPage extends BasePage {
 	 */
 	public void checkAutomaticallyClosedTicket() {
 		log.entry();
-		driverHelper.waitForPageLoaded();
-		driver.switchTo().defaultContent();
+		//driverHelper.waitForPageLoaded();
+		//driver.switchTo().defaultContent();
 		if(driverHelper.isElementPresent(btn_automaticallyClosedTicket)) {
 			driverHelper.clickButton(btn_automaticallyClosedTicket);
 			driverHelper.embedScreenshot(scenario);
 			log.exit();
 		} else {
-			System.out.println("Automatically Closed Ticket checkbox is not present.");
+			Assert.assertTrue("Automatically Closed Ticket checkbox is not present.", driverHelper.isElementPresent(btn_automaticallyClosedTicket));
 			log.exit();
 		}
 	}
@@ -438,13 +438,13 @@ public class CreateSNOWTicketPage extends BasePage {
 	 */
 	public void checkSendTicketToSlackIDChannel() {
 		log.entry();
-		driverHelper.waitForPageLoaded();
+		//driverHelper.waitForPageLoaded();
 		if(driverHelper.isElementPresent(btn_sendToSlackChannel)) {
 			driverHelper.clickButton(btn_sendToSlackChannel);
 			driverHelper.embedScreenshot(scenario);
 			log.exit();
 		} else {
-			System.out.println("Send ticket to Slack ID channel checkbox is not present.");
+			Assert.assertTrue("Send ticket to Slack ID channel checkbox is not present.", driverHelper.isElementPresent(btn_sendToSlackChannel));
 			log.exit();
 		}
 	}
@@ -454,14 +454,14 @@ public class CreateSNOWTicketPage extends BasePage {
 	 */
 	public void inputSlackChannel(String slackChannel) {
 		log.entry();
-		driverHelper.waitForPageLoaded();
+		//driverHelper.waitForPageLoaded();
 		if(driverHelper.isElementPresent(fld_slackChannel)) {
 			fld_slackChannel.clear();
 			driverHelper.inputFieldValue(fld_slackChannel, slackChannel);
 			driverHelper.embedScreenshot(scenario);
 			log.exit();
 		} else {
-			System.out.println("Slack Channel field is not present.");
+			Assert.assertTrue("Slack Channel field is not present.", driverHelper.isElementPresent(fld_slackChannel));
 			log.exit();
 		}
 	}
@@ -480,14 +480,14 @@ public class CreateSNOWTicketPage extends BasePage {
 	 */
 	public void checkConsolidateTicket() {
 		log.entry();
-		driverHelper.waitForPageLoaded();
-		driver.switchTo().defaultContent();
+		//driverHelper.waitForPageLoaded();
+		//driver.switchTo().defaultContent();
 		if(driverHelper.isElementPresent(btn_consolidateTicket)) {
 			driverHelper.clickButton(btn_consolidateTicket);
 			driverHelper.embedScreenshot(scenario);
 			log.exit();
 		} else {
-			System.out.println("Consolidate Ticket checkbox is not present.");
+			Assert.assertTrue("Consolidate Ticket checkbox is not present.", driverHelper.isElementPresent(btn_consolidateTicket));
 			log.exit();
 		}
 	}

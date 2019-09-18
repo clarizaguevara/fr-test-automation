@@ -22,13 +22,13 @@ public class VariableDefinitionPage extends BasePage {
 	@FindBy(xpath= "//input[@placeholder='Variable name...']")
 	private WebElement fld_variableName;
 	
-	@FindBy(xpath= "//input[@placeholder='Start string...']")
+	@FindBy(xpath= "//input[@placeholder='Starting keyword...']")
 	private WebElement fld_startString;
 	
 	@FindBy(xpath= "//div[@class='ui fitted checkbox']//input[@type='checkbox']")
 	private WebElement btn_includeEndDelimeter;
 	
-	@FindBy(xpath= "//input[@placeholder='End delimeter...']")
+	@FindBy(xpath= "//input[@placeholder='Ending keyword...']")
 	private WebElement fld_endDelimeter;
 	
 	@FindBys(value = @FindBy (xpath = "//div[contains(@class,'form-check-inline')]//select[@class='form-control']//option"))
@@ -147,12 +147,22 @@ public class VariableDefinitionPage extends BasePage {
 	}
 	
 	/**
-	 * Verify if variable is removed
+	 * Verify if variable is present
 	 */
-	public void verifyIfVariableIsRemoved(String variableName) {
+	public void verifyIfVariableIsPresent(String variableName, boolean shouldBePresent) {
 		log.entry();
+		boolean isVariablePresent = false;
 		By fld_variable = By.xpath("//input[@placeholder='Variable name...' and @value='" + variableName + "']");
-		Assert.assertFalse(variableName + "is present", driverHelper.isElementPresent(fld_variable));
+		
+		if(driverHelper.isElementPresent(fld_variable)) {
+			isVariablePresent = true;
+		} else {
+			isVariablePresent = false;
+		}
+		
+		if(isVariablePresent != shouldBePresent) {
+			Assert.assertTrue(variableName + " is present? " + isVariablePresent, false);
+		}
 		log.exit();
 	}
 	
@@ -194,7 +204,7 @@ public class VariableDefinitionPage extends BasePage {
 	 */
 	private void inputStartString(String startString, String rowNumber) {
 		log.entry();
-		By fld_startString = By.xpath("//div[contains(@class,'justify-content-start')][" + rowNumber + "]//input[@placeholder='Start string...']");
+		By fld_startString = By.xpath("//div[contains(@class,'justify-content-start')][" + rowNumber + "]//input[@placeholder='Starting keyword...']");
 		if(driverHelper.isElementPresent(fld_startString)) {
 			driverHelper.clearText(fld_startString);
 			driverHelper.inputFieldValue(driver.findElement(fld_startString), startString);
@@ -233,7 +243,7 @@ public class VariableDefinitionPage extends BasePage {
 	 */
 	private void inputEndDelimeter(String endDelimeter, String rowNumber) {
 		log.entry();
-		By fld_endDelimeter = By.xpath("//div[contains(@class,'justify-content-start')][" + rowNumber + "]//input[@placeholder='End delimeter...']");
+		By fld_endDelimeter = By.xpath("//div[contains(@class,'justify-content-start')][" + rowNumber + "]//input[@placeholder='Ending keyword...']");
 		if(driverHelper.isElementPresent(fld_endDelimeter)) {
 			driverHelper.clearText(fld_endDelimeter);
 			driverHelper.inputFieldValue(driver.findElement(fld_endDelimeter), endDelimeter);
@@ -259,6 +269,19 @@ public class VariableDefinitionPage extends BasePage {
 			Assert.assertTrue("Field selection is not present", driverHelper.isElementPresent(fld_field));
 			log.exit();
 		}
+	}
+	
+	/**
+	 * Verify if variable can be deleted
+	 */
+	public void verifyIfVariableCanBeDeleted(String variableName) {
+		log.entry();
+		By btn_delete = By.xpath("//div//input[@value='" + variableName + "']//preceding::span[contains(@class,'btn-delete')]");
+		
+		if(driverHelper.isElementClickable(btn_delete)) {
+			Assert.assertFalse(variableName + " can be deleted", driverHelper.isElementClickable(btn_delete));
+		}
+		log.exit();
 	}
 	
 }

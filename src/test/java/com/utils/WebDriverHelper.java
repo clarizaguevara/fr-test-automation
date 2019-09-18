@@ -12,6 +12,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.ElementNotInteractableException;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;
@@ -20,6 +21,7 @@ import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.UnreachableBrowserException;
@@ -141,25 +143,25 @@ public class WebDriverHelper {
      * @param buttonElement
      */
     public void clickButton(WebElement buttonElement) {
-    	if (isElementPresent(buttonElement)) {
-    		buttonElement.click();
-    		log.info("Button is clicked.");
-    	} else {
-    		log.error("Button is NOT present.");
-    	}
-    }
+    	try {
+	    	buttonElement.click();
+	    	log.info("Button is clicked.");
+	    } catch(ElementNotInteractableException e) {
+	    	jsClick(buttonElement);
+	    }
+	}
     
     /**
      * Click a button
      * @param buttonElement
      */
     public void clickButton(By buttonElement) {
-    	if (isElementPresent(buttonElement)) {
+    	try {
     		driver.findElement(buttonElement).click();
     		log.info("Button is clicked.");
-    	} else {
-    		log.error("Button is NOT present.");
-    	}
+    	} catch(ElementNotInteractableException e) {
+	    	jsClick(buttonElement);
+	    }
     }
     
     /**
@@ -495,11 +497,10 @@ public class WebDriverHelper {
 	 */
 	public void clearText(WebElement webElement) {
 		log.entry();
-		if (isElementPresent(webElement)) {
-			webElement.clear();
-        } else {
-            log.error("Element not found.");
-        }
+		webElement.clear();
+		if(!webElement.getText().isEmpty()) {
+			clearText_alt(webElement);
+		}
 		log.exit();
 	}
 	
@@ -510,11 +511,10 @@ public class WebDriverHelper {
 	public void clearText(By byElement) {
 		log.entry();
 		WebElement webElement = driver.findElement(byElement);
-		if (isElementPresent(webElement)) {
-			webElement.clear();
-        } else {
-            log.error("Element not found.");
-        }
+		webElement.clear();
+		if(!webElement.getText().isEmpty()) {
+			clearText_alt(webElement);
+		}
 		log.exit();
 	}
 	
@@ -567,4 +567,19 @@ public class WebDriverHelper {
         }
 		log.exit();
 	}
+	
+	/**
+     * Check if element is clickable
+     * @param buttonElement
+     */
+    public boolean isElementClickable(By buttonElement) {
+    	boolean isClickable = true;
+    	try {
+    		driver.findElement(buttonElement).click();
+    		log.info("Button is clicked.");
+    	} catch(WebDriverException e) {
+	    	isClickable = false;
+	    }
+    	return isClickable;
+    }
 }

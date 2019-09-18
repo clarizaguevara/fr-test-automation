@@ -13,14 +13,15 @@ public class AISM12Stepdefs implements En {
 	public AISM12Stepdefs(ScenarioHooks hooks, CreateNewFilterPage createNewFilterPage,
 			ExtendedRulePage extendedRulePage, SNOWDuplicateConditionPage snowDuplicateConditionPage) {
 
-		And("add a Snow Duplicate Check condition: (.*) open tickets for (.*)", (String with, String snowKeyword) -> {
+		And("add a Snow Duplicate Check condition: (.*) open tickets where (.*) contains (.*)", (String with, String snowKeyword, String field) -> {
 			extendedRulePage.setDriver(hooks.getDriverHelper(), ScenarioHooks.getScenarioName());
 			snowDuplicateConditionPage.setDriver(hooks.getDriverHelper(), ScenarioHooks.getScenarioName());
 			
 			createNewFilterPage.addExtendedRule();
 			extendedRulePage.selectExtendedRule(CommonConstants.EXTENDED_RULE_SNOW_DUPLICATE);
 			snowDuplicateConditionPage.selectWithOrWithout(with);
-			snowDuplicateConditionPage.selectKeyword(snowKeyword);
+			snowDuplicateConditionPage.selectSnowKeyword(snowKeyword);
+			snowDuplicateConditionPage.selectKeyword(field);
 		});
 	}
 }

@@ -40,7 +40,7 @@ public class AISM274Stepdefs implements En {
 		
 		And("variable (.*) should be removed", (String variableName) -> {
 			variableDefinitionPage.setDriver(hooks.getDriverHelper(), ScenarioHooks.getScenarioName());
-			variableDefinitionPage.verifyIfVariableIsRemoved(variableName);
+			variableDefinitionPage.verifyIfVariableIsPresent(variableName, false);
 		});
 		
 		And("I define a variable (.*) with details: (.*)", (String rowNumber, String variable) -> {
@@ -52,6 +52,32 @@ public class AISM274Stepdefs implements En {
 		And("I add another variable (.*) with details: (.*)", (String rowNumber, String variable) -> {
 			createNewFilterPage.clickAddVariableButton();
 			variableDefinitionPage.createVariableByRow(variable, rowNumber);
+		});
+		
+		Then("variable (.*) can not be removed", (String variableName) -> {
+			variableDefinitionPage.setDriver(hooks.getDriverHelper(), ScenarioHooks.getScenarioName());
+			variableDefinitionPage.verifyIfVariableCanBeDeleted(variableName);
+		});
+		
+		And("I define a variable and leave required fields blank", () -> {
+			createNewFilterPage.clickAddVariableButton();
+			variableDefinitionPage.setDriver(hooks.getDriverHelper(), ScenarioHooks.getScenarioName());
+		});
+		
+		When("I fill in the variable name with value: (.*)", (String variableName) -> {
+			variableDefinitionPage.inputVariableName(variableName);
+		});
+		
+		When("I fill in the start string with value: (.*)", (String startString) -> {
+			variableDefinitionPage.inputStartString(startString);
+		});
+		
+		And("I tick include end string checkbox", () -> {
+			variableDefinitionPage.includeEndDelimeter("include");
+		});
+		
+		When("I fill in the end string with value: (.*)", (String endString) -> {
+			variableDefinitionPage.inputEndDelimeter(endString);
 		});
 		
 	}

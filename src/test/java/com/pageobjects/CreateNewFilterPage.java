@@ -163,11 +163,11 @@ public class CreateNewFilterPage extends BasePage {
 	public void selectAction(String action) {
 		log.entry();
 		if(driverHelper.isElementPresent(fld_action)) {
-			driverHelper.scrollIntoView(fld_action);
+			//driverHelper.scrollIntoView(fld_action);
 			driverHelper.clickButton(fld_action);
 			driverHelper.setValueDropdown(list_action, fld_action, action);
 			driverHelper.embedScreenshot(scenario);
-			driverHelper.waitForElementNotVisible(icn_loading);
+			//driverHelper.waitForElementNotVisible(icn_loading);
 			log.exit();
 		} else {
 			Assert.assertTrue("Action field is not present.", driverHelper.isElementPresent(fld_action));
