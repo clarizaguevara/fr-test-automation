@@ -61,11 +61,10 @@ public class FilterRulePage extends BasePage {
 			driverHelper.clickButton(fld_keyword);
 			driverHelper.setValueDropdown(list_keyword, fld_keyword, keyword);
 			driverHelper.embedScreenshot(scenario);
-			log.exit();
 		} else {
 			Assert.assertTrue("Keyword field is not present.", driverHelper.isElementPresent(fld_keyword));
-			log.exit();
 		}
+		log.exit();
 	}
 	
 	/**
@@ -77,11 +76,10 @@ public class FilterRulePage extends BasePage {
 			driverHelper.clickButton(fld_comparator);
 			driverHelper.setValueDropdown(list_comparator, fld_comparator, comparator);
 			driverHelper.embedScreenshot(scenario);
-			log.exit();
 		} else {
 			Assert.assertTrue("Keyword field is not present.", driverHelper.isElementPresent(fld_comparator));
-			log.exit();
 		}
+		log.exit();
 	}
 	
 	/**
@@ -93,11 +91,10 @@ public class FilterRulePage extends BasePage {
 			driverHelper.clearText(fld_keywordvalue);
 			driverHelper.inputFieldValue(fld_keywordvalue, keywordValue);
 			driverHelper.embedScreenshot(scenario);
-			log.exit();
 		} else {
 			Assert.assertTrue("Keyword Value field is not present.", driverHelper.isElementPresent(fld_keywordvalue));
-			log.exit();
 		}
+		log.exit();
 	}
 	
 	/**
@@ -128,17 +125,22 @@ public class FilterRulePage extends BasePage {
 	}
 	
 	/**
-	 * Verify keyword dropdown for source
+	 * Verify field dropdown for source
 	 */
-	public void verifyKeywordDropdownValues(String dropdownValues) {
+	public void verifyFieldDropdownValues(String dropdownValues) {
 		log.entry();
-		List<String> keywordDropdownValues = Arrays.asList(dropdownValues.split(","));
+		List<String> fieldDropdownValues = Arrays.asList(dropdownValues.split(","));
+		
 		for (WebElement webElement : list_keyword) {
 			String dropdownValue = webElement.getText();
 			//log.info(keywordDropdownValues.size() + " " + list_keyword.size());
-			Assert.assertTrue("Keyword dropdown value is incorrect", dropdownValues.contains(dropdownValue));
-			Assert.assertTrue("Number of values is incorrect", keywordDropdownValues.size() == list_keyword.size()); 
+			Assert.assertTrue("Field dropdown value is incorrect", dropdownValues.contains(dropdownValue));
+			Assert.assertTrue("Number of values is incorrect", fieldDropdownValues.size() == list_keyword.size()); 
 		}
+		
+		driverHelper.clickButton(fld_keyword);
+		driverHelper.embedScreenshot(scenario);
+		
 		log.exit();
 	}
 	
@@ -152,11 +154,10 @@ public class FilterRulePage extends BasePage {
 			driverHelper.clickButton(fld_keywordvaluedropdown);
 			driverHelper.setValueDropdown(list_keywordValue, fld_keywordvaluedropdown, keywordValue);
 			driverHelper.embedScreenshot(scenario);
-			log.exit();
 		} else {
 			Assert.assertTrue("Keyword Value field is not present", driverHelper.isElementPresent(fld_keywordvaluedropdown));
-			log.exit();
 		}
+		log.exit();
 	}
 	
 	/**
@@ -165,13 +166,13 @@ public class FilterRulePage extends BasePage {
 	private void clickAddRuleButton(String groupNumber, String ruleNumber) {
 		log.entry();
 		By btn_AddRule = By.xpath("//div[contains(@class,'condition-group')][" + groupNumber + "]//button[contains(text(),'Add Rule')]");
+		
 		if(driverHelper.isElementPresent(btn_AddRule)) {
 			driverHelper.clickButton(btn_AddRule);
-			log.exit();
 		} else {
 			Assert.assertTrue("Add Rule Button is not present.", driverHelper.isElementPresent(btn_AddRule));
-			log.exit();
 		}
+		log.exit();
 	}
 	
 	/**
@@ -181,11 +182,10 @@ public class FilterRulePage extends BasePage {
 		log.entry();
 		if(driverHelper.isElementPresent(btn_addGroup)) {
 			driverHelper.clickButton(btn_addGroup);
-			log.exit();
 		} else {
 			Assert.assertTrue("Add Group Button is not present.", driverHelper.isElementPresent(btn_addGroup));
-			log.exit();
 		}
+		log.exit();
 	}
 	
 	/**
@@ -195,13 +195,13 @@ public class FilterRulePage extends BasePage {
 	private void clickANDORRuleButton(String groupNumber, String ruleNumber, String condition) {
 		log.entry();
 		By btn_ANDORrule = By.xpath("//div[contains(@class,'condition-group')][" + groupNumber + "]//div[contains(@class,'justify-content-start')][" + ruleNumber + "]//label[text()='" + condition + "']");
+		
 		if(driverHelper.isElementPresent(btn_ANDORrule)) {
 			driverHelper.clickButton(btn_ANDORrule);
-			log.exit();
     	} else {
 			Assert.assertTrue("AND/OR Button is not present.", driverHelper.isElementPresent(btn_ANDORrule));
-			log.exit();
 		}
+		log.exit();
 	}
 	
 	/**
@@ -211,15 +211,15 @@ public class FilterRulePage extends BasePage {
 		log.entry();
 		By fld_keyword = By.xpath("//div[contains(@class,'condition-group')][" + groupNumber + "]//div[contains(@class,'justify-content-start')][" + ruleNumber + "]//div[@class='col-sm-auto px-3']");
 		By list_keyword = By.xpath("//div[contains(@class,'condition-group')][" + groupNumber + "]//div[contains(@class,'justify-content-start')][" + ruleNumber + "]//div[@class='col-sm-auto px-3']//option");
+		
 		if(driverHelper.isElementPresent(fld_keyword)) {
 			driverHelper.clickButton(fld_keyword);
 			driverHelper.setValueDropdown(driver.findElements(list_keyword), driver.findElement(fld_keyword), keyword);
 			driverHelper.embedScreenshot(scenario);
-			log.exit();
 		} else {
 			Assert.assertTrue("Keyword field is not present.", driverHelper.isElementPresent(fld_keyword));
-			log.exit();
 		}
+		log.exit();
 	}
 	
 	/**
@@ -229,15 +229,15 @@ public class FilterRulePage extends BasePage {
 		log.entry();
 		By fld_comparator = By.xpath("//div[contains(@class,'condition-group')][" + groupNumber + "]//div[contains(@class,'justify-content-start')][" + ruleNumber + "]//div[@class='col-sm-auto px-1'][2]//select");
 		By list_comparator = By.xpath("//div[contains(@class,'condition-group')][" + groupNumber + "]//div[contains(@class,'justify-content-start')][" + ruleNumber + "]//div[@class='col-sm-auto px-1'][2]//select//option");
+		
 		if(driverHelper.isElementPresent(fld_comparator)) {
 			driverHelper.clickButton(fld_comparator);
 			driverHelper.setValueDropdown(driver.findElements(list_comparator), driver.findElement(fld_comparator), comparator);
 			driverHelper.embedScreenshot(scenario);
-			log.exit();
 		} else {
 			Assert.assertTrue("Comparator field is not present.", driverHelper.isElementPresent(fld_comparator));
-			log.exit();
 		}
+		log.exit();
 	}
 	
 	/**
@@ -246,15 +246,15 @@ public class FilterRulePage extends BasePage {
 	private void inputKeywordValue(String keywordValue, String groupNumber, String ruleNumber) {
 		log.entry();
 		By fld_keywordValue = By.xpath("//div[contains(@class,'condition-group')][" + groupNumber + "]//div[contains(@class,'justify-content-start')][" + ruleNumber + "]//div[contains(@class,'col-sm px-1')]//input[@type='text']");
+		
 		if(driverHelper.isElementPresent(fld_keywordValue)) {
 			driverHelper.clearText(fld_keywordValue);
 			driverHelper.inputFieldValue(driver.findElement(fld_keywordValue), keywordValue);
 			driverHelper.embedScreenshot(scenario);
-			log.exit();
 		} else {
 			Assert.assertTrue("Keyword Value field is not present.", driverHelper.isElementPresent(fld_keywordValue));
-			log.exit();
 		}
+		log.exit();
 	}
 	
 	/**
@@ -264,6 +264,7 @@ public class FilterRulePage extends BasePage {
 	private void clickNOTButton(String btnState, String groupNumber, String ruleNumber) {
 		log.entry();
 		By btn_NOT = By.xpath("//div[contains(@class,'condition-group')][" + groupNumber + "]//div[contains(@class,'justify-content-start')][" + ruleNumber + "]//label[@class='btn w-100' and text()='NOT']");
+		
 		if(btnState.equals("enabled")) {
 			if(driverHelper.isElementPresent(btn_NOT)) {
     			driverHelper.clickButton(btn_NOT);
@@ -283,6 +284,7 @@ public class FilterRulePage extends BasePage {
 	public void clickANDORGroupButton(String groupNumber, String condition) {
 		log.entry();
 		By btn_ANDORGroup = By.xpath("//div[contains(@class,'condition-group')][" + groupNumber + "]//label[contains(@class,'justify-content-center')]//span[text()='and']");
+		
 		if(condition.equals("AND")) {
 			if(!driverHelper.isElementPresent(btn_ANDORGroup)) {
     			driverHelper.clickButton(btn_ANDORGroup);
@@ -303,6 +305,7 @@ public class FilterRulePage extends BasePage {
 		log.entry();
 		int ruleNumber = 1;
 		List<String> splittedRules = Arrays.asList(rules.split(" "));
+		
 		for (String ruleEntry : splittedRules) {
 			ruleEntry = ruleEntry.replace("_", " ");
 			if(ruleEntry.equals("AND") || ruleEntry.equals("OR")) {
@@ -337,11 +340,16 @@ public class FilterRulePage extends BasePage {
 	public void verifyComparatorDropdownValues(String dropdownValues) {
 		log.entry();
 		List<String> comparatorDropdownValues = Arrays.asList(dropdownValues.split(","));
+		
 		for (WebElement webElement : list_comparator) {
 			String dropdownValue = webElement.getText();
 			Assert.assertTrue("Comparator dropdown value is incorrect", dropdownValues.contains(dropdownValue));
 			Assert.assertTrue("Number of values is incorrect", comparatorDropdownValues.size() == list_comparator.size()); 
 		}
+		
+		driverHelper.clickButton(fld_comparator);
+		driverHelper.embedScreenshot(scenario);
+		
 		log.exit();
 	}
 	

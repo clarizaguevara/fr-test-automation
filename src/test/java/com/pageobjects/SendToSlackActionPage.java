@@ -2,6 +2,7 @@ package com.pageobjects;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -10,6 +11,7 @@ public class SendToSlackActionPage extends BasePage {
 	private static final Logger log = LogManager.getLogger(SendToSlackActionPage.class);
 
 	/* Page Elements */
+	
 	@FindBy(xpath= "//input[@placeholder='Slack channel']")
 	private WebElement fld_slackChannel;
 	
@@ -18,6 +20,7 @@ public class SendToSlackActionPage extends BasePage {
 	
 	@FindBy(xpath= "//div[@class='col-sm-auto']//input[@class='form-check-input']")
 	private WebElement btn_includeOriginalAlertMessage;
+	
 	
 	/* Methods */
 	
@@ -30,11 +33,10 @@ public class SendToSlackActionPage extends BasePage {
 			fld_slackChannel.clear();
 			driverHelper.inputFieldValue(fld_slackChannel, slackChannel);
 			driverHelper.embedScreenshot(scenario);
-			log.exit();
 		} else {
-			System.out.println("Slack Channel field is not present.");
-			log.exit();
+			Assert.assertTrue("Slack Channel is not present.", driverHelper.isElementPresent(fld_slackChannel));
 		}
+		log.exit();
 	}
 	
 	/**
@@ -46,11 +48,10 @@ public class SendToSlackActionPage extends BasePage {
 			fld_slackMessage.clear();
 			driverHelper.inputFieldValue(fld_slackMessage, slackMessage);
 			driverHelper.embedScreenshot(scenario);
-			log.exit();
 		} else {
-			System.out.println("Slack Message field is not present.");
-			log.exit();
+			Assert.assertTrue("Slack Message field is not present.", driverHelper.isElementPresent(fld_slackMessage));
 		}
+		log.exit();
 	}
 	
 	/**
@@ -61,10 +62,9 @@ public class SendToSlackActionPage extends BasePage {
 		if(driverHelper.isElementPresent(btn_includeOriginalAlertMessage)) {
 			driverHelper.clickButton(btn_includeOriginalAlertMessage);
 			driverHelper.embedScreenshot(scenario);
-			log.exit();
 		} else {
-			System.out.println("Include Original Alert Message checkbox is not present.");
-			log.exit();
+			Assert.assertTrue("Include original alert checkbox is not present.", driverHelper.isElementPresent(btn_includeOriginalAlertMessage));
 		}
+		log.exit();
 	}
 }

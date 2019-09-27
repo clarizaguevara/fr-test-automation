@@ -94,10 +94,10 @@ public class DataHelper {
     	log.entry();
     	String lov = "";
 		switch(source) {
-		case "Nagios-Pet": lov = CommonConstants.LOV_KEYWORD_NP; break;
-		case "Cisco Meraki": lov = CommonConstants.LOV_KEYWORD_CM; break;
-		case "Email": lov = CommonConstants.LOV_KEYWORD_EMAIL; break;
-		case "Email WUG": lov = CommonConstants.LOV_KEYWORD_EMAILWUG; break;
+		case "Nagios-Pet": lov = CommonConstants.LOV_FIELDS_NP; break;
+		case "Cisco Meraki": lov = CommonConstants.LOV_FIELDS_CM; break;
+		case "Email": lov = CommonConstants.LOV_FIELDS_EMAIL; break;
+		case "Email WUG": lov = CommonConstants.LOV_FIELDS_EMAILWUG; break;
 		default: break;
 		}
 		log.exit();

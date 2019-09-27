@@ -27,8 +27,8 @@ Feature: AISM-21
     Then filter should be saved successfully
 
     Examples: 
-      | filter name        | source     | keyword | comparator | keyword value |
-      | AUT_TestSendEmail3 | Nagios-Pet | Summary | Contains   | TEST          |
+      | filter name                       | source     | keyword | comparator | keyword value |
+      | AUT_Email_IncludeOriginalAlertMsg | Nagios-Pet | Summary | Contains   | TEST          |
 
   @Regression
   Scenario Outline: Verify filter is not saved if required fields are left blank
@@ -38,8 +38,8 @@ Feature: AISM-21
     Then filter should not be saved
 
     Examples: 
-      | filter name        | source       | keyword       | comparator | keyword value  |
-      | AUT_TestSendEmail4 | Cisco Meraki | Device Serial | Equals     | Q2JD-XJGK-F8Y3 |
+      | filter name              | source       | keyword       | comparator | keyword value  |
+      | AUT_Email_RequiredFields | Cisco Meraki | Device Serial | Equals     | Q2JD-XJGK-F8Y3 |
 
   @Regression
   Scenario Outline: Verify Tool Administrator can configure so that an email with sub-domain will be sent automatically
@@ -49,5 +49,5 @@ Feature: AISM-21
     Then filter should be saved successfully
 
     Examples: 
-      | filter name        | source       | keyword | comparator | keyword value |
-      | AUT_TestSendEmail5 | Cisco Meraki | Country | Equals     | JP            |
+      | filter name         | source       | keyword | comparator | keyword value |
+      | AUT_Email_SubDomain | Cisco Meraki | Country | Equals     | JP            |

@@ -5,17 +5,20 @@ Feature: AISM-145
 
   Background: 
     Given I am login
-    And I am on Create New Filter page
 
-  Scenario: Create a Keyword List
-    When I click Maintenance tab
-    And I select Keyword Lists
-    And I create a new Keyword List with name: AUT_Keyword Test
-    And with Keyword values: TEST,JP
-    Then Keyword List with name: AUT_Keyword Test should be created successfully
+  Scenario Outline: Create a Keyword List
+    When I am on Keyword Lists page
+    And I create a new Keyword List with name: <name>
+    And with Keyword values: <keywords>
+    Then Keyword List with name: <name> should be created successfully
+
+    Examples: 
+      | name             | keywords |
+      | AUT_Keyword Test | TEST,JP  |
 
   Scenario Outline: Verify user can select contains keyword as an operator (source: <source>)
-    When I create a Filter with filter name <filter name> and <source> as source
+    When I am on Create New Filter page
+    And I create a Filter with filter name <filter name> and <source> as source
     And with Filter Rule: <keyword> - <comparator> - <keyword value>
     And <filter name> has Action: <action>
     Then filter should be saved successfully

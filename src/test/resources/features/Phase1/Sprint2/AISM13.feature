@@ -26,5 +26,5 @@ Feature: AISM-13
     Then filter should not be saved
 
     Examples: 
-      | filter name               | source     | keyword | comparator | keyword value |
-      | AUT_TestSnowTicketAction3 | Nagios-Pet | Summary | Contains   | TEST          |
+      | filter name             | source     | keyword | comparator | keyword value |
+      | AUT_Snow_RequiredFields | Nagios-Pet | Summary | Contains   | TEST          |

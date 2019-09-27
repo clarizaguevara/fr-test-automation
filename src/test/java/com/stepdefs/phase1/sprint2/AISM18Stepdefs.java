@@ -53,7 +53,7 @@ public class AISM18Stepdefs implements En {
 		
 		Then("Slack channel field should be blank", () -> {
 			createNewFilterPage.clickSaveButton();
-			createNewFilterPage.verifyFilterSuccessfullySaved();
+			createNewFilterPage.verifyFilterSuccessfullySaved(true);
 			createJiraTicketActionPage.checkSlackChannelValue("");
 		});
 		
@@ -65,7 +65,7 @@ public class AISM18Stepdefs implements En {
 		
 		Then("Slack channel should be filled up", () -> {
 			createNewFilterPage.clickSaveButton();
-			createNewFilterPage.verifyFilterSuccessfullySaved();
+			createNewFilterPage.verifyFilterSuccessfullySaved(true);
 			createJiraTicketActionPage.checkSlackChannelValue(CommonConstants.SLACK_CHANNEL);
 		});
 	}

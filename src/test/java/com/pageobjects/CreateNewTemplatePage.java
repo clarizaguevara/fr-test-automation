@@ -46,6 +46,8 @@ public class CreateNewTemplatePage extends BasePage {
 	private WebElement label_preview;
 	
 	
+	/* Methods */
+	
 	/**
 	 * Select Template Type
 	 */
@@ -55,11 +57,10 @@ public class CreateNewTemplatePage extends BasePage {
 			driverHelper.clickButton(fld_templateType);
 			driverHelper.setValueDropdown(list_templateType, fld_templateType, templateType);
 			driverHelper.embedScreenshot(scenario);
-			log.exit();
 		} else {
 			Assert.assertTrue("Template Type field is not present", driverHelper.isElementPresent(fld_templateType));
-			log.exit();
 		}
+		log.exit();
 	}
 	
 	/**
@@ -70,11 +71,10 @@ public class CreateNewTemplatePage extends BasePage {
 		if(driverHelper.isElementPresent(fld_templateName)) {
 			driverHelper.inputFieldValue(fld_templateName, templateName);
 			driverHelper.embedScreenshot(scenario);
-			log.exit();
 		} else {
 			Assert.assertTrue("Template Name field is not present", driverHelper.isElementPresent(fld_templateName));
-			log.exit();
 		}
+		log.exit();
 	}
 	
 	/**
@@ -93,11 +93,10 @@ public class CreateNewTemplatePage extends BasePage {
 		log.entry();
 		if(driverHelper.isElementPresent(btn_ApplyChanges)) {
 			driverHelper.clickButton(btn_ApplyChanges);
-			log.exit();
 		} else {
 			Assert.assertTrue("Apply Changes button is not present", driverHelper.isElementPresent(btn_ApplyChanges));
-			log.exit();
 		}
+		log.exit();
 	}
 	
 	/**
@@ -118,11 +117,10 @@ public class CreateNewTemplatePage extends BasePage {
 		if(driverHelper.isElementPresent(btn_moveSelectedRight)) {
 			driverHelper.clickButton(btn_moveSelectedRight);
 			driverHelper.embedScreenshot(scenario);
-			log.exit();
 		} else {
 			Assert.assertTrue("Move selected right button is not present", driverHelper.isElementPresent(btn_moveSelectedRight));
-			log.exit();
 		}
+		log.exit();
 	}
 	
 	/**
@@ -134,11 +132,10 @@ public class CreateNewTemplatePage extends BasePage {
 			driverHelper.clickButton(btn_ApplyChangesPopUp_Apply);
 			driverHelper.explicitWait();
 			driverHelper.embedScreenshot(scenario);
-			log.exit();
 		} else {
 			Assert.assertTrue("Apply button is not present", driverHelper.isElementPresent(btn_ApplyChangesPopUp_Apply));
-			log.exit();
 		}
+		log.exit();
 	}
 	
 	/**
@@ -149,11 +146,10 @@ public class CreateNewTemplatePage extends BasePage {
 		if(driverHelper.isElementPresent(btn_ApplyChangesPopUp_Cancel)) {
 			driverHelper.clickButton(btn_ApplyChangesPopUp_Cancel);
 			driverHelper.embedScreenshot(scenario);
-			log.exit();
 		} else {
 			Assert.assertTrue("Cancel button is not present", driverHelper.isElementPresent(btn_ApplyChangesPopUp_Cancel));
-			log.exit();
 		}
+		log.exit();
 	}
 	
 	/**
@@ -162,20 +158,19 @@ public class CreateNewTemplatePage extends BasePage {
 	public void verifyTemplateVersionOfFilters(String versionNumber) {
 		log.entry();
 		int current_versionNumber = Integer.parseInt(versionNumber.substring(1));
-		log.info("Current template version: " + current_versionNumber);
+		//log.info("Current template version: " + current_versionNumber);
 		By label_versionNumber = By.xpath("//p[contains(@class,'MuiListItemText-secondary')]");
 		
 		if(!driverHelper.isElementPresent(label_versionNumber)) {
 			Assert.assertTrue("Version number is not indicated", driverHelper.isElementPresent(label_versionNumber));
-			log.exit();
 		} else {
 			List<WebElement> list_fld_versionNumbers = driver.findElements(label_versionNumber);
 			for (WebElement selected_versionNumber : list_fld_versionNumbers) {
 				int int_selected_versionNumber = Integer.parseInt((selected_versionNumber.getText()).substring(1));
 				Assert.assertTrue("Version is not an old version", int_selected_versionNumber < current_versionNumber); 
 			}
-			log.exit();
 		}
+		log.exit();
 	}
 	
 	/**
@@ -187,7 +182,6 @@ public class CreateNewTemplatePage extends BasePage {
 		
 		if(!driverHelper.isElementPresent(label_filterName)) {
 			Assert.assertTrue("Filter name is not indicated", driverHelper.isElementPresent(label_filterName));
-			log.exit();
 		} else {
 			List<WebElement> list_fld_filterNames = driver.findElements(label_filterName);
 			for (WebElement selected_filterName : list_fld_filterNames) {
@@ -196,14 +190,13 @@ public class CreateNewTemplatePage extends BasePage {
 					if(driverHelper.isElementPresent(btn_filter)) {
 						driverHelper.clickButton(btn_filter);
 						driverHelper.embedScreenshot(scenario);
-						log.exit();
 					} else {
 						Assert.assertTrue("Checkbox of filter " + selected_filterName.getText() + " is not present", driverHelper.isElementPresent(btn_filter));
-						log.exit();
 					}
 				}
 			}
 		}
+		log.exit();
 	}
 	
 	/**
@@ -215,7 +208,6 @@ public class CreateNewTemplatePage extends BasePage {
 		
 		if(!driverHelper.isElementPresent(label_filterName)) {
 			Assert.assertTrue("Filter name is not indicated", driverHelper.isElementPresent(label_filterName));
-			log.exit();
 		} else {
 			List<WebElement> list_fld_filterNames = driver.findElements(label_filterName);
 			for (WebElement selected_filterName : list_fld_filterNames) {
@@ -226,14 +218,13 @@ public class CreateNewTemplatePage extends BasePage {
 						ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
 						driver.switchTo().window(tabs.get(1));
 						driverHelper.waitForPageLoaded();
-						log.exit();
 					} else {
 						Assert.assertTrue("Preview button of filter " + selected_filterName.getText() + " is not present", driverHelper.isElementPresent(btn_preview));
-						log.exit();
 					}
 				}
 			}
 		}
+		log.exit();
 	}
 	
 	/**

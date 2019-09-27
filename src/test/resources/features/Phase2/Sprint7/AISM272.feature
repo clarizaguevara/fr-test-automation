@@ -1,4 +1,4 @@
-@scenarios @AISM272 @Phase2 @Phase2-Sprint7 @Regression
+@scenarios @AISM272 @Phase2 @Phase2-Sprint7
 Feature: AISM-272
   As an Tool Administrator
   I can configure so that EvA can get field from Whats Up Gold alerts.

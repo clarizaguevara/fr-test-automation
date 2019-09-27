@@ -15,8 +15,8 @@ Feature: AISM-274
     Then filter should be saved successfully
 
     Examples: 
-      | filter name             | source     | variable name    | start string | end string | field   | keyword | comparator | keyword value |
-      | AUT_TestVariable_Single | Nagios-Pet | AUT_TestVariable | TEST         | summary    | Summary | Summary | Contains   | something     |
+      | filter name         | source     | variable name    | start string | end string | field   | keyword | comparator | keyword value |
+      | AUT_Variable_Single | Nagios-Pet | AUT_TestVariable | TEST         | summary    | Summary | Summary | Contains   | something     |
 
   Scenario Outline: Verify that user can define multiple Variables
     When I am on Create New Filter page
@@ -28,8 +28,8 @@ Feature: AISM-274
     Then filter should be saved successfully
 
     Examples: 
-      | filter name               | source     | variable1                              | variable2                                                       | keyword | comparator | keyword value |
-      | AUT_TestVariable_Multiple | Nagios-Pet | AUT_TestVariable1-TEST-summary-Summary | AUT_TestVariable2-TEST-(end delimeter not included)-Description | Summary | Contains   | something     |
+      | filter name           | source     | variable1                              | variable2                                                       | keyword | comparator | keyword value |
+      | AUT_Variable_Multiple | Nagios-Pet | AUT_TestVariable1-TEST-summary-Summary | AUT_TestVariable2-TEST-(end delimeter not included)-Description | Summary | Contains   | something     |
 
   Scenario Outline: Verify that user can edit a Variable
     When I go back to Browse page and open filter <filter name>
@@ -37,8 +37,8 @@ Feature: AISM-274
     Then filter should be saved successfully
 
     Examples: 
-      | filter name             | variable name    | start string | end string  | field       |
-      | AUT_TestVariable_Single | AUT_TestVariable | TEST         | description | Description |
+      | filter name         | variable name    | start string | end string  | field       |
+      | AUT_Variable_Single | AUT_TestVariable | TEST         | description | Description |
 
   Scenario Outline: Verify that Variable can not be deleted if is in use
     When I go back to Browse page and open filter <filter name>
@@ -47,8 +47,8 @@ Feature: AISM-274
     Then variable <variable name> can not be removed
 
     Examples: 
-      | filter name             | frequency | time value | time unit | variable name    |
-      | AUT_TestVariable_Single |         2 |          1 | Minutes   | AUT_TestVariable |
+      | filter name         | frequency | time value | time unit | variable name    |
+      | AUT_Variable_Single |         2 |          1 | Minutes   | AUT_TestVariable |
 
   Scenario Outline: Verify that user can delete a Variable
     When I go back to Browse page and open filter <filter name>
@@ -57,8 +57,8 @@ Feature: AISM-274
     And variable <variable name> should be removed
 
     Examples: 
-      | filter name             | variable name    |
-      | AUT_TestVariable_Single | AUT_TestVariable |
+      | filter name         | variable name    |
+      | AUT_Variable_Single | AUT_TestVariable |
 
   Scenario Outline: Verify that Variables should have a unique name
     When I am on Create New Filter page
@@ -70,8 +70,8 @@ Feature: AISM-274
     Then filter should not be saved
 
     Examples: 
-      | filter name           | source     | variable1                              | variable2                                                       | keyword | comparator | keyword value |
-      | AUT_TestVariable_Name | Nagios-Pet | AUT_TestVariable1-TEST-summary-Summary | AUT_TestVariable1-TEST-(end delimeter not included)-Description | Summary | Contains   | something     |
+      | filter name       | source     | variable1                              | variable2                                                       | keyword | comparator | keyword value |
+      | AUT_Variable_Name | Nagios-Pet | AUT_TestVariable1-TEST-summary-Summary | AUT_TestVariable1-TEST-(end delimeter not included)-Description | Summary | Contains   | something     |
 
   Scenario Outline: Verify mandatory fields for Variables
     When I am on Create New Filter page
@@ -89,8 +89,8 @@ Feature: AISM-274
     Then filter should be saved successfully
 
     Examples: 
-      | filter name                      | source     | variable name    | start string | end string | field   | keyword | comparator | keyword value |
-      | AUT_TestVariable_MandatoryFields | Nagios-Pet | AUT_TestVariable | TEST         | summary    | Summary | Summary | Contains   | something     |
+      | filter name                  | source     | variable name    | start string | end string | field   | keyword | comparator | keyword value |
+      | AUT_Variable_MandatoryFields | Nagios-Pet | AUT_TestVariable | TEST         | summary    | Summary | Summary | Contains   | something     |
 
   Scenario Outline: Verify that user can delete a filter with variable
     When I go back to Browse page and open filter <filter name>
@@ -98,5 +98,5 @@ Feature: AISM-274
     Then filter <filter name> should be successfully deleted
 
     Examples: 
-      | filter name               |
-      | AUT_TestVariable_Multiple |
+      | filter name           |
+      | AUT_Variable_Multiple |

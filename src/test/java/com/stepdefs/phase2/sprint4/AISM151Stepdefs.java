@@ -1,5 +1,6 @@
 package com.stepdefs.phase2.sprint4;
 
+import com.constants.CommonConstants;
 import com.pageobjects.ApplyTemplatesPage;
 import com.pageobjects.CreateNewFilterPage;
 import com.pageobjects.CreateNewTemplatePage;
@@ -19,7 +20,7 @@ public class AISM151Stepdefs implements En {
 			applyTemplatesPage.setDriver(hooks.getDriverHelper(), ScenarioHooks.getScenarioName());
 			applyTemplatesPage.verifyApplyTemplatesPopUp();
 			applyTemplatesPage.inputTemplateName(templateName);
-			applyTemplatesPage.verifyIfTemplateIsSelected(templateName);
+			applyTemplatesPage.verifyIfTemplateIsSelected(templateName, true);
 			applyTemplatesPage.clickApply();
 		});
 		
@@ -39,15 +40,14 @@ public class AISM151Stepdefs implements En {
 			applyTemplatesPage.setDriver(hooks.getDriverHelper(), ScenarioHooks.getScenarioName());
 			applyTemplatesPage.verifyApplyTemplatesPopUp();
 			applyTemplatesPage.inputTemplateName(templateName);
-			applyTemplatesPage.verifyIfTemplateIsNotSelected(templateName);
+			applyTemplatesPage.verifyIfTemplateIsSelected(templateName, false);
 			applyTemplatesPage.clickCancel();
 		});
 		
 		/*-----------------------------*/
 		
 		When("I go back to Templates Management page", () -> {
-			homePage.clickMaintenanceTab();
-			homePage.clickTemplatesManagement();
+			homePage.clickMaintenanceTab(CommonConstants.PAGE_MAINTENANCE_TEMPLATES);
 			templatesManagementPage.verifySuccessfulNavigationToTemplatesManagementPage();
 		});
 		

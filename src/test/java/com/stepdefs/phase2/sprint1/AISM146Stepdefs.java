@@ -15,15 +15,15 @@ public class AISM146Stepdefs implements En {
 		And("I am on Keyword Lists page", () -> {
 			homePage.setDriver(hooks.getDriverHelper(), ScenarioHooks.getScenarioName());
 			homePage.verifySuccessfulNavigationToHomePage();
-			homePage.clickMaintenanceTab();
-			homePage.clickKeywordLists();
+			homePage.clickMaintenanceTab(CommonConstants.PAGE_MAINTENANCE_KEYWORDS);
 			keywordListsPage.setDriver(hooks.getDriverHelper(), ScenarioHooks.getScenarioName());
 			keywordListsPage.verifySuccessfulNavigationToKeywordListsPage();
 		});
 		
-		And("I select Keyword Lists", () -> {
+		When("I select Keyword Lists", () -> {
 			homePage.setDriver(hooks.getDriverHelper(), ScenarioHooks.getScenarioName());
-			homePage.clickKeywordLists();
+			homePage.clickMaintenanceTab(CommonConstants.PAGE_MAINTENANCE_KEYWORDS);
+			keywordListsPage.setDriver(hooks.getDriverHelper(), ScenarioHooks.getScenarioName());
 		});
 		
 		When("I add new keyword list", () -> {
@@ -62,7 +62,7 @@ public class AISM146Stepdefs implements En {
 		
 		Then("I should be able to add keyword list successfully", () -> {
 			keywordListsPage.setDriver(hooks.getDriverHelper(), ScenarioHooks.getScenarioName());
-			keywordListsPage.verifyKeywordListIsSaved(CommonConstants.KEYWORD_LISTNAME);
+			keywordListsPage.verifyKeywordListIsSaved(CommonConstants.KEYWORD_LISTNAME, true);
 		});
 		
 		Then("I should be able to edit keyword list successfully", () -> {
@@ -72,12 +72,12 @@ public class AISM146Stepdefs implements En {
 		
 		Then("I should be able to delete keyword list successfully", () -> {
 			keywordListsPage.setDriver(hooks.getDriverHelper(), ScenarioHooks.getScenarioName());
-			keywordListsPage.verifyKeywordListIsDeleted(CommonConstants.KEYWORD_LISTNAME_EDITED);
+			keywordListsPage.isKeywordListPresent(CommonConstants.KEYWORD_LISTNAME_EDITED, false);
 		});
 		
 		Then("Keyword list should not be added successfully", () -> {
 			keywordListsPage.setDriver(hooks.getDriverHelper(), ScenarioHooks.getScenarioName());
-			keywordListsPage.verifyKeywordListIsNotSaved();
+			keywordListsPage.verifyKeywordListIsSaved(CommonConstants.KEYWORD_LISTNAME, false);
 		});
 	}
 }

@@ -17,7 +17,5 @@ Feature: AISM-275
     Then filter should be saved successfully
 
     Examples: 
-      | filter name                        | source     | variable name          | start string | end string                   | field   | keyword | comparator | keyword value | frequency | time value | time unit |
-      | AUT_TestVariable_Correlation_NP    | Nagios-Pet | AUT_TestVariable_NP    | TEST         | summary                      | Summary | Summary | Contains   | something     |         2 |          2 | Minutes   |
-      | AUT_TestVariable_Correlation_Email | Email      | AUT_TestVariable_Email | [FIRING:1]   | (end delimeter not included) | Subject | Subject | Contains   | RDS           |         2 |          2 | Minutes   |
-      | AUT_TestVariable_Correlation_EWUG  | Email WUG  | AUT_TestVariable_EWUG  | FRCN         | min                          | State   | State   | Contains   | Firewall      |         2 |          2 | Minutes   |
+      | filter name              | source    | variable name         | start string | end string | field | keyword | comparator | keyword value | frequency | time value | time unit |
+      | AUT_Variable_Correlation | Email WUG | AUT_TestVariable_EWUG | FRCN         | min        | State | State   | Contains   | Firewall      |         2 |          2 | Minutes   |

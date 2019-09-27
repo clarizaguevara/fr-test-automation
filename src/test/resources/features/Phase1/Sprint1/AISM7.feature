@@ -27,8 +27,8 @@ Feature: AISM-7
     Then filter should be saved successfully
 
     Examples: 
-      | filter name                | source     | keyword     | comparator | keyword value |
-      | AUT_TestSlackActionFilter3 | Nagios-Pet | Description | Contains   | TEST          |
+      | filter name                       | source     | keyword     | comparator | keyword value |
+      | AUT_Slack_IncludeOriginalAlertMsg | Nagios-Pet | Description | Contains   | TEST          |
 
   @Regression
   Scenario Outline: Verify EvA can send mention
@@ -39,8 +39,8 @@ Feature: AISM-7
     Then filter should be saved successfully
 
     Examples: 
-      | filter name                | source       | keyword | comparator | keyword value |
-      | AUT_TestSlackActionFilter4 | Cisco Meraki | Country | Equals     | JP            |
+      | filter name       | source       | keyword | comparator | keyword value |
+      | AUT_Slack_Mention | Cisco Meraki | Country | Equals     | JP            |
 
   @Regression
   Scenario Outline: Verify filter is not saved when Slack Channel field is blank
@@ -51,5 +51,5 @@ Feature: AISM-7
     Then filter should not be saved
 
     Examples: 
-      | filter name                | source       | keyword     | comparator | keyword value |
-      | AUT_TestSlackActionFilter5 | Cisco Meraki | Mac Address | Contains   | e0:55:        |
+      | filter name             | source       | keyword     | comparator | keyword value |
+      | AUT_Slack_RequiredField | Cisco Meraki | Mac Address | Contains   | e0:55:        |

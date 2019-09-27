@@ -51,11 +51,10 @@ public class ApplyTemplatesPage extends BasePage {
 			driverHelper.embedScreenshot(scenario);
 			driverHelper.clickButton(btn_ApplyTemplatesPopUp_Apply);
 			driverHelper.explicitWait();
-			log.exit();
 		} else {
-			log.info("Apply button is not present.");
-			log.exit();
+			Assert.assertTrue("Apply button is not present", driverHelper.isElementPresent(btn_ApplyTemplatesPopUp_Apply));
 		}
+		log.exit();
 	}
 	
 	/**
@@ -67,32 +66,30 @@ public class ApplyTemplatesPage extends BasePage {
 			driverHelper.embedScreenshot(scenario);
 			driverHelper.clickButton(btn_ApplyTemplatesPopUp_Cancel);
 			driverHelper.explicitWait();
-			log.exit();
 		} else {
-			log.info("Cancel button is not present.");
-			log.exit();
+			Assert.assertTrue("Cancel button is not present", driverHelper.isElementPresent(btn_ApplyTemplatesPopUp_Cancel));
 		}
+		log.exit();
 	}
 	
 	/**
 	 * Verify if template is selected
 	 */
-	public void verifyIfTemplateIsSelected(String templateName) {
+	public void verifyIfTemplateIsSelected(String templateName, boolean shouldBeSelected) {
 		log.entry();
 		driverHelper.embedScreenshot(scenario);
 		By fld_selectedTemplate = By.xpath("//th[text()='Templates selected:']//following::td[text()='" + templateName + "']");
-		Assert.assertTrue("Template is not selected", driverHelper.isElementPresent(fld_selectedTemplate));
-		log.exit();
-	}
-	
-	/**
-	 * Verify if template is not selected
-	 */
-	public void verifyIfTemplateIsNotSelected(String templateName) {
-		log.entry();
-		driverHelper.embedScreenshot(scenario);
-		By fld_selectedTemplate = By.xpath("//th[text()='Templates selected:']//following::td[text()='" + templateName + "']");
-		Assert.assertFalse("Template is selected", driverHelper.isElementPresent(fld_selectedTemplate));
+		boolean isTemplateSelected = false;
+		
+		if(driverHelper.isElementPresent(fld_selectedTemplate)) {
+			isTemplateSelected = true;
+		} else {
+			isTemplateSelected = false;
+		}
+		
+		if(isTemplateSelected != shouldBeSelected) {
+			Assert.assertTrue(templateName + " is selected? Expected: " + shouldBeSelected + " Actual: " + isTemplateSelected, false);
+		}
 		log.exit();
 	}
 	
@@ -124,11 +121,10 @@ public class ApplyTemplatesPage extends BasePage {
 			driverHelper.explicitWait();
 			builder.moveToElement(page_ApplyTemplatesPopUp, xOffset, yOffset).click().build().perform();
 			driverHelper.embedScreenshot(scenario);
-			log.exit();
 		} else {
-			log.info("Input template field is not present.");
-			log.exit();
+			Assert.assertTrue("Input template field is not present", driverHelper.isElementPresent(fld_searchTemplate));
 		}
+		log.exit();
 	}
 
 }

@@ -23,7 +23,7 @@ public class AISM145Stepdefs implements En {
 		});
 		
 		Then("Keyword List with name: (.*) should be created successfully", (String keywordName) -> {
-			keywordListsPage.verifyKeywordListIsSaved(keywordName);
+			keywordListsPage.verifyKeywordListIsSaved(keywordName, true);
 		});
 		
 		And("with comparator: Contains Keywords (.*)", (String keywordValue) -> {

@@ -17,5 +17,5 @@ Feature: AISM-218
     Then filter should be saved successfully
 
     Examples: 
-      | filter name            | source     | keyword     | comparator | keyword value |
-      | AUT_TestSNOWMandatory1 | Nagios-Pet | Description | Contains   | warn          |
+      | filter name                | source     | keyword     | comparator | keyword value |
+      | AUT_Snow_NonRequiredFields | Nagios-Pet | Description | Contains   | warn          |

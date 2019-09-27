@@ -1,6 +1,5 @@
 package com.pageobjects;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
@@ -13,6 +12,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.FindBys;
 
+import com.constants.CommonConstants;
 import com.utils.DataHelper;
 
 public class AccessManagementPage extends BasePage {
@@ -115,11 +115,10 @@ public class AccessManagementPage extends BasePage {
 		if(driverHelper.isElementPresent(btn_addUser)) {
 			driverHelper.clickButton(btn_addUser);
 			driverHelper.waitForPageLoaded();
-			log.exit();
 		} else {
-			System.out.println("Add User button is not present.");
-			log.exit();
+			Assert.assertTrue("Add User button is not present.", driverHelper.isElementPresent(btn_addUser));
 		}
+		log.exit();
 	}
 	
 	/**
@@ -130,11 +129,10 @@ public class AccessManagementPage extends BasePage {
 		if(driverHelper.isElementPresent(btn_roles)) {
 			driverHelper.clickButton(btn_roles);
 			driverHelper.waitForPageLoaded();
-			log.exit();
 		} else {
-			System.out.println("Roles button is not present.");
-			log.exit();
+			Assert.assertTrue("Roles button is not present.", driverHelper.isElementPresent(btn_roles));
 		}
+		log.exit();
 	}
 	
 	/**
@@ -145,11 +143,10 @@ public class AccessManagementPage extends BasePage {
 		if(driverHelper.isElementPresent(btn_addRole)) {
 			driverHelper.clickButton(btn_addRole);
 			driverHelper.waitForPageLoaded();
-			log.exit();
 		} else {
-			System.out.println("Add Role button is not present.");
-			log.exit();
+			Assert.assertTrue("Add Role button is not present.", driverHelper.isElementPresent(btn_addRole));
 		}
+		log.exit();
 	}
 	
 	/**
@@ -161,11 +158,10 @@ public class AccessManagementPage extends BasePage {
 		if(driverHelper.isElementPresent(btn_delete)) {
 			driverHelper.clickButton(btn_delete);
 			driverHelper.waitForPageLoaded();
-			log.exit();
 		} else {
-			System.out.println("Delete button is not present.");
-			log.exit();
+			Assert.assertTrue("Delete button of " + name + " is not present.", driverHelper.isElementPresent(btn_delete));
 		}
+		log.exit();
 	}
 	
 	/**
@@ -243,11 +239,10 @@ public class AccessManagementPage extends BasePage {
 			driverHelper.clickButton(btn_save);
 			driverHelper.waitForPageLoaded();
 			driverHelper.explicitWait();
-			log.exit();
 		} else {
-			System.out.println("Save button is not present.");
-			log.exit();
+			Assert.assertTrue("Save button is not present.", driverHelper.isElementPresent(btn_save));
 		}
+		log.exit();
 	}
 	
 	/**
@@ -259,11 +254,10 @@ public class AccessManagementPage extends BasePage {
 			driverHelper.clickButton(btn_deleteUser);
 			driverHelper.waitForPageLoaded();
 			driverHelper.explicitWait();
-			log.exit();
 		} else {
-			System.out.println("Delete user button is not present.");
-			log.exit();
+			Assert.assertTrue("Delete user button is not present.", driverHelper.isElementPresent(btn_deleteUser));
 		}
+		log.exit();
 	}
 	
 	/**
@@ -275,11 +269,10 @@ public class AccessManagementPage extends BasePage {
 			driverHelper.clickButton(btn_deleteRole);
 			driverHelper.waitForPageLoaded();
 			driverHelper.explicitWait();
-			log.exit();
 		} else {
-			System.out.println("Delete role button is not present.");
-			log.exit();
+			Assert.assertTrue("Delete role button is not present.", driverHelper.isElementPresent(btn_deleteRole));
 		}
+		log.exit();
 	}
 	
 	/**
@@ -290,11 +283,10 @@ public class AccessManagementPage extends BasePage {
 		if(driverHelper.isElementPresent(btn_cancel)) {
 			driverHelper.clickButton(btn_cancel);
 			driverHelper.waitForPageLoaded();
-			log.exit();
 		} else {
-			System.out.println("Cancel button is not present.");
-			log.exit();
+			Assert.assertTrue("Cancel button is not present.", driverHelper.isElementPresent(btn_cancel));
 		}
+		log.exit();
 	}
 	
 	/**
@@ -306,11 +298,10 @@ public class AccessManagementPage extends BasePage {
 			driverHelper.clearText(fld_employeeId);
 			driverHelper.inputFieldValue(fld_employeeId, employeeId);
 			driverHelper.embedScreenshot(scenario);
-			log.exit();
 		} else {
-			System.out.println("Employee Id field is not present.");
-			log.exit();
+			Assert.assertTrue("Employee Id field is not present.", driverHelper.isElementPresent(fld_employeeId));
 		}
+		log.exit();
 	}
 	
 	/**
@@ -322,11 +313,10 @@ public class AccessManagementPage extends BasePage {
 			driverHelper.clearText(fld_name);
 			driverHelper.inputFieldValue(fld_name, name);
 			driverHelper.embedScreenshot(scenario);
-			log.exit();
 		} else {
-			System.out.println("Name field is not present.");
-			log.exit();
+			Assert.assertTrue("Name field is not present.", driverHelper.isElementPresent(fld_name));
 		}
+		log.exit();
 	}
 	
 	/**
@@ -338,11 +328,10 @@ public class AccessManagementPage extends BasePage {
 			driverHelper.clickButton(fld_role);
 			driverHelper.setValueDropdown(list_role, fld_role, role);
 			driverHelper.embedScreenshot(scenario);
-			log.exit();
 		} else {
-			System.out.println("Role field is not present.");
-			log.exit();
+			Assert.assertTrue("Role field is not present.", driverHelper.isElementPresent(fld_role));
 		}
+		log.exit();
 	}
 	
 	/**
@@ -355,10 +344,10 @@ public class AccessManagementPage extends BasePage {
 			driverHelper.inputFieldValue(fld_dateFrom, dateFrom);
 			driverHelper.clickEnter(fld_dateFrom);
 			driverHelper.embedScreenshot(scenario);
-			log.exit();
 		} else {
-			System.out.println("From date field is not present.");
+			Assert.assertTrue("From date field is not present.", driverHelper.isElementPresent(fld_dateFrom));
 		}
+		log.exit();
 	}
 	
 	/**
@@ -371,10 +360,10 @@ public class AccessManagementPage extends BasePage {
 			driverHelper.inputFieldValue(fld_dateTo, dateTo);
 			driverHelper.clickEnter(fld_dateTo);
 			driverHelper.embedScreenshot(scenario);
-			log.exit();
 		} else {
-			System.out.println("To date field is not present.");
+			Assert.assertTrue("To date field is not present.", driverHelper.isElementPresent(fld_dateTo));
 		}
+		log.exit();
 	}
 	
 	/**
@@ -386,50 +375,49 @@ public class AccessManagementPage extends BasePage {
 			driverHelper.clearText(fld_roleName);
 			driverHelper.inputFieldValue(fld_roleName, roleName);
 			driverHelper.embedScreenshot(scenario);
-			log.exit();
 		} else {
-			System.out.println("Role Name field is not present.");
-			log.exit();
+			Assert.assertTrue("Role Name is not present.", driverHelper.isElementPresent(fld_roleName));
 		}
-	}
-	
-	/**
-	 * Verify that user is successfully added
-	 */
-	public void verifySuccessfulSavingOfUser() {
-		log.entry();
-		driverHelper.embedScreenshot(scenario);
-		Assert.assertTrue("User is not added", driverHelper.isElementPresent(label_successfullyAddedUser));
 		log.exit();
 	}
 	
 	/**
-	 * Verify that role is successfully added
+	 * Verify if user is saved
 	 */
-	public void verifySuccessfulSavingOfRole() {
+	public void verifySuccessfulSavingOfUser(boolean shouldBeSaved) {
 		log.entry();
 		driverHelper.embedScreenshot(scenario);
-		Assert.assertTrue("Role is not added", driverHelper.isElementPresent(label_successfullyAddedRole));
+		boolean isUserSaved = false;
+		
+		if(driverHelper.isElementPresent(label_successfullyAddedUser)) {
+			isUserSaved = true;
+		} else {
+			isUserSaved = false;
+		}
+		
+		if(isUserSaved != shouldBeSaved) {
+			Assert.assertTrue("Is user saved? Expected: " + shouldBeSaved + " Actual: " + isUserSaved, false);
+		}
 		log.exit();
 	}
 	
 	/**
-	 * Verify that user is not successfully added
+	 * Verify if role is saved
 	 */
-	public void verifyUnsuccessfulSavingOfUser() {
+	public void verifySuccessfulSavingOfRole(boolean shouldBeSaved) {
 		log.entry();
 		driverHelper.embedScreenshot(scenario);
-		Assert.assertTrue("User is added", driverHelper.isElementNotPresent(label_successfullyAddedUser));
-		log.exit();
-	}
-	
-	/**
-	 * Verify that role is not successfully added
-	 */
-	public void verifyUnsuccessfulSavingOfRole() {
-		log.entry();
-		driverHelper.embedScreenshot(scenario);
-		Assert.assertTrue("Role is added", driverHelper.isElementNotPresent(label_successfullyAddedRole));
+		boolean isRoleSaved = false;
+		
+		if(driverHelper.isElementPresent(label_successfullyAddedRole)) {
+			isRoleSaved = true;
+		} else {
+			isRoleSaved = false;
+		}
+		
+		if(isRoleSaved != shouldBeSaved) {
+			Assert.assertTrue("Is role saved? Expected: " + shouldBeSaved + " Actual: " + isRoleSaved, false);
+		}
 		log.exit();
 	}
 	
@@ -443,8 +431,7 @@ public class AccessManagementPage extends BasePage {
 			driverHelper.clickButton(fld_name);
 			driverHelper.waitForPageLoaded();	
 		} else {
-			System.out.println("User is not present.");
-			log.exit();
+			Assert.assertTrue(name + " is not present.", driverHelper.isElementPresent(fld_name));
 		}
 		log.exit();
 	}
@@ -477,12 +464,22 @@ public class AccessManagementPage extends BasePage {
 	}
 	
 	/**
-	 * Verify if User is deleted
+	 * Verify if User/Role is present in table
 	 */
-	public void verifyIfDeleted(String name) {
+	public void verifyIfUserRoleIsPresent(String name, boolean shouldBePresent) {
 		log.entry();
 		By fld_user = By.xpath("//td[text()='" + name + "']");
-		Assert.assertFalse("User is present", driverHelper.isElementPresent(fld_user));
+		boolean isPresent = false;
+		
+		if(driverHelper.isElementPresent(fld_user)) {
+			isPresent = true;
+		} else {
+			isPresent = false;
+		}
+		
+		if(isPresent != shouldBePresent) {
+			Assert.assertTrue("Is user/role present? Expected: " + shouldBePresent + " Actual: " + isPresent, false);
+		}
 		log.exit();
 	}
 	
@@ -491,13 +488,8 @@ public class AccessManagementPage extends BasePage {
 	 */
 	public void selectRoles(String roleNames) {
 		log.entry();
-		ArrayList<String> LOV_ROLES = 
-				new ArrayList<>(Arrays.asList("FILTER_CREATE","FILTER_READ","FILTER_UPDATE","FILTER_DELETE",
-						"USER_CREATE","USER_READ","USER_UPDATE","USER_DELETE",
-						"ROLE_CREATE","ROLE_READ","ROLE_UPDATE","ROLE_DELETE",
-						"PRIVILEGE_CREATE","PRIVILEGE_READ","PRIVILEGE_UPDATE","PRIVILEGE_DELETE",
-						"FIELD_CREATE","FIELD_READ","FIELD_UPDATE","FIELD_DELETE",
-						"KEYWORD_CREATE","KEYWORD_READ","KEYWORD_UPDATE","KEYWORD_DELETE"));
+		String all_roles = CommonConstants.LOV_ROLES.replaceAll("\\[|\\]|\\s", "");
+		List<String> LOV_ROLES = Arrays.asList(all_roles.split(","));
 		List<String> selectedRoles = Arrays.asList(roleNames.split(","));
     	
     	for (int counter = 0; counter < LOV_ROLES.size(); counter++) {

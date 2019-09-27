@@ -19,5 +19,5 @@ Feature: AISM-215
     Then Slack channel field of SNOW action should be filled up
 
     Examples: 
-      | filter name           | source     | keyword     | comparator | keyword value |
-      | AUT_TestSNOWTicketURL | Nagios-Pet | Description | Contains   | warn          |
+      | filter name        | source     | keyword     | comparator | keyword value |
+      | AUT_Snow_TicketURL | Nagios-Pet | Description | Contains   | warn          |

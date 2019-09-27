@@ -1,4 +1,4 @@
-@scenarios @AISM136 @Phase2 @Phase2-Sprint4 @Regression
+@scenarios @AISM136 @Phase2 @Phase2-Sprint4
 Feature: AISM-136
   Can filter alerts by source of Slack channel
 

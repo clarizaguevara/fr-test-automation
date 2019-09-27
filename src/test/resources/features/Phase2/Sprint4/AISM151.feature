@@ -16,9 +16,9 @@ Feature: Templates
     Then template should be saved successfully
 
     Examples: 
-      | template name       | template type | source       | keyword | comparator | keyword value | action        |
-      | AUT_TestTemplate_NP | Master        | Nagios-Pet   | Summary | Equals     | TEST          | Send to Slack |
-      | AUT_TestTemplate_CM | Master        | Cisco Meraki | Country | Equals     | JP            | Send to Slack |
+      | template name   | template type | source       | keyword | comparator | keyword value | action        |
+      | AUT_Template_NP | Master        | Nagios-Pet   | Summary | Equals     | TEST          | Send to Slack |
+      | AUT_Template_CM | Master        | Cisco Meraki | Country | Equals     | JP            | Send to Slack |
 
   Scenario Outline: Create Filters
     When I am on Create New Filter page
@@ -28,9 +28,9 @@ Feature: Templates
     Then filter should be saved successfully
 
     Examples: 
-      | filter name     | source     | keyword     | comparator  | keyword value | action             |
-      | AUT_TestFilter1 | Nagios-Pet | Summary     | Begins With | warning       | Create Jira Ticket |
-      | AUT_TestFilter2 | Nagios-Pet | Description | Ends With   | error         | Send Email         |
+      | filter name          | source     | keyword     | comparator  | keyword value | action             |
+      | AUT_Template_Filter1 | Nagios-Pet | Summary     | Begins With | warning       | Create Jira Ticket |
+      | AUT_Template_Filter2 | Nagios-Pet | Description | Ends With   | error         | Send Email         |
 
   @ApplyTemplate
   Scenario Outline: [AISM-151] Verify that when a template is selected, the filter conditions & actions in the template will be automatically applied
@@ -40,8 +40,8 @@ Feature: Templates
     And filter conditions and actions of <template name> <version> should be applied
 
     Examples: 
-      | filter name     | template name       | version |
-      | AUT_TestFilter1 | AUT_TestTemplate_NP | v1      |
+      | filter name          | template name   | version |
+      | AUT_Template_Filter1 | AUT_Template_NP | v1      |
 
   @ApplyTemplate
   Scenario Outline: [AISM-151] Verify that filter and template should have the same Source
@@ -52,8 +52,8 @@ Feature: Templates
     And filter conditions and actions of <template name2> <version> should be applied
 
     Examples: 
-      | filter name     | template name       | template name2      | version |
-      | AUT_TestFilter2 | AUT_TestTemplate_CM | AUT_TestTemplate_NP | v1      |
+      | filter name          | template name   | template name2  | version |
+      | AUT_Template_Filter2 | AUT_Template_CM | AUT_Template_NP | v1      |
 
   @Propagate
   Scenario Outline: [AISM-150] Verify that pressing the Apply changes button will show the list of filters that uses the old version of the template
@@ -67,8 +67,8 @@ Feature: Templates
     Then it should list all filters that uses the template with version older than <new version>
 
     Examples: 
-      | template name       | keyword     | comparator | keyword value | new version |
-      | AUT_TestTemplate_NP | Description | Contains   | TEST          | v2          |
+      | template name   | keyword     | comparator | keyword value | new version |
+      | AUT_Template_NP | Description | Contains   | TEST          | v2          |
 
   @Propagate
   Scenario Outline: [AISM-150] Verify that the changes in Template should only be applied to the selected Filter
@@ -82,8 +82,8 @@ Feature: Templates
     Then filter conditions and actions of <template name> <old version> should be applied
 
     Examples: 
-      | template name       | version | filter name     | filter name2    | old version |
-      | AUT_TestTemplate_NP | v2      | AUT_TestFilter1 | AUT_TestFilter2 | v1          |
+      | template name   | version | filter name          | filter name2         | old version |
+      | AUT_Template_NP | v2      | AUT_Template_Filter1 | AUT_Template_Filter2 | v1          |
 
   @PreviewFilter
   Scenario Outline: [AISM-156] Verify that user can see the preview of a Filter
@@ -94,5 +94,5 @@ Feature: Templates
     Then it should show the contents of <filter name> and <template name> <old version> should be applied
 
     Examples: 
-      | template name       | version | filter name     | old version |
-      | AUT_TestTemplate_NP | v2      | AUT_TestFilter2 | v1          |
+      | template name   | version | filter name          | old version |
+      | AUT_Template_NP | v2      | AUT_Template_Filter2 | v1          |

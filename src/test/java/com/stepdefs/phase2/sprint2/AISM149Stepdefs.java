@@ -1,5 +1,6 @@
 package com.stepdefs.phase2.sprint2;
 
+import com.constants.CommonConstants;
 import com.pageobjects.CreateNewFilterPage;
 import com.pageobjects.CreateNewTemplatePage;
 import com.pageobjects.DeleteFilterPage;
@@ -18,16 +19,15 @@ public class AISM149Stepdefs implements En {
 		And("I am on Templates Management page", () -> {
 			homePage.setDriver(hooks.getDriverHelper(), ScenarioHooks.getScenarioName());
 			homePage.verifySuccessfulNavigationToHomePage();
-			homePage.clickMaintenanceTab();
-			homePage.clickTemplatesManagement();
+			homePage.clickMaintenanceTab(CommonConstants.PAGE_MAINTENANCE_TEMPLATES);
 			templatesManagementPage.setDriver(hooks.getDriverHelper(), ScenarioHooks.getScenarioName());
 			templatesManagementPage.verifySuccessfulNavigationToTemplatesManagementPage();
 		});
 		
 		/*-----------------------------*/
 		
-		And("I select Templates Management", () -> {
-			homePage.clickTemplatesManagement();
+		When("I select Templates Management", () -> {
+			homePage.clickMaintenanceTab(CommonConstants.PAGE_MAINTENANCE_TEMPLATES);
 			templatesManagementPage.setDriver(hooks.getDriverHelper(), ScenarioHooks.getScenarioName());
 		});
 		
@@ -50,14 +50,14 @@ public class AISM149Stepdefs implements En {
 		
 		Then("template should be saved successfully", () -> {
 			createNewFilterPage.clickSaveButton();
-			createNewFilterPage.verifyFilterSuccessfullySaved();
+			createNewFilterPage.verifyFilterSuccessfullySaved(true);
 		});
 		
 		/*-----------------------------*/
 		
 		Then("template should not be saved", () -> {
 			createNewFilterPage.clickSaveButton();
-			createNewFilterPage.verifyFilterisNOTSuccessfullySaved();
+			createNewFilterPage.verifyFilterSuccessfullySaved(false);
 		});
 		
 		/*-----------------------------*/
@@ -65,8 +65,7 @@ public class AISM149Stepdefs implements En {
 		When("I go back to Template Browse page and open template (.*)", (String templateName) -> {
 			homePage.setDriver(hooks.getDriverHelper(), ScenarioHooks.getScenarioName());
 			homePage.verifySuccessfulNavigationToHomePage();
-			homePage.clickMaintenanceTab();
-			homePage.clickTemplatesManagement();
+			homePage.clickMaintenanceTab(CommonConstants.PAGE_MAINTENANCE_TEMPLATES);
 			templatesManagementPage.setDriver(hooks.getDriverHelper(), ScenarioHooks.getScenarioName());
 			templatesManagementPage.verifySuccessfulNavigationToTemplatesManagementPage();
 			templatesManagementPage.selectTemplateInList(templateName);
@@ -75,8 +74,8 @@ public class AISM149Stepdefs implements En {
 		});
 		
 		Then("template (.*) should be editted successfully with new Filter rule values: (.*) (.*) (.*)", (String templateName, String keyword, String comparator, String keywordValue) -> {
-			homePage.clickMaintenanceTab();
-			homePage.clickTemplatesManagement();
+			homePage.clickMaintenanceTab(CommonConstants.PAGE_MAINTENANCE_TEMPLATES);
+			templatesManagementPage.setDriver(hooks.getDriverHelper(), ScenarioHooks.getScenarioName());
 			templatesManagementPage.verifySuccessfulNavigationToTemplatesManagementPage();
 			templatesManagementPage.selectTemplateInList(templateName);
 			createNewFilterPage.verifySuccessfulNavigationToEditFilterPage();

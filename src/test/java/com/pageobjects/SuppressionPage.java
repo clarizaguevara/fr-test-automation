@@ -1,15 +1,17 @@
 package com.pageobjects;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.FindBys;
+
+import com.constants.CommonConstants;
 
 public class SuppressionPage extends BasePage {
 	
@@ -67,20 +69,18 @@ public class SuppressionPage extends BasePage {
 			driverHelper.clickButton(fld_timeFrom_hours);
 			driverHelper.setValueDropdown(list_timeFrom_hours, fld_timeFrom_hours, time_From.get(0));
 			driverHelper.embedScreenshot(scenario);
-			log.exit();
 		} else {
-			System.out.println("From time (hours) field is not present.");
-			log.exit();
+			Assert.assertTrue("From time (hours) field is not present.", driverHelper.isElementPresent(fld_timeFrom_hours));
 		}
+		
 		if(driverHelper.isElementPresent(fld_timeFrom_minutes)) {
 			driverHelper.clickButton(fld_timeFrom_minutes);
 			driverHelper.setValueDropdown(list_timeFrom_minutes, fld_timeFrom_minutes, time_From.get(1));
 			driverHelper.embedScreenshot(scenario);
-			log.exit();
 		} else {
-			System.out.println("From time (minutes) field is not present.");
-			log.exit();
+			Assert.assertTrue("From time (minutes) field is not present.", driverHelper.isElementPresent(fld_timeFrom_minutes));
 		}
+		log.exit();
 	}
 	
 	/**
@@ -93,20 +93,18 @@ public class SuppressionPage extends BasePage {
 			driverHelper.clickButton(fld_timeTo_hours);
 			driverHelper.setValueDropdown(list_timeTo_hours, fld_timeTo_hours, time_To.get(0));
 			driverHelper.embedScreenshot(scenario);
-			log.exit();
 		} else {
-			System.out.println("To time (hours) field is not present.");
-			log.exit();
+			Assert.assertTrue("To time (hours) field is not present.", driverHelper.isElementPresent(fld_timeTo_hours));
 		}
+		
 		if(driverHelper.isElementPresent(fld_timeTo_minutes)) {
 			driverHelper.clickButton(fld_timeTo_minutes);
 			driverHelper.setValueDropdown(list_timeTo_minutes, fld_timeTo_minutes, time_To.get(1));
 			driverHelper.embedScreenshot(scenario);
-			log.exit();
 		} else {
-			System.out.println("To time (minutes) field is not present.");
-			log.exit();
+			Assert.assertTrue("To time (minutes) field is not present.", driverHelper.isElementPresent(fld_timeTo_minutes));
 		}
+		log.exit();
 	}
 	
 	/**
@@ -115,17 +113,14 @@ public class SuppressionPage extends BasePage {
 	public void setTimezone(String timezone) {
 		log.entry();
 		if(driverHelper.isElementPresent(fld_timezone)) {
-			//driverHelper.clickButton(fld_timezone);
 			driverHelper.inputFieldValue(fld_timezone, timezone);
-			driverHelper.waitForElementVisible(fld_timezoneOptions);
 			driverHelper.explicitWait();
 			driverHelper.clickEnter(fld_timezone);
 			driverHelper.embedScreenshot(scenario);
-			log.exit();
 		} else {
-			System.out.println("Timezone field is not present.");
-			log.exit();
+			Assert.assertTrue("Timezone field is not present.", driverHelper.isElementPresent(fld_timezone));
 		}
+		log.exit();
 	}
 	
 	/**
@@ -133,7 +128,8 @@ public class SuppressionPage extends BasePage {
 	 */
 	public void selectDays(String days) {
 		log.entry();
-		ArrayList<String> LOV_DAYS = new ArrayList<>(Arrays.asList("MON","TUE","WED","THU","FRI","SAT","SUN"));
+		String days_of_the_week = CommonConstants.LOV_DAYS.replaceAll("\\[|\\]|\\s", "");
+		List<String> LOV_DAYS = Arrays.asList(days_of_the_week.split(","));
 		List<String> selectedDays = Arrays.asList(days.split(","));
     	
     	for (int counter = 0; counter < LOV_DAYS.size(); counter++) {
@@ -171,11 +167,10 @@ public class SuppressionPage extends BasePage {
 			driverHelper.clickButton(fld_timeRange);
 			driverHelper.setValueDropdown(list_timeRange, fld_timeRange, timeRange);
 			driverHelper.embedScreenshot(scenario);
-			log.exit();
 		} else {
-			System.out.println("Time range field is not present.");
-			log.exit();
+			Assert.assertTrue("Time range field is not present.", driverHelper.isElementPresent(fld_timeRange));
 		}
+		log.exit();
 	}
 
 }

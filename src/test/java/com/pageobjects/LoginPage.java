@@ -19,6 +19,7 @@ public class LoginPage extends BasePage {
 	public void navigateToLoginPage() {
 		log.entry();
 		driverHelper.get(PropertyUtil.getConfig("fr.dev.url"));
+		log.exit();
 	}
 	
 }

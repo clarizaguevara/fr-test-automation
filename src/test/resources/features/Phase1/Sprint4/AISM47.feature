@@ -1,4 +1,4 @@
-@scenarios @AISM47 @Phase1 @Phase1-Sprint4 @CreateSNOWTicket @SNOWAutoCloseTicket @Regression
+@scenarios @AISM47 @Phase1 @Phase1-Sprint4 @CreateSNOWTicket @SNOWAutoCloseTicket
 Feature: AISM-47
   As a Tool Administrator
   I can configure so that a SNOW ticket can be closed automatically after creation

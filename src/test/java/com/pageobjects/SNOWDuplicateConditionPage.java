@@ -46,11 +46,10 @@ public class SNOWDuplicateConditionPage extends BasePage {
 			driverHelper.clickButton(fld_with);
 			driverHelper.setValueDropdown(list_with, fld_with, with);
 			driverHelper.embedScreenshot(scenario);
-			log.exit();
 		} else {
 			Assert.assertTrue("With/Without field is not present", driverHelper.isElementPresent(fld_with));
-			log.exit();
 		}
+		log.exit();
 	}
 	
 	/**
@@ -63,11 +62,10 @@ public class SNOWDuplicateConditionPage extends BasePage {
 			driverHelper.clickButton(fld_keyword);
 			driverHelper.setValueDropdown(list_keyword, fld_keyword, keyword);
 			driverHelper.embedScreenshot(scenario);
-			log.exit();
 		} else {
 			Assert.assertTrue("Keyword field is not present", driverHelper.isElementPresent(fld_keyword));
-			log.exit();
 		}
+		log.exit();
 	}
 	
 	/**
@@ -79,11 +77,10 @@ public class SNOWDuplicateConditionPage extends BasePage {
 			driverHelper.clickButton(fld_snowkeyword);
 			driverHelper.setValueDropdown(list_snowkeyword, fld_snowkeyword, keyword);
 			driverHelper.embedScreenshot(scenario);
-			log.exit();
 		} else {
 			Assert.assertTrue("SNow Keyword field is not present", driverHelper.isElementPresent(fld_snowkeyword));
-			log.exit();
 		}
+		log.exit();
 	}
 
 }

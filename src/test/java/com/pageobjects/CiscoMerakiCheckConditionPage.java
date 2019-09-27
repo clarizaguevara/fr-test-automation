@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.FindBys;
@@ -33,11 +34,10 @@ public class CiscoMerakiCheckConditionPage extends BasePage {
 			driverHelper.clickButton(fld_deviceStatus);
 			driverHelper.setValueDropdown(list_deviceStatus, fld_deviceStatus, deviceStatus);
 			driverHelper.embedScreenshot(scenario);
-			log.exit();
 		} else {
-			System.out.println("Device status field is not present.");
-			log.exit();
+			Assert.assertTrue("Device status field is not present.", driverHelper.isElementPresent(fld_deviceStatus));
 		}
+		log.exit();
 	}
 
 }

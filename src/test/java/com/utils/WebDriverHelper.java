@@ -146,7 +146,7 @@ public class WebDriverHelper {
     	try {
 	    	buttonElement.click();
 	    	log.info("Button is clicked.");
-	    } catch(ElementNotInteractableException e) {
+	    } catch(Exception e) {
 	    	jsClick(buttonElement);
 	    }
 	}

@@ -1,5 +1,6 @@
 package com.stepdefs.phase1.sprint3;
 
+import com.constants.CommonConstants;
 import com.pageobjects.AccessManagementPage;
 import com.pageobjects.HomePage;
 import com.stepdefs.ScenarioHooks;
@@ -13,20 +14,15 @@ public class AISM39Stepdefs implements En {
 		And("I am on Access Management page", () -> {
 			homePage.setDriver(hooks.getDriverHelper(), ScenarioHooks.getScenarioName());
 			homePage.verifySuccessfulNavigationToHomePage();
-			homePage.clickMaintenanceTab();
-			homePage.clickAccessManagement();
+			homePage.clickMaintenanceTab(CommonConstants.PAGE_MAINTENANCE_ACCESS);
 			accessManagementPage.setDriver(hooks.getDriverHelper(), ScenarioHooks.getScenarioName());
 			accessManagementPage.verifySuccessfulNavigationToAccessManagementPage();
 		});
 		
 		/*-----------------------------*/
 		
-		When("I click Maintenance tab", () -> {
-			homePage.clickMaintenanceTab();
-		});
-		
-		And("I select Access Management", () -> {
-			homePage.clickAccessManagement();
+		When("I select Access Management", () -> {
+			homePage.clickMaintenanceTab(CommonConstants.PAGE_MAINTENANCE_ACCESS);
 			accessManagementPage.setDriver(hooks.getDriverHelper(), ScenarioHooks.getScenarioName());
 		});
 		
@@ -49,18 +45,16 @@ public class AISM39Stepdefs implements En {
 			accessManagementPage.inputDateTo(dateTo);
 		});
 		
-		And("I click Save", () -> {
-			accessManagementPage.clickSaveButton();
-		});
-		
 		Then("User should be added successfully", () -> {
-			accessManagementPage.verifySuccessfulSavingOfUser();
+			accessManagementPage.clickSaveButton();
+			accessManagementPage.verifySuccessfulSavingOfUser(true);
 		});
 		
 		/*-----------------------------*/
 		
 		Then("User should not be added successfully", () -> {
-			accessManagementPage.verifyUnsuccessfulSavingOfUser();
+			accessManagementPage.clickSaveButton();
+			accessManagementPage.verifySuccessfulSavingOfUser(false);
 		});
 		
 		/*-----------------------------*/
@@ -77,6 +71,7 @@ public class AISM39Stepdefs implements En {
 		});
 		
 		Then("User should be editted successfully with new values: Employee Id: (.*), Name: (.*), Role: (.*)", (String employeeId, String name, String role) -> {
+			accessManagementPage.clickSaveButton();
 			accessManagementPage.selectInList(name);
 			accessManagementPage.verifyEditUserPopUp();
 			accessManagementPage.checkEmployeeId(employeeId);
@@ -91,6 +86,7 @@ public class AISM39Stepdefs implements En {
 		});
 		
 		Then("User should be editted successfully and (.*)'s From date is not greater than To date", (String name) -> {
+			accessManagementPage.clickSaveButton();
 			accessManagementPage.selectInList(name);
 			accessManagementPage.verifyEditUserPopUp();
 			accessManagementPage.verifyFromAndToDates();
@@ -105,7 +101,7 @@ public class AISM39Stepdefs implements En {
 		});
 		
 		Then("(.*) should be deleted successfully", (String name) -> {
-			accessManagementPage.verifyIfDeleted(name);
+			accessManagementPage.verifyIfUserRoleIsPresent(name, false);
 		});
 		
 		/*-----------------------------*/
@@ -125,13 +121,15 @@ public class AISM39Stepdefs implements En {
 		});
 		
 		Then("Role should be added successfully", () -> {
-			accessManagementPage.verifySuccessfulSavingOfRole();
+			accessManagementPage.clickSaveButton();
+			accessManagementPage.verifySuccessfulSavingOfRole(true);
 		});
 		
 		/*-----------------------------*/
 		
 		Then("Role should not be added successfully", () -> {
-			accessManagementPage.verifyUnsuccessfulSavingOfRole();
+			accessManagementPage.clickSaveButton();
+			accessManagementPage.verifySuccessfulSavingOfRole(false);
 		});
 		
 		/*-----------------------------*/
@@ -147,6 +145,7 @@ public class AISM39Stepdefs implements En {
 		});
 		
 		Then("Role should be editted successfully with new values: Role Name: (.*), Roles: (.*)", (String roleName, String roles) -> {
+			accessManagementPage.clickSaveButton();
 			accessManagementPage.selectInList(roleName);
 			accessManagementPage.verifyEditRolePopUp();
 			accessManagementPage.checkRoleName(roleName);

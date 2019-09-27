@@ -35,11 +35,10 @@ public class ExtendedRulePage extends BasePage {
 		log.entry();
 		if(driverHelper.isElementPresent(btn_deleteExtendedRule)) {
 			driverHelper.clickButton(btn_deleteExtendedRule);
-			log.exit();
 		} else {
 			Assert.assertTrue("Delete Rule button in Extended Rules is not present", driverHelper.isElementPresent(btn_deleteExtendedRule));
-			log.exit();
 		}
+		log.exit();
 	}
 	
 	/**
@@ -51,11 +50,10 @@ public class ExtendedRulePage extends BasePage {
 			driverHelper.clickButton(fld_extendedRule);
 			driverHelper.setValueDropdown(list_extendedRule, fld_extendedRule, extendedRule);
 			driverHelper.embedScreenshot(scenario);
-			log.exit();
 		} else {
 			Assert.assertTrue("Extended Rule field is not present", driverHelper.isElementPresent(fld_extendedRule));
-			log.exit();
 		}
+		log.exit();
 	}
 	
 

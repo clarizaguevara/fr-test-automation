@@ -6,16 +6,15 @@ Feature: AISM-155
   Background: 
     Given I am login
     And I am on Home page
-    When I click Maintenance tab
 
   Scenario: Verify clicking on the item in Maintenance tab leads to each maintenance page (Templates Management)
-    And I select Templates Management
+    When I select Templates Management
     Then Templates Management page should be loaded successfully
 
   Scenario: Verify clicking on the item in Maintenance tab leads to each maintenance page (Keyword Lists)
-    And I select Keyword Lists
+    When I select Keyword Lists
     Then Keyword Lists page should be loaded successfully
     
    Scenario: Verify clicking on the item in Maintenance tab leads to each maintenance page (Access Management)
-    And I select Access Management
+    When I select Access Management
     Then Access Management page should be loaded successfully

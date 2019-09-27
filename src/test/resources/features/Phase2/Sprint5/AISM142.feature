@@ -1,4 +1,4 @@
-@scenarios @AISM142 @Phase2 @Phase2-Sprint5 @Regression
+@scenarios @AISM142 @Phase2 @Phase2-Sprint5
 Feature: AISM-142
   As an Operator
   I can select sender/subject/body in the command center

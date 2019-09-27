@@ -86,13 +86,13 @@ public class AISM25Stepdefs implements En {
 		
 		Then("filter should be saved successfully", () -> {
 			createNewFilterPage.clickSaveButton();
-			createNewFilterPage.verifyFilterSuccessfullySaved();
+			createNewFilterPage.verifyFilterSuccessfullySaved(true);
 		});
 		
 		
 		Then("filter should not be saved", () -> {
 			createNewFilterPage.clickSaveButton();
-			createNewFilterPage.verifyFilterisNOTSuccessfullySaved();
+			createNewFilterPage.verifyFilterSuccessfullySaved(false);
 		});
 		
 		And("I click Create New Filter after saving", () -> {
@@ -101,7 +101,7 @@ public class AISM25Stepdefs implements En {
 		
 		
 		Then("\"Successfully saved!\" message should be removed", () -> {
-			createNewFilterPage.verifyFilterisNOTSuccessfullySaved();
+			createNewFilterPage.verifyFilterSuccessfullySaved(false);
 			createNewFilterPage.verifySuccessfulNavigationToCreateNewFilterPage();
 		});
 

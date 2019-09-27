@@ -46,11 +46,10 @@ public class CorrelationPage extends BasePage {
 			driverHelper.clearText(fld_frequency);
 			driverHelper.inputFieldValue(fld_frequency, frequency);
 			driverHelper.embedScreenshot(scenario);
-			log.exit();
 		} else {
 			Assert.assertTrue("Frequency field is not present", driverHelper.isElementPresent(fld_frequency));
-			log.exit();
 		}
+		log.exit();
 	}
 	
 	/**
@@ -62,11 +61,10 @@ public class CorrelationPage extends BasePage {
 			driverHelper.clearText(fld_timeValue);
 			driverHelper.inputFieldValue(fld_timeValue, timeValue);
 			driverHelper.embedScreenshot(scenario);
-			log.exit();
 		} else {
 			Assert.assertTrue("Time value field is not present", driverHelper.isElementPresent(fld_timeValue));
-			log.exit();
 		}
+		log.exit();
 	}
 	
 	/**
@@ -78,11 +76,10 @@ public class CorrelationPage extends BasePage {
 			driverHelper.clickButton(fld_timeUnit);
 			driverHelper.setValueDropdown(list_timeUnit, fld_timeUnit, timeUnit);
 			driverHelper.embedScreenshot(scenario);
-			log.exit();
 		} else {
 			Assert.assertTrue("Time unit field is not present", driverHelper.isElementPresent(fld_timeUnit));
-			log.exit();
 		}
+		log.exit();
 	}
 	
 	/**
@@ -95,11 +92,10 @@ public class CorrelationPage extends BasePage {
 			driverHelper.clickButton(fld_variable);
 			driverHelper.setValueDropdown(list_variable, fld_variable, variable);
 			driverHelper.embedScreenshot(scenario);
-			log.exit();
 		} else {
 			Assert.assertTrue("Variable field is not present", driverHelper.isElementPresent(fld_variable));
-			log.exit();
 		}
+		log.exit();
 	}
 
 }

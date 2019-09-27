@@ -103,11 +103,10 @@ public class CreateNewFilterPage extends BasePage {
 		log.entry();
 		if(driverHelper.isElementPresent(btn_createNewFilter)) {
 			driverHelper.clickButton(btn_createNewFilter);
-			log.exit();
 		} else {
 			Assert.assertTrue("Create New Filter Button is not present.", driverHelper.isElementPresent(btn_createNewFilter));
-			log.exit();
 		}
+		log.exit();
 	}
 	
 	/**
@@ -118,11 +117,10 @@ public class CreateNewFilterPage extends BasePage {
 		if(driverHelper.isElementPresent(fld_filterName)) {
 			driverHelper.inputFieldValue(fld_filterName, filterName);
 			driverHelper.embedScreenshot(scenario);
-			log.exit();
 		} else {
 			Assert.assertTrue("Filter Name field is not present.", driverHelper.isElementPresent(fld_filterName));
-			log.exit();
 		}
+		log.exit();
 	}
 	
 	/**
@@ -131,14 +129,14 @@ public class CreateNewFilterPage extends BasePage {
 	public void selectSource(String source) {
 		log.entry();
 		if(driverHelper.isElementPresent(fld_source)) {
+			driverHelper.scrollIntoView(fld_source);
 			driverHelper.clickButton(fld_source);
 			driverHelper.setValueDropdown(list_source, fld_source, source);
 			driverHelper.embedScreenshot(scenario);
-			log.exit();
 		} else {
 			Assert.assertTrue("Source field is not present.", driverHelper.isElementPresent(fld_source));
-			log.exit();
 		}
+		log.exit();
 	}
 	
 	/**
@@ -150,11 +148,10 @@ public class CreateNewFilterPage extends BasePage {
 			driverHelper.clearText(fld_ownerName);
 			driverHelper.inputFieldValue(fld_ownerName, ownerName);
 			driverHelper.embedScreenshot(scenario);
-			log.exit();
 		} else {
 			Assert.assertTrue("Owner Name field is not present.", driverHelper.isElementPresent(fld_ownerName));
-			log.exit();
 		}
+		log.exit();
 	}
 	
 	/**
@@ -163,16 +160,13 @@ public class CreateNewFilterPage extends BasePage {
 	public void selectAction(String action) {
 		log.entry();
 		if(driverHelper.isElementPresent(fld_action)) {
-			//driverHelper.scrollIntoView(fld_action);
 			driverHelper.clickButton(fld_action);
 			driverHelper.setValueDropdown(list_action, fld_action, action);
 			driverHelper.embedScreenshot(scenario);
-			//driverHelper.waitForElementNotVisible(icn_loading);
-			log.exit();
 		} else {
 			Assert.assertTrue("Action field is not present.", driverHelper.isElementPresent(fld_action));
-			log.exit();
 		}
+		log.exit();
 	}
 	
 	/**
@@ -182,32 +176,30 @@ public class CreateNewFilterPage extends BasePage {
 		log.entry();
 		if(driverHelper.isElementPresent(btn_Save)) {
 			driverHelper.clickButton(btn_Save);
-			log.exit();
+			driverHelper.explicitWait();
 		} else {
 			Assert.assertTrue("Save Button is not present.", driverHelper.isElementPresent(btn_Save));
-			log.exit();
 		}
-	}
-	
-	/**
-	 * Verify Filter is successfully saved
-	 */
-	public void verifyFilterSuccessfullySaved() {
-		log.entry();
-		driverHelper.waitForElementNotVisible(icn_loading);
-		Assert.assertTrue("Filter is NOT Successfully saved.", driverHelper.isElementPresent(label_Save));
-		//Assert.assertTrue("Unsuccessful navigation to Command Center Edit Filter Page", driverHelper.isElementPresent(icn_edit));
-		driverHelper.embedScreenshot(scenario);
 		log.exit();
 	}
 	
 	/**
-	 * Verify Filter is NOT successfully saved
+	 * Verify if Filter is successfully saved
 	 */
-	public void verifyFilterisNOTSuccessfullySaved() {
+	public void verifyFilterSuccessfullySaved(boolean shouldBeSaved) {
 		log.entry();
-		driverHelper.waitForElementNotVisible(icn_loading);
-		Assert.assertTrue("Filter is Successfully saved.", driverHelper.isElementNotPresent(label_Save));
+		boolean isFilterSaved = false;
+		
+		if(driverHelper.isElementPresent(label_Save)) {
+			isFilterSaved = true;
+		} else {
+			isFilterSaved = false;
+		}
+		
+		if(isFilterSaved != shouldBeSaved) {
+			Assert.assertTrue("Filter is saved? Expected: " + shouldBeSaved + " Actual: " + isFilterSaved, false);
+		}
+		
 		driverHelper.embedScreenshot(scenario);
 		log.exit();
 	}
@@ -220,11 +212,10 @@ public class CreateNewFilterPage extends BasePage {
 		if(driverHelper.isElementPresent(btn_addExtendedRule)) {
 			driverHelper.clickButton(btn_addExtendedRule);
 			driverHelper.embedScreenshot(scenario);
-			log.exit();
 		} else {
 			Assert.assertTrue("Add Rule button in Extended Conditions is not present.", driverHelper.isElementPresent(btn_addExtendedRule));
-			log.exit();
 		}
+		log.exit();
 	}
 	
 	/**
@@ -235,11 +226,10 @@ public class CreateNewFilterPage extends BasePage {
 		if(driverHelper.isElementPresent(btn_Home)) {
 			driverHelper.clickButton(btn_Home);
 			driverHelper.explicitWait();
-			log.exit();
 		} else {
 			Assert.assertTrue("Home Button is not present.", driverHelper.isElementPresent(btn_Home));
-			log.exit();
 		}
+		log.exit();
 	}
 	
 	/**
@@ -269,11 +259,10 @@ public class CreateNewFilterPage extends BasePage {
 		log.entry();
 		if(driverHelper.isElementPresent(btn_Delete)) {
 			driverHelper.clickButton(btn_Delete);
-			log.exit();
 		} else {
 			Assert.assertTrue("Delete Button is not present.", driverHelper.isElementPresent(btn_Delete));
-			log.exit();
 		}
+		log.exit();
 	}
 	
 	/**
@@ -301,11 +290,10 @@ public class CreateNewFilterPage extends BasePage {
 		log.entry();
 		if(driverHelper.isElementPresent(btn_applyTemplates)) {
 			driverHelper.clickButton(btn_applyTemplates);
-			log.exit();
 		} else {
 			Assert.assertTrue("Apply Templates Button is not present.", driverHelper.isElementPresent(btn_applyTemplates));
-			log.exit();
 		}
+		log.exit();
 	}
 	
 	/**
@@ -336,7 +324,6 @@ public class CreateNewFilterPage extends BasePage {
 				driverHelper.clickButton(btn_category);
 			} else {
 				Assert.assertTrue("Category field button is not present.", driverHelper.isElementPresent(btn_category));
-				log.exit();
 			}
 			
 			categories = categories.replaceAll("\\[|\\]|\\s", "");
@@ -399,11 +386,10 @@ public class CreateNewFilterPage extends BasePage {
 		if(driverHelper.isElementPresent(btn_addVariable)) {
 			driverHelper.clickButton(btn_addVariable);
 			driverHelper.embedScreenshot(scenario);
-			log.exit();
 		} else {
 			Assert.assertTrue("Add Variable Button is not present.", driverHelper.isElementPresent(btn_addVariable));
-			log.exit();
 		}
+		log.exit();
 	}
 	
 }

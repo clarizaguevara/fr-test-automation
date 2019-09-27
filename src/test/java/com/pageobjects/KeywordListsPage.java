@@ -8,7 +8,6 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.FindBys;
 
 public class KeywordListsPage extends BasePage {
 	
@@ -44,9 +43,6 @@ public class KeywordListsPage extends BasePage {
 	@FindBy(xpath= "//button[text()='Cancel']")
 	private WebElement btn_cancel;
 	
-	@FindBys(value = @FindBy (xpath = "//table[@class='table table-sm table-bordered table-hover table-striped']//td[2]"))
-	private List<WebElement> list_keywords;
-	
 	@FindBy(xpath= "//button[text()='Delete']")
 	private WebElement btn_delete;
 	
@@ -77,11 +73,10 @@ public class KeywordListsPage extends BasePage {
 		if(driverHelper.isElementPresent(btn_newKeywordLists)) {
 			driverHelper.embedScreenshot(scenario);
 			driverHelper.clickButton(btn_newKeywordLists);
-			log.exit();
 		} else {
 			Assert.assertTrue("New Keyword List button is not present.", driverHelper.isElementPresent(btn_newKeywordLists));
-			log.exit();
 		}
+		log.exit();
 	}
 	
 	/**
@@ -93,11 +88,10 @@ public class KeywordListsPage extends BasePage {
 			driverHelper.clearText(fld_listName);
 			driverHelper.inputFieldValue(fld_listName, listName);
 			driverHelper.embedScreenshot(scenario);
-			log.exit();
 		} else {
 			Assert.assertTrue("List Name field is not present.", driverHelper.isElementPresent(fld_listName));
-			log.exit();
 		}
+		log.exit();
 	}
 	
 	/**
@@ -106,16 +100,16 @@ public class KeywordListsPage extends BasePage {
 	public void inputKeywords(String keyword) {
 		log.entry();
 		By fld_keyword_click = By.xpath("//label[contains(text(), 'Keywords:')]//following::div[text()='Add set of keywords...']");
+		
 		if(driverHelper.isElementPresent(fld_keyword)) {
 			driverHelper.clickButton(fld_keyword_click);
 			driverHelper.inputFieldValue(fld_keyword, keyword);
 			clickAddIcon();
 			driverHelper.embedScreenshot(scenario);
-			log.exit();
 		} else {
 			Assert.assertTrue("Keyword field is not present.", driverHelper.isElementPresent(fld_keyword));
-			log.exit();
 		}
+		log.exit();
 	}
 	
 	/**
@@ -126,11 +120,10 @@ public class KeywordListsPage extends BasePage {
 		if(driverHelper.isElementPresent(btn_add)) {
 			driverHelper.embedScreenshot(scenario);
 			driverHelper.clickButton(btn_add);
-			log.exit();
 		} else {
 			Assert.assertTrue("Add icon is not present.", driverHelper.isElementPresent(btn_add));
-			log.exit();
 		}
+		log.exit();
 	}
 	
 	/**
@@ -141,42 +134,78 @@ public class KeywordListsPage extends BasePage {
 		if(driverHelper.isElementPresent(btn_save)) {
 			driverHelper.embedScreenshot(scenario);
 			driverHelper.clickButton(btn_save);
-			log.exit();
+			driverHelper.explicitWait();
 		} else {
 			Assert.assertTrue("Save button is not present.", driverHelper.isElementPresent(btn_save));
-			log.exit();
 		}
+		log.exit();
 	}
 	
 	/**
 	 * Verify if keyword list saved successfully
-	 * @param keywordValue
+	 * @param keywordListName
 	 */
-	public void verifyKeywordListIsSaved(String keywordValue) {
+	public void verifyKeywordListIsSaved(String keywordListName, boolean shouldBeSaved) {
 		log.entry();
-		driverHelper.explicitWait();
-		Assert.assertTrue("Keyword List not save successfully.", driverHelper.isElementPresent(lbl_keywordSavedSuccessfully));
-		driverHelper.clickButton(btn_cancel);
-		driverHelper.explicitWait();
-		Assert.assertTrue("Keyword List not save successfully.", keywordListIsKeywordTable(keywordValue));
+		boolean isKeywordListSaved = false;
+		
+		if(driverHelper.isElementPresent(lbl_keywordSavedSuccessfully)) {
+			isKeywordListSaved = true;
+		} else {
+			isKeywordListSaved = false;
+		}
+		
+		if(isKeywordListSaved != shouldBeSaved) {
+			Assert.assertTrue(keywordListName + " is saved? Expected: " + shouldBeSaved + " Actual: " + isKeywordListSaved, false);
+		} else {
+			driverHelper.clickButton(btn_cancel);
+			driverHelper.explicitWait();
+			isKeywordListPresent(keywordListName, shouldBeSaved);
+		}
 		log.exit();
 	}
 	
 	/**
 	 * Check if keyword list is present on the keyword table
-	 * @param keywordValue
+	 * @param keywordListName
 	 * @return
 	 */
-	public boolean keywordListIsKeywordTable(String keywordValue) {
+	public void isKeywordListPresent(String keywordListName, boolean shouldBePresent) {
 		log.entry();
+		boolean isKeywordListPresent = false;
+		
+		//Check if Keyword List is in the table
+		if(keywordListIsInTable(keywordListName)) {
+			isKeywordListPresent = true;
+		} else {
+			isKeywordListPresent = false;
+		}
+		
+		if(isKeywordListPresent != shouldBePresent) {
+			Assert.assertTrue(keywordListName + " is present? Expected: " + shouldBePresent + " Actual: " + isKeywordListPresent, false);
+		}
+		log.exit();
+	}
+	
+	/**
+	 * Check if keyword list is present on the keyword table
+	 * @param keywordListName
+	 * @return
+	 */
+	private boolean keywordListIsInTable(String keywordListName) {
+		log.entry();
+		By col_keywords = By.xpath("//table[@class='table table-sm table-bordered table-hover table-striped']//td[2]");
+		List<WebElement> list_keywords = driver.findElements(col_keywords);
+		boolean isPresent = false;
+		
 		for (WebElement webElement : list_keywords) {
 			String keyword = webElement.getText();
-			if(keyword.equalsIgnoreCase(keywordValue)) {
-				log.exit();
-				return true;
+			if(keyword.equalsIgnoreCase(keywordListName)) {
+				isPresent = true;
 			}
 		}
-		return false;
+		log.exit();
+		return isPresent;
 	}
 	
 	/**
@@ -185,12 +214,12 @@ public class KeywordListsPage extends BasePage {
 	public void selectKeywordInList(String name) {
 		log.entry();
 		By fld_name = By.xpath("//td[text()='" + name + "']");
+		
 		if(driverHelper.isElementPresent(fld_name)) {
 			driverHelper.clickButton(fld_name);
 			driverHelper.waitForPageLoaded();	
 		} else {
 			Assert.assertTrue("Keyword is not present.", driverHelper.isElementPresent(fld_name));
-			log.exit();
 		}
 		log.exit();
 	}
@@ -201,11 +230,7 @@ public class KeywordListsPage extends BasePage {
 	 */
 	public void verifyKeywordListIsEdited(String keywordValue) {
 		log.entry();
-		driverHelper.explicitWait();
 		Assert.assertTrue("Keyword List not edited successfully.", driverHelper.isElementPresent(lbl_keywordEditedSuccessfully));
-		driverHelper.clickButton(btn_cancel);
-		driverHelper.explicitWait();
-		Assert.assertTrue("Keyword List not edited successfully.", keywordListIsKeywordTable(keywordValue));
 		log.exit();
 	}
 	
@@ -216,35 +241,11 @@ public class KeywordListsPage extends BasePage {
 		log.entry();
 		if(driverHelper.isElementPresent(btn_delete)) {
 			driverHelper.clickButton(btn_delete);
-			driverHelper.waitForPageLoaded();
 			driverHelper.explicitWait();
-			log.exit();
+			driverHelper.embedScreenshot(scenario);
 		} else {
 			Assert.assertTrue("Delete keyword button is not present.", driverHelper.isElementPresent(btn_delete));
-			log.exit();
 		}
-	}
-	
-	/**
-	 * Verify if keyword list deleted successfully
-	 * @param keywordValue
-	 */
-	public void verifyKeywordListIsDeleted(String keywordValue) {
-		log.entry();
-		driverHelper.explicitWait();
-		Assert.assertFalse("Keyword List not deleted successfully.", keywordListIsKeywordTable(keywordValue));
-		log.exit();
-	}
-	
-	/**
-	 * Verify if keyword list is not saved
-	 * @param keywordValue
-	 */
-	public void verifyKeywordListIsNotSaved() {
-		log.entry();
-		driverHelper.explicitWait();
-		Assert.assertTrue("Keyword List saved successfully.", driverHelper.isElementPresent(lbl_keywordSavedUnSuccessfully));
-		driverHelper.clickButton(btn_cancel);
 		log.exit();
 	}
 	
@@ -256,11 +257,10 @@ public class KeywordListsPage extends BasePage {
 		if(driverHelper.isElementPresent(btn_clear)) {
 			driverHelper.clickButton(btn_clear);
 			driverHelper.embedScreenshot(scenario);
-			log.exit();
 		} else {
 			Assert.assertTrue("Clear button is not present.", driverHelper.isElementPresent(btn_clear));
-			log.exit();
 		}
+		log.exit();
 	}
 	
 }

@@ -1,4 +1,4 @@
-@scenarios @AISM62 @Phase1 @Phase1-Sprint3 @Regression
+@scenarios @AISM62 @Phase1 @Phase1-Sprint3
 Feature: AISM-62
   As an Operator
   I can configure so that a JIRA ticket will be created automatically (ACPF)
@@ -18,6 +18,7 @@ Feature: AISM-62
       | AUT_TestCreateJiraActionIssueTask1 | Nagios-Pet   | Summary    | Contains   | TEST          |
       | AUT_TestCreateJiraActionIssueTask2 | Cisco Meraki | IP Address | Contains   |           250 |
 
+  @Regression
   Scenario Outline: Verify Filter is not saved if mandatory fields are left blank
     When I create a Filter with filter name <filter name> and <source> as source
     And with Filter Rule: <keyword> - <comparator> - <keyword value>
@@ -25,9 +26,10 @@ Feature: AISM-62
     Then filter should not be saved
 
     Examples: 
-      | filter name                        | source       | keyword | comparator | keyword value |
-      | AUT_TestCreateJiraActionIssueTask3 | Cisco Meraki | Country | Ends With  | JP            |
+      | filter name                 | source       | keyword | comparator | keyword value |
+      | AUT_Jira_Task_RequiredField | Cisco Meraki | Country | Ends With  | JP            |
 
+  @Regression
   Scenario Outline: Verify Filter is saved if non mandatory fields are left blank
     When I create a Filter with filter name <filter name> and <source> as source
     And with Filter Rule: <keyword> - <comparator> - <keyword value>
@@ -35,9 +37,10 @@ Feature: AISM-62
     Then filter should be saved successfully
 
     Examples: 
-      | filter name                        | source       | keyword | comparator | keyword value |
-      | AUT_TestCreateJiraActionIssueTask4 | Cisco Meraki | Shop    | Ends With  | UQ            |
+      | filter name                     | source       | keyword | comparator | keyword value |
+      | AUT_Jira_Task_NonRequiredFields | Cisco Meraki | Shop    | Ends With  | UQ            |
 
+  @Regression
   Scenario Outline: Verify Multiple watchers can be added
     When I create a Filter with filter name <filter name> and <source> as source
     And with Filter Rule: <keyword> - <comparator> - <keyword value>
@@ -46,9 +49,10 @@ Feature: AISM-62
     Then filter should be saved successfully
 
     Examples: 
-      | filter name                        | source     | keyword     | comparator | keyword value |
-      | AUT_TestCreateJiraActionIssueTask5 | Nagios-Pet | Description | Contains   | TEST          |
+      | filter name                    | source     | keyword     | comparator | keyword value |
+      | AUT_Jira_Task_MultipleWatchers | Nagios-Pet | Description | Contains   | TEST          |
 
+  @Regression
   Scenario Outline: Verify Multiple labels can be added
     When I create a Filter with filter name <filter name> and <source> as source
     And with Filter Rule: <keyword> - <comparator> - <keyword value>
@@ -57,5 +61,5 @@ Feature: AISM-62
     Then filter should be saved successfully
 
     Examples: 
-      | filter name                        | source     | keyword | comparator | keyword value |
-      | AUT_TestCreateJiraActionIssueTask6 | Nagios-Pet | Summary | Contains   | TEST          |
+      | filter name                  | source     | keyword | comparator | keyword value |
+      | AUT_Jira_Task_MultipleLabels | Nagios-Pet | Summary | Contains   | TEST          |

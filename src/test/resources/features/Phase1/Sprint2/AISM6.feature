@@ -27,8 +27,8 @@ Feature: AISM-6
     Then filter should be saved successfully
 
     Examples: 
-      | filter name                    | source       | keyword | comparator | keyword value |
-      | AUT_TestCreateJiraSendToSlack3 | Cisco Meraki | Device  | Equals     | SDC-AP1-API   |
+      | filter name         | source       | keyword | comparator | keyword value |
+      | AUT_Jira_NoTicketID | Cisco Meraki | Device  | Equals     | SDC-AP1-API   |
 
   @Regression
   Scenario Outline: Verify slack channel field should not be left blank if Send ticket ID to Slack channel check box is ticked
@@ -39,5 +39,5 @@ Feature: AISM-6
     Then filter should not be saved
 
     Examples: 
-      | filter name                    | source       | keyword     | comparator | keyword value |
-      | AUT_TestCreateJiraSendToSlack4 | Cisco Meraki | Mac Address | Contains   | e0:55:        |
+      | filter name            | source       | keyword     | comparator | keyword value |
+      | AUT_Jira_RequiredField | Cisco Meraki | Mac Address | Contains   | e0:55:        |

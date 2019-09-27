@@ -66,6 +66,8 @@ public class HomePage extends BasePage{
 	@FindBy(xpath= "//div[@role='combobox']//following::i[@class='dropdown icon']")
 	private WebElement btn_category;
 	
+	@FindBy(xpath= "//a[@href='/events']")
+	private WebElement btn_eventspage;
 	
 	/* Methods */
 	
@@ -75,6 +77,7 @@ public class HomePage extends BasePage{
 	public void verifySuccessfulNavigationToHomePage() {
 		log.entry();
 		Assert.assertTrue("Unsuccessful navigation in Command Center Home Page", driverHelper.isElementPresent(page_browse));
+		driverHelper.explicitWait();
 		driverHelper.embedScreenshot(scenario);
 		log.exit();
 	}
@@ -86,11 +89,10 @@ public class HomePage extends BasePage{
 		log.entry();
 		if(driverHelper.isElementPresent(btn_Home)) {
 			driverHelper.clickButton(btn_Home);
-			log.exit();
 		} else {
 			Assert.assertTrue("Home Button is not present.", driverHelper.isElementPresent(btn_Home));
-			log.exit();
 		}
+		log.exit();
 	}
 	
 	/**
@@ -101,11 +103,10 @@ public class HomePage extends BasePage{
 		if(driverHelper.isElementPresent(fld_filterTitle)) {
 			driverHelper.inputFieldValue(fld_filterTitle, filterName);
 			driverHelper.embedScreenshot(scenario);
-			log.exit();
 		} else {
 			Assert.assertTrue("Filter Title field is not present.", driverHelper.isElementPresent(fld_filterTitle));
-			log.exit();
 		}
+		log.exit();
 	}
 	
 	/**
@@ -117,11 +118,10 @@ public class HomePage extends BasePage{
 			driverHelper.clickButton(btn_Apply);
 			driverHelper.explicitWait();
 			driverHelper.embedScreenshot(scenario);
-			log.exit();
 		} else {
 			Assert.assertTrue("Apply Button is not present.", driverHelper.isElementPresent(btn_Apply));
-			log.exit();
 		}
+		log.exit();
 	}
 	
 	/**
@@ -129,23 +129,36 @@ public class HomePage extends BasePage{
 	 */
 	public void selectFilterInList(String filterName) {
 		log.entry();
-		By fld_filter = By.xpath("//td[text()='" + filterName + "']");
+		inputFilterTitle(filterName);
+		clickApplyButton();
+		By fld_filter = By.xpath("//td[text()='" + filterName + "']//following::td[1]");
 		if(driverHelper.isElementPresent(fld_filter)) {
 			driverHelper.clickButton(fld_filter);
 			driverHelper.waitForPageLoaded();	
 		} else {
-			Assert.assertTrue("Filter is not present.", driverHelper.isElementPresent(fld_filter));
+			Assert.assertTrue(filterName + " is not present.", driverHelper.isElementPresent(fld_filter));
 		}
 		log.exit();
 	}
 	
 	/**
-	 * Verify Filter is not found
+	 * Verify if Filter is in browse page
 	 */
-	public void verifyFilterNotFound(String filterName) {
+	public void verifyIfFilterIsPresent(String filterName, boolean shouldBePresent) {
 		log.entry();
 		By fld_filter = By.xpath("//td[text()='" + filterName + "']");
-		Assert.assertFalse("User is present", driverHelper.isElementPresent(fld_filter));
+		boolean isFilterPresent = false;
+		
+		if(driverHelper.isElementPresent(fld_filter)) {
+			isFilterPresent = true;
+		} else {
+			isFilterPresent = false;
+		}
+		
+		if(isFilterPresent != shouldBePresent) {
+			Assert.assertTrue(filterName + " is present? Expected: " + shouldBePresent + " Actual: " + isFilterPresent, false);
+		}
+		
 		log.exit();
 	}
 	
@@ -156,72 +169,57 @@ public class HomePage extends BasePage{
 		log.entry();
 		if(driverHelper.isElementPresent(btn_events)) {
 			driverHelper.clickButton(btn_events);
-			driverHelper.explicitWait();
-			log.exit();
+			clickEventsPage();
 		} else {
 			Assert.assertTrue("Events tab is not present.", driverHelper.isElementPresent(btn_events));
-			log.exit();
 		}
+		log.exit();
 	}
 	
 	/**
-	 * Click Maintenance tab
+	 * Click Events page
 	 */
-	public void clickMaintenanceTab() {
+	public void clickEventsPage() {
 		log.entry();
+		if(driverHelper.isElementPresent(btn_eventspage)) {
+			driverHelper.clickButton(btn_eventspage);
+			driverHelper.explicitWait();
+		} else {
+			Assert.assertTrue("Events page is not present.", driverHelper.isElementPresent(btn_eventspage));
+		}
+		log.exit();
+	}
+	
+	/**
+	 * Click Maintenance pages
+	 */
+	public void clickMaintenanceTab(String maintenance_page) {
+		log.entry();
+		WebElement wE_page = null;
+		
 		if(driverHelper.isElementPresent(btn_maintenance)) {
 			driverHelper.clickButton(btn_maintenance);
-			driverHelper.embedScreenshot(scenario);
-			log.exit();
+			
+			switch(maintenance_page) {
+			case "Access Management": wE_page = btn_accessmanagement; break;
+			case "Keyword Lists": wE_page = btn_keywordlists; break;
+			case "Templates Management": wE_page = btn_templatesmanagement; break;
+			default: break;
+			}
+			
+			if(driverHelper.isElementPresent(wE_page)) {
+				driverHelper.clickButton(wE_page);
+				driverHelper.explicitWait();
+				driverHelper.embedScreenshot(scenario);
+			} else {
+				Assert.assertTrue(maintenance_page + " is not present.", driverHelper.isElementPresent(wE_page));
+			}
+			
 		} else {
 			Assert.assertTrue("Maintenance tab is not present.", driverHelper.isElementPresent(btn_maintenance));
-			log.exit();
 		}
-	}
-	
-	/**
-	 * Click Access Management
-	 */
-	public void clickAccessManagement() {
-		log.entry();
-		if(driverHelper.isElementPresent(btn_accessmanagement)) {
-			driverHelper.clickButton(btn_accessmanagement);
-			driverHelper.explicitWait();
-			log.exit();
-		} else {
-			Assert.assertTrue("Access Management is not present.", driverHelper.isElementPresent(btn_accessmanagement));
-			log.exit();
-		}
-	}
-	
-	/**
-	 * Click Keyword Lists
-	 */
-	public void clickKeywordLists() {
-		log.entry();
-		if(driverHelper.isElementPresent(btn_keywordlists)) {
-			driverHelper.clickButton(btn_keywordlists);
-			driverHelper.explicitWait();
-			log.exit();
-		} else {
-			Assert.assertTrue("Keyword Lists is not present.", driverHelper.isElementPresent(btn_keywordlists));
-			log.exit();
-		}
-	}
-	
-	/**
-	 * Click Templates Management
-	 */
-	public void clickTemplatesManagement() {
-		log.entry();
-		if(driverHelper.isElementPresent(btn_templatesmanagement)) {
-			driverHelper.clickButton(btn_templatesmanagement);
-			driverHelper.explicitWait();
-			log.exit();
-		} else {
-			Assert.assertTrue("Templates Management is not present.", driverHelper.isElementPresent(btn_templatesmanagement));
-			log.exit();
-		}
+		
+		log.exit();
 	}
 	
 	/**
@@ -231,11 +229,10 @@ public class HomePage extends BasePage{
 		log.entry();
 		if(driverHelper.isElementPresent(btn_createNewFilter)) {
 			driverHelper.clickButton(btn_createNewFilter);
-			log.exit();
 		} else {
 			Assert.assertTrue("Create New Filter Button is not present.", driverHelper.isElementPresent(btn_createNewFilter));
-			log.exit();
 		}
+		log.exit();
 	}
 	
 	/**
@@ -260,11 +257,10 @@ public class HomePage extends BasePage{
 			driverHelper.clickButton(fld_filterSource);
 			driverHelper.setValueDropdown(list_filterSource, fld_filterSource, source);
 			driverHelper.embedScreenshot(scenario);
-			log.exit();
 		} else {
 			Assert.assertTrue("Source field is not present.", driverHelper.isElementPresent(fld_filterSource));
-			log.exit();
 		}
+		log.exit();
 	}
 	
 	/**
@@ -286,7 +282,7 @@ public class HomePage extends BasePage{
 		log.entry();
 		By search_status = By.xpath("//tbody//tr//td[4]");
 		for (WebElement searchEntry : driver.findElements(search_status)) {
-			Assert.assertTrue("Values do not match", (searchEntry.getText()).equals(status)); 
+			Assert.assertTrue("Wrong status searched. Status: " + status + " Search result: " + searchEntry.getText(), (searchEntry.getText()).equals(status)); 
 		}
 		log.exit();
 	}
@@ -300,11 +296,10 @@ public class HomePage extends BasePage{
 			driverHelper.clickButton(fld_filterStatus);
 			driverHelper.setValueDropdown(list_filterStatus, fld_filterStatus, status);
 			driverHelper.embedScreenshot(scenario);
-			log.exit();
 		} else {
 			Assert.assertTrue("Status field is not present.", driverHelper.isElementPresent(fld_filterStatus));
-			log.exit();
 		}
+		log.exit();
 	}
 	
 	/**
@@ -318,7 +313,6 @@ public class HomePage extends BasePage{
 				driverHelper.clickButton(btn_category);
 			} else {
 				Assert.assertTrue("Category field button is not present.", driverHelper.isElementPresent(btn_category));
-				log.exit();
 			}
 			
 			categories = categories.replaceAll("\\[|\\]|\\s", "");

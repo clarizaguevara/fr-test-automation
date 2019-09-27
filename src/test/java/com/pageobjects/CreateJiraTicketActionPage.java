@@ -85,13 +85,11 @@ public class CreateJiraTicketActionPage extends BasePage {
 		if(driverHelper.isElementVisible(fld_project)) {
 			driverHelper.clickButton(fld_project);
 			driverHelper.setValueDropdown(list_project, fld_project, project);
-			//driverHelper.explicitWait();
 			driverHelper.embedScreenshot(scenario);
-			log.exit();
 		} else {
-			System.out.println("Project field is not present.");
-			log.exit();
+			Assert.assertTrue("Project field is not present", driverHelper.isElementPresent(fld_project));
 		}
+		log.exit();
 	}
 	
 	/**
@@ -102,14 +100,13 @@ public class CreateJiraTicketActionPage extends BasePage {
 		driver.switchTo().defaultContent();
 		if(driverHelper.isElementPresent(fld_summary)) {
 			driverHelper.scrollIntoView(fld_summary);
-			fld_summary.clear();
+			driverHelper.clearText(fld_summary);
 			driverHelper.inputFieldValue(fld_summary, summary);
 			driverHelper.embedScreenshot(scenario);
-			log.exit();
 		} else {
-			System.out.println("Summary field is not present.");
-			log.exit();
+			Assert.assertTrue("Summary field is not present", driverHelper.isElementPresent(fld_summary));
 		}
+		log.exit();
 	}
 	
 	/**
@@ -119,14 +116,13 @@ public class CreateJiraTicketActionPage extends BasePage {
 		log.entry();
 		driverHelper.waitForPageLoaded();
 		if(driverHelper.isElementPresent(fld_description)) {
-			fld_description.clear();
+			driverHelper.clearText(fld_description);
 			driverHelper.inputFieldValue(fld_description, description);
 			driverHelper.embedScreenshot(scenario);
-			log.exit();
 		} else {
-			System.out.println("Description field is not present.");
-			log.exit();
+			Assert.assertTrue("Description field is not present", driverHelper.isElementPresent(fld_description));
 		}
+		log.exit();
 	}
 	
 	/**
@@ -139,11 +135,10 @@ public class CreateJiraTicketActionPage extends BasePage {
 			driverHelper.clickButton(fld_brand);
 			driverHelper.setValueDropdown(list_brand, fld_brand, brand);
 			driverHelper.embedScreenshot(scenario);
-			log.exit();
 		} else {
-			System.out.println("Brand field is not present.");
-			log.exit();
+			Assert.assertTrue("Brand field is not present", driverHelper.isElementPresent(fld_brand));
 		}
+		log.exit();
 	}
 	
 	/**
@@ -153,14 +148,13 @@ public class CreateJiraTicketActionPage extends BasePage {
 		log.entry();
 		driverHelper.waitForPageLoaded();
 		if(driverHelper.isElementPresent(fld_closingCondition)) {
-			fld_closingCondition.clear();
+			driverHelper.clearText(fld_closingCondition);
 			driverHelper.inputFieldValue(fld_closingCondition, closingCondition);
 			driverHelper.embedScreenshot(scenario);
-			log.exit();
 		} else {
-			System.out.println("Closing Condition field is not present.");
-			log.exit();
+			Assert.assertTrue("Closing Condition field is not present", driverHelper.isElementPresent(fld_closingCondition));
 		}
+		log.exit();
 	}
 	
 	/**
@@ -173,11 +167,10 @@ public class CreateJiraTicketActionPage extends BasePage {
 			driverHelper.clickButton(fld_priority);
 			driverHelper.setValueDropdown(list_priority, fld_priority, priority);
 			driverHelper.embedScreenshot(scenario);
-			log.exit();
 		} else {
-			System.out.println("Priority field is not present.");
-			log.exit();
+			Assert.assertTrue("Priority field is not present", driverHelper.isElementPresent(fld_priority));
 		}
+		log.exit();
 	}
 	
 	/**
@@ -187,17 +180,15 @@ public class CreateJiraTicketActionPage extends BasePage {
 		log.entry();
 		driverHelper.waitForPageLoaded();
 		if(driverHelper.isElementPresent(fld_assignee)) {
-			//driverHelper.clickButton(fld_assignee);
 			driverHelper.inputFieldValue(fld_assignee, assignee);
 			driverHelper.waitForElementVisible(fld_assigneeOptions);
 			driverHelper.explicitWait();
 			driverHelper.clickEnter(fld_assignee);
 			driverHelper.embedScreenshot(scenario);
-			log.exit();
 		} else {
-			System.out.println("Assignee field is not present.");
-			log.exit();
+			Assert.assertTrue("Assignee field is not present", driverHelper.isElementPresent(fld_assignee));
 		}
+		log.exit();
 	}
 	
 	/**
@@ -207,17 +198,15 @@ public class CreateJiraTicketActionPage extends BasePage {
 		log.entry();
 		driverHelper.waitForPageLoaded();
 		if(driverHelper.isElementPresent(fld_watchers)) {
-			//driverHelper.clickButton(fld_watchers);
 			driverHelper.inputFieldValue(fld_watchers, watchers);
 			driverHelper.waitForElementVisible(fld_watchersOptions);
 			driverHelper.explicitWait();
 			driverHelper.clickEnter(fld_watchers);
 			driverHelper.embedScreenshot(scenario);
-			log.exit();
 		} else {
-			System.out.println("Watchers field is not present.");
-			log.exit();
+			Assert.assertTrue("Watchers field is not present", driverHelper.isElementPresent(fld_watchers));
 		}
+		log.exit();
 	}
 	
 	/**
@@ -229,11 +218,10 @@ public class CreateJiraTicketActionPage extends BasePage {
 		if(driverHelper.isElementPresent(fld_labels)) {
 			driverHelper.inputFieldValue(fld_labels, labels);
 			driverHelper.embedScreenshot(scenario);
-			log.exit();
 		} else {
-			System.out.println("Labels field is not present.");
-			log.exit();
+			Assert.assertTrue("Labels field is not present", driverHelper.isElementPresent(fld_labels));
 		}
+		log.exit();
 	}
 	
 	/**
@@ -245,11 +233,10 @@ public class CreateJiraTicketActionPage extends BasePage {
 		if(driverHelper.isElementPresent(btn_sendToSlackChannel)) {
 			driverHelper.clickButton(btn_sendToSlackChannel);
 			driverHelper.embedScreenshot(scenario);
-			log.exit();
 		} else {
-			System.out.println("Send ticket to Slack ID channel checkbox is not present.");
-			log.exit();
+			Assert.assertTrue("Send ticket id checkbox is not present", driverHelper.isElementPresent(btn_sendToSlackChannel));
 		}
+		log.exit();
 	}
 	
 	/**
@@ -259,14 +246,13 @@ public class CreateJiraTicketActionPage extends BasePage {
 		log.entry();
 		driverHelper.waitForPageLoaded();
 		if(driverHelper.isElementPresent(fld_slackChannel)) {
-			fld_slackChannel.clear();
+			driverHelper.clearText(fld_slackChannel);
 			driverHelper.inputFieldValue(fld_slackChannel, slackChannel);
 			driverHelper.embedScreenshot(scenario);
-			log.exit();
 		} else {
-			System.out.println("Slack Channel field is not present.");
-			log.exit();
+			Assert.assertTrue("Slack channel field is not present", driverHelper.isElementPresent(fld_slackChannel));
 		}
+		log.exit();
 	}
 	
 	/**
@@ -277,15 +263,13 @@ public class CreateJiraTicketActionPage extends BasePage {
 		driverHelper.waitForPageLoaded();
 		driver.switchTo().defaultContent();
 		if(driverHelper.isElementPresent(fld_platform)) {
-			//driverHelper.jsClick(fld_platform);
 			driverHelper.inputFieldValue(fld_platform, platform);
 			driverHelper.clickEnter(fld_platform);
 			driverHelper.embedScreenshot(scenario);
-			log.exit();
 		} else {
-			System.out.println("Platform/System(ACPF) field is not present.");
-			log.exit();
+			Assert.assertTrue("Platform field is not present", driverHelper.isElementPresent(fld_platform));
 		}
+		log.exit();
 	}
 	
 	/**
@@ -295,15 +279,13 @@ public class CreateJiraTicketActionPage extends BasePage {
 		log.entry();
 		driver.switchTo().defaultContent();
 		if(driverHelper.isElementPresent(fld_markets)) {
-			//driverHelper.clickButton(fld_markets);
 			driverHelper.inputFieldValue(fld_markets, market);
 			driverHelper.clickEnter(fld_markets);
 			driverHelper.embedScreenshot(scenario);
-			log.exit();
 		} else {
-			System.out.println("Market field is not present.");
-			log.exit();
+			Assert.assertTrue("Markets field is not present", driverHelper.isElementPresent(fld_markets));
 		}
+		log.exit();
 	}
 	
 	/**
@@ -316,11 +298,10 @@ public class CreateJiraTicketActionPage extends BasePage {
 			driverHelper.clickButton(fld_progress);
 			driverHelper.setValueDropdown(list_progress, fld_progress, progress);
 			driverHelper.embedScreenshot(scenario);
-			log.exit();
 		} else {
-			System.out.println("Progress field is not present.");
-			log.exit();
+			Assert.assertTrue("Progress field is not present", driverHelper.isElementPresent(fld_progress));
 		}
+		log.exit();
 	}
 	
 	/**

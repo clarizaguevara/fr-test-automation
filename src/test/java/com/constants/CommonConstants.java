@@ -75,10 +75,20 @@ public class CommonConstants {
 	public static final String MULTIPLE_EVENT_IDS_FAILED_STATUS = PropertyUtil.getProp("src/test/resources/properties/test-data.properties", "event.MultipleEventIds.FailedStatus");
 	public static final String EVENT_ID_DESELECT = PropertyUtil.getProp("src/test/resources/properties/test-data.properties", "event.EventId.Deselect");
 	
+	/*-----PAGES-----*/
+	public static final String PAGE_EVENTS = PropertyUtil.getProp("src/test/resources/properties/test-data.properties", "page.Events");
+	public static final String PAGE_ACTIONS = PropertyUtil.getProp("src/test/resources/properties/test-data.properties", "page.Actions");
+	public static final String PAGE_MAINTENANCE_ACCESS = PropertyUtil.getProp("src/test/resources/properties/test-data.properties", "page.maintenance.Access");
+	public static final String PAGE_MAINTENANCE_KEYWORDS = PropertyUtil.getProp("src/test/resources/properties/test-data.properties", "page.maintenance.Keywords");
+	public static final String PAGE_MAINTENANCE_TEMPLATES = PropertyUtil.getProp("src/test/resources/properties/test-data.properties", "page.maintenance.Templates");
+	
 	/*-----LIST OF VALUES-----*/
-	public static final String LOV_KEYWORD_EMAIL = PropertyUtil.getProp("src/test/resources/properties/test-data.properties", "LOV.keyword.source-email");
-	public static final String LOV_KEYWORD_EMAILWUG = PropertyUtil.getProp("src/test/resources/properties/test-data.properties", "LOV.keyword.source-emailwug");
-	public static final String LOV_KEYWORD_NP = PropertyUtil.getProp("src/test/resources/properties/test-data.properties", "LOV.keyword.source-np");
-	public static final String LOV_KEYWORD_CM = PropertyUtil.getProp("src/test/resources/properties/test-data.properties", "LOV.keyword.source-cm");
-	public static final String LOV_COMPARATOR = PropertyUtil.getProp("src/test/resources/properties/test-data.properties", "LOV.comparator");
+	public static final String LOV_SOURCES = PropertyUtil.getProp("src/test/resources/properties/test-data.properties", "LOV.sources");
+	public static final String LOV_FIELDS_EMAIL = PropertyUtil.getProp("src/test/resources/properties/test-data.properties", "LOV.fields.source-email");
+	public static final String LOV_FIELDS_EMAILWUG = PropertyUtil.getProp("src/test/resources/properties/test-data.properties", "LOV.fields.source-emailwug");
+	public static final String LOV_FIELDS_NP = PropertyUtil.getProp("src/test/resources/properties/test-data.properties", "LOV.fields.source-np");
+	public static final String LOV_FIELDS_CM = PropertyUtil.getProp("src/test/resources/properties/test-data.properties", "LOV.fields.source-cm");
+	public static final String LOV_COMPARATORS = PropertyUtil.getProp("src/test/resources/properties/test-data.properties", "LOV.comparators");
+	public static final String LOV_DAYS = PropertyUtil.getProp("src/test/resources/properties/test-data.properties", "LOV.suppression.days");
+	public static final String LOV_ROLES = PropertyUtil.getProp("src/test/resources/properties/test-data.properties", "LOV.access.roles");
 }

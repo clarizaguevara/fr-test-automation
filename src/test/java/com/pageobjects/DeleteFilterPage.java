@@ -44,11 +44,10 @@ public class DeleteFilterPage extends BasePage {
 			driverHelper.embedScreenshot(scenario);
 			driverHelper.clickButton(btn_DeletePopUp_Yes);
 			driverHelper.explicitWait();
-			log.exit();
 		} else {
 			System.out.println("Yes option is not present.");
-			log.exit();
 		}
+		log.exit();
 	}
 	
 	/**
@@ -60,11 +59,10 @@ public class DeleteFilterPage extends BasePage {
 			driverHelper.embedScreenshot(scenario);
 			driverHelper.clickButton(btn_DeletePopUp_No);
 			driverHelper.explicitWait();
-			log.exit();
 		} else {
 			System.out.println("No option is not present.");
-			log.exit();
 		}
+		log.exit();
 	}
 	
 }

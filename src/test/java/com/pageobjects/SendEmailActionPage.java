@@ -2,6 +2,7 @@ package com.pageobjects;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -38,11 +39,10 @@ public class SendEmailActionPage extends BasePage {
 		if(driverHelper.isElementPresent(fld_To)) {
 			driverHelper.inputFieldValue(fld_To, toEmail);
 			driverHelper.embedScreenshot(scenario);
-			log.exit();
 		} else {
-			System.out.println("To field is not present.");
-			log.exit();
+			Assert.assertTrue("To field is not present.", driverHelper.isElementPresent(fld_To));
 		}
+		log.exit();
 	}
 	
 	/**
@@ -53,11 +53,10 @@ public class SendEmailActionPage extends BasePage {
 		if(driverHelper.isElementPresent(fld_cc)) {
 			driverHelper.inputFieldValue(fld_cc, ccEmail);
 			driverHelper.embedScreenshot(scenario);
-			log.exit();
 		} else {
-			System.out.println("CC field is not present.");
-			log.exit();
+			Assert.assertTrue("CC field is not present.", driverHelper.isElementPresent(fld_cc));
 		}
+		log.exit();
 	}
 	
 	/**
@@ -68,11 +67,10 @@ public class SendEmailActionPage extends BasePage {
 		if(driverHelper.isElementPresent(fld_bcc)) {
 			driverHelper.inputFieldValue(fld_bcc, bccEmail);
 			driverHelper.embedScreenshot(scenario);
-			log.exit();
 		} else {
-			System.out.println("BCC field is not present.");
-			log.exit();
+			Assert.assertTrue("BCC field is not present.", driverHelper.isElementPresent(fld_bcc));
 		}
+		log.exit();
 	}
 	
 	/**
@@ -83,11 +81,10 @@ public class SendEmailActionPage extends BasePage {
 		if(driverHelper.isElementPresent(fld_subject)) {
 			driverHelper.inputFieldValue(fld_subject, subject);
 			driverHelper.embedScreenshot(scenario);
-			log.exit();
 		} else {
-			System.out.println("Subject field is not present.");
-			log.exit();
+			Assert.assertTrue("Subject field is not present.", driverHelper.isElementPresent(fld_subject));
 		}
+		log.exit();
 	}
 	
 	/**
@@ -98,11 +95,10 @@ public class SendEmailActionPage extends BasePage {
 		if(driverHelper.isElementPresent(fld_emailMessage)) {
 			driverHelper.inputFieldValue(fld_emailMessage, emailMessage);
 			driverHelper.embedScreenshot(scenario);
-			log.exit();
 		} else {
-			System.out.println("Email Message field is not present.");
-			log.exit();
+			Assert.assertTrue("Email message field is not present.", driverHelper.isElementPresent(fld_emailMessage));
 		}
+		log.exit();
 	}
 	
 	/**
@@ -113,10 +109,9 @@ public class SendEmailActionPage extends BasePage {
 		if(driverHelper.isElementPresent(btn_includeOriginalAlertMessage)) {
 			driverHelper.clickButton(btn_includeOriginalAlertMessage);
 			driverHelper.embedScreenshot(scenario);
-			log.exit();
 		} else {
-			System.out.println("Include Original Alert Message checkbox is not present.");
-			log.exit();
+			Assert.assertTrue("Include original alert checkbox is not present.", driverHelper.isElementPresent(btn_includeOriginalAlertMessage));
 		}
+		log.exit();
 	}
 }

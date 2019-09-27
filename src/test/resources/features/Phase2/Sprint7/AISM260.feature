@@ -18,9 +18,9 @@ Feature: Category
     And category <category> should be applied
 
     Examples: 
-      | filter name               | source     | category                     | keyword | comparator  | keyword value | action             |
-      | AUT_TestCategory_Single   | Nagios-Pet | test-category                | Summary | Begins With | warning       | Create Jira Ticket |
-      | AUT_TestCategory_Multiple | Email      | test-category,email,category | Subject | Ends With   | error         | Send Email         |
+      | filter name           | source     | category                     | keyword | comparator  | keyword value | action             |
+      | AUT_Category_Single   | Nagios-Pet | test-category                | Summary | Begins With | warning       | Create Jira Ticket |
+      | AUT_Category_Multiple | Email      | test-category,email,category | Subject | Ends With   | error         | Send Email         |
 
   @SetCategory
   Scenario Outline: [AISM-260] Verify that Operator can remove a Category
@@ -30,8 +30,8 @@ Feature: Category
     And category <updated category> should be applied
 
     Examples: 
-      | filter name               | category | updated category    |
-      | AUT_TestCategory_Multiple | category | test-category,email |
+      | filter name           | category | updated category    |
+      | AUT_Category_Multiple | category | test-category,email |
 
   @FilterByCategory
   Scenario Outline: [AISM-261] Verify that Operator can filter Filters by Category

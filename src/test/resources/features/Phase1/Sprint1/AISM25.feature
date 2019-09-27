@@ -27,6 +27,7 @@ Feature: AISM-25
       | AUT_TestFieldNameAndValue9  | Nagios-Pet   | Summary       | Contains   | TEST                 | disabled | Create SNOW Ticket |
       | AUT_TestFieldNameAndValue10 | Nagios-Pet   | Description   | Contains   | TEST                 | disabled | Send Email         |
 
+  @Regression
   Scenario Outline: Verify saving of filter with Filter Rule (filter by field) and mandatory field (keyword value) left blank
     When I create a Filter with filter name <filter name> and <source> as source
     And I leave Keyword Value blank in the Filter Rule: <keyword> - <comparator>
@@ -34,10 +35,15 @@ Feature: AISM-25
     Then filter should not be saved
 
     Examples: 
-      | filter name                 | source       | keyword | comparator | action        |
-      | AUT_TestFieldNameAndValue11 | Cisco Meraki | Country | Equals     | Send to Slack |
-  
-  Scenario: Verify that "Successfully saved!" message is removed when you click "Create New Filter" right after creating a filter
-    When I create a Filter with filter name AUT_TestSave, Nagios-Pet as source, and with Filter rule: Summary Contains TEST
+      | filter name              | source       | keyword | comparator | action        |
+      | AUT_Filter_RequiredField | Cisco Meraki | Country | Equals     | Send to Slack |
+
+  @Regression
+  Scenario Outline: Verify that "Successfully saved!" message is removed when you click "Create New Filter" right after creating a filter
+    When I create a Filter with filter name <filter name>, <source> as source, and with Filter rule: <field> <comparator> <keyword>
     And I click Create New Filter after saving
     Then "Successfully saved!" message should be removed
+
+    Examples: 
+      | filter name | source     | field   | comparator | keyword |
+      | AUT_Save    | Nagios-Pet | Summary | Contains   | TEST    |

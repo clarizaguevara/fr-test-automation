@@ -1,4 +1,4 @@
-@scenarios @AISM244 @Phase2 @Phase2-Sprint5 @CreateSNOWTicket @SNOWConsolidateTicket @Regression
+@scenarios @AISM244 @Phase2 @Phase2-Sprint5 @CreateSNOWTicket @SNOWConsolidateTicket
 Feature: AISM-244
   As an Operator
   I can select if the same alert happens repeatedly in a short time range, ticket will be consolidated into one.

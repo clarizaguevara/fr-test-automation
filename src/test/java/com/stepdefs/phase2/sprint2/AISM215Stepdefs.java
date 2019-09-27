@@ -18,7 +18,7 @@ public class AISM215Stepdefs implements En {
 		
 		Then("Slack channel field of SNOW action should be blank", () -> {
 			createNewFilterPage.clickSaveButton();
-			createNewFilterPage.verifyFilterSuccessfullySaved();
+			createNewFilterPage.verifyFilterSuccessfullySaved(true);
 			createSNOWTicketPage.checkSlackChannelValue("");
 		});
 		
@@ -30,7 +30,7 @@ public class AISM215Stepdefs implements En {
 		
 		Then("Slack channel field of SNOW action should be filled up", () -> {
 			createNewFilterPage.clickSaveButton();
-			createNewFilterPage.verifyFilterSuccessfullySaved();
+			createNewFilterPage.verifyFilterSuccessfullySaved(true);
 			createSNOWTicketPage.checkSlackChannelValue(CommonConstants.SLACK_CHANNEL);
 		});
 	}

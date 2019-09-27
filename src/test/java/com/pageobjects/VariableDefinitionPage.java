@@ -49,11 +49,10 @@ public class VariableDefinitionPage extends BasePage {
 			driverHelper.clearText(fld_variableName);
 			driverHelper.inputFieldValue(fld_variableName, variableName);
 			driverHelper.embedScreenshot(scenario);
-			log.exit();
 		} else {
 			Assert.assertTrue("Variable Name field is not present.", driverHelper.isElementPresent(fld_variableName));
-			log.exit();
 		}
+		log.exit();
 	}
 	
 	/**
@@ -65,11 +64,10 @@ public class VariableDefinitionPage extends BasePage {
 			driverHelper.clearText(fld_startString);
 			driverHelper.inputFieldValue(fld_startString, startString);
 			driverHelper.embedScreenshot(scenario);
-			log.exit();
 		} else {
 			Assert.assertTrue("Start string field is not present.", driverHelper.isElementPresent(fld_startString));
-			log.exit();
 		}
+		log.exit();
 	}
 	
 	/**
@@ -81,21 +79,16 @@ public class VariableDefinitionPage extends BasePage {
 			if(!endDelimeter.equals("(end delimeter not included)")) {
 				Actions builder = new Actions(driver);
 				builder.moveToElement(btn_includeEndDelimeter).click().perform();
-				//driverHelper.clickButton(btn_includeEndDelimeter);
 				driverHelper.embedScreenshot(scenario);
-				log.exit();
 			}
 		} else {
 			if(endDelimeter.equals("(end delimeter not included)")) {
 				Actions builder = new Actions(driver);
 				builder.moveToElement(btn_includeEndDelimeter).click().perform();
-				//driverHelper.clickButton(btn_includeEndDelimeter);
 				driverHelper.embedScreenshot(scenario);
-				log.exit();
 			}
-			//Assert.assertTrue("Include end delimeter button is not present", driverHelper.isElementPresent(btn_includeEndDelimeter));
-			//log.exit();
 		}
+		log.exit();
 	}
 	
 	/**
@@ -107,11 +100,10 @@ public class VariableDefinitionPage extends BasePage {
 			driverHelper.clearText(fld_endDelimeter);
 			driverHelper.inputFieldValue(fld_endDelimeter, endDelimeter);
 			driverHelper.embedScreenshot(scenario);
-			log.exit();
 		} else {
 			Assert.assertTrue("End delimeter field is not present.", driverHelper.isElementPresent(fld_endDelimeter));
-			log.exit();
 		}
+		log.exit();
 	}
 	
 	/**
@@ -123,11 +115,10 @@ public class VariableDefinitionPage extends BasePage {
 			driverHelper.clickButton(fld_field);
 			driverHelper.setValueDropdown(list_field, fld_field, field);
 			driverHelper.embedScreenshot(scenario);
-			log.exit();
 		} else {
 			Assert.assertTrue("Field selection is not present", driverHelper.isElementPresent(fld_field));
-			log.exit();
 		}
+		log.exit();
 	}
 	
 	/**
@@ -139,11 +130,10 @@ public class VariableDefinitionPage extends BasePage {
 		if(driverHelper.isElementPresent(btn_delete)) {
 			driverHelper.clickButton(btn_delete);
 			driverHelper.embedScreenshot(scenario);
-			log.exit();
 		} else {
 			Assert.assertTrue("Delete button of variable " + variableName + " is not present", driverHelper.isElementPresent(btn_delete));
-			log.exit();
 		}
+		log.exit();
 	}
 	
 	/**
@@ -161,7 +151,7 @@ public class VariableDefinitionPage extends BasePage {
 		}
 		
 		if(isVariablePresent != shouldBePresent) {
-			Assert.assertTrue(variableName + " is present? " + isVariablePresent, false);
+			Assert.assertTrue(variableName + " is present? Expected: " + shouldBePresent + " Actual: " + isVariablePresent, false);
 		}
 		log.exit();
 	}
@@ -192,11 +182,10 @@ public class VariableDefinitionPage extends BasePage {
 		if(driverHelper.isElementPresent(fld_variableName)) {
 			driverHelper.clearText(fld_variableName);
 			driverHelper.inputFieldValue(driver.findElement(fld_variableName), variableName);
-			log.exit();
 		} else {
 			Assert.assertTrue("Variable Name field is not present.", driverHelper.isElementPresent(fld_variableName));
-			log.exit();
 		}
+		log.exit();
 	}
 	
 	/**
@@ -208,11 +197,10 @@ public class VariableDefinitionPage extends BasePage {
 		if(driverHelper.isElementPresent(fld_startString)) {
 			driverHelper.clearText(fld_startString);
 			driverHelper.inputFieldValue(driver.findElement(fld_startString), startString);
-			log.exit();
 		} else {
 			Assert.assertTrue("Start string field is not present.", driverHelper.isElementPresent(fld_startString));
-			log.exit();
 		}
+		log.exit();
 	}
 	
 	/**
@@ -226,16 +214,15 @@ public class VariableDefinitionPage extends BasePage {
 				Actions builder = new Actions(driver);
 				builder.moveToElement(driver.findElement(btn_includeEndDelimeter)).click().perform();
 				inputEndDelimeter(endDelimeter, rowNumber);
-				log.exit();
 			}
 		} else {
 			if(endDelimeter.equals("(end delimeter not included)")) {
 				Actions builder = new Actions(driver);
 				builder.moveToElement(driver.findElement(btn_includeEndDelimeter)).click().perform();
 				inputEndDelimeter(endDelimeter, rowNumber);
-				log.exit();
 			}
 		}
+		log.exit();
 	}
 	
 	/**
@@ -247,11 +234,10 @@ public class VariableDefinitionPage extends BasePage {
 		if(driverHelper.isElementPresent(fld_endDelimeter)) {
 			driverHelper.clearText(fld_endDelimeter);
 			driverHelper.inputFieldValue(driver.findElement(fld_endDelimeter), endDelimeter);
-			log.exit();
 		} else {
 			Assert.assertTrue("End delimeter field is not present.", driverHelper.isElementPresent(fld_endDelimeter));
-			log.exit();
 		}
+		log.exit();
 	}
 	
 	/**
@@ -264,11 +250,10 @@ public class VariableDefinitionPage extends BasePage {
 		if(driverHelper.isElementPresent(fld_field)) {
 			driverHelper.clickButton(fld_field);
 			driverHelper.setValueDropdown(driver.findElements(list_field), driver.findElement(fld_field), field);
-			log.exit();
 		} else {
 			Assert.assertTrue("Field selection is not present", driverHelper.isElementPresent(fld_field));
-			log.exit();
 		}
+		log.exit();
 	}
 	
 	/**
