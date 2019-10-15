@@ -1,5 +1,6 @@
 package com.pageobjects;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -17,7 +18,9 @@ public class HomePage extends BasePage{
 
 	private static final Logger log = LogManager.getLogger(HomePage.class);
 	
+	
 	/* Page Elements */
+	
 	@FindBy(css= "div[class='browse-page']")
 	private WebElement page_browse;
 	
@@ -68,6 +71,9 @@ public class HomePage extends BasePage{
 	
 	@FindBy(xpath= "//a[@href='/events']")
 	private WebElement btn_eventspage;
+	
+	@FindBy(xpath= "//input[@placeholder='Filter ID...']")
+	private WebElement fld_filterId;
 	
 	/* Methods */
 	
@@ -376,4 +382,48 @@ public class HomePage extends BasePage{
 		}
 		log.exit();
 	}
+	
+	/**
+	 *Input Filter ID
+	 */
+	public void inputFilterId(String filterId) {
+		log.entry();
+		if(driverHelper.isElementPresent(fld_filterId)) {
+			driverHelper.inputFieldValue(fld_filterId, filterId);
+			driverHelper.embedScreenshot(scenario);
+		} else {
+			Assert.assertTrue("Filter Id field is not present.", driverHelper.isElementPresent(fld_filterId));
+		}
+		log.exit();
+	}
+	
+	/**
+	 * Verify filter id of search results
+	 */
+	public void verifyFilterIdOfSearchResults(String filterId) {
+		log.entry();
+		By col_filterId = By.xpath("//tbody//tr[2]//td[1]");
+		Assert.assertTrue("Wrong Filter ID searched", (driver.findElement(col_filterId).getText()).equals(filterId));
+		log.exit();
+	}
+	
+	/**
+	 * Open filter in new tab
+	 */
+	public void openFilterInNewTab(String filterName) {
+		log.entry();
+		inputFilterTitle(filterName);
+		clickApplyButton();
+		By fld_filter = By.xpath("//td[text()='" + filterName + "']");
+		if(driverHelper.isElementPresent(fld_filter)) {
+			driverHelper.clickButton(fld_filter);
+			ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
+			driver.switchTo().window(tabs.get(1));
+			driverHelper.explicitWait();	
+		} else {
+			Assert.assertTrue(filterName + " is not present.", driverHelper.isElementPresent(fld_filter));
+		}
+		log.exit();
+	}
+	
 }

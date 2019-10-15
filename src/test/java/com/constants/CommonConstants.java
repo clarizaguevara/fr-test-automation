@@ -69,6 +69,10 @@ public class CommonConstants {
 	public static final String KEYWORD_KEYWORDVALUE = PropertyUtil.getProp("src/test/resources/properties/test-data.properties", "keyword.KeywordValue");
 	public static final String KEYWORD_LISTNAME_EDITED = PropertyUtil.getProp("src/test/resources/properties/test-data.properties", "keyword.ListName.Edited");
 	
+	/*-----FILTER-----*/
+	public static final String FILTER_ID = PropertyUtil.getProp("src/test/resources/properties/test-data.properties", "filter.FilterId");
+	public static final String FILTER_NAME = PropertyUtil.getProp("src/test/resources/properties/test-data.properties", "filter.FilterName");
+	
 	/*-----EVENT-----*/
 	public static final String EVENT_ID = PropertyUtil.getProp("src/test/resources/properties/test-data.properties", "event.EventId");
 	public static final String EVENT_ID_FAILED_STATUS = PropertyUtil.getProp("src/test/resources/properties/test-data.properties", "event.EventId.FailedStatus");

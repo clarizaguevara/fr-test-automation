@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com</groupId>
   <artifactId>FR_Test_Automation</artifactId>
-  <version>3.0.0</version>
+  <version>3.1.0</version>
   
   <name>FR Test Automation</name>
   <url>http://maven.apache.org</url>
@@ -160,7 +160,7 @@
 							<format>json,html</format>
 							<filterFeaturesByTags>true</filterFeaturesByTags>
 							<tags>
-								<tag>@test</tag>
+								<tag>@AISM296</tag>
 							</tags>
 							<namingScheme>simple</namingScheme>
 							<mainClass>cucumber.jvm.parallel.ReportBuilderJava</mainClass>
