@@ -10,6 +10,10 @@ public class CommonConstants {
 	public static final int DEFAULT_TIMEOUT_IMPLICITWAIT= Integer.parseInt(PropertyUtil.getProp("src/test/resources/properties/config.properties", "default.timeout.implicitwait"));
 	public static final int DEFAULT_WAIT_FOR_PAGE = Integer.parseInt(PropertyUtil.getProp("src/test/resources/properties/config.properties", "default.wait.for.page"));
 	
+	/*-----LOGIN-----*/
+	public static final String LOGIN_ADMIN_USERNAME = PropertyUtil.getProp("src/test/resources/properties/test-data.properties", "login.admin.username");
+	public static final String LOGIN_ADMIN_PASSWORD = PropertyUtil.getProp("src/test/resources/properties/test-data.properties", "login.admin.password");
+	
 	/*-----SOURCE-----*/
 	public static final String SOURCE_NAGIOS_PET = PropertyUtil.getProp("src/test/resources/properties/test-data.properties", "filter.Source.Nagios-Pet");
 	public static final String SOURCE_CISCO_MERAKI = PropertyUtil.getProp("src/test/resources/properties/test-data.properties", "filter.Source.CiscoMeraki");

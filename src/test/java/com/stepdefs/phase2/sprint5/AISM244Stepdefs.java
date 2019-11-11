@@ -10,7 +10,7 @@ public class AISM244Stepdefs implements En {
 	public AISM244Stepdefs(ScenarioHooks hooks, CreateSNOWTicketPage createSNOWTicketActionPage) {
 
 		And("I tick \"Consolidate SNOW ticket\" checkbox", () -> {
-			createSNOWTicketActionPage.checkConsolidateTicket();
+			createSNOWTicketActionPage.selectConsolidateInto("Child Ticket");
 		});
 	}
 

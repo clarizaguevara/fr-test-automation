@@ -97,7 +97,7 @@ public class CreateSNOWTicketPage extends BasePage {
 	@FindBy(xpath= "//div[@class='col-sm-4 offset-sm-2 pt-2']//div[@class='form-check']//input[@type='checkbox']")
 	private WebElement btn_pendingLevel;
 	
-	@FindBy(xpath= "//label[contains(text(),'Description')]//following::input[@type='checkbox'][1]")
+	@FindBy(xpath= "//label[contains(text(),'Automatically close')]//preceding::input[@type='checkbox'][1]")
 	private WebElement btn_automaticallyClosedTicket;
 	
 	@FindBy(xpath= "//div[@class='col-sm-auto offset-sm-2 pt-2']//input[@type='checkbox']")
@@ -106,8 +106,20 @@ public class CreateSNOWTicketPage extends BasePage {
 	@FindBy(xpath= "//input[@placeholder='Slack channel']")
 	private WebElement fld_slackChannel;
 	
-	@FindBy(xpath= "//label[contains(text(),'Automatically')]//following::input[@type='checkbox'][1]")
-	private WebElement btn_consolidateTicket;
+	@FindBy (xpath ="//label[text()='Consolidate into']//following::select[1]")
+	private WebElement fld_consolidateInto;
+	
+	@FindBys(value = @FindBy (xpath ="//label[text()='Consolidate into']//following::select[1]//option"))
+	private List<WebElement> list_consolidateInto;
+	
+	@FindBy (xpath ="//label[text()='within']//following::input[1]")
+	private WebElement fld_consolidate_timeValue;
+	
+	@FindBy (xpath ="//label[text()='Consolidate into']//following::select[2]")
+	private WebElement fld_consolidate_timeUnit;
+	
+	@FindBys(value = @FindBy (xpath ="//label[text()='Consolidate into']//following::select[2]//option"))
+	private List<WebElement> list_consolidate_timeUnit;
 	
 	
 	/* Methods */
@@ -413,15 +425,47 @@ public class CreateSNOWTicketPage extends BasePage {
 	}
 	
 	/**
-	 * Check Consolidate Ticket
+	 * Select Consolidate option
 	 */
-	public void checkConsolidateTicket() {
+	public void selectConsolidateInto(String consolidateType) {
 		log.entry();
-		if(driverHelper.isElementPresent(btn_consolidateTicket)) {
-			driverHelper.clickButton(btn_consolidateTicket);
+		if(driverHelper.isElementPresent(fld_consolidateInto)) {
+			driverHelper.clickButton(fld_consolidateInto);
+			driverHelper.setValueDropdown(list_consolidateInto, fld_consolidateInto, consolidateType);
 			driverHelper.embedScreenshot(scenario);
 		} else {
-			Assert.assertTrue("Consolidate Ticket checkbox is not present.", driverHelper.isElementPresent(btn_consolidateTicket));
+			Assert.assertTrue("Consolidate Into field is not present.", driverHelper.isElementPresent(fld_consolidateInto));
+		}
+		log.exit();
+	}
+	
+	/**
+	 *Input Time value (in Consolidate ticket)
+	 */
+	public void inputTimeValue(String timeValue) {
+		log.entry();
+		driverHelper.waitForPageLoaded();
+		if(driverHelper.isElementPresent(fld_consolidate_timeValue)) {
+			driverHelper.clearText(fld_consolidate_timeValue);
+			driverHelper.inputFieldValue(fld_consolidate_timeValue, timeValue);
+			driverHelper.embedScreenshot(scenario);
+		} else {
+			Assert.assertTrue("Time value field is not present.", driverHelper.isElementPresent(fld_consolidate_timeValue));
+		}
+		log.exit();
+	}
+	
+	/**
+	 * Select Time unit (in Consolidate ticket)
+	 */
+	public void selectTimeUnit(String timeUnit) {
+		log.entry();
+		if(driverHelper.isElementPresent(fld_consolidate_timeUnit)) {
+			driverHelper.clickButton(fld_consolidate_timeUnit);
+			driverHelper.setValueDropdown(list_consolidate_timeUnit, fld_consolidate_timeUnit, timeUnit);
+			driverHelper.embedScreenshot(scenario);
+		} else {
+			Assert.assertTrue("Time unit field is not present.", driverHelper.isElementPresent(fld_consolidate_timeUnit));
 		}
 		log.exit();
 	}

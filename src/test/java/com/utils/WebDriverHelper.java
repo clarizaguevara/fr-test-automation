@@ -279,6 +279,7 @@ public class WebDriverHelper {
         try {
             JavascriptExecutor executor = (JavascriptExecutor) driver;
             executor.executeScript("arguments[0].click();", weElement);
+            log.info("Element is clicked " + webElement);
         } catch (Exception e) {
             log.info("Check element: " + webElement);
         }
@@ -463,7 +464,7 @@ public class WebDriverHelper {
 	public void clickEnter(WebElement element) {
 		log.entry();
 		element.sendKeys(Keys.ENTER);
-		log.info("Enter key is press.");
+		log.info("Enter key is pressed.");
 		log.exit();
 	}
 	
@@ -474,7 +475,7 @@ public class WebDriverHelper {
 	public void clickEnter(By byElement) {
 		log.entry();
 		driver.findElement(byElement).sendKeys(Keys.ENTER);
-		log.info("Enter key is press.");
+		log.info("Enter key is pressed.");
 		log.exit();
 	}
 	

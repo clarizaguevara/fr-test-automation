@@ -17,6 +17,9 @@ public class AISM7Stepdefs implements En {
 		Given("I am login$", () -> {
 			loginPage.setDriver(hooks.getDriverHelper(), ScenarioHooks.getScenarioName());
 			loginPage.navigateToLoginPage();
+			loginPage.inputUsername(CommonConstants.LOGIN_ADMIN_USERNAME);
+			loginPage.inputPassword(CommonConstants.LOGIN_ADMIN_PASSWORD);
+			loginPage.clickSignInButton();
 		});
 		
 		And("I ticked include original alert message$", () -> {
